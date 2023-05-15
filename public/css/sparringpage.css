@@ -1,0 +1,292 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === NAVBAR === */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-left {
+    width: 50%;
+    display: flex
+}
+
+.navbar-left > a {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.user {
+    font-family: opensans-bold;
+    height: 40px;
+    width: 40px;
+    background-color: grey;
+    border-radius: 100%;
+}
+
+.dots {
+    font-family: opensans-bold;
+    height: 40px;
+    width: 10px;
+    background-color: grey;
+}
+
+.sparring {
+    font-family: opensans-bold;
+    color: #FE6B00;
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    width: 4%;
+}
+
+/* === BANNER === */
+
+.sparring-header {
+    height: 35vh;
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+}
+
+.banner {
+    color: white;
+    height: 70%;
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: opensans-bold;
+    font-size: 25px;
+
+
+}
+
+/* === SEARCH === */
+
+.input-box {
+    display: flex;
+    align-items: center;
+    width: 26%;
+
+}
+
+.input-box > input, select {
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+
+.icon-box {
+    width: 25px;
+    height: 25px;
+    margin-left: 1%;
+    position: absolute;
+}
+
+.sparring-search {
+    padding-top: 3%;
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    text-transform: uppercase;
+    color: white;
+    width: 220px;
+    background: #FE6B00;
+    font-size: 15px;
+    border: transparent;
+    font-family: opensans-bold;
+    border-radius: 10px;
+}
+
+input, option {
+    width: 100%;
+    height: 45px;
+    padding-left: 50px;
+}
+
+select {
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+}
+
+option {
+    height: 500px;
+}
+
+/* === CONTAINER === */
+
+.box-wrapper {
+    margin-top: 2%;
+    width: 92%;
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+
+
+}
+
+.box {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 30vh;
+
+}
+
+.box-outer {
+    border: transparent;
+    background-color: white;
+}
+
+.box-top, .box-bottom {
+    height: 50%;
+    padding: 4%;
+    box-sizing: border-box;
+} 
+
+.box-top {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.box-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.box-logo {
+    height: 80px;
+    width: 80px;
+    background-color: grey;
+    border-radius: 100%;
+    margin-left: 2%;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    font-size: 0.8vw;
+}
+
+.access, .age {
+    margin-top: 3%;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    border: 3px solid black;
+    width: 40%;
+    font-size: 0.8vw;
+    font-family: opensans-bold;
+    border-radius: 5px;
+}
+
+.access {
+    border: 3px solid #FE6B00;
+    color: #FE6B00;
+}
+
+.age {
+    color: #8F8F8F;
+    border: solid #8F8F8F;
+}
+
+.bottom-icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-color: grey;
+    margin-right: 10px;
+}
+
+/* === WHITE SPACE === */
+
+.white-space {
+    height: 30vh;
+}
+
+/* === ADD SPARING === */
+
+.add-sparring {
+    height: 50px;
+    width: 50px;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    margin: 0px 3% 3% 0px;
+    background-color: #FE6B00;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-family: opensans-bold;
+    text-decoration: none;
+}
+
+/* === EDIT === */
+
+.edit-data {
+    height: 40px;
+    width: 80px;
+    position: absolute;
+}
+
+.edit-button {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: grey;
+    display: inline;
+}
