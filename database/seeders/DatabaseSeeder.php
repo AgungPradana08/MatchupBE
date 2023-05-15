@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'tanggal_pertandingan' => '23 Mei 2023',
             'harga_tiket' => '70000',
             'lama_pertandingan' => '90 Menit',
-            'deskripsi_tambahan' => 'ga ada deskripsi',
+            'deskripsi_tambahan' => 'ga adaa deskripsi',
         ]);
     }
 }
