@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sparring', function (Blueprint $table) {
+        Schema::create('mabar', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('olahraga')->nullable();
+            $table->string('olahraga');
             $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('min_member');
             $table->string('max_member');
-            $table->string('aksebilitas')->nullable();
-            $table->string('tingkatan')->nullable();
+            $table->string('aksebilitas');
+            $table->string('tingkatan');
             $table->string('tanggal_pertandingan');
             $table->string('harga_tiket');
-            $table->string('lama_pertandingan');
-            $table->string('deskripsi_tambahan');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sparring');
+        Schema::dropIfExists('mabar');
     }
 };

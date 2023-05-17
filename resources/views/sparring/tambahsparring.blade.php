@@ -17,8 +17,11 @@
         
         </a>
     </section>
+
     <section class="content" >
         <div class="add-image">
+    <form action="/sparring/store" method="POST">
+        @csrf
             <div class="image-box">
                 <button class="edit-image">
                     <!-- Add Image -->
@@ -27,63 +30,60 @@
         </div>
     </section>
     <section class="title" >
-        <span style="padding: 1%;" >JUDUL</span>
-        <form action="/sparring/store" method="POST">
-        @csrf
-        <div class="title-container">
-            <input class="title1" type="text" placeholder="Masukkan Title..." >
-            <select class="title2" type="text" placeholder="TWO" >
-                <option value="" disabled selected hidden>Pilih Olahraga...</option>
-                <option value="">Sepak Bola</option>
-                <option value="">Futsal</option>
-                <option value="">Ping Pong</option>
-                <option value="">Bulutangkis</option>
-                <option value="">Renang</option>
-            </select>
-            <input class="title3" type="text" placeholder="Masukkan Deskripsi" >
-        </div>
-    </section>
-    <section style="margin-top: 5vh;" class="location" >
-        <span style="padding: 1%;" >LOKASI</span>
-        <div class="location-container">
-            <input class="title1" type="text" placeholder="Rincian Lokasi Sparring..." >
-            <div class="map">
-
+            <div class="title-container">
+                <input class="title1" name="title" type="text" placeholder="Masukkan Title..." >
+                <select name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <option value="" >Pilih Olahraga...</option>
+                    <option value="Sepak Bola">Sepak Bola</option>
+                    <option value="Futsal">Futsal</option>
+                    <option value="Ping Pong">Ping Pong</option>
+                    <option value="Bulutangkis">Bulutangkis</option>
+                    <option value="Renang">Renang</option>
+                </select>
+                <input class="title3" type="text" name="deskripsi" placeholder="Masukkan Deskripsi" >
             </div>
-        </div>
-    </section>
-    <section style="margin-top: 5vh;" class="accessibility" >
-        <span style="padding: 1%;" >LOKASI</span>
-        <div class="access-container">
-            <input style="margin-left: 0.1%;"class="ac-title1" type="text" placeholder="Min-Member" >
-            <input class="ac-title1" type="text" placeholder="Max-member" >
-            <select class="ac-title2" type="text" placeholder="TWO" >
-                <option value="" disabled selected hidden>Terbuka/Privat</option>
-                <option value="">Terbuka</option>
-                <option value="">Private</option>
-            </select>
-            <select class="ac-title2" type="text" placeholder="TWO" >
-                <option value="" disabled selected hidden>Pilih Tingkatan...</option>
-                <option value="">7-10</option>
-                <option value="">10-17</option>
-                <option value="">17-20</option>
-            </select>
-        </div>
-    </section>
-    <section style="margin-top: 5vh;" class="title" >
-        <span style="padding: 1%;" >INFORMASI</span>
-        <div class="information-container">
-            <input class="info1" type="text" placeholder="Tanggal Pertandingan..." >
-            <input class="info2" type="text" placeholder="Harga Tiket..." >
-            <input class="info3" type="text" placeholder="Lama Pertandingan..." >
-            <input class="info4" type="text" placeholder="Deskripsi Tambahan..." >
-        </div>
-    </section>
-    <section style="margin-top: 5vh;" class="add-button">
-        <button style="height: 10vh;" class="add-sparring" value="save" >
-            BUAT
-        </button>
-    </section>
+        </section>
+        <section style="margin-top: 5vh;" class="location" >
+            <span style="padding: 1%;" >LOKASI</span>
+            <div class="location-container">
+                <input class="title1" type="text" name="lokasi" placeholder="Rincian Lokasi Sparring..." >
+                <div class="map">
+
+                </div>
+            </div>
+        </section>
+        <section style="margin-top: 5vh;" class="accessibility"  >
+            <span style="padding: 1%;" >LOKASI</span>
+            <div class="access-container">
+                <input style="margin-left: 0.1%;"class="ac-title1" type="text" placeholder="Min-Member" name="min_member" >
+                <input class="ac-title1" type="text" placeholder="Max-member" name="max_member" >
+                <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
+                    <option value="">Terbuka/Privat</option>
+                    <option value="Terbuka">Terbuka</option>
+                    <option value="Private">Private</option>
+                </select>
+                <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <option value="">Pilih Tingkatan...</option>
+                    <option value="7-10">7-10</option>
+                    <option value="10-17">10-17</option>
+                    <option value="17-20">17-20</option>
+                </select>
+            </div>
+        </section>
+        <section style="margin-top: 5vh;" class="title" >
+            <span style="padding: 1%;" >INFORMASI</span>
+            <div class="information-container">
+                <input class="info1" type="text" placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
+                <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
+                <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
+                <input class="info4" type="text" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
+            </div>
+        </section>
+        <section style="margin-top: 5vh;" class="add-button">
+            <button style="height: 10vh;" class="add-sparring" type="submit" value="save" >
+                BUAT
+            </button>
+        </section>
     </form>
     <section class="white-space" ></section>
     <section class="add-sparring" ></section>

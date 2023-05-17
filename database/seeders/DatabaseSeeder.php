@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Bayern Munchen',
             'olahraga' => 'Sepak Bola',
             'deskripsi' => 'Ayo Join',
-            'lokasi' => '2023',
+            'lokasi' => 'Markas sport center',
             'min_member' => '11',
             'max_member' => '20',
             'aksebilitas' => 'Terbuka',
