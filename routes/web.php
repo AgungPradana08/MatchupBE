@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TimController;
 use App\Http\Controllers\MabarController;
 use App\Http\Controllers\SparringController;
+use App\Http\Controllers\KompetisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,14 @@ Route::prefix('/mabar')->group(function () {
     Route::get('/{id}/mabardetail', [MabarController::class, 'detail']);
     Route::get('/tambahmabar', [MabarController::class, 'tambah']);
     Route::post('/store', [MabarController::class, 'store']);
+});
+
+Route::prefix('/kompetisi')->group(function () {
+    Route::get('/home', [KompetisiController::class, 'index']);
+    Route::get('/{id}/kompetisidetail', [KompetisiController::class, 'detail']);
+});
+
+Route::prefix('/tim')->group(function () {
+    Route::get('/home', [TimController::class, 'index']);
+    Route::get('/{id}/timdetail', [TimController::class, 'detail']);
 });

@@ -16,8 +16,8 @@
             </div> -->
             <a class="sparring" href="/sparring/home" >Sparring</a>
             <a class="mabar" href="#" style="color: #FE6B00;" >Mabar</a>
-            <a class="kompetisi" href="Kompetisi.html" >Kompetisi</a>
-            <a class="tim" href="tim.html" >Tim</a>
+            <a class="kompetisi" href="/kompetisi/home" >Kompetisi</a>
+            <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a class="user" style="margin-right: 4%; background-color: grey; color: white; " href="userdetail.html"></a>
     </section>

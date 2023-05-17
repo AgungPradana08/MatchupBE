@@ -1,0 +1,343 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === NAVBAR === */
+
+.navbar {
+    padding: 0px 2%;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.navbar > p {
+    font-size: 1.5vw;
+    font-family: opensans-bold;
+}
+
+.navbar > a {
+    width: 45px;
+    height: 45px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* === CONTAINER ===  */
+
+.container {
+    width: 100%;
+    display: flex;
+    padding: 0px 10%;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.left-content {
+    width: 53%;
+}
+
+.right-content {
+    margin-top: 10%;
+    width: 35%;
+    box-sizing: border-box;
+}
+
+hr {
+    border: 1px solid grey;
+}
+
+/* === Left1 === */
+
+.left1 {
+    padding-top: 60px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+}
+
+.left1-box {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 70%;
+    height: 40%;
+}
+
+.left1-box > p {
+    font-size: 2vw;  
+    font-family: opensans-bold;
+}
+
+.left1-logo {
+    width: 100px;
+    height: 100px;
+    background: url(img/Tyo.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    
+}
+
+.left1-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+/* === Left2 === */
+
+.left2 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.left2 > div {
+    margin-bottom: 5%;
+    font-family: opensans-bold;
+    font-size: 1.7vw;
+}
+
+.left2 > span {
+    font-size: 1vw;
+    line-height: 20px;
+}
+
+/* === Left3 === */
+
+.left3 {
+    padding-top: 30px;
+    height: 70vh;
+}
+
+.left3 > div {
+    font-family: opensans-bold;
+    font-size: 1.7vw;
+    margin-bottom: 2%;
+}
+
+.left3 > span {
+    font-size: 1vw;
+    line-height: 20px;
+}
+
+.maps {
+    height: 90%;
+    background-color: grey;
+}
+
+.white-space {
+    height: 15vh;
+}
+
+/* === RIGHT CONTENT === */
+
+.right-content > div {
+    padding: 5%;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.right-content > div > button {
+    height: 50px;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    font-family: opensans-bold;
+    color: white;
+    background-color: #FE6B00;
+    border: transparent;
+    border-radius: 8px;
+}
+
+.right-content > div > .biaya {
+    font-size: 1.2vw;
+    font-family: opensans;
+    color: grey;
+}
+
+.right-content > div > .harga {
+    font-size: 2.8vw;
+    font-family: opensans-bold;
+    margin-bottom: 5%;
+}
+
+.line1 {
+    margin-top: 5%;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    font-size: 1.1vw;
+}
+
+.access, .age {
+    margin-top: 2%;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    border: 3px solid black;
+    width: 30%;
+    font-size: 0.9vw;
+    font-family: opensans-bold;
+    border-radius: 5px;
+}
+
+.access {
+    border: 3px solid #FE6B00;
+    color: #FE6B00;
+}
+
+.age {
+    color: #8F8F8F;
+    border: solid #8F8F8F;
+}
+
+.line1 > .icon {
+    height: 20px;
+    width: 20px;
+    background-color: grey;
+    margin-right: 2%;
+
+}
+
+/* === RIGHT MEMEBER === */
+
+.right-content > .member {
+    margin-top: 5%;
+    padding: 5%;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    height: 60vh;
+
+}
+
+.right-content > .member > span > {
+    font-size: 3vw;
+    font-family: opensans;
+    color: grey;
+}
+
+.member-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* === MEMBER === */
+
+.member-bottom {
+    margin-top: 2%;
+    height: 50vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh;
+    overflow-y: auto;
+    gap: 15px;
+}
+
+.member1 {
+    background-color: #F8F8F8;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0% 3%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.host-logo {
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    background: url(img/Tyo.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    
+}
+
+.member-logo {
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    background-color: grey;
+    border-radius: 100%;
+    
+}
+
+/* === left-prize === */
+
+.left-prize {
+    padding-top: 30px;
+    height: 20vh;
+}
+
+.prize-grid {
+    margin-top: 4%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+}
+
+.prize-box {
+    background-color: #F8F8F8;
+    padding: 3%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.prize-logo {
+    height: 50px;
+    width: 50px;
+    background-image: url(img/achievement.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.prize-content {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.prize-content > span {
+    font-size: 0.8vw;
+}
