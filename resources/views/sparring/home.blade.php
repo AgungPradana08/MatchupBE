@@ -19,7 +19,7 @@
             <a class="kompetisi" href="/kompetisi/home" >Kompetisi</a>
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
-        <a class="user" style="margin-right: 4%; background-color: grey; color: white; " href="userdetail.html"></a>
+        <a class="user" style="margin-right: 4%; background-color: grey; color: white; " href="/userprofile/home"></a>
     </section>
     <section class="sparring-header" >
         <div class="banner" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">

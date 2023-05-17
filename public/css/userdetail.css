@@ -1,0 +1,284 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+}
+
+/* === NAVBAR === */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.logo {
+    margin-left: 8%;
+    width: 50px;
+    height: 50px;
+    background: url(img/back\ button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar-left {
+    width: 50%;
+    display: flex
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.sign-up, .log-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+}
+
+.log-in {
+    font-family: opensans-bold;
+}
+
+.navbar-left > .home, .tentang, .kontak, .mabar {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.home {
+    font-family: opensans-bold;
+}
+
+/* === CONTENT === */
+
+.content {
+    height: 100vh;
+    margin: 0% 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-image {
+    margin-top: 5%;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-color: grey;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: url(img/tyotapiyanggaming.png);
+    background-position: center;
+    background-size: contain;
+
+}
+
+.setting {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    margin-left: 16%;
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: url(img/setting.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.edit-image {
+    margin: 0px 5px 5px 0px;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color: white;
+    border: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.content-upper {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social {
+    margin-left: 10%;
+    position: absolute;
+    display: flex;
+    width: 100px;
+    justify-content: space-evenly;
+}
+
+.usertitle {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+}
+
+.social > a {
+    background-color: grey;
+    display: flex;
+    align-items: center;
+}
+
+
+.content-logo {
+    height: 150px;
+    width: 150px;
+    background-color: grey;
+    border-radius: 100%;
+    
+}
+
+.content-upper > .usertitle {
+    margin-top: 20px;
+    font-size: 1.4vw;
+}
+
+.content-upper > p {
+    margin-top: 20px;
+    font-size: 0.9vw;
+    color: grey;
+    width: 50%;
+    text-align: center;
+}
+
+.content-bottom {
+    width: 100%;
+    margin-top: 2%;
+    height: 45vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 15px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.box > input {
+    margin-top: 2%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.4vw;
+    font-family: opensans-bold;
+    border: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+.box-button {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.medal-box {
+    margin-top: 2%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+
+}
+
+.medal-logo {
+    
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    background: url(img/achievement.png);
+    background-size: contain;
+    background-position: center;
+}
+
+.tim-logo {
+    
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    background: url(img/pxg.png);
+    border-radius: 100%;
+    background-size: contain;
+    background-position: center;
+}
+
+.olahraga-logo {
+    
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    background: url(img/futsal.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.medal-box > span {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 1.4vw;
+    font-family: opensans-bold;
+}
+
+.medal-box > a {
+    
+    margin-top: 2px;
+    font-size: 0.6vw;
+}
+
+.box > .selectbox {
+    height: 100%;
+}
+
+.club-select {
+    height: 100%;
+}
+

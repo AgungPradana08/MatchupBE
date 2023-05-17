@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimController;
 use App\Http\Controllers\MabarController;
+use App\Http\Controllers\UserTimController;
 use App\Http\Controllers\SparringController;
 use App\Http\Controllers\KompetisiController;
+use App\Http\Controllers\UserMabarController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserSparringController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +47,20 @@ Route::prefix('/kompetisi')->group(function () {
 Route::prefix('/tim')->group(function () {
     Route::get('/home', [TimController::class, 'index']);
     Route::get('/{id}/timdetail', [TimController::class, 'detail']);
+});
+
+Route::prefix('/userprofile')->group(function () {
+    Route::get('/home', [UserProfileController::class, 'index']);
+});
+
+Route::prefix('/usersparring')->group(function () {
+    Route::get('/home', [UserSparringController::class, 'index']);
+});
+
+Route::prefix('/usermabar')->group(function () {
+    Route::get('/home', [UserMabarController::class, 'index']);
+});
+
+Route::prefix('/usertim')->group(function () {
+    Route::get('/home', [UserTimController::class, 'index']);
 });
