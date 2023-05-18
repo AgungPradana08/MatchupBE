@@ -21,7 +21,7 @@
         <div class="left-content">
             <div class="left1">
                 <div class="left1-logo">
-
+                <img class="left1-logo" src="{{asset ('storage/' . $mabar->image)}}" alt="">
                 </div>
                 <div class="left1-box">
                     <p>{{$mabar->title}}</p>
