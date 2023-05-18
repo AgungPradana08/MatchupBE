@@ -96,7 +96,7 @@
                     <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
-                    {{$sparring->harga_tiket}}
+                    Rp {{$sparring->harga_tiket}}
                 </div>
 
             </div>

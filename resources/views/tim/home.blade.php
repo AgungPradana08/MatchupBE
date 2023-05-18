@@ -92,6 +92,6 @@
     @endforeach
     </section> 
     <section class="white-space" ></section>
-    <a href="tambahtim.html" class="add-sparring" >+</a>   
+    <a href="/tim/tambahtim" class="add-sparring" >+</a>   
 </body>
 </html>

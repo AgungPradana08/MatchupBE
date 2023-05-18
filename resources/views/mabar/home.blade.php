@@ -62,7 +62,7 @@
         <a class="box" href="/mabar/{{$mabar->id}}/mabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
              <div class="box-top">
-                 <img class="box-logo" src="/css/img/pxg.png" alt="">
+             <img class="box-logo" src="{{asset('storage/'. $mabar->image)}}" alt="">
                  <!-- <div class="box-logo">
  
                  </div> -->

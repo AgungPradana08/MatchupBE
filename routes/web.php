@@ -47,6 +47,7 @@ Route::prefix('/kompetisi')->group(function () {
 Route::prefix('/tim')->group(function () {
     Route::get('/home', [TimController::class, 'index']);
     Route::get('/{id}/timdetail', [TimController::class, 'detail']);
+    Route::get('/tambahtim', [TimController::class, 'tambah']);
 });
 
 Route::prefix('/userprofile')->group(function () {

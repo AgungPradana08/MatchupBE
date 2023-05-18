@@ -59,7 +59,7 @@
         </div>
         <div class="right-content">
             <span class="biaya" >Biaya Masuk</span>
-            <span class="harga" style="display: block;" >{{$sparring->harga_tiket}} <text style="color: grey; font-size: 1.3vw;" >/Tim</text> </span>
+            <span class="harga" style="display: block;" >Rp {{$sparring->harga_tiket}} <text style="color: grey; font-size: 1.3vw;" >/Tim</text> </span>
             <button>
                 Ambil Sparring
             </button>

@@ -18,4 +18,9 @@ class TimController extends Controller
         $tim = Tim::find($id);
         return view('tim.timdetail', compact(['tim']));
     }
+
+    public function tambah()
+    {
+        return view('tim.tambahtim');
+    }
 }

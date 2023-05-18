@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mabar', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
             $table->string('olahraga');
             $table->string('deskripsi');
             $table->string('lokasi');

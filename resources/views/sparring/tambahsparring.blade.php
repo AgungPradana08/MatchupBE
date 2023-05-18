@@ -35,7 +35,7 @@
                 <input class="title1 @error('title') is-invalid @enderror" name="title" type="text" placeholder="Masukkan Title..." >
 
                 @error ('title')
-                <span class="text-danger">{{$message}}</span>
+                <div class="text-danger">{{$message}}</div>
                 @enderror
 
                 <select name="olahraga" class="title2" type="text" placeholder="TWO">
