@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <div class="navbar-left">
-            <a class="logo" href="sparringpage.html">
+            <a class="logo" href="/sparring/home">
         
             </a>
             <!-- <div style="margin-left: 7%;" class="logo">

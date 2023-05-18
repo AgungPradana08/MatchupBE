@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <div class="navbar-left">
-            <a style="background: url(/css/img/back\ button.png); background-position: center; background-repeat: no-repeat; " class="logo" href="sparringpage.html">
+            <a style="background: url(/css/img/back\ button.png); background-position: center; background-repeat: no-repeat; " class="logo" href="/sparring/home">
         
             </a>
             <!-- <div style="margin-left: 7%;" class="logo">
