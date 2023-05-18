@@ -23,9 +23,10 @@
         <div class="add-image">
     <form action="/sparring/store" method="POST" enctype="multipart/form-data">
         @csrf
-            <div class="image-box">
+            <div class="image-box" >
+                <img class="img-preview img-fluid" alt="">
                 <button class="edit-image">
-                    <input type="file" name="image">
+                    <input type="file" id="image" name="image" onchange="previewImage()">
                 </button>
             </div>
         </div>
@@ -95,3 +96,21 @@
     <section class="add-sparring" ></section>
 </body>
 </html>
+
+<script>
+
+    function previewImage() {
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+
+</script>
