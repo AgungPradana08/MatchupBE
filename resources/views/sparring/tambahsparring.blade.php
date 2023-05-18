@@ -20,11 +20,11 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/sparring/store" method="POST">
+    <form action="/sparring/store" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="image-box">
                 <button class="edit-image">
-                    <!-- Add Image -->
+                    <input type="file" name="image">
                 </button>
             </div>
         </div>

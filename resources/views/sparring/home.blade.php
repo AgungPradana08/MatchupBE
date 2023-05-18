@@ -62,7 +62,7 @@
         <a class="box" href="/sparring/{{$sparring->id}}/sparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <img class="box-logo" src="/css/img/pxg.png" alt="">
+                <img class="box-logo" src="{{asset('storage/'. $sparring->image)}}" alt="">
                 <!-- <div class="box-logo">
 
                 </div> -->

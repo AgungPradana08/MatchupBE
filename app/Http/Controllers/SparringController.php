@@ -22,24 +22,23 @@ class SparringController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        // $validateData = $request->validate([
-        //     'title' => 'required',
-        //     'olahraga'         => 'required',
-        //     'deskripsi'    => 'required',
-        //     'lokasi'        => 'required',
-        //     'min_member'      => 'required',
-        //     'max_member'      => 'required',
-        //     'aksebilitas'      => 'required',
-        //     'tingkatan'      => 'required',
-        //     'tanggal_pertandingan'  => 'required',
-        //     'harga_tiket'      => 'required',
-        //     'lama_pertandingan'      => 'required',
-        //     'deskripsi_tambahan'      => 'required',
-        // ]);
-        
-        // Sparring::create($validateData);
-        // return redirect('/sparring/home');
-        Sparring::create($request -> all());
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image', $file_name);
+
+        Sparring::create([
+            'title' => $request->title,
+            'image' => $image,
+            'olahraga' => $request->olahraga,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'min_member' => $request->min_member,
+            'max_member' => $request->max_member,
+            'aksebilitas' => $request->aksebilitas,
+            'tanggal_pertandingan' => $request->tanggal_pertandingan,
+            'harga_tiket' => $request->harga_tiket,
+            'lama_pertandingan' => $request->lama_pertandingan,
+            'deskripsi_tambahan' => $request->deskripsi_tambahan,
+        ]);
         return redirect('/sparring/home');
     }
 
