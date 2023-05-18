@@ -14,7 +14,7 @@ class SparringController extends Controller
         return view('sparring.home', compact(['sparring']));
     }
 
-    public function tambah()
+    public function tambah(Request $request)
     {
         return view('sparring.tambahsparring');
     }
@@ -22,6 +22,10 @@ class SparringController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $this->validate($request, rules: [
+            'title' => 'required',
+        ]);
+
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image', $file_name);
 
@@ -34,6 +38,7 @@ class SparringController extends Controller
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
             'aksebilitas' => $request->aksebilitas,
+            'tingkatan' => $request->tingkatan,
             'tanggal_pertandingan' => $request->tanggal_pertandingan,
             'harga_tiket' => $request->harga_tiket,
             'lama_pertandingan' => $request->lama_pertandingan,

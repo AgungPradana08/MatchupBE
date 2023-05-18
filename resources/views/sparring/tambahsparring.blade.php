@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
     <link rel="stylesheet" href="/css/tambahsparring.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
     <section class="navbar" >
@@ -31,7 +32,12 @@
     </section>
     <section class="title" >
             <div class="title-container">
-                <input class="title1" name="title" type="text" placeholder="Masukkan Title..." >
+                <input class="title1 @error('title') is-invalid @enderror" name="title" type="text" placeholder="Masukkan Title..." >
+
+                @error ('title')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+
                 <select name="olahraga" class="title2" type="text" placeholder="TWO">
                     <option value="" >Pilih Olahraga...</option>
                     <option value="Sepak Bola">Sepak Bola</option>
