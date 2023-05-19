@@ -102,6 +102,11 @@ body {
 
 }
 
+.title-1 {
+    height: 100%;
+    width: 100%;
+}
+
 
 .edit-image {
     position: absolute;
@@ -128,7 +133,7 @@ body {
 .title-container {
     padding: 1%;
     box-sizing: border-box;
-    height: 50vh;
+    height: 60vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.3fr 1fr;

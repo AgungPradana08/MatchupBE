@@ -39,11 +39,13 @@
     </section>
     <section class="title" >
             <div class="title-container">
-                <input class="title1 @error('title') is-invalid @enderror" name="title" type="text" placeholder="Masukkan Title..." >
+                <div style="background: red;" >
+                    <input class="title-1" name="title" type="text" placeholder="Masukkan Title..."  >
 
-                @error ('title')
-                <div class="text-danger">{{$message}}</div>
-                @enderror
+                    @error ('title')
+                        <p class="text-danger" >{{ $message }}</p>
+                    @enderror
+                </div>
 
                 <select name="olahraga" class="title2" type="text" placeholder="TWO">
                     <option value="" >Pilih Olahraga...</option>

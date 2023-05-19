@@ -15,6 +15,4 @@ function previewImage() {
     }
 }
 
-console.log(today)
-
 document.getElementById("datepick").min = today.toString();
