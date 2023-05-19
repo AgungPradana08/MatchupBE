@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('tanggal_pertandingan');
             $table->string('harga_tiket');
             $table->string('lama_pertandingan');
+            $table->string('waktu_pertandingan');
             $table->string('deskripsi_tambahan');
             $table->timestamps();
         });

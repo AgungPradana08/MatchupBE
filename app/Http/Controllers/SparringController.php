@@ -42,6 +42,7 @@ class SparringController extends Controller
             'tanggal_pertandingan' => $request->tanggal_pertandingan,
             'harga_tiket' => $request->harga_tiket,
             'lama_pertandingan' => $request->lama_pertandingan,
+            'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
         return redirect('/sparring/home');
