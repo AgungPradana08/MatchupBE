@@ -11,6 +11,7 @@
 <body>
     <section class="navbar" >
         <a href="/sparring/home">
+            
         
         </a>
         <p>TAMBAH SPARING</p>
@@ -24,10 +25,15 @@
     <form action="/sparring/store" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="image-box" >
-                <img class="img-preview img-fluid" alt="">
-                <button class="edit-image">
-                    <input type="file" id="image" name="image" onchange="previewImage()">
-                </button>
+                <img class="img-preview"  alt="">  
+                <div class="edit-image">
+                    <label for="image">
+                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
+                    </label>
+                  
+                    <input style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                  </div>
+                
             </div>
         </div>
     </section>
@@ -80,9 +86,10 @@
         <section style="margin-top: 5vh;" class="title" >
             <span style="padding: 1%;" >INFORMASI</span>
             <div class="information-container">
-                <input class="info1" type="text" placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
+                <input class="info1" type="date" placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
                 <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
                 <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
+                <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="lama_pertandingan" >
                 <input class="info4" type="text" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
             </div>
         </section>
