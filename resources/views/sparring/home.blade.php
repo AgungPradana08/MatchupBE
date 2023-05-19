@@ -83,7 +83,7 @@
                     <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
-                    {{$sparring->tanggal_pertandingan}}
+                    {{$sparring->tanggal_pertandingan}} | {{$sparring->waktu_pertandingan}}
                 </div>
                 <div class="line">
                     <!-- <img class="bottom-icon" src="css/img/lokasi.png" alt=""> -->

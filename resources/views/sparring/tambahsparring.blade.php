@@ -89,7 +89,7 @@
                 <input class="info1" type="date" placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
                 <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
                 <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
-                <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="lama_pertandingan" >
+                <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="waktu_pertandingan" >
                 <input class="info4" type="text" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
             </div>
         </section>
