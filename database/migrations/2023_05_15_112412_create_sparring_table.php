@@ -15,18 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
-            $table->string('olahraga')->nullable();
+            $table->string('olahraga');
             $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('min_member');
             $table->string('max_member');
-            $table->string('aksebilitas')->nullable();
-            $table->string('tingkatan')->nullable();
+            $table->string('aksebilitas');
+            $table->string('tingkatan');
             $table->string('tanggal_pertandingan');
             $table->string('harga_tiket');
             $table->string('lama_pertandingan');
             $table->string('waktu_pertandingan');
-            $table->string('deskripsi_tambahan');
+            $table->string('deskripsi_tambahan')->nullable();
             $table->timestamps();
         });
     }

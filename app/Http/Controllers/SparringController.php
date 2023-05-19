@@ -24,6 +24,18 @@ class SparringController extends Controller
         // dd($request->all());
         $this->validate($request, rules: [
             'title' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png',
+            'olahraga' => 'required',
+            'deskripsi' => 'required',
+            'lokasi' => 'required',
+            'min_member' => 'required',
+            'max_member' => 'required',
+            'aksebilitas' => 'required',
+            'tingkatan' => 'required',
+            'tanggal_pertandingan' => 'required',
+            'harga_tiket' => 'required',
+            'lama_pertandingan' => 'required',
+            'waktu_pertandingan' => 'required',
         ]);
 
         $file_name = $request->image->getClientOriginalName();

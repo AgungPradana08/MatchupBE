@@ -25,6 +25,10 @@ return new class extends Migration
             $table->string('tanggal_pertandingan');
             $table->string('harga_tiket');
             $table->timestamps();
+
+
+            // $table->unsignedBigInteger('harga_tiket');
+            // $table->foreign('harga_tiket')->references('id')->on('sparring');
         });
     }
 

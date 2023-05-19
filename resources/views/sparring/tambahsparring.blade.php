@@ -55,43 +55,76 @@
                     <option value="Bulutangkis">Bulutangkis</option>
                     <option value="Renang">Renang</option>
                 </select>
+                @error ('olahraga')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="title3" type="text" name="deskripsi" placeholder="Masukkan Deskripsi" >
+                @error ('deskripsi')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
             </div>
         </section>
         <section style="margin-top: 5vh;" class="location" >
             <span style="padding: 1%;" >LOKASI</span>
             <div class="location-container">
                 <input class="title1" type="text" name="lokasi" placeholder="Rincian Lokasi Sparring..." >
+                @error ('lokasi')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <div class="map">
 
                 </div>
             </div>
         </section>
         <section style="margin-top: 5vh;" class="accessibility"  >
-            <span style="padding: 1%;" >LOKASI</span>
+            <span style="padding: 1%;" >AKSEBILITAS</span>
             <div class="access-container">
                 <input style="margin-left: 0.1%;"class="ac-title1" type="text" placeholder="Min-Member" name="min_member" >
+                @error ('min_member')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="ac-title1" type="text" placeholder="Max-member" name="max_member" >
+                @error ('max_member')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
                     <option value="">Terbuka/Privat</option>
                     <option value="Terbuka">Terbuka</option>
                     <option value="Private">Private</option>
                 </select>
+                @error ('aksebilitas')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                     <option value="">Pilih Tingkatan...</option>
                     <option value="7-10">7-10</option>
                     <option value="10-17">10-17</option>
                     <option value="17-20">17-20</option>
                 </select>
+                @error ('tingkatan')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
             </div>
         </section>
         <section style="margin-top: 5vh;" class="title" >
             <span style="padding: 1%;" >INFORMASI</span>
             <div class="information-container">
                 <input class="info1" id="datepick"  type="date"  placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
+                @error ('tanggal_pertandingan')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
+                @error ('harga_tiket')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
+                @error ('lama_pertandingan')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="waktu_pertandingan" >
+                @error ('waktu_pertandingan')
+                        <p class="text-danger" >{{ $message }}</p>
+                @enderror
                 <input class="info4" type="text" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
             </div>
         </section>
