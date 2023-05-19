@@ -86,7 +86,7 @@
         <section style="margin-top: 5vh;" class="title" >
             <span style="padding: 1%;" >INFORMASI</span>
             <div class="information-container">
-                <input class="info1" type="date" placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
+                <input class="info1" id="datepick"  type="date"  placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
                 <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
                 <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
                 <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="lama_pertandingan" >
@@ -101,23 +101,6 @@
     </form>
     <section class="white-space" ></section>
     <section class="add-sparring" ></section>
+    <script src="/js/sparring.js"></script>
 </body>
 </html>
-
-<script>
-
-    function previewImage() {
-        const image = document.querySelector('#image');
-        const imgPreview = document.querySelector('.img-preview');
-
-        imgPreview.style.display = 'block';
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-    }
-
-</script>
