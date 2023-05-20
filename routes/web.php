@@ -21,8 +21,19 @@ use App\Http\Controllers\UserSparringController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('dashboard.home');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.home');
+});
+
+Route::get('/about', function () {
+    return view('dashboard.about');
+});
+Route::get('/contact', function () {
+    return view('dashboard.contact');
 });
 
 Route::prefix('/sparring')->group(function () {

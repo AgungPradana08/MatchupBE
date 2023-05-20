@@ -10,4 +10,9 @@ class Sparring extends Model
     use HasFactory;
     protected $table = 'sparring';
     protected $guarded = [];
+
+    public function pemain()
+    {
+        return $this->belongsTo( related: User::class );
+    }
 }

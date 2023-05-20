@@ -1,0 +1,425 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+}
+
+/* === NAVBAR === */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-left {
+    width: 50%;
+    display: flex
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.sign-up, .log-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+}
+
+.log-in {
+    font-family: opensans-bold;
+}
+
+.navbar-left > a {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.tentang {
+    font-family: opensans-bold;
+}
+
+/* === ABOUT 1 === */
+
+.about1 {
+    width: 100%;
+    height: 100vh;
+    padding: 2% 10%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.image1 {
+    height: 250px;
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.image1-1 {
+    height: 250px;
+    width: 250px;
+    margin-bottom: 30px;
+    background-image: url(img/Trio_Mid.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.about-box {
+    text-align: center;
+    font-size: 25px;
+}
+
+/* === ABOUT 2 === */
+
+.about2 {
+    width: 100%;
+    height: 70vh;
+    padding: 2% 10%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.image2 {
+    width: 400px;
+    height: 60vh;
+    background-color: grey;
+}
+
+.about2-content > p, li {
+    margin-bottom: 20px;
+    font-size: 0.7vw;
+}
+
+.about2-content >li {
+    text-align: left;
+    font-family: opensans-bold;
+    margin-bottom: 20px;
+    font-size: 0.8vw;
+}
+
+.about2-content {
+    margin-left: 5%;
+}
+
+.about2-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about2-image > div > a {
+    text-decoration: none;
+    font-family: opensans-bold;
+    font-size: 20px;
+    color: black;
+
+
+}
+
+.text-button {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 10%;
+
+}
+
+/* === ABOUT 3 === */
+
+.about3 {
+    width: 100%;
+    height: 70vh;
+    padding: 0px 10%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.image3 {
+    width: 400px;
+    height: 60vh;
+ 
+}
+
+.about3-content > p, li {
+    margin-bottom: 20px;
+    font-size: 0.7vw;
+    text-align: right;
+}
+
+.about3-content {
+    margin-right: 5%;
+}
+
+.about3-content >li {
+    font-family: opensans-bold;
+    margin-bottom: 20px;
+    font-size: 0.7vw;
+}
+
+.about3-image {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.about3-image > div > a {
+    text-decoration: none;
+    font-family: opensans-bold;
+    font-size: 20px;
+    color: black;
+
+
+}
+
+.text-button {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 10%;
+
+}
+
+.text-button > a > button {
+    width: 30px;
+    height: 30px;
+    border: transparent;
+    background-color: grey;
+
+}
+
+/* === HOME 2 === */
+
+.home2 {
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    box-sizing: border-box ;
+
+}
+
+.home2-content {
+    margin-top: 3%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box > span {
+    font-family: opensans-bold;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.box > p {
+    font-size: 12px;
+}
+
+.box {
+    height: 400px;
+    width: 280px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2%;
+    box-sizing: border-box;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.instagram {
+    background-image: url(img/instagram.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.facebook {
+    background-image: url(img/facebook.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.whatapps {
+    background-image: url(img/whatapps.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.instagram-white {
+    background-image: url(img/);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.facebook-white {
+    background-image: url(img/facebook.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.whatapps-white {
+    background-image: url(img/whatapps.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.box > div > a > img {
+    width: 25px;
+    height: 25px;
+    border: transparent;
+}
+
+
+
+.box-image {
+    width: 100px;
+    height: 100px;
+    background-color: #FE6B00;
+}
+
+/* === home5 === */
+
+.home5 {
+    color: white;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home5-box {
+    width: 70%;
+    height: 65%;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    box-sizing: border-box;
+    background-color: #FE6B00;
+}
+
+.image6 {
+    width: 50%;
+    height: 90%;
+    background-color: white;
+    background-image: url(img/aboutimg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+.home3-btn > button{
+    text-decoration: none;
+    background-color: white;
+    color: #FE6B00;
+    width: 40%;
+    height: 30px;
+    border: transparent;
+    margin-right: 20px;
+}
+
+
+/* === FOOTER === */
+
+.home-footer {
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-right {
+    width: 80%;
+    height: 100%;
+    display: flex;
+}
+
+table {
+    height: 100%;
+    width: 50%;
+}
+
+th {
+    text-align: left;
+    font-size: 0.8vw;
+}
+
+.footer-left {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+
+}
+
+.footer-left > p {
+    margin-top: 10px;
+}
+
+.footer-logo {
+    height: 90px;
+    width: 90px;
+}
+
+/* === WHITE SPACE === */
+
+.white-space {
+    height: 10vh;
+}
