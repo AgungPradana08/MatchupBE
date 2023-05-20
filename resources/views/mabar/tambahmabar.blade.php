@@ -23,7 +23,7 @@
     @csrf
             <div class="image-box">
                 <button class="edit-image">
-                <input type="file" name="image">
+                <input type="file" name="image" id="image" onchange="previewImage()">
                 </button>
             </div>
         </div>

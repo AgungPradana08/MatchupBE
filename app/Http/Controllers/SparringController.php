@@ -9,7 +9,7 @@ use Illuminate\Mail\Message;
 class SparringController extends Controller
 {
     public function index()
-    {
+    {   
         $sparring = Sparring::all();
         return view('sparring.home', compact(['sparring']));
     }
@@ -43,6 +43,7 @@ class SparringController extends Controller
         $image = $request->image->storeAs('image', $file_name);
 
         Sparring::create([
+            'title' => $request->title,
             'image' => $image,
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
@@ -56,7 +57,6 @@ class SparringController extends Controller
             'lama_pertandingan' => $request->lama_pertandingan,
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
-            'pemain_id' => $request->pemain_id,
         ]);
         return redirect('/sparring/home');
     }

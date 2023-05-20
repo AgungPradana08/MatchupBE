@@ -31,6 +31,7 @@
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
+            
             <input type="text" placeholder="Cari Nama Mabar..." >
         </div>
         <div class="input-box">

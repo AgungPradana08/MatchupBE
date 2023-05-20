@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MabarController;
 use App\Http\Controllers\UserTimController;
 use App\Http\Controllers\SparringController;
@@ -75,4 +76,9 @@ Route::prefix('/usermabar')->group(function () {
 
 Route::prefix('/usertim')->group(function () {
     Route::get('/home', [UserTimController::class, 'index']);
+});
+
+Route::prefix('/login')->group(function () {
+    Route::get('/', [LoginController::class, 'index']);
+    Route::post('/authenticate', [LoginController::class, 'authenticate']);
 });

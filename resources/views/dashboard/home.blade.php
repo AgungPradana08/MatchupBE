@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-right">
             <a class="sign-up" href="signup.html">Sign Up</a>
-            <a class="log-in" style="margin-right: 20%; margin-left: 5%; background-color: #FE6B00; color: white; " href="login.html">Log In</a>
+            <a class="log-in" style="margin-right: 20%; margin-left: 5%; background-color: #FE6B00; color: white; " href="/login/">Log In</a>
         </div>
     </section>
     <section class="home1">

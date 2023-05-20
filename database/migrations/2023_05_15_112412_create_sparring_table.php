@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('sparring', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pemain_id')->nullable();
             $table->string('title');
             $table->string('image');
             $table->string('olahraga');
@@ -29,8 +28,6 @@ return new class extends Migration
             $table->string('waktu_pertandingan');
             $table->string('deskripsi_tambahan')->nullable();
             $table->timestamps();
-
-            $table->foreign('pemain_id')->references('id')->on('users');
 
             // $table->unsignedBigInteger('harga_tiket');
             // $table->foreign('harga_tiket')->references('id')->on('sparring');

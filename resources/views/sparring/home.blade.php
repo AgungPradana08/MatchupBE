@@ -31,7 +31,7 @@
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <input type="text" placeholder="Cari Nama Sparring..." >
+            <input type="text" name="search" placeholder="Cari Nama Sparring...">
         </div>
         <div class="input-box">
             <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
