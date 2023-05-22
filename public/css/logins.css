@@ -64,7 +64,11 @@
 
 }
 
-.title {
+.big-box > * {
+    outline: 1px solid red;
+}
+
+.title {    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,6 +93,10 @@
 .form, .form-eye {
     display: flex;
     align-items: center;
+}
+
+.form {
+    min-height: 50px;
 }
 
 .form-eye {
@@ -126,6 +134,7 @@
 
 .form > input {
     width: 100%;
+    height: 100%;
     border-radius: 12px;
     padding-left: 12%;
     box-sizing: border-box;
@@ -142,6 +151,7 @@
     color: white;
     font-size: 20px;
     font-family: opensans-bold;
+
     cursor: pointer;
 
 }

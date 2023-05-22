@@ -25,7 +25,7 @@
                 </div>
                 <div class="divider"></div>
                 <div class="form">
-                    <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
+                    <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
                     <input  type="email" value="{{Session::get('email')}}" placeholder="Masukkan Email..." required >
