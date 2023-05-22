@@ -54,55 +54,57 @@
         </button>
     </section>
     <section class="box-wrapper">
-        <div class="box" href="Sparringdetail.html" >
-            <a href="Sparringdetail.html">
-            <button class="box-outer" style="width: 100%; height: 100%;" >
-                <div class="box-top">
-                    <div class="edit-data">
-                        <a class="see-button" href="Sparringdetail.html">
-                        </a>
-                        <a class="edit-button" href="ubah_data.html"></a>
-                    </div>
-                    <img class="box-logo" src="/css/img/pxg.png" alt="">
-                    <div style="margin-left: 5%; width: 60%;" >
-                        <p style="font-size: 0.8vw;" >Sparring | Futsal</p>
-                        <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >TITLE</p>
-                        <div class="access">
-                            Terbuka
+        @foreach ($usersparring as $usersparring)
+            <div class="box" href="Sparringdetail.html" >
+                <a href="Sparringdetail.html">
+                <button class="box-outer" style="width: 100%; height: 100%;" >
+                    <div class="box-top">
+                        <div class="edit-data">
+                            <a class="see-button" href="/usersparring/{{$usersparring->id}}/usersparringdetail" >
+                            </a>
+                            <a class="edit-button" href="/usersparring/{{$usersparring->id}}/usersparringedit"></a>
                         </div>
-                        <div class="age">
-                            15-17
+                        <img class="box-logo" src="/css/img/pxg.png" alt="">
+                        <div style="margin-left: 5%; width: 60%;" >
+                            <p style="font-size: 0.8vw;" >Sparring | {{$usersparring->olahraga}}</p>
+                            <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$usersparring->title}}</p>
+                            <div class="access">
+                                {{$usersparring->aksebilitas}}
+                            </div>
+                            <div class="age">
+                                {{$usersparring->tingkatan}}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="box-bottom">
-                    <div class="line">
-                        
-                        <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
+                    <div class="box-bottom">
+                        <div class="line">
+                            
+                            <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
 
+                            </div>
+                            {{$usersparring->tanggal_pertandingan}}
                         </div>
-                        Waktu Dan Tanggal Bermain
-                    </div>
-                    <div class="line">
-                        
-                        <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
+                        <div class="line">
+                            
+                            <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
 
+                            </div>
+                            {{$usersparring->lokasi}}
                         </div>
-                        Lokasi Pertandingan
-                    </div>
-                    <div class="line">
-                        <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
+                        <div class="line">
+                            <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
 
+                            </div>
+                            {{$usersparring->harga_tiket}}
                         </div>
-                        Biaya Pendaftaran
                     </div>
-                </div>
 
-            </button>
-            </a>
-        </div>
+                </button>
+                </a>
+            </div>
+        @endforeach
     </section> 
     <section class="white-space" ></section>   
-    <a href="tambahsparring.html" class="add-sparring" >+</a>
+    <a href="/usersparring/usersparringtambah" class="add-sparring" >+</a>
 </body>
 </html>

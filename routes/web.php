@@ -68,6 +68,12 @@ Route::prefix('/userprofile')->group(function () {
 
 Route::prefix('/usersparring')->group(function () {
     Route::get('/home', [UserSparringController::class, 'index']);
+    Route::get('/usersparringtambah', [UserSparringController::class, 'tambah']);
+    Route::post('/store', [UserSparringController::class, 'store']);
+    Route::get('/{id}/usersparringedit', [UserSparringController::class, 'edit']);
+    Route::put('/{id}',[UserSparringController::class, 'update']); 
+    Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
+    Route::delete('/{id}',[UserSparringController::class, 'destroy']);
 });
 
 Route::prefix('/usermabar')->group(function () {
