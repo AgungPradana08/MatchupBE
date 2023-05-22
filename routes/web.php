@@ -38,10 +38,10 @@ Route::get('/contact', function () {
 });
 
 Route::prefix('/sparring')->group(function () {
-    Route::get('/home', [SparringController::class, 'index']); //home
-    Route::get('/tambahsparring', [SparringController::class, 'tambah']); //nambah data
-    Route::get('/{id}/sparringdetail', [SparringController::class, 'detail']); //detail page 
-    Route::post('/store', [SparringController::class, 'store']); //nyimpan data
+    // Route::get('/home', [SparringController::class, 'index']); //home
+    // Route::get('/tambahsparring', [SparringController::class, 'tambah']); //nambah data
+    // Route::get('/{id}/sparringdetail', [SparringController::class, 'detail']); //detail page 
+    // Route::post('/store', [SparringController::class, 'store']); //nyimpan data
 });
 
 Route::prefix('/mabar')->group(function () {
@@ -75,6 +75,9 @@ Route::prefix('/usersparring')->group(function () {
     Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
     Route::delete('/{id}',[UserSparringController::class, 'destroy']);
 });
+
+Route::get('/sparring/home', [UserSparringController::class, 'index2']);
+Route::get('/sparring/search', [UserSparringController::class, 'search']);
 
 Route::prefix('/usermabar')->group(function () {
     Route::get('/home', [UserMabarController::class, 'index']);

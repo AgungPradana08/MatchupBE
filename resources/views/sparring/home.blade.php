@@ -31,35 +31,41 @@
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <input type="text" name="search" placeholder="Cari Nama Sparring...">
-        </div>
-        <div class="input-box">
-            <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
-            </div>
-            <select name="" id="" >
-                <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
-                <option value="">ITEM 1</option>
-                <option value="">ITEM 1</option>
-                <option value="">ITEM 1</option>
-            </select>
-        </div>
-        <div class="input-box">
-            <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
-            </div>
-            <select name="" id="" >
-                <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
-                <option value="">ITEM 1</option>
-                <option value="">ITEM 1</option>
-                <option value="">ITEM 1</option>
-            </select>
-        </div>
-        <button class="search" >
-            Cari
-        </button>
+            <form action="/sparring/search" method="GET">
+                <input type="search" name="search" placeholder="Cari Nama Sparring...">
+                </div>
+                <div class="input-box">
+                    <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
+                    </div>
+                    <select name="olahraga" id="" >
+                        <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
+                        <option value="">ITEM 1</option>
+                        <option value="">ITEM 1</option>
+                        <option value="">ITEM 1</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
+                    </div>
+                    <select name="" id="" >
+                        <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
+                        <option value="Futsal">Futsal</option>
+                        <option value="">ITEM 1</option>
+                        <option value="">ITEM 1</option>
+                    </select>
+                </div>
+                <button class="search" type="submit">
+                    Cari
+                </button>
+            </form>
     </section>
     <section class="box-wrapper">
-    @foreach ($sparring as $sparring)
-        <a class="box" href="/sparring/{{$sparring->id}}/sparringdetail" >
+        @if($usersparring->count() > 0)
+            @else
+            <p>Tidak ada hasil yang ditemukan.</p>
+        @endif
+    @foreach ($usersparring as $sparring)
+        <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
                 <img class="box-logo" src="{{asset('storage/'. $sparring->image)}}" alt="">
@@ -106,6 +112,5 @@
         
     </section> 
     <section class="white-space" ></section>   
-    <a href="tambahsparring" class="add-sparring" >+</a>
 </body>
 </html>

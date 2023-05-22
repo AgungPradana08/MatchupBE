@@ -20,7 +20,7 @@
     <section class="container" >
         <div class="left-content">
             <div class="left1">
-                <img class="left1-logo" alt="">
+                <img class="left1-logo" src="{{asset ('storage/' . $usersparring->image)}}" alt="">
                 <!-- <div class="left1-logo">
 
                 </div> -->

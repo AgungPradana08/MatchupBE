@@ -10,4 +10,9 @@ class UserSparring extends Model
     use HasFactory;
     protected $table = 'usersparring';
     protected $guarded = [];
+
+    public function sparringuser()
+    {
+        return $this->hasMany(Sparring::class);
+    }   
 }
