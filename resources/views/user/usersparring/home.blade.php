@@ -64,7 +64,7 @@
                             </a>
                             <a class="edit-button" href="/usersparring/{{$usersparring->id}}/usersparringedit"></a>
                         </div>
-                        <img class="box-logo" src="/css/img/pxg.png" alt="">
+                        <img class="box-logo" src="{{asset('storage/'. $usersparring->image)}}" alt="">
                         <div style="margin-left: 5%; width: 60%;" >
                             <p style="font-size: 0.8vw;" >Sparring | {{$usersparring->olahraga}}</p>
                             <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$usersparring->title}}</p>

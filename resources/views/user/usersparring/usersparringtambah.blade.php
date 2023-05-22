@@ -22,7 +22,7 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/usersparring/store" method="POST">
+    <form action="/usersparring/store" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="image-box" >
                 <img class="img-preview"  alt="">  

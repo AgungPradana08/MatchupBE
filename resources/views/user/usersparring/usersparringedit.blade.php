@@ -10,7 +10,7 @@
 </head>
 <body>
     <section class="navbar" >
-        <a href="/sparring/home">
+        <a href="/usersparring/home">
             
         
         </a>
@@ -26,7 +26,7 @@
         @method ('put')
         @csrf
             <div class="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview" src="{{asset('storage/'. $usersparring->image)}}" alt="">  
                 <div class="edit-image">
                     <label for="image">
                       <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -131,14 +131,14 @@
         </section>
         <section style="margin-top: 5vh;" class="add-button">
             <button style="height: 10vh;" class="add-sparring" type="submit" value="save" >
-                BUAT
+                UBAH
             </button>
-            <form action="/usersparring/{{$usersparring->id}}" method="POST">
-                @csrf
-                @method('delete')
-                <input class="" type="submit" value="Delete">
-            </form>
         </section>
+    </form>
+    <form action="/usersparring/{{$usersparring->id}}" method="POST">
+        @csrf
+        @method('delete')
+        <input class="" type="submit" value="Delete">
     </form>
     <section class="white-space" ></section>
     <section class="add-sparring" ></section>
