@@ -22,7 +22,7 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/usersparring/{{$usersparring->id}}" method="POST">
+    <form action="/usersparring/{{$usersparring->id}}" method="POST" enctype="multipart/form-data">
         @method ('put')
         @csrf
             <div class="image-box" >

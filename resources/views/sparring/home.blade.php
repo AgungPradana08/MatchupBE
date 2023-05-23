@@ -37,7 +37,7 @@
                 <div class="input-box">
                     <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name="olahraga" id="" >
+                    <select name="" id="" >
                         <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
                         <option value="">ITEM 1</option>
                         <option value="">ITEM 1</option>
@@ -47,11 +47,12 @@
                 <div class="input-box">
                     <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name="" id="" >
+                    <select name="olahraga" id="" >
                         <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
                         <option value="Futsal">Futsal</option>
-                        <option value="">ITEM 1</option>
-                        <option value="">ITEM 1</option>
+                        <option value="Sepak Bola">Sepak Bola</option>
+                        <option value="Badminton">Badminton</option>
+                        <option value="Ping Pong">Ping Pong</option>
                     </select>
                 </div>
                 <button class="search" type="submit">
@@ -62,7 +63,7 @@
     <section class="box-wrapper">
         @if($usersparring->count() > 0)
             @else
-            <p>Tidak ada hasil yang ditemukan.</p>
+            <p >Tidak ada hasil yang ditemukan.</p>
         @endif
     @foreach ($usersparring as $sparring)
         <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
