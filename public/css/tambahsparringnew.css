@@ -58,6 +58,11 @@
 
 }
 
+p {  
+    font-size: 1vw;
+
+}
+
 .image-container {
     height: 30vh;
     display: flex;
