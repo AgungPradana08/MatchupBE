@@ -283,7 +283,7 @@ p {
     border-radius: 5px;
 }
 
-.form3-wrapper > .input1 > input, .form3-wrapper > .input2 > input,.form3-wrapper > .input3 > input,.form3-wrapper > .input4 > input {
+.form3-wrapper > .input1 > input, .form3-wrapper > .input2 > input,.form3-wrapper > .input3 > select,.form3-wrapper > .input4 > select {
     width: 100%;
     height: 75%;
     padding-left: 8px;

@@ -84,11 +84,20 @@
                 </div>
                 <div class="input3">
                     <p>Akses</p>
-                    <input name="aksebilitas" type="text" placeholder="publik/privat..." >
+                    <select name="aksebilitas" >
+                        <option value="">Publik</option>
+                        <option value="">Private</option>
+                    </select>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
-                    <input name="tingkatan" type="text" placeholder="Input deskripsi pertandingan...">
+                    <select name="tingkatan" >
+                        <option value="">6-12</option>
+                        <option value="">12-15</option>
+                        <option value="">15-18</option>
+                        <option value="">18-21</option>
+                        <option value="">21+</option>
+                    </select>
                 </div>
             </div>
         </div>
