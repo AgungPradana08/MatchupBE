@@ -63,11 +63,15 @@
             <div id="wrapper1" class="form2-wrapper">
                 <div class="input1">
                     <p>Rincian Lokasi</p>
-                    <input name="lokasi" type="text" placeholder="masukkan nama lokasi..." >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput()" >
+                    <datalist id="location_list" >
+                        <option value="Markas">Markass Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
+                    </datalist>
                 </div>
                 <div class="input3">
                     <p>Peta</p>
-                    <input type="text" placeholder="Input deskripsi pertandingan...">
+                    <iframe id="frame-location" src="" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -106,7 +110,7 @@
                 </div>
             </div>
         </div>
-        <div class="form1">
+        <div class="form4">
             <div class="header">
                 Informasi
                 <a id="drop3" onclick="dropdown(3)" ></a>
