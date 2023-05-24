@@ -10,12 +10,12 @@
 <body>
 
     <div class="navbar">
-        <a href=""></a>
+        <a href="/usersparring/home"></a>
         <p>Tambah sparring</p>
         <a style="visibility: hidden;" ></a>
     </div>
 
-    <form action="/sparring/store" method="POST" enctype="multipart/form-data" class="content" >
+    <form action="/usersparring/store" method="POST" enctype="multipart/form-data" class="content" >
         @csrf
         <div class="image-container">
             <div class="image-box" >
@@ -36,14 +36,14 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input name="nama" type="text" placeholder="Input nama pertandingan..." >
+                    <input name="title" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
                     <select name="olahraga" >
-                        <option value="">ITEM 1</option>
-                        <option value="">ITEM 1</option>
-                        <option value="">ITEM 1</option>
+                        <option value="Sepak Bola">Sepak Bola</option>
+                        <option value="Futsal">Futsal</option>
+                        <option value="Badminton">Badminton</option>
                     </select>
                 </div>
                 <div class="input3">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <button class="add" type="submit" name="submit" >TAMBAH</button>
+        <button class="add" type="submit" name="submit" value="save">TAMBAH</button>
     </form>
     <script src="/js/sparring.js"></script>
 </body>
