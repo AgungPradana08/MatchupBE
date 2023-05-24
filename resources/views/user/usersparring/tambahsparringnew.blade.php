@@ -45,7 +45,7 @@
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
                         <option value="Ping Pong">Ping Pong</option>
-                        <option value="Bulutangkis">Bulutangkis</option>
+                        <option value="Badminton">Badminton</option>
                         <option value="Renang">Renang</option>
                     </select>
                 </div>
@@ -92,8 +92,8 @@
                 <div class="input3">
                     <p>Akses</p>
                     <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
-                        <option value="">Terbuka/Privat</option>
-                        <option value="Terbuka">Terbuka</option>
+                        <option value="">Aksesibilitas</option>
+                        <option value="Terbuka">Public</option>
                         <option value="Private">Private</option>
                     </select>
                 </div>
@@ -117,16 +117,24 @@
             </div>
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
-                    <p>tanggal</p>
+                    <p>Tanggal</p>
                     <input id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
-                    <p>harga</p>
+                    <p>Harga</p>
                     <input name="harga_tiket" type="text" placeholder="Input harga/tim..." >
                 </div>
                 <div class="input3">
-                    <p>lama pertandingan</p>
-                    <input name="lama_pertandingan" type="number" placeholder="Input jam" >
+                    <div class="input4">
+                        <p>Lama Pertandingan</p>
+                        <select class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
+                            <option value="30 Menit">30 Menit</option>
+                            <option value="60 Menit">60 Menit</option>
+                            <option value="90 Menit">90 Menit</option>
+                            <option value="120 Menit">120 Menit</option>
+                            <option value="120+ Menit">120+ Menit</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="input4">
                     <p>Pukul</p>
