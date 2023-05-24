@@ -53,6 +53,7 @@
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Badminton">Badminton</option>
                         <option value="Ping Pong">Ping Pong</option>
+                        <option value="Renang">Renang</option>
                     </select>
                 </div>
                 <button class="search" type="submit">

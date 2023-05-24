@@ -45,7 +45,7 @@
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
                         <option value="Ping Pong">Ping Pong</option>
-                        <option value="Bulutangkis">Bulutangkis</option>
+                        <option value="Badminton">Badminton</option>
                         <option value="Renang">Renang</option>
                     </select>
                 </div>
@@ -123,7 +123,7 @@
                 <div class="input3">
                     <div class="input4">
                         <p>Lama Pertandingan</p>
-                        <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                        <select class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
