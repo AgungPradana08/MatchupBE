@@ -21,7 +21,7 @@ class UserSparringController extends Controller
 
     public function tambah()
     {
-        return view('user.usersparring.usersparringtambah');
+        return view('user.usersparring.tambahsparringnew');
     }
 
     public function store(Request $request)
