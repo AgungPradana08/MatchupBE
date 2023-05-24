@@ -22,7 +22,7 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/usersparring/{{$usersparring->id}}" method="POST">
+    <form action="/usersparring/{{$usersparring->id}}" method="POST" enctype="multipart/form-data">
         @method ('put')
         @csrf
             <div class="image-box" >
@@ -98,9 +98,9 @@
                 @enderror
                 <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                     <option value="{{$usersparring->tingkatan}}">{{$usersparring->tingkatan}}</option>
-                    <option value="7-10">7-10</option>
-                    <option value="10-17">10-17</option>
-                    <option value="17-20">17-20</option>
+                    <option value="7-10">7-10 Tahun</option>
+                    <option value="10-17">10-17 Tahun</option>
+                    <option value="17-20">17-20 Tahun</option>
                 </select>
                 @error ('tingkatan')
                         <p class="text-danger" >{{ $message }}</p>

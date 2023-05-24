@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sparring', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('usersparring_id');
             $table->string('title');
             $table->string('image');
             $table->string('olahraga');

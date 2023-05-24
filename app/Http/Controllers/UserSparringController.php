@@ -13,6 +13,12 @@ class UserSparringController extends Controller
         return view('user.usersparring.home', compact(['usersparring'])) ;
     }
 
+    public function index2()
+    {   
+        $usersparring = UserSparring::all();
+        return view('sparring.home', compact(['usersparring'])) ;
+    }
+
     public function tambah()
     {
         return view('user.usersparring.usersparringtambah');
@@ -78,6 +84,8 @@ class UserSparringController extends Controller
         $usersparring = UserSparring::find($id);
         $usersparring->update($request -> except(['_token','submit']));
         return redirect('/usersparring/home');
+
+        
     }
 
     public function destroy($id)
@@ -85,5 +93,25 @@ class UserSparringController extends Controller
         $usersparring = UserSparring::find($id);
         $usersparring->delete();
         return redirect('/usersparring/home');
+    }
+
+    public function search(Request $request)
+    {
+        $searchtitle = $request->input('search');
+        $olahragaFilter = $request->input('olahraga');
+
+        $usersparring = UserSparring::query();
+
+        if ($searchtitle) {
+            $usersparring->where('title', 'like', '%'.$searchtitle.'%');
+        }
+
+        if ($olahragaFilter) {
+            $usersparring->where('olahraga', $olahragaFilter);
+        }
+
+        $usersparring = $usersparring->get();
+
+        return view('sparring.home', compact(['usersparring']));
     }
 }

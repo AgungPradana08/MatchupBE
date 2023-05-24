@@ -43,6 +43,7 @@ class SparringController extends Controller
         $image = $request->image->storeAs('image', $file_name);
 
         Sparring::create([
+            'usersparring_id' => $request->usersparring_id,
             'title' => $request->title,
             'image' => $image,
             'olahraga' => $request->olahraga,
