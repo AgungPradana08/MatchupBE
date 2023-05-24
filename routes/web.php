@@ -30,6 +30,10 @@ Route::get('/', function () {
     return view('dashboard.home');
 });
 
+Route::get('/newriko', function () {
+    return view('sparring.tambahsparringnew');
+});
+
 Route::get('/about', function () {
     return view('dashboard.about');
 });
