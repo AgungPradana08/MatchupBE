@@ -40,10 +40,13 @@
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
-                    <select name="olahraga" >
+                    <select name="olahraga" class="title2" type="text" placeholder="TWO">
+                        <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
-                        <option value="Badminton">Badminton</option>
+                        <option value="Ping Pong">Ping Pong</option>
+                        <option value="Bulutangkis">Bulutangkis</option>
+                        <option value="Renang">Renang</option>
                     </select>
                 </div>
                 <div class="input3">
@@ -84,19 +87,21 @@
                 </div>
                 <div class="input3">
                     <p>Akses</p>
-                    <select name="aksebilitas" >
-                        <option value="">Publik</option>
-                        <option value="">Private</option>
+                    <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
+                        <option value="">Terbuka/Privat</option>
+                        <option value="Terbuka">Terbuka</option>
+                        <option value="Private">Private</option>
                     </select>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
-                    <select name="tingkatan" >
-                        <option value="">6-12</option>
-                        <option value="">12-15</option>
-                        <option value="">15-18</option>
-                        <option value="">18-21</option>
-                        <option value="">21+</option>
+                    <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                        <option value="">Pilih Tingkatan...</option>
+                        <option value="7-10">6-12 Tahun</option>
+                        <option value="12-15">12-15 Tahun</option>
+                        <option value="15-18">15-18 Tahun</option>
+                        <option value="18-21">18-21 Tahun</option>
+                        <option value="21+">21+ Tahun</option>
                     </select>
                 </div>
             </div>
