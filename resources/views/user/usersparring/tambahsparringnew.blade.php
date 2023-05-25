@@ -36,11 +36,11 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input name="title" type="text" placeholder="Input nama pertandingan..." >
+                    <input name="title" type="text" oninput="InputChange()" id="TitleInput" placeholder="Input nama pertandingan..." required >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
-                    <select name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="input3">
                     <p>Deskrispi</p>
-                    <input name="deskripsi" type="text" placeholder="Input deskripsi pertandingan...">
+                    <input  name="deskripsi" type="text" placeholder="Input deskripsi pertandingan..." required>
                 </div>
             </div>
         </div>

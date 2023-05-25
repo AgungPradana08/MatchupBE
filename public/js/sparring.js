@@ -1,6 +1,20 @@
 var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
 let drop = [false,false,false,false];
+let title,olahraga
 
+
+if ("matchup.usertambah" in localStorage) { 
+    title = localStorage.getItem("matchup.tambahinput");
+    olahraga = localStorage.getItem("matchup.olahragaselect")
+
+} else {
+    localStorage.setItem("matchup.usertambah", " ");
+    localStorage.setItem("matchup.olahragaselect", " ");
+    localStorage.setItem("matchup.tambahinput", " ");
+}
+
+document.getElementById("TitleInput").value = title;
+document.getElementById("OlahragaSelect").value = olahraga;
 
 function previewImage() {
     const image = document.querySelector('#image');
@@ -60,47 +74,10 @@ function locationinput() {
         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
     } 
 
-
 }
 
-// function dropdown2() {
+function InputChange() {
+    localStorage.setItem("matchup.tambahinput", document.getElementById("TitleInput").value);
+    localStorage.setItem("matchup.olahragaselect", document.getElementById("OlahragaSelect").value);
+}
 
-//     if (drop2 == false) {
-//         document.getElementById("wrapper2").setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
-//         document.getElementById("drop2").setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-//         drop2 = true;
-//     } else {
-//         document.getElementById("wrapper2").setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding:4%");
-//         document.getElementById("drop2").setAttribute("style","transform: rotate(0deg); transition: 0.3s ease;");
-//         drop2 = false;
-//     }
-
-// }
-
-// function dropdown3() {
-
-//     if (drop3 == false) {
-        // document.getElementById("wrapper3").setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
-        // document.getElementById("drop3").setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-        // drop3 = true;
-//     } else {
-//         document.getElementById("wrapper3").setAttribute("style","height: 17vh; opacity: 100%; transition: 0.5s ease; padding:4%");
-//         document.getElementById("drop3").setAttribute("style","transform: rotate(0deg); transition: 0.3s ease;");
-//         drop3 = false;
-//     }
-
-// }
-
-// function dropdown4() {
-
-//     if (drop4 == false) {
-//         document.getElementById("wrapper3").setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
-//         document.getElementById("drop3").setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-//         drop4 = true;
-//     } else {
-//         document.getElementById("wrapper3").setAttribute("style","height: 17vh; opacity: 100%; transition: 0.5s ease; padding:4%");
-//         document.getElementById("drop3").setAttribute("style","transform: rotate(0deg); transition: 0.3s ease;");
-//         drop4 = false;
-//     }
-
-// }
