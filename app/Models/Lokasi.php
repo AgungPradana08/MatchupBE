@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserSparring extends Model
+class Lokasi extends Model
 {
     use HasFactory;
-    protected $table = 'usersparring';
+    protected $table = 'lokasi';
     protected $guarded = [];
 
-    public function lokasi()
+    public function usersparring()
     {
-        return $this->belongsTo(Lokasi::class);
-    }  
+        return $this->hasMany(UserSparring::class);
+    }
 }

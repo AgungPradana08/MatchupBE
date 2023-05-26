@@ -21,7 +21,8 @@ class UserSparringController extends Controller
 
     public function tambah()
     {
-        return view('user.usersparring.tambahsparringnew');
+        $usersparring = UserSparring::all();
+        return view('user.usersparring.tambahsparringnew', compact(['usersparring']));
     }
 
     public function store(Request $request)

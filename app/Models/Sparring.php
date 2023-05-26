@@ -11,8 +11,8 @@ class Sparring extends Model
     protected $table = 'sparring';
     protected $guarded = [];
 
-    public function sparringrelation()
-    {
-        return $this->belongsTo(UserSparring::class);
-    }
+    // public function sparringrelation()
+    // {
+    //     return $this->belongsTo(UserSparring::class);
+    // }
 }
