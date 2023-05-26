@@ -263,6 +263,15 @@ p {
     border-radius: 5px;
 }
 
+.description {
+    width: 100%;
+    height: 90%;
+    padding: 8px 0px 0px 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
+
 
 .form1-wrapper > .input2 {
     grid-area: olahraga;
@@ -303,7 +312,7 @@ p {
     border-radius: 5px;
 }
 
-.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > input,.form4-wrapper > .input4 > input {
+.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > select,.form4-wrapper > .input4 > input {
     width: 100%;
     height: 60%;
     padding-left: 8px;

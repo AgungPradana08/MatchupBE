@@ -40,7 +40,7 @@
     <section class="title" >
             <div class="title-container">
                 <div style="background: red;" >
-                    <input class="title-1" name="title" type="text" placeholder="Masukkan Title..."  >
+                    <input class="title-1" name="title" type="text" id="TitleInput" placeholder="Masukkan Title..."  >
 
                     @error ('title')
                         <p class="text-danger" >{{ $message }}</p>
