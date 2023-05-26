@@ -51,7 +51,7 @@
                 </div>
                 <div class="input3">
                     <p>Deskrispi</p>
-                    <input  name="deskripsi" type="text" placeholder="Input deskripsi pertandingan..." required>
+                    <textarea oninput="InputChange()" id="DesInput" class="description" name="deskripsi" type="text" placeholder="Input deskripsi pertandingan..." required></textarea>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <div id="wrapper1" class="form2-wrapper">
                 <div class="input1">
                     <p>Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput()" >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput() " >
                     <datalist id="location_list" >
                         <option value="Markas">Markass Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
@@ -83,15 +83,15 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Member</p>
-                    <input type="text" name="min_member" placeholder="min-member..." >
+                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." >
                 </div>
                 <div class="input2">
                     <p style="opacity: 0%;" >Peta</p>
-                    <input name="max_member" type="text" placeholder="max-member...">
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
                 <div class="input3">
                     <p>Akses</p>
-                    <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
+                    <select oninput="InputChange()" id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
                         <option value="">Aksesibilitas</option>
                         <option value="Terbuka">Public</option>
                         <option value="Private">Private</option>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
-                    <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>
@@ -125,7 +125,6 @@
                     <input name="harga_tiket" type="text" placeholder="Input harga/tim..." >
                 </div>
                 <div class="input3">
-                    <div class="input4">
                         <p>Lama Pertandingan</p>
                         <select class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
                             <option value="30 Menit">30 Menit</option>
@@ -134,7 +133,6 @@
                             <option value="120 Menit">120 Menit</option>
                             <option value="120+ Menit">120+ Menit</option>
                         </select>
-                    </div>
                 </div>
                 <div class="input4">
                     <p>Pukul</p>
@@ -146,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <button class="add" type="submit" name="submit" value="save">TAMBAH</button>
+        <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
     </form>
     <script src="/js/sparring.js"></script>
 </body>
