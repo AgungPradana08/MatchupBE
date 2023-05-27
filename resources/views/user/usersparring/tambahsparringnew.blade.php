@@ -36,7 +36,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input name="title" type="text" oninput="InputChange()" id="TitleInput" placeholder="Input nama pertandingan..." required >
+                    <input name="title" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="input3">
                     <p>Deskrispi</p>
-                    <textarea oninput="InputChange()" id="DesInput" class="description" name="deskripsi" type="text" placeholder="Input deskripsi pertandingan..." required></textarea>
+                    <input name="deskripsi" type="text" placeholder="Input deskripsi pertandingan...">
                 </div>
             </div>
         </div>
@@ -60,10 +60,14 @@
                 Lokasi
                 <a id="drop1" onclick="dropdown(1)" ></a>
             </div>
+           
+                
+            
             <div id="wrapper1" class="form2-wrapper">
+                
                 <div class="input1">
                     <p>Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput() " >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput()" >
                     <datalist id="location_list" >
                         <option value="Markas">Markass Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
@@ -71,9 +75,13 @@
                 </div>
                 <div class="input3">
                     <p>Peta</p>
-                    <iframe id="frame-location" src="" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{-- @foreach ($usersparring as $usersparring) --}}
+                    <iframe id="frame-location" src=""></iframe>
+                    {{-- @endforeach --}}
                 </div>
+                
             </div>
+            
         </div>
         <div class="form3">
             <div class="header">
