@@ -24,7 +24,7 @@
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                    <input style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                    <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
                 </div>
             </div>
         </div>
@@ -118,15 +118,15 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p>Tanggal</p>
-                    <input id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
+                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket" type="text" placeholder="Input harga/tim..." >
+                    <input name="harga_tiket" oninput="InputChange()" id="TanggalInput" type="text" placeholder="Input harga/tim..." >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>
-                        <select class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
@@ -136,11 +136,11 @@
                 </div>
                 <div class="input4">
                     <p>Pukul</p>
-                    <input name="waktu_pertandingan" type="time" placeholder="Input pukul pertandingan..." >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
                 </div>
                 <div class="input5">
                     <p>Informasi Tambahan</p>
-                    <input name="deskripsi_tambahan" type="text" placeholder="Input deskripsi pertandingan...">
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
                 </div>
             </div>
         </div>
