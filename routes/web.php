@@ -91,7 +91,12 @@ Route::prefix('/usertim')->group(function () {
     Route::get('/home', [UserTimController::class, 'index']);
 });
 
-Route::prefix('/login')->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
-    Route::post('/authenticate', [LoginController::class, 'authenticate']);
-});
+
+Route::get('/login', [LoginController::class, 'showlogin']);
+Route::post('/login/store', [LoginController::class, 'login']);
+
+Route::get('/register', [LoginController::class, 'showregister']);
+Route::post('/register/store', [LoginController::class, 'register']);
+Route::get('/login/logout', [LoginController::class, 'logout']);
+
+
