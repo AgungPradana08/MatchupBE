@@ -130,7 +130,7 @@
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="TanggalInput" type="text" placeholder="Input harga/tim..." >
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>

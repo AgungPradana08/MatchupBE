@@ -1,10 +1,12 @@
 var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
 let drop = [false,false,false,false];
 let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
+let seepassword = true;
 
 let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
-let savekey = ["tambahinput","olahragaselect","deskripsitextarea","lokasiinput","mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate","pukulinput","tambahandeskripsiinput"]
-let elementid = ["TitleInput","OlahragaSelect","DesInput","locationtext","MinInput","MaxInput","AksesInput","TingkatanInput","datepick","TanggalInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"]
+let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate",              "pukulinput","tambahandeskripsiinput"]
+let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"]
+
 
 
 
@@ -13,7 +15,6 @@ if ("matchup.usertambah" in localStorage) {
     for (let index = 0; index < savevar.length; index++) {
         
         savevar[index] = localStorage.getItem("matchup." + savekey[index])
-
         document.getElementById(elementid[index]).value = savevar[index];
     }
 
@@ -105,6 +106,20 @@ function dropdown(index) {
             drop[index] = false;
         }
     }
+}
+
+function passwordsee() {
+
+    let PasswordInput = document.getElementById("PasswordInput");
+
+    if (seepassword == false) {
+        PasswordInput.type = "text";
+        seepassword = true;
+    } else {
+        PasswordInput.type = "password";
+        seepassword = false;
+    }
+    console.log(seepassword);
 }
 
 function locationcheck() {  

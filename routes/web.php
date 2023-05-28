@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/newriko', function () {
-    return view('sparring.tambahsparringnew');
+    return view('register.signup');
 });
 
 Route::get('/about', function () {
