@@ -1,48 +1,69 @@
 var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
 let drop = [false,false,false,false];
-let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan;
+let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
+
+let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
+let savekey = ["tambahinput","olahragaselect","deskripsitextarea","lokasiinput","mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate","pukulinput","tambahandeskripsiinput"]
+let elementid = ["TitleInput","OlahragaSelect","DesInput","locationtext","MinInput","MaxInput","AksesInput","TingkatanInput","datepick","TanggalInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"]
+
 
 
 if ("matchup.usertambah" in localStorage) { 
-    title = localStorage.getItem("matchup.tambahinput");
-    olahraga = localStorage.getItem("matchup.olgahragaselect");
-    deskripsi = localStorage.getItem("matchup.deskripsitextarea");
-    lokasi = localStorage.getItem("matchup.lokasiinput");
-    minmember = localStorage.getItem("matchup.mininput");
-    maxmember = localStorage.getItem("matchup.maxinput");
-    akses = localStorage.getItem("matchup.aksesselect");
-    tingkatan = localStorage.getItem("matchup.tingkatanselect");
-    
 
-    document.getElementById("TitleInput").value = title;
-    document.getElementById("OlahragaSelect").value = olahraga;
-    document.getElementById("DesInput").value = deskripsi;
-    document.getElementById("locationtext").value = lokasi
-    document.getElementById("MinInput").value = minmember;
-    document.getElementById("MaxInput").value = maxmember
-    document.getElementById("AksesInput").value = akses;
-    document.getElementById("TingkatanInput").value = tingkatan
+    for (let index = 0; index < savevar.length; index++) {
+        
+        savevar[index] = localStorage.getItem("matchup." + savekey[index])
+
+        document.getElementById(elementid[index]).value = savevar[index];
+    }
+
+    // title = localStorage.getItem("matchup.tambahinput");
+    // olahraga = localStorage.getItem("matchup.olahragaselect");
+    // deskripsi = localStorage.getItem("matchup.deskripsitextarea");
+    // lokasi = localStorage.getItem("matchup.lokasiinput");
+    // minmember = localStorage.getItem("matchup.mininput");
+    // maxmember = localStorage.getItem("matchup.maxinput");
+    // akses = localStorage.getItem("matchup.aksesselect");
+    // tingkatan = localStorage.getItem("matchup.tingkatanselect");
+    
+    // document.getElementById("OlahragaSelect").value = olahraga;
+    // document.getElementById("DesInput").value = deskripsi;
+    // document.getElementById("locationtext").value = lokasi
+    // document.getElementById("MinInput").value = minmember;
+    // document.getElementById("MaxInput").value = maxmember
+    // document.getElementById("AksesInput").value = akses;
+    // document.getElementById("TingkatanInput").value = tingkatan
 
 } else {
-    localStorage.setItem("matchup.usertambah", " ");
-    localStorage.setItem("matchup.olahragaselect", " ");
-    localStorage.setItem("matchup.tambahinput", " ");
-    localStorage.setItem("matchup.deskripsitextarea", " ");
-    localStorage.setItem("matchup.lokasiinput", " ");
-    localStorage.setItem("matchup.mininput", " ");
-    localStorage.setItem("matchup.maxinput", " ");
-    localStorage.setItem("matchup.aksesselect", " ");
-    localStorage.setItem("matchup.tingakatanselect", " ");
 
-    document.getElementById("TitleInput").value = " ";
-    document.getElementById("OlahragaSelect").value = " ";
-    document.getElementById("DesInput").value = " ";
-    document.getElementById("locationtext").value = " ";
-    document.getElementById("MinInput").value = " ";
-    document.getElementById("MaxInput").value = " ";
-    document.getElementById("AksesInput").value = " ";
-    document.getElementById("TingkatanInput").value = " ";
+    localStorage.setItem("matchup.usertambah", " ");
+
+    for (let index = 0; index < savevar.length; index++) {
+        
+        localStorage.setItem("matchup." + savekey[index], " ");
+
+        document.getElementById(elementid[index]).value = " ";
+    }
+
 }
+//     localStorage.setItem("matchup.olahragaselect", " ");
+
+//     localStorage.setItem("matchup.deskripsitextarea", " ");
+//     localStorage.setItem("matchup.lokasiinput", " ");
+//     localStorage.setItem("matchup.mininput", " ");
+//     localStorage.setItem("matchup.maxinput", " ");
+//     localStorage.setItem("matchup.aksesselect", " ");
+//     localStorage.setItem("matchup.tingakatanselect", " ");
+
+//     document.getElementById("TitleInput").value = " ";
+//     document.getElementById("OlahragaSelect").value = " ";
+//     document.getElementById("DesInput").value = " ";
+//     document.getElementById("locationtext").value = " ";
+//     document.getElementById("MinInput").value = " ";
+//     document.getElementById("MaxInput").value = " ";
+//     document.getElementById("AksesInput").value = " ";
+//     document.getElementById("TingkatanInput").value = " ";
+// }
 
 
 
@@ -63,8 +84,6 @@ function previewImage() {
 document.getElementById("datepick").min = today.toString();
 
 function dropdown(index) {
-
-    console.log(drop,);
 
     if (drop[index] == false) {
         document.getElementById("wrapper" + index).setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
@@ -101,7 +120,6 @@ function locationcheck() {
         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
     } 
 
-    console.log(inputvalue)
 }
 
 function locationinput() {
@@ -125,11 +143,16 @@ function locationinput() {
 }
 
 function InputChange() {
-    localStorage.setItem("matchup.tambahinput", document.getElementById("TitleInput").value);
-    localStorage.setItem("matchup.olahragaselect", document.getElementById("OlahragaSelect").value);
-    localStorage.setItem("matchup.deskripsitextarea", document.getElementById("DesInput").value); 
-    localStorage.setItem("matchup.mininput", document.getElementById("MinInput").value);
-    localStorage.setItem("matchup.maxinput", document.getElementById("MaxInput").value); 
+
+    for (let index = 0; index < savevar.length; index++) {
+        localStorage.setItem("matchup." + savekey[index], document.getElementById(elementid[index]).value);
+    }
+
+    
+    // localStorage.setItem("matchup.olahragaselect", document.getElementById("OlahragaSelect").value);
+    // localStorage.setItem("matchup.deskripsitextarea", document.getElementById("DesInput").value); 
+    // localStorage.setItem("matchup.mininput", document.getElementById("MinInput").value);
+    // localStorage.setItem("matchup.maxinput", document.getElementById("MaxInput").value); 
 
 }
 
@@ -138,4 +161,4 @@ function RemoveSave() {
     localStorage.removeItem("matchup.usertambah")
 }
 
-locationcheck();
+locationcheck(); 
