@@ -20,7 +20,7 @@
             <a class="tentang" href="/usersparring/home">Sparring</a>
             <a class="mabar" href="/usermabar/home" >Mabar</a>
             <a class="kontak" href="/usertim/home" >Tim</a>
-            <a href="/">Logout</a>
+            <a href="/logout">Logout</a>
         </div>
     </section>
     <div class="content">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             <div class="usertitle">
-                <h3>Tyo Gemink</h3>
+                <h3>{{ Auth::user()->name }}</h3>
                 <div class="social">
                     <a class="instagram" href="#">
                         <img src="/css/img/instagram.jpg" height="25px" alt="">

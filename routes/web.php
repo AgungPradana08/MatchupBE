@@ -100,6 +100,7 @@ Route::post('/login/store', [LoginController::class, 'login']);
 
 Route::get('/register', [LoginController::class, 'showregister']);
 Route::post('/register/store', [LoginController::class, 'register']);
-Route::get('/login/logout', [LoginController::class, 'logout']);
+
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
