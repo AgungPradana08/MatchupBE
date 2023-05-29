@@ -8,6 +8,21 @@ let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput
 let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"]
 
 
+function VersusSparring() {
+    document.getElementById("teambackground1").classList.add("background-animation");
+    document.getElementById("teambackground2").classList.add("background-animation");
+    document.getElementById("awayteam").classList.add("away-animation");
+    document.getElementById("hometeam").classList.add("home-animation");
+}
+
+function DetailSparring() {
+    setTimeout(() => {
+        document.getElementById("teambackground1").classList.remove("background-animation");
+        document.getElementById("teambackground2").classList.remove("background-animation");
+        document.getElementById("awayteam").classList.remove("away-animation");
+        document.getElementById("hometeam").classList.remove("home-animation");
+    }, 600);
+}
 
 
 if ("matchup.usertambah" in localStorage) { 
