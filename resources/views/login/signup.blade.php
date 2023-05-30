@@ -49,7 +49,7 @@
                         SIGN UP
                     </button>
                 </a>
-                <a class="log" href="">Tidak Punya Akun?</a>
+                <a class="log" href="/login">Sudah Punya Akun?</a>
                 <script src="/js/sparring.js"></script>
             </div>
         </form>
