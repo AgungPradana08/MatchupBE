@@ -41,7 +41,10 @@
     
                     </div>
                     <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password..." required >
-                    <a onclick="passwordsee()" ></a>
+                    <a onclick="passwordsee()" >
+                        <div class="eye" >
+                        </div>
+                    </a>
                 </div>
                 <div class="divider"></div>
                 <a class="signup" name="submit" type="submit">

@@ -113,7 +113,7 @@
     font-size: 13px;
 }
 
-.form-eye > a {
+.form-eye > a > .eye {
     height: 50px;
     width: 50px; 
     background-image: url(img/eye.png);

@@ -34,8 +34,11 @@
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; " >
     
                     </div>
-                    <input name="password" type="password" placeholder="Masukkan Password..." required >
-                    <button></button>
+                    <input id="PasswordLog" name="password" type="password" placeholder="Masukkan Password..." required >
+                    <a onclick="passwordsee1()" >
+                        <div class="eye" >
+                        </div>
+                    </a>
                 </div>
                 <div class="form-eye">
                     
@@ -50,5 +53,6 @@
             </div>
         </form>
     </div>
+    <script src="/js/sparring.js"></script>
 </body>
 </html>

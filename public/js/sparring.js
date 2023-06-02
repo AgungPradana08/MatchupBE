@@ -2,6 +2,7 @@ var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-
 let drop = [false,false,false,false];
 let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
 let seepassword = true;
+let seelogin = true;
 
 let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
 let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate",              "pukulinput","tambahandeskripsiinput"]
@@ -136,6 +137,23 @@ function passwordsee() {
     }
     console.log(seepassword);
 }
+
+
+function passwordsee1() {
+
+    let LoginInputPassword = document.getElementById("PasswordLog");
+
+    if (seelogin == false) {
+        LoginInputPassword.type = "text";
+        seelogin = true;
+    } else {
+        LoginInputPassword.type = "password";
+        seelogin = false;
+    }
+    console.log(seelogin);
+}
+
+
 
 function locationcheck() {  
     let locationinput = document.getElementById("locationtext");
