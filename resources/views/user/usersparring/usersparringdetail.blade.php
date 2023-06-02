@@ -45,7 +45,7 @@
             </div>
             <hr>
             <div class="left2">
-                <div>Deskripsi usersparring</div>
+                <div>Deskripsi Sparring</div>
                 <span>{{$usersparring->deskripsi}}</span>
             </div>
             <hr>

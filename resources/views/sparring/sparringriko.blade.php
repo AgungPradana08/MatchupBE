@@ -89,8 +89,8 @@
         </div>
         <div id="Versus" class="container2">
             <div class="vs-background">
-                <img id="teambackground1" class="background-away" src="css/img/Riko.jpg" alt="">
-                <img id="teambackground2" class="background-home" src="css/img/pxg.png" alt="">
+                <img id="teambackground1" class="background-away" src="css/img/manchester city.png" alt="">
+                <img id="teambackground2" class="background-home" src="css/img/psg.png" alt="">
             </div>
             <div class="vs-away-home">
                 <div id="awayteam" class="vs-away"></div>
@@ -99,17 +99,17 @@
             <div class="vs-detail">
                 <div class="vs-container">
                     <div class="de-title">
-                        TITLE
+                        UEFA Champion League
                     </div>
                     <div class="de-away">
-                        <img src="css/img/Riko.jpg" class="box-icon"  alt="">
+                        <img src="css/img/pxg.png" class="box-icon"  alt="">
                         <p style="margin-top: 5%;" >name</p>
                     </div>
                     <div class="de-vs">
                         VS
                     </div>
                     <div class="de-home">
-                        <img src="css/img/pxg.png" class="box-icon"  alt="">
+                        <img src="css/img/psg.png" class="box-icon"  alt="">
                         <p style="margin-top: 5%;" >name</p>
                     </div>
                     <div class="de-button">
