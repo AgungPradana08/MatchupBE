@@ -64,9 +64,6 @@
 
 }
 
-.big-box > * {
-    /* outline: 1px solid red; */
-}
 
 .title {    
     display: flex;

@@ -62,10 +62,6 @@
             </form>
     </section>
     <section class="box-wrapper">
-        @if($usersparring->count() > 0)
-            @else
-            <p >Tidak ada hasil yang ditemukan.</p>
-        @endif
     @foreach ($usersparring as $sparring)
         <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
@@ -113,6 +109,14 @@
         @endforeach
         
     </section> 
-    <section class="white-space" ></section>   
+    <section class="no-data" >
+        @if($usersparring->count() > 0)
+        <section class="white-space" ></section>   
+        @else
+        <div class="flag-icon" ></div>
+        <p >Tidak ada hasil yang ditemukan.</p>
+    @endif
+    </section>
+
 </body>
 </html>
