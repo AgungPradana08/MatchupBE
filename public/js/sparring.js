@@ -6,8 +6,11 @@ let seelogin = true;
 
 let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
 let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate",              "pukulinput","tambahandeskripsiinput"]
-let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"]
+let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
+console.log(savevar)
+console.log(savekey)
+console.log(elementid)
 
 function VersusSparring() {
     document.getElementById("teambackground1").classList.add("background-animation");
@@ -29,6 +32,7 @@ function DetailSparring() {
 if ("matchup.usertambah" in localStorage) { 
 
     for (let index = 0; index < savevar.length; index++) {
+        console.log(index)
         
         savevar[index] = localStorage.getItem("matchup." + savekey[index])
         document.getElementById(elementid[index]).value = savevar[index];

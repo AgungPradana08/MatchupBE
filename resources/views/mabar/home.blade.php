@@ -26,18 +26,18 @@
             EVENT MABAR
         </div>
     </section>
-    <section class="sparring-search" >
+    <section class="sparring-search"  >
         <div class="input-box">
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
             
-            <input type="text" placeholder="Cari Nama Mabar..." >
+            <input id="sparring-name" onchange="InputChange()" type="text" placeholder="Cari Nama Mabar..." >
         </div>
         <div class="input-box">
             <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <select name="" id="" >
+            <select id="sparring-location" onchange="InputChange()" name="" >
                 <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
                 <option value="">ITEM 1</option>
                 <option value="">ITEM 1</option>
@@ -47,7 +47,7 @@
         <div class="input-box">
             <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <select name="" id="" >
+            <select name="" id="sparring-sport" onchange="InputChange()" >
                 <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
                 <option value="">ITEM 1</option>
                 <option value="">ITEM 1</option>
