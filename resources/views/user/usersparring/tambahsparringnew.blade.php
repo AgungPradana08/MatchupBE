@@ -33,9 +33,13 @@
                 Title
                 <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
+            <div class="input1">
+                <p>Nama Tim</p>
+                <input name="nama_tim" type="text" placeholder="Input nama tim..." >
+            </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
-                    <p>Nama</p>
+                    <p>Nama Pertandingan</p>
                     <input name="title" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">

@@ -11,8 +11,8 @@ class UserSparring extends Model
     protected $table = 'usersparring';
     protected $guarded = [];
 
-    public function lokasi()
+    public function ambilsparring()
     {
-        return $this->belongsTo(Lokasi::class);
+        return $this->belongsTo(related: Versus::class);
     }  
 }
