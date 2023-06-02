@@ -69,7 +69,7 @@
                     <p>Rincian Lokasi</p>
                     <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput()" >
                     <datalist id="location_list" >
-                        <option value="Markas">Markass Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                        <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
                     </datalist>
                 </div>

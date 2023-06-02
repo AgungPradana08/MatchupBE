@@ -99,7 +99,7 @@
             <div class="vs-detail">
                 <div class="vs-container">
                     <div class="de-title">
-                        TITLE
+                        UEFA Champion League
                     </div>
                     <div class="de-away">
                         <img src="css/img/manchester city.png" class="box-icon"  alt="">
