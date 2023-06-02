@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('usersparring', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('nama_tim_pengambil');
             $table->string('title');
+            $table->string('nama_tim');
             $table->string('image')->nullable();
             $table->string('olahraga');
             $table->string('deskripsi');

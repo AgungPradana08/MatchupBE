@@ -10,7 +10,7 @@ class UserSparringController extends Controller
     public function index()
     {   
         $usersparring = UserSparring::all();
-        return view('user.usersparring.home', compact(['usersparring'])) ;
+        return view('user.usersparring.home', compact(['usersparring']));
     }
 
     public function index2()
@@ -31,6 +31,7 @@ class UserSparringController extends Controller
 
         $this->validate($request, rules: [
             'title' => 'required',
+            'nama_tim' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png',
             'olahraga' => 'required',
             'deskripsi' => 'required',
@@ -50,6 +51,7 @@ class UserSparringController extends Controller
 
         UserSparring::create([
             'title' => $request->title,
+            'nama_tim' => $request->nama_tim,
             'image' => $image,
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
@@ -70,7 +72,9 @@ class UserSparringController extends Controller
     public function detail($id)
     {
         $usersparring = UserSparring::find($id);
-        return view('user.usersparring.usersparringdetail', compact(['usersparring']));
+        // $takesparring = UserSparring::with('ambilsparring')->get();
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring']));
+        // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
     public function edit($id)
