@@ -4,9 +4,11 @@ let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,
 let seepassword = true;
 let seelogin = true;
 
-let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
-let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate",              "pukulinput","tambahandeskripsiinput"]
-let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
+let savevar = [title          ,olahraga,       deskripsi,          lokasi        ,minmember,  maxmember, akses,        tingkatan,       tanggal,harga,  lamapertandingan,                         pukul,        deskripsitambahan]
+let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
+let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
+
+
 
 console.log(savevar)
 console.log(savekey)
@@ -61,9 +63,11 @@ if ("matchup.usertambah" in localStorage) {
 
     for (let index = 0; index < savevar.length; index++) {
         
+
         localStorage.setItem("matchup." + savekey[index], " ");
 
-        document.getElementById(elementid[index]).value = " ";
+        document.getElementById(elementid[index]).value = "Hello ";
+        console.log(index)
     }
 
 }
@@ -102,6 +106,7 @@ function previewImage() {
     }
 }
 
+console.log(today)
 document.getElementById("datepick").min = today.toString();
 
 function dropdown(index) {

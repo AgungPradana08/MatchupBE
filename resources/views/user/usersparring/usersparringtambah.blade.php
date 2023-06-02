@@ -22,7 +22,7 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/usersparring/store" method="POST" enctype="multipart/form-data">
+    <form action="/sparring/store" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="image-box" >
                 <img class="img-preview"  alt="">  
@@ -31,7 +31,7 @@
                       <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
                   
-                    <input style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                    <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
                   </div>
                 
             </div>
@@ -40,14 +40,15 @@
     <section class="title" >
             <div class="title-container">
                 <div style="background: red;" >
-                    <input class="title-1" name="title" type="text" id="TitleInput" placeholder="Masukkan Title..."  >
+                    <input class="title-1" id="TitleInput" onchange="InputChange()" name="title" type="text" placeholder="Masukkan Title..."  >
+                    
 
                     @error ('title')
                         <p class="text-danger" >{{ $message }}</p>
                     @enderror
                 </div>
 
-                <select name="olahraga" class="title2" type="text" placeholder="TWO">
+                <select name="olahraga" id="OlahragaSelect" onchange="InputChange()" class="title2" type="text" placeholder="TWO">
                     <option value="" >Pilih Olahraga...</option>
                     <option value="Sepak Bola">Sepak Bola</option>
                     <option value="Futsal">Futsal</option>
@@ -58,7 +59,7 @@
                 @error ('olahraga')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="title3" type="text" name="deskripsi" placeholder="Masukkan Deskripsi" >
+                <input class="title3" id="DesInput" onchange="InputChange()" type="text" name="deskripsi" placeholder="Masukkan Deskripsi" >
                 @error ('deskripsi')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
@@ -67,7 +68,7 @@
         <section style="margin-top: 5vh;" class="location" >
             <span style="padding: 1%;" >LOKASI</span>
             <div class="location-container">
-                <input class="title1" type="text" name="lokasi" placeholder="Rincian Lokasi Sparring..." >
+                <input class="title1" id="locationtext" onchange="InputChange()" type="text" name="lokasi" placeholder="Rincian Lokasi Sparring..." >
                 @error ('lokasi')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
@@ -79,15 +80,15 @@
         <section style="margin-top: 5vh;" class="accessibility"  >
             <span style="padding: 1%;" >AKSEBILITAS</span>
             <div class="access-container">
-                <input style="margin-left: 0.1%;"class="ac-title1" type="text" placeholder="Min-Member" name="min_member" >
+                <input style="margin-left: 0.1%;" id="MinInput" onchange="InputChange()" class="ac-title1" type="text" placeholder="Min-Member" name="min_member" >
                 @error ('min_member')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="ac-title1" type="text" placeholder="Max-member" name="max_member" >
+                <input class="ac-title1" id="MaxInput" onchange="InputChange()" type="text" placeholder="Max-member" name="max_member" >
                 @error ('max_member')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <select class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
+                <select class="ac-title2" id="AksesInput" onchange="InputChange()" type="text" placeholder="TWO" name="aksebilitas" >
                     <option value="">Terbuka/Privat</option>
                     <option value="Terbuka">Terbuka</option>
                     <option value="Private">Private</option>
@@ -95,11 +96,11 @@
                 @error ('aksebilitas')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <select class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                <select class="ac-title2" id="TingkatanInput" onchange="InputChange()" type="text" placeholder="TWO" name="tingkatan" >
                     <option value="">Pilih Tingkatan...</option>
-                    <option value="7-10">7-10 Tahun</option>
-                    <option value="10-17">10-17 Tahun</option>
-                    <option value="17-20">17-20 Tahun</option>
+                    <option value="7-10">7-10</option>
+                    <option value="10-17">10-17</option>
+                    <option value="17-20">17-20</option>
                 </select>
                 @error ('tingkatan')
                         <p class="text-danger" >{{ $message }}</p>
@@ -109,23 +110,23 @@
         <section style="margin-top: 5vh;" class="title" >
             <span style="padding: 1%;" >INFORMASI</span>
             <div class="information-container">
-                <input class="info1" id="datepick"  type="date"  placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
+                <input class="info1" id="datepick" onchange="InputChange()" type="date"  placeholder="Tanggal Pertandingan..." name="tanggal_pertandingan" >
                 @error ('tanggal_pertandingan')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="info2" type="text" placeholder="Harga Tiket..." name="harga_tiket" >
+                <input class="info2" type="text" id="HargaInput" onchange="InputChange()" placeholder="Harga Tiket..." name="harga_tiket" >
                 @error ('harga_tiket')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="info3" type="text" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
+                <input class="info3" type="text" id="LamaPertandinganSelect" onchange="InputChange()" placeholder="Lama Pertandingan..." name="lama_pertandingan" >
                 @error ('lama_pertandingan')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="info3" type="time" placeholder="Waktu Pertandingan..." name="waktu_pertandingan" >
+                <input class="info3" type="time" id="TimeSelect" onchange="InputChange()" placeholder="Waktu Pertandingan..." name="waktu_pertandingan" >
                 @error ('waktu_pertandingan')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <input class="info4" type="text" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
+                <input class="info4" type="text" id="TambahanDeskripsi" onchange="InputChange()" placeholder="Deskripsi Tambahan..." name="deskripsi_tambahan" >
             </div>
         </section>
         <section style="margin-top: 5vh;" class="add-button">
