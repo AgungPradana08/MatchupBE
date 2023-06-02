@@ -102,7 +102,7 @@
                         UEFA Champion League
                     </div>
                     <div class="de-away">
-                        <img src="css/img/manchester city.png" class="box-icon"  alt="">
+                        <img src="css/img/pxg.png" class="box-icon"  alt="">
                         <p style="margin-top: 5%;" >name</p>
                     </div>
                     <div class="de-vs">

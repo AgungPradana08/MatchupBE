@@ -32,12 +32,12 @@
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
             <form action="/sparring/search" method="GET">
-                <input type="search" name="search" placeholder="Cari Nama Sparring...">
+                <input id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
                 </div>
                 <div class="input-box">
                     <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name="" id="" >
+                    <select name=""  id="sparringlocation" onchange="InputChange()" >
                         <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
                         <option value="">ITEM 1</option>
                         <option value="">ITEM 1</option>
@@ -47,7 +47,7 @@
                 <div class="input-box">
                     <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name="olahraga" id="" >
+                    <select name="olahraga"  id="sparringsport" onchange="InputChange()" >
                         <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
                         <option value="Futsal">Futsal</option>
                         <option value="Sepak Bola">Sepak Bola</option>
@@ -62,10 +62,6 @@
             </form>
     </section>
     <section class="box-wrapper">
-        @if($usersparring->count() > 0)
-            @else
-            <p >Tidak ada hasil yang ditemukan.</p>
-        @endif
     @foreach ($usersparring as $sparring)
         <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
@@ -113,6 +109,14 @@
         @endforeach
         
     </section> 
-    <section class="white-space" ></section>   
+    <section class="no-data" >
+        @if($usersparring->count() > 0)
+        <section class="white-space" ></section>   
+        @else
+        <div class="flag-icon" ></div>
+        <p >Tidak ada hasil yang ditemukan.</p>
+    @endif
+    </section>
+    <script src="/js/searchsparring.js"></script>
 </body>
 </html>
