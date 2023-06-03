@@ -44,22 +44,6 @@ if ("matchup.usertambah" in localStorage) {
         document.getElementById(elementid[index]).value = savevar[index];
     }
 
-    // title = localStorage.getItem("matchup.tambahinput");
-    // olahraga = localStorage.getItem("matchup.olahragaselect");
-    // deskripsi = localStorage.getItem("matchup.deskripsitextarea");
-    // lokasi = localStorage.getItem("matchup.lokasiinput");
-    // minmember = localStorage.getItem("matchup.mininput");
-    // maxmember = localStorage.getItem("matchup.maxinput");
-    // akses = localStorage.getItem("matchup.aksesselect");
-    // tingkatan = localStorage.getItem("matchup.tingkatanselect");
-    
-    // document.getElementById("OlahragaSelect").value = olahraga;
-    // document.getElementById("DesInput").value = deskripsi;
-    // document.getElementById("locationtext").value = lokasi
-    // document.getElementById("MinInput").value = minmember;
-    // document.getElementById("MaxInput").value = maxmember
-    // document.getElementById("AksesInput").value = akses;
-    // document.getElementById("TingkatanInput").value = tingkatan
 
 } else {
 
@@ -70,11 +54,26 @@ if ("matchup.usertambah" in localStorage) {
 
         localStorage.setItem("matchup." + savekey[index], " ");
 
-        document.getElementById(elementid[index]).value = "Hello ";
+        document.getElementById(elementid[index]).value = " ";
         console.log(index)
     }
 
 }
+
+
+
+function RemoveSave() {
+    localStorage.removeItem("matchup.usertambah")
+}
+
+function handleBeforeUnload(event) {
+    Removesave(); // Panggil fungsi Removesave di sini
+  }
+  
+  // Daftarkan peristiwa "beforeunload"
+  window.addEventListener("beforeunload", handleBeforeUnload);
+
+
 //     localStorage.setItem("matchup.olahragaselect", " ");
 
 //     localStorage.setItem("matchup.deskripsitextarea", " ");
@@ -217,8 +216,11 @@ function InputChange() {
 }
 
 
-function RemoveSave() {
-    localStorage.removeItem("matchup.usertambah")
-}
+
+
+
+// window.addEventListener("unload", function(event) {
+//     localStorage.removeItem("matchup.usertambah")
+//   });
 
 locationcheck(); 

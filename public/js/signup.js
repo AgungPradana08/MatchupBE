@@ -1,19 +1,41 @@
 var Box1 = document.getElementById('box1');
 var Box2 = document.getElementById('box2');
+var names = document.getElementById("name")
+var emails = document.getElementById("email")
+let LoginInputPasswords = document.getElementById("PasswordInput");
 
 Box1.classList.add("appear")
 box2.classList.add("hide")
 
 function NextPage() {
-    console.log("Hello")
-    box1.classList.replace("appear","hide")
-    box2.classList.replace("hide","appear")
+    if (names.value.length > 0 && emails.value.length > 0 && LoginInputPasswords.value.length > 0) {
+        console.log("Hello")
+        box1.classList.replace("appear","hide")
+        box2.classList.replace("hide","appear")
+    }
+
+
 }
 
 function BackPage() {
     console.log("Hello")
     box1.classList.replace("hide","appear")
     box2.classList.replace("appear","hide")
+}
+
+function passwordsee() {
+    function passwordsee() {
+
+        let LoginInputPassword = document.getElementById("PasswordInput");
+    
+        if (LoginInputPassword.classList.contains("active")) {
+            LoginInputPassword.classList.remove("active");
+            LoginInputPassword.type = "password";
+          } else {
+            LoginInputPassword.classList.add("active");
+            LoginInputPassword.type = "text";
+        }
+    }
 }
 
 function previewImage() {

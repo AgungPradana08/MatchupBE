@@ -15,7 +15,7 @@
                 </button>
             </a>
         </div>
-        <form action="/register/store" method="post">
+    <form action="/register/store" method="post">
             @csrf
         <div  class="container"  >
             <div class="big-box" id="box1">
@@ -26,19 +26,19 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input  type="text" name="name" placeholder="Masukkan Username..." >
+                    <input id="name" type="text" name="name" placeholder="Masukkan Username..." required >
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input  type="email" name="email" placeholder="Masukkan Email..." >
+                    <input id="email" type="email" name="email" placeholder="Masukkan Email..." required >
                 </div>
                 <div class="form-eye">
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password..." >
+                    <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password..." required >
                     <div class="eye" onclick="passwordsee()" >
                     </div>
                 </div>
