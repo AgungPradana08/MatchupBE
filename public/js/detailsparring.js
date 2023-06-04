@@ -1,3 +1,6 @@
+
+window.location.href = "#Detail";
+
 function VersusSparring() {
     document.getElementById("teambackground1").classList.add("background-animation");
     document.getElementById("teambackground2").classList.add("background-animation");

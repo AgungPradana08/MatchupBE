@@ -37,12 +37,11 @@
                 <div class="input-box">
                     <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name=""  id="sparringlocation" onchange="InputChange()" >
-                        <option value="" disabled selected hidden>Pilih Nama Lokasi...</option>
-                        <option value="">ITEM 1</option>
-                        <option value="">ITEM 1</option>
-                        <option value="">ITEM 1</option>
-                    </select>
+                    <input id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="InputChange()" >
+                    <datalist id="location_list" >
+                        <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
+                    </datalist>
                 </div>
                 <div class="input-box">
                     <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
