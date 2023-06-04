@@ -48,16 +48,16 @@ function CancelPage() {
 
 
 
-function RemoveSave() {
-    localStorage.removeItem("matchup.usertambah")
-}
+// function RemoveSave() {
+//     localStorage.removeItem("matchup.usertambah")
+// }
 
-function handleBeforeUnload(event) {
-    localStorage.removeItem("matchup.usertambah"); // Panggil fungsi Removesave di sini
-  }
+// function handleBeforeUnload(event) {
+//     localStorage.removeItem("matchup.usertambah"); // Panggil fungsi Removesave di sini
+//   }
   
-  // Daftarkan peristiwa "beforeunload"
-  window.addEventListener("beforeunload", handleBeforeUnload);
+//   // Daftarkan peristiwa "beforeunload"
+//   window.addEventListener("beforeunload", handleBeforeUnload);
 
 
 //     localStorage.setItem("matchup.olahragaselect", " ");
@@ -122,6 +122,31 @@ function dropdown(index) {
     }
 }
 
+function locationinput() {
+    console.log("read");
+    var locationInput = document.getElementById("locationtext");
+    var frame = document.getElementById("frame-location");
+  
+    for (let index = 0; index < maps.length; index++) {
+      if (locationInput.value === maps[index].lokasi) {
+        frame.src = maps[index].embed;
+        break; // Menghentikan iterasi setelah menemukan kecocokan
+      }
+    }
+  }
+
+
+for (let index = 0; index < maps.length; index++) {
+    var locationInput = document.getElementById("location_list")
+    var newElement = document.createElement("option")
+
+    newElement.value = maps[index].lokasi
+    newElement.innerHTML = maps[index].detaillokasi
+
+    locationInput.appendChild(newElement);
+    
+}
+
 function passwordsee() {
 
     let LoginInputPassword = document.getElementById("PasswordInput");
@@ -152,40 +177,40 @@ function passwordsee1() {
 
 
 
-function locationcheck() {  
-    let locationinput = document.getElementById("locationtext");
-    let framelocation = document.getElementById("frame-location");
-    let inputvalue = locationinput.value.toString();
+// function locationcheck() {  
+//     let locationinput = document.getElementById("locationtext");
+//     let framelocation = document.getElementById("frame-location");
+//     let inputvalue = locationinput.value.toString();
 
-    if (inputvalue.toLowerCase() == "berlian") {
-        framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.9330589963215!2d110.82925937464667!3d-6.778002093218944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70db3f65bcd8ef%3A0xf406838f209d8561!2sBerlian%20Sport%20Centre!5e0!3m2!1sen!2sid!4v1684936334143!5m2!1sen!2sid";
-    }  
+//     if (inputvalue.toLowerCase() == "berlian") {
+//         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.9330589963215!2d110.82925937464667!3d-6.778002093218944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70db3f65bcd8ef%3A0xf406838f209d8561!2sBerlian%20Sport%20Centre!5e0!3m2!1sen!2sid!4v1684936334143!5m2!1sen!2sid";
+//     }  
     
-    if (inputvalue.toLowerCase() == "markas") {
-        framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
-    } 
+//     if (inputvalue.toLowerCase() == "markas") {
+//         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
+//     } 
 
-}
+// }
 
-function locationinput() {
-    let locationinput = document.getElementById("locationtext");
-    let framelocation = document.getElementById("frame-location");
-    let inputvalue = locationinput.value.toString();
+// function locationinput() {
+//     let locationinput = document.getElementById("locationtext");
+//     let framelocation = document.getElementById("frame-location");
+//     let inputvalue = locationinput.value.toString();
 
-    framelocation.setAttribute("style","transition: 0.5s ease;")
+//     framelocation.setAttribute("style","transition: 0.5s ease;")
 
 
-    if (inputvalue.toLowerCase() == "berlian") {
-        framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.9330589963215!2d110.82925937464667!3d-6.778002093218944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70db3f65bcd8ef%3A0xf406838f209d8561!2sBerlian%20Sport%20Centre!5e0!3m2!1sen!2sid!4v1684936334143!5m2!1sen!2sid";
-    }  
+//     if (inputvalue.toLowerCase() == "berlian") {
+//         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.9330589963215!2d110.82925937464667!3d-6.778002093218944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70db3f65bcd8ef%3A0xf406838f209d8561!2sBerlian%20Sport%20Centre!5e0!3m2!1sen!2sid!4v1684936334143!5m2!1sen!2sid";
+//     }  
     
-    if (inputvalue.toLowerCase() == "markas") {
-        framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
-    } 
+//     if (inputvalue.toLowerCase() == "markas") {
+//         framelocation.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.716447912291!2d110.85877227464694!3d-6.8043075931931325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c525fd6001b1%3A0xe28fff5d78f8ce5f!2sMarkass%20Sport%20Center!5e0!3m2!1sen!2sid!4v1684936417939!5m2!1sen!2sid";
+//     } 
 
-    localStorage.setItem("matchup.lokasiinput", document.getElementById("locationtext").value); 
+//     localStorage.setItem("matchup.lokasiinput", document.getElementById("locationtext").value); 
 
-}
+// }
 
 // function InputChange() {
 
@@ -203,4 +228,4 @@ function locationinput() {
 //     localStorage.removeItem("matchup.usertambah")
 //   });
 
-locationcheck(); 
+// locationcheck(); 

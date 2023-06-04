@@ -71,10 +71,10 @@
                 
                 <div class="input1">
                     <p>Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" oninput="locationinput()" >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" >
                     <datalist id="location_list" >
-                        <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
-                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
+                        {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
                     </datalist>
                 </div>
                 <div class="input3">
@@ -158,6 +158,7 @@
         </div>
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
     </form>
+    <script src="/js/mapslist.js"></script>
     <script src="/js/sparring.js"></script>
 </body>
 </html>
