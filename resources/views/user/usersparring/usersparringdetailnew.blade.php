@@ -175,6 +175,7 @@
 
         </div>
     </div>
+    <script src="/js/mapslist.js" ></script>
     <script src="/js/detailsparring.js"></script>
 </body>
 </html>
