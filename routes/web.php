@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/newriko', function () {
-    return view('sparring.sparringriko');
+    return view('user.userprofile.homenew');
 });
 
 Route::get('/about', function () {
