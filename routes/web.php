@@ -41,6 +41,7 @@ Route::get('/contact', function () {
     return view('dashboard.contact');
 });
 
+
 Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/sparring')->group(function () {
@@ -80,6 +81,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{id}',[UserSparringController::class, 'update']); 
         Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
         Route::delete('/{id}',[UserSparringController::class, 'destroy']);
+        //page versus
+        Route::get('/versus', [UserSparringController::class, 'versus']);
+        Route::post('/versus/store', [UserSparringController::class, 'versusstore']);
+        Route::put('/versus/{id}',[UserSparringController::class, 'versusedit']);
     });
 
     Route::get('/sparring/home', [UserSparringController::class, 'index2']);

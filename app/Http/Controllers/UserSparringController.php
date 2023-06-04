@@ -119,4 +119,24 @@ class UserSparringController extends Controller
 
         return view('sparring.home', compact(['usersparring']));
     }
+
+    public function versus()
+    {
+        return view('user.usersparring.versus');
+    }
+
+    public function versusstore($id, Request $request)
+    {
+        // dd($request->all());
+        $usersparrings = UserSparring::find($id);
+        $usersparrings->update($request->nama_tim_lawan);
+        return redirect('sparring.home');
+    }
+    
+    public function versusedit($id)
+    {
+        // dd($id);
+        $versus = UserSparring::find($id);
+        return view('user.usersparring.usersparringdetailnew', compact(['versus']));
+    }
 }

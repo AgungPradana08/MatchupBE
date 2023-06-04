@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('nama_tim_pengambil');
             $table->string('title');
+            $table->string('nama_tim_lawan')->nullable();
             $table->string('nama_tim');
             $table->string('image')->nullable();
             $table->string('olahraga');
