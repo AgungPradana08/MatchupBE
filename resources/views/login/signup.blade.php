@@ -26,7 +26,7 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="UsernameInput" type="text" name="username" placeholder="Masukkan username...">
+                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan username...">
                     {{-- <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required > --}}
                 </div>
                 <div class="form">
@@ -72,7 +72,7 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input  type="text" name="name" placeholder="Masukkan Nama..." >
+                    <input  type="text" name="username" placeholder="Masukkan Nama..." >
                 </div>
                 <div style="display: flex; align-items:flex-end;">
                     <button type="submit" value="save">signup</button>
