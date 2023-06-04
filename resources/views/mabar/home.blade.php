@@ -20,7 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p>Nama</p>
+            <p>nama</p>
             <img src="" alt="">
         </a>
     </section>

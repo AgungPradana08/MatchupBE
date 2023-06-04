@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserSparring;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserSparringController extends Controller
 {
@@ -13,10 +15,11 @@ class UserSparringController extends Controller
         return view('user.usersparring.home', compact(['usersparring']));
     }
 
-    public function index2()
+    public function index2(User $user)
     {   
         $usersparring = UserSparring::all();
-        return view('sparring.home', compact(['usersparring'])) ;
+        // $user = User::all();
+        return view('sparring.home', compact(['usersparring', 'user'])) ;
     }
 
     public function tambah()
