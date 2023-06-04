@@ -7,8 +7,9 @@ let seelogin = true;
 // let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
 // let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
+mapsviews()
 
-function CancelPage() {
+function locationview() {
     var targetScrollRight = (element.scrollWidth * 1);
     element.scrollRight = targetScrollRight;
 }
@@ -122,7 +123,7 @@ function dropdown(index) {
     }
 }
 
-function locationinput() {
+function mapsviews() {
     console.log("read");
     var locationInput = document.getElementById("locationtext");
     var frame = document.getElementById("frame-location");

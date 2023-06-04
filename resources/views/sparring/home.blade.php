@@ -20,7 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p>Nama</p>
+            <p style="font-size: 14px" >Nama</p>
             <img src="" alt="">
         </a>
     </section>
@@ -120,7 +120,7 @@
     @endif
     </section>
     <script src="/js/mapslist.js"></script>
-    <script src="/js/searchsparring.js"></script>
+    <script src="/js/searchhome.js"></script>
 
 </body>
 </html>
