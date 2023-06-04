@@ -104,7 +104,7 @@
                     <div class="de-away">
                         <img src="/css/img/psg.png" class="box-icon"  alt="">
                         {{-- @foreach ($takesparring as $takesparring) --}}
-                        <p style="margin-top: 5%;" >{{$usersparring->ambilsparring}}</p>
+                        <p style="margin-top: 5%;" >nama</p>
                         {{-- @endforeach --}}
                     </div>
                     <div class="de-vs">
@@ -115,7 +115,7 @@
                         <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
                     </div>
                     <div class="de-button">
-                        <a class="primary" href="">
+                        <a class="primary" href="/usersparring/versus">
                             <button>AMBIL SPARRING</button>
                         </a>
                         <a class="secondary" href="">

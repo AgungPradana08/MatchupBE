@@ -48,7 +48,7 @@
                     <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
                     <select name="olahraga"  id="sparringsport" onchange="InputChange()" >
-                        <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
+                        <option value="">Pilih Cabang Olahraga...</option>
                         <option value="Futsal">Futsal</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Badminton">Badminton</option>
