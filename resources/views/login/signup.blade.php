@@ -26,7 +26,7 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="name" type="text" name="name" placeholder="Masukkan Username..." required >
+                    <input id="name" type="text" name="username" placeholder="Masukkan Username..." required >
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
@@ -69,7 +69,7 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input  type="email" name="email" placeholder="Masukkan Nama..." >
+                    <input  type="name" name="name" placeholder="Masukkan Nama..." >
                 </div>
                 <div style="display: flex; align-items:flex-end;">
                     <a class="signup" >
