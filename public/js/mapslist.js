@@ -7,8 +7,12 @@ var maps = [
     {
         lokasi: "Berlian Sport Center Kudus",
         detaillokasi: "Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah",
-        
         embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.9330589963215!2d110.82925937464667!3d-6.778002093218944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70db3f65bcd8ef%3A0xf406838f209d8561!2sBerlian%20Sport%20Centre!5e0!3m2!1sen!2sid!4v1684936334143!5m2!1sen!2sid"
+    },
+    {
+        lokasi: "Lapangan Besito",
+        detaillokasi: "Lapangan Besito, Besito Kulon, Besito, Kudus Regency, Central Java",
+        embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.123707192925!2d110.83998217464647!3d-6.754765193241778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70dba7f7bcc9f1%3A0x94c01874f3a7ff7b!2sLapangan%20Besito!5e0!3m2!1sen!2sid!4v1685858640965!5m2!1sen!2sid"
     },
     
 ];

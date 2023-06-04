@@ -39,8 +39,8 @@
                     </div>
                     <input id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="InputChange()" >
                     <datalist id="location_list" >
-                        <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
-                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option>
+                        {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
                     </datalist>
                 </div>
                 <div class="input-box">
@@ -116,6 +116,8 @@
         <p >Tidak ada hasil yang ditemukan.</p>
     @endif
     </section>
+    <script src="/js/mapslist.js"></script>
     <script src="/js/searchsparring.js"></script>
+
 </body>
 </html>

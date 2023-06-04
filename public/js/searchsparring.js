@@ -37,3 +37,14 @@ function InputChange() {
     
 
 }
+
+for (let index = 0; index < maps.length; index++) {
+    var locationInput = document.getElementById("location_list")
+    var newElement = document.createElement("option")
+
+    newElement.value = maps[index].lokasi
+    newElement.innerHTML = maps[index].detaillokasi
+
+    locationInput.appendChild(newElement);
+    
+}
