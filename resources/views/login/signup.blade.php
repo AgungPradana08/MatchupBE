@@ -15,7 +15,7 @@
                 </button>
             </a>
         </div>
-    <form action="/register/store" method="post">
+    <form action="/register/store" method="POST" enctype="multipart/form-data">
             @csrf
         <div  class="container"  >
             <div class="big-box" id="box1">
@@ -26,7 +26,7 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="name" type="text" name="name" placeholder="Masukkan Username..." required >
+                    <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required >
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
@@ -43,9 +43,10 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items:flex-end;" >
-                    <div class="signup" onclick="NextPage()" >
+                    <button type="submit" value="save">signup</button>
+                    {{-- <div class="signup" onclick="NextPage()" >
                         Selanjutnya
-                    </div>
+                    </div> --}}
                 </div>
                 <a class="log" href="/login">Sudah Punya Akun?</a>
                 
@@ -69,10 +70,11 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input  type="email" name="email" placeholder="Masukkan Nama..." >
+                    <input  type="text" name="name" placeholder="Masukkan Nama..." >
                 </div>
                 <div style="display: flex; align-items:flex-end;">
-                    <a class="signup" >
+                    <button type="submit" value="save">signup</button>
+                    <a class="signup" type="submit" >
                         Buat Akun
                     </a>
                 </div>

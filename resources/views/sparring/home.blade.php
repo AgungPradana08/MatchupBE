@@ -14,7 +14,7 @@
             <!-- <div style="margin-left: 8%;" class="logo">
 
             </div> -->
-            <a class="sparring" style="color: #FE6B00;" href="sparringpage.html" >Sparring</a>
+            <a class="sparring" style="color: #FE6B00;" href="#" >Sparring</a>
             <a class="mabar" href="/mabar/home">Mabar</a>
             <a class="kompetisi" href="/kompetisi/home" >Kompetisi</a>
             <a class="tim" href="/tim/home" >Tim</a>

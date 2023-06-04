@@ -45,11 +45,14 @@ class LoginController extends Controller
 
     public function register(Request $request)
     {
+        // dd($request->all());
         $request->validate([
+            'username' => 'required',
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6'
         ],[
+            'username.required' => 'usename wajib diisi', 
             'name.required' => 'Name wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'silahkan masukkan email yang valid',
@@ -58,13 +61,24 @@ class LoginController extends Controller
             'password.min' => 'minimum password yang diizinkan adalah 6 karakter',
         ]);
 
-        $data = [
+        // $data = [
+        //     'image' => $request->image,
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ];
+
+        // $file_name = $request->image->getClientOriginalName();
+        // $image = $request->image->storeAs('image3', $file_name);
+
+        User::create([
+            // 'image' => $image,
             'name' => $request->name,
+            // 'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ];
-
-        User::create($data);
+        ]);
 
         $infologin = [
             'email' => $request->email,

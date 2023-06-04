@@ -1,6 +1,6 @@
 var Box1 = document.getElementById('box1');
 var Box2 = document.getElementById('box2');
-var names = document.getElementById("name")
+var names = document.getElementById("inputnama")
 var emails = document.getElementById("email")
 let LoginInputPasswords = document.getElementById("PasswordInput");
 
