@@ -16,6 +16,40 @@
     scroll-behavior: smooth;
 }
 
+.versus {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    margin: 0% 0% 5%;
+    height: 3.5vw;
+    width: 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    background-image: url(img/book\ mark.png);
+    background-size: cover;
+    z-index: 10;
+}
+
+.detail {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    margin: 0% 0% 10%;
+    height: 3.5vw;
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    background-image: url(img/book\ mark.png);
+    background-size: cover;
+    z-index: 10;
+}
+
 .navbar {
     z-index: 10;
     padding: 0px 2%;
@@ -38,11 +72,12 @@
     text-decoration: none;
     font-family: opensans-bold;
     color: black;
+    font-size: 20px;
 }
 
 .navbar > .navbar-btn {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     font-size: 12px;
     text-transform: capitalize;
     color: black;
@@ -50,6 +85,14 @@
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+.navbar > .navbar-btn > img {
+    width: 30px;
+    height: 30px;
+    object-position: center;
+    object-fit: contain;
+
 }
 
 body {
@@ -73,6 +116,16 @@ body {
     box-sizing: border-box;
     justify-content: space-between;
     /* display: none; */
+}
+
+.container1::-webkit-scrollbar {
+    width: 10px;
+    height: 10vh;
+}
+
+.container1::-webkit-scrollbar-thumb {
+    background-color: #FE6B00;
+    border-radius: 12px ;
 }
 
 .container2 {

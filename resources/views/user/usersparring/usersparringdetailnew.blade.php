@@ -10,12 +10,13 @@
 <body>
     <section class="navbar" >
         <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav" onclick="DetailSparring()" href="#Detail">Nama Sparring</a>
-        <a class="navbar-nav" onclick="VersusSparring()" href="#Versus">Versus</a>
+        <a class="navbar-nav"  >Nama Sparring</a>
+
         <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>
     <div class="wrapper">
         <div id="Detail" class="container1">
+            <a class="versus" id="versus-bookmark" onclick="VersusSparring()" href="#Versus">Versus</a>
             <div class="left-content">
                 <div class="left1">
                     <img class="left1-logo" src="{{asset ('storage/' . $usersparring->image)}}" alt="">
@@ -88,6 +89,7 @@
 
         </div>
         <div id="Versus" class="container2">
+            <a class="detail" id="detail-bookmark" onclick="detailSparring()" href="#Detail">Detail</a>
             <div class="vs-background">
                 <img id="teambackground1" class="background-away" src="/css/img/psg.png" alt="">
                 <img id="teambackground2" class="background-home" src="{{asset ('storage/' . $usersparring->image)}}" alt="">
@@ -170,8 +172,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-    <script src="/js/sparring.js"></script>
+    <script src="/js/detailsparring.js"></script>
 </body>
 </html>

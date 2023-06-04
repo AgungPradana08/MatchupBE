@@ -3,9 +3,9 @@ let drop = [false,false,false,false];
 let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
 let seelogin = true;
 
-let savevar = [title          ,olahraga,       deskripsi,          lokasi        ,minmember,  maxmember, akses,        tingkatan,       tanggal,harga,  lamapertandingan,                         pukul,        deskripsitambahan]
-let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
-let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
+// let savevar = [title          ,olahraga,       deskripsi,          lokasi        ,minmember,  maxmember, akses,        tingkatan,       tanggal,harga,  lamapertandingan,                         pukul,        deskripsitambahan]
+// let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
+// let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
 
 function CancelPage() {
@@ -14,51 +14,37 @@ function CancelPage() {
 }
 
 
-console.log(savevar)
-console.log(savekey)
-console.log(elementid)
-
-function VersusSparring() {
-    document.getElementById("teambackground1").classList.add("background-animation");
-    document.getElementById("teambackground2").classList.add("background-animation");
-    document.getElementById("awayteam").classList.add("away-animation");
-    document.getElementById("hometeam").classList.add("home-animation");
-}
-
-function DetailSparring() {
-    setTimeout(() => {
-        document.getElementById("teambackground1").classList.remove("background-animation");
-        document.getElementById("teambackground2").classList.remove("background-animation");
-        document.getElementById("awayteam").classList.remove("away-animation");
-        document.getElementById("hometeam").classList.remove("home-animation");
-    }, 600);
-}
+// console.log(savevar)
+// console.log(savekey)
+// console.log(elementid)
 
 
-if ("matchup.usertambah" in localStorage) { 
 
-    for (let index = 0; index < savevar.length; index++) {
-        console.log(index)
+
+// if ("matchup.usertambah" in localStorage) { 
+
+//     for (let index = 0; index < savevar.length; index++) {
+//         console.log(index)
         
-        savevar[index] = localStorage.getItem("matchup." + savekey[index])
-        document.getElementById(elementid[index]).value = savevar[index];
-    }
+//         savevar[index] = localStorage.getItem("matchup." + savekey[index])
+//         document.getElementById(elementid[index]).value = savevar[index];
+//     }
 
 
-} else {
+// } else {
 
-    localStorage.setItem("matchup.usertambah", " ");
+//     localStorage.setItem("matchup.usertambah", " ");
 
-    for (let index = 0; index < savevar.length; index++) {
+//     for (let index = 0; index < savevar.length; index++) {
         
 
-        localStorage.setItem("matchup." + savekey[index], " ");
+//         localStorage.setItem("matchup." + savekey[index], " ");
 
-        document.getElementById(elementid[index]).value = " ";
-        console.log(index)
-    }
+//         document.getElementById(elementid[index]).value = " ";
+//         console.log(index)
+//     }
 
-}
+// }
 
 
 
@@ -67,7 +53,7 @@ function RemoveSave() {
 }
 
 function handleBeforeUnload(event) {
-    Removesave(); // Panggil fungsi Removesave di sini
+    localStorage.removeItem("matchup.usertambah"); // Panggil fungsi Removesave di sini
   }
   
   // Daftarkan peristiwa "beforeunload"
@@ -201,19 +187,13 @@ function locationinput() {
 
 }
 
-function InputChange() {
+// function InputChange() {
 
-    for (let index = 0; index < savevar.length; index++) {
-        localStorage.setItem("matchup." + savekey[index], document.getElementById(elementid[index]).value);
-    }
+//     for (let index = 0; index < savevar.length; index++) {
+//         localStorage.setItem("matchup." + savekey[index], document.getElementById(elementid[index]).value);
+//     }
 
-    
-    // localStorage.setItem("matchup.olahragaselect", document.getElementById("OlahragaSelect").value);
-    // localStorage.setItem("matchup.deskripsitextarea", document.getElementById("DesInput").value); 
-    // localStorage.setItem("matchup.mininput", document.getElementById("MinInput").value);
-    // localStorage.setItem("matchup.maxinput", document.getElementById("MaxInput").value); 
-
-}
+// }
 
 
 
