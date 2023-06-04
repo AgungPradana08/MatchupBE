@@ -1,5 +1,7 @@
-
 window.location.href = "#Detail";
+
+
+DetectMap()
 
 function VersusSparring() {
     document.getElementById("teambackground1").classList.add("background-animation");
@@ -22,3 +24,35 @@ function detailSparring() {
 
     }, 600);
 }
+
+
+
+function DetectMap() {
+    var Target = document.getElementById("locationTarget")
+    var detail = document.getElementById("detaillokasi")
+    var mapsview = document.getElementById("MapDisplay")
+
+      
+        for (let index = 0; index < maps.length; index++) {
+          if (Target.innerHTML === maps[index].lokasi) {
+            detail.innerHTML = maps[index].detaillokasi
+            mapsview.src = maps[index].embed
+            break; // Menghentikan iterasi setelah menemukan kecocokan
+        }
+    }
+}
+
+// function DetectMap() {
+//     console.log("read");
+//     var Target = document.getElementById("locationTarget")
+//     var detail = document.getElementById("detaillokasi")
+//     var mapsview = document.getElementById("MapDisplay")
+  
+//     for (let index = 0; index < maps.length; index++) {
+//       if (Target.innerHTML === maps[index].lokasi) {
+//         console.log(index)
+//         // frame.src = maps[index].embed;
+//         break; // Menghentikan iterasi setelah menemukan kecocokan
+//       }
+//     }
+//   }

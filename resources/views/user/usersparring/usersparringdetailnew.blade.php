@@ -50,10 +50,10 @@
                 <hr>
                 <div class="left3">
                     <div>Lokasi Sparring</div>
-                    <span>Detail Lokasi</span>
-                    <div class="maps">
+                    <span id="detaillokasi" >Detail Lokasi</span>
+                    <iframe  id="MapDisplay" class="maps">
     
-                    </div>
+                    </iframe>
                 </div>
                 <section class="white-space" ></section>
             </div>
@@ -73,7 +73,7 @@
                     <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="icon">
     
                     </div>
-                    {{$usersparring->lokasi}}
+                    <span id="locationTarget" >{{$usersparring->lokasi}}</span>
                 </div>
                 <div class="line1">
                     <div style="background: url(/css/img/clock.png); background-position: center; background-size: contain;" class="icon">
@@ -175,7 +175,7 @@
 
         </div>
     </div>
-    <script src="/js/mapslist.js" ></script>
+    <script src="/js/mapslist.js"></script>
     <script src="/js/detailsparring.js"></script>
 </body>
 </html>
