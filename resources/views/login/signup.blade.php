@@ -26,7 +26,11 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
+<<<<<<< HEAD
                     <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required >
+=======
+                    <input id="name" type="text" name="username" placeholder="Masukkan Username..." required >
+>>>>>>> 9d6c3aaa5c61b264faf9c5087e641f488e9a8782
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
@@ -70,7 +74,11 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
+<<<<<<< HEAD
                     <input  type="text" name="name" placeholder="Masukkan Nama..." >
+=======
+                    <input  type="name" name="name" placeholder="Masukkan Nama..." >
+>>>>>>> 9d6c3aaa5c61b264faf9c5087e641f488e9a8782
                 </div>
                 <div style="display: flex; align-items:flex-end;">
                     <button type="submit" value="save">signup</button>
