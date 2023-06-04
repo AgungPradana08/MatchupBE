@@ -48,10 +48,12 @@ class LoginController extends Controller
     {
         // dd($request->all());
         $request->validate([
+            // 'username' => 'required',
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6'
         ],[
+            // 'username' => 'username wajib diisi', 
             'name.required' => 'Name wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'silahkan masukkan email yang valid',
@@ -60,9 +62,13 @@ class LoginController extends Controller
             'password.min' => 'minimum password yang diizinkan adalah 6 karakter',
         ]);
 
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image3', $file_name);
+
         $data = [
-            'name' => $request->name,
             'username' => $request->username,
+            'image' => $image,
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ];

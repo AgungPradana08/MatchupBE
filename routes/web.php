@@ -42,7 +42,7 @@ Route::get('/contact', function () {
 });
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/sparring')->group(function () {
         // Route::get('/home', [SparringController::class, 'index']); //home
@@ -98,7 +98,7 @@ Route::get('/contact', function () {
         Route::get('/home', [UserTimController::class, 'index']);
     });
 
-// });
+});
 
 Route::get('/login', [LoginController::class, 'showlogin'])->name('login');
 Route::post('/login/store', [LoginController::class, 'login']);
