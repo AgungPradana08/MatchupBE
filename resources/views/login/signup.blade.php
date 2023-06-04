@@ -26,7 +26,8 @@
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required >
+                    <input type="text" name="username" placeholder="Masukkan username...">
+                    {{-- <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required > --}}
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
@@ -43,14 +44,15 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items:flex-end;" >
-                    <button type="submit" value="save">signup</button>
-                    {{-- <div class="signup" onclick="NextPage()" >
+                    {{-- <button type="submit" value="save">signup</button> --}}
+                    <div class="signup" onclick="NextPage()" >
                         Selanjutnya
-                    </div> --}}
+                    </div>
                 </div>
                 <a class="log" href="/login">Sudah Punya Akun?</a>
                 
             </div>
+    
             <div class="big-box2" id="box2" >
                 <div class="title">
                     Selamat Datang
