@@ -35,7 +35,7 @@
                     </div>
                 </div>
             <div class="usertitle">
-                <h3>{{ Auth::user()->name }}</h3>
+                {{-- <h3>{{ Auth::user()->name }}</h3> --}}
                 <div class="social">
                     <a class="instagram" href="#">
                         <img src="/css/img/instagram.jpg" height="25px" alt="">

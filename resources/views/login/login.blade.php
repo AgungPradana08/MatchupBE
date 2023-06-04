@@ -44,7 +44,7 @@
                         LOG IN
                     </button>
                 </a>
-                <a class="log" href="/register">Sudah Punya Akun?</a>
+                <a class="log" href="/register">Belum Punya Akun?</a>
             </div>
         </div>
     </form>
