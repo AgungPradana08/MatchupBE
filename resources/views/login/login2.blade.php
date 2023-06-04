@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/logins.css">
 </head>
 <body>
+    <div class="container">
         <div class="navbar">
             <a href="/">
                 <button class="goback" >
@@ -15,12 +16,11 @@
                 </button>
             </a>
         </div>
-    <form action="/login/store" method="post">
-        @csrf
-        <div  class="container">
+        <form style="margin: auto;" action="/login/store" method="post">
+            @csrf
             <div class="big-box">
                 <div class="title">
-                    LOGIN
+                    LOG IN
                 </div>
                 <div class="form">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
@@ -32,22 +32,22 @@
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; " >
     
                     </div>
-                    <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password..." required>
-                    <div class="eye" onclick="passwordsee()" >
+                    <input id="PasswordLog" name="password" type="password" placeholder="Masukkan Password..." required >
+                    <div class="eye" onclick="passwordsee1()" >
                     </div>
                 </div>
-                <div class="form">
-
+                <div>
+                        
                 </div>
                 <a class="signup" name="submit" type="submit">
                     <button>
                         LOG IN
                     </button>
                 </a>
-                <a class="log" href="/register">Sudah Punya Akun?</a>
+                <a class="log" href="/register">Tidak Punya Akun?</a>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
     <script src="/js/sparring.js"></script>
 </body>
 </html>

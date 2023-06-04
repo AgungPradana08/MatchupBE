@@ -20,7 +20,7 @@
             <a class="tentang" href="/usersparring/home">Sparring</a>
             <a class="mabar" href="/usermabar/home" >Mabar</a>
             <a class="kontak" href="/usertim/home" >Tim</a>
-            <a href="/logout">Logout</a>
+            <a class="kontak"href="/logout">Logout</a>
         </div>
     </section>
     <div class="content">

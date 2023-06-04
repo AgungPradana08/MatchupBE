@@ -258,7 +258,7 @@ hr {
 
 .vs-background > * {
     height: 90vh;
-    width: 90vh;
+    width: 50vh;
     object-fit: cover;
     opacity: 20%;
 }
@@ -268,7 +268,6 @@ hr {
     object-position: right;
     object-fit: cover;
     transition: 0.5s ease;
-    border-radius:100%
     
 }
 
@@ -277,7 +276,6 @@ hr {
     object-fit: cover;
     object-position: left;
     transition: 0.5s ease;
-    border-radius:100%
 }
 
 .vs-away-home {
@@ -330,12 +328,12 @@ hr {
 }
 
 .vs-container {
-    width: 50%;
-    height: 80vh;
+    width: 40%;
+    height: 70vh;
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 1fr 3fr 1fr;
-    grid-template-areas: "title title title" "away vs home" " button button button";
+    grid-template-rows: 1fr 3fr 2fr 1.5fr;
+    grid-template-areas: "title title title" "away vs home" "detail detail detail" " button button button";
     gap: 15px;
     padding: 1%;
     box-sizing: border-box;
@@ -368,16 +366,22 @@ hr {
     grid-area: home;
 }
 
+.de-detail {
+    grid-area: detail;
+    padding: 0px 10% 0px 10% ;
+}
+
 .de-button {
     grid-area: button;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0px 10% 0px 10% ;
 }
 
 .box-icon {
-    height: 12vw;
-    width: 12vw;
+    height: 9vw;
+    width: 9vw;
     border-radius: 100%;
     object-fit: cover;
     object-position: center;
@@ -393,9 +397,14 @@ hr {
     font-size: 1.2vw;
 }
 
+
+.primary {
+    width: 100%;
+}
+
 .primary > button  {
     height: 50px;
-    width: 40vw;
+    width: 100%;
     background-color: #FE6B00;
     font-family: opensans-bold;
     border-radius: 8px;
@@ -414,6 +423,63 @@ hr {
 
 .white-space {
     height: 15vh;
+}
+
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+
+
+}
+
+td {
+    padding-left: 10px;
+    border-bottom: 2px solid #FE6B00;
+    font-size: 15px;
+}
+
+.td1 {
+    width: 30px;
+    background: url(img/price.png);
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+
+.td2 {
+    width: 30px;
+    background: url(img/calender.png);
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+
+.td3 {
+    width: 30px;
+    background: url(img/location.png);
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+
+.td4 {
+    width: 30px;
+    background: url(img/clock.png);
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+
+
+
+.tableicon {
+    display: inline-block;
+    height: 100%;
+    width: 50px;
+    background-color: green;
 }
 
 @keyframes background-left {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/tambahsparringnewnew.css">
+    <link rel="stylesheet" href="/css/detailsparringnewnew.css">
 </head>
 <body>
     <section class="navbar" >
@@ -114,12 +114,58 @@
                         <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon"  alt="">
                         <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
                     </div>
+                    <div class="de-detail">
+                        <table>
+                            <tr>
+                                <td class="td1" >
+
+                                </td>
+                                <td style="opacity: 70%" >
+
+                                    harga
+                                </td>
+                                <td>
+                                    [Detail-Harga]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td2">
+
+                                </td>
+                                <td style="opacity: 70%" >
+                                    Tanggal dan waktu
+                                </td>
+                                <td>
+                                    [Tanggal dan waktu]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td3">
+
+                                </td>
+                                <td style="opacity: 70%" >
+                                    Lokasi/Avenue
+                                </td>
+                                <td>
+                                    [Lokasi/Avenue]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td4">
+
+                                </td>
+                                <td  style="opacity: 70%"  >
+                                    Lama Permainan
+                                </td>
+                                <td>
+                                    [Lama Permainan]
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="de-button">
                         <a class="primary" href="/usersparring/versus">
                             <button>AMBIL SPARRING</button>
-                        </a>
-                        <a class="secondary" href="">
-                            <button>BTN</button>
                         </a>
                     </div>
                 </div>

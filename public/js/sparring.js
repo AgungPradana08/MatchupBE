@@ -1,12 +1,18 @@
 var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
 let drop = [false,false,false,false];
 let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
-let seepassword = true;
 let seelogin = true;
 
-let savevar = [title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan]
-let savekey = [  "tambahinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput","lamadate",              "pukulinput","tambahandeskripsiinput"]
-let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput","LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
+let savevar = [title          ,olahraga,       deskripsi,          lokasi        ,minmember,  maxmember, akses,        tingkatan,       tanggal,harga,  lamapertandingan,                         pukul,        deskripsitambahan]
+let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
+let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
+
+
+function CancelPage() {
+    var targetScrollRight = (element.scrollWidth * 1);
+    element.scrollRight = targetScrollRight;
+}
+
 
 console.log(savevar)
 console.log(savekey)
@@ -38,22 +44,6 @@ if ("matchup.usertambah" in localStorage) {
         document.getElementById(elementid[index]).value = savevar[index];
     }
 
-    // title = localStorage.getItem("matchup.tambahinput");
-    // olahraga = localStorage.getItem("matchup.olahragaselect");
-    // deskripsi = localStorage.getItem("matchup.deskripsitextarea");
-    // lokasi = localStorage.getItem("matchup.lokasiinput");
-    // minmember = localStorage.getItem("matchup.mininput");
-    // maxmember = localStorage.getItem("matchup.maxinput");
-    // akses = localStorage.getItem("matchup.aksesselect");
-    // tingkatan = localStorage.getItem("matchup.tingkatanselect");
-    
-    // document.getElementById("OlahragaSelect").value = olahraga;
-    // document.getElementById("DesInput").value = deskripsi;
-    // document.getElementById("locationtext").value = lokasi
-    // document.getElementById("MinInput").value = minmember;
-    // document.getElementById("MaxInput").value = maxmember
-    // document.getElementById("AksesInput").value = akses;
-    // document.getElementById("TingkatanInput").value = tingkatan
 
 } else {
 
@@ -61,12 +51,29 @@ if ("matchup.usertambah" in localStorage) {
 
     for (let index = 0; index < savevar.length; index++) {
         
+
         localStorage.setItem("matchup." + savekey[index], " ");
 
         document.getElementById(elementid[index]).value = " ";
+        console.log(index)
     }
 
 }
+
+
+
+function RemoveSave() {
+    localStorage.removeItem("matchup.usertambah")
+}
+
+function handleBeforeUnload(event) {
+    Removesave(); // Panggil fungsi Removesave di sini
+  }
+  
+  // Daftarkan peristiwa "beforeunload"
+  window.addEventListener("beforeunload", handleBeforeUnload);
+
+
 //     localStorage.setItem("matchup.olahragaselect", " ");
 
 //     localStorage.setItem("matchup.deskripsitextarea", " ");
@@ -102,6 +109,7 @@ function previewImage() {
     }
 }
 
+console.log(today)
 document.getElementById("datepick").min = today.toString();
 
 function dropdown(index) {
@@ -130,16 +138,15 @@ function dropdown(index) {
 
 function passwordsee() {
 
-    let PasswordInput = document.getElementById("PasswordInput");
+    let LoginInputPassword = document.getElementById("PasswordInput");
 
-    if (seepassword == false) {
-        PasswordInput.type = "text";
-        seepassword = true;
-    } else {
-        PasswordInput.type = "password";
-        seepassword = false;
+    if (LoginInputPassword.classList.contains("active")) {
+        LoginInputPassword.classList.remove("active");
+        LoginInputPassword.type = "password";
+      } else {
+        LoginInputPassword.classList.add("active");
+        LoginInputPassword.type = "text";
     }
-    console.log(seepassword);
 }
 
 
@@ -147,14 +154,14 @@ function passwordsee1() {
 
     let LoginInputPassword = document.getElementById("PasswordLog");
 
-    if (seelogin == false) {
-        LoginInputPassword.type = "text";
-        seelogin = true;
-    } else {
+    if (LoginInputPassword.classList.contains("active")) {
+        LoginInputPassword.classList.remove("active");
         LoginInputPassword.type = "password";
-        seelogin = false;
+      } else {
+        LoginInputPassword.classList.add("active");
+        LoginInputPassword.type = "text";
     }
-    console.log(seelogin);
+
 }
 
 
@@ -209,8 +216,11 @@ function InputChange() {
 }
 
 
-function RemoveSave() {
-    localStorage.removeItem("matchup.usertambah")
-}
+
+
+
+// window.addEventListener("unload", function(event) {
+//     localStorage.removeItem("matchup.usertambah")
+//   });
 
 locationcheck(); 

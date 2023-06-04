@@ -40,7 +40,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama Pertandingan</p>
-                    <input name="title" type="text" placeholder="Input nama pertandingan..." >
+                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="input3">
                     <p>Deskrispi</p>
-                    <input name="deskripsi" type="text" placeholder="Input deskripsi pertandingan...">
+                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
                 </div>
             </div>
         </div>
