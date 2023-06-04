@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <div class="navbar-left">
-            <img style="margin-left: 8%;" class="logo" src="/css/img/logo.png" alt="">
+            <img class="logo" src="/css/img/logo.png" alt="">
             <!-- <div style="margin-left: 8%;" class="logo">
 
             </div> -->
@@ -19,7 +19,10 @@
             <a class="kompetisi" href="/kompetisi/home" >Kompetisi</a>
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
-        <a class="user" style="margin-right: 4%; background-color: grey; color: white; " href="/userprofile/home"></a>
+        <a href="/userprofile/home" class="navbar-right" >
+            <p>Nama</p>
+            <img src="" alt="">
+        </a>
     </section>
     <section class="sparring-header" >
         <div class="banner" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">
@@ -32,12 +35,12 @@
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
             <form action="/sparring/search" method="GET">
-                <input id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
+                <input class="searchname" id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
                 </div>
                 <div class="input-box">
                     <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <input placeholder="Masukkan nama lokasi..." id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="InputChange()" >
+                    <input class="Searchmap" placeholder="Masukkan nama lokasi..." id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="InputChange()" >
                     <datalist id="location_list" >
                         {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
@@ -46,7 +49,7 @@
                 <div class="input-box">
                     <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
                     </div>
-                    <select name="olahraga"  id="sparringsport" onchange="InputChange()" >
+                    <select class="searchsport" name="olahraga"  id="sparringsport" onchange="InputChange()" >
                         <option value="">Pilih Cabang Olahraga...</option>
                         <option value="Futsal">Futsal</option>
                         <option value="Sepak Bola">Sepak Bola</option>

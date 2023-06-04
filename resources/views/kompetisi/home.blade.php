@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <div class="navbar-left">
-            <img style="margin-left: 8%;" class="logo" src="/css/img/logo.png" alt="">
+            <img  class="logo" src="/css/img/logo.png" alt="">
             <!-- <div style="margin-left: 8%;" class="logo">
 
             </div> -->
@@ -19,7 +19,10 @@
             <a class="kompetisi" style="color: #FE6B00;"  href="#" >Kompetisi</a>
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
-        <a class="user" style="margin-right: 4%; background-color: grey; color: white; " href="/userprofile/home"></a>
+        <a href="/userprofile/home" class="navbar-right" >
+            <p>Nama</p>
+            <img src="" alt="">
+        </a>
     </section>
     <section class="sparring-header" >
         <div class="banner" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">
