@@ -37,9 +37,12 @@
 }
 
 .navbar > a {
-    width: 32px;
-    height: 32px;
-    background: grey;
+    width: 25px;
+    height: 25px;
+    background: url(img/back\ button.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     font-size: 12px;
     text-transform: capitalize;
     color: black;

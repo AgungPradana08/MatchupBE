@@ -9,13 +9,10 @@
 </head>
 <body>
     <section class="navbar" >
-        <a href="/mabar/home">
-            <img src="/css/img/back button.png" alt="">
-        </a>
-            <p>TITLE</p>
-        <a href="#">
-            <img src="/css/img/report.png" alt="">
-        </a>
+        <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
+        <a class="navbar-nav"  >Nama Sparring</a>
+
+        <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>
     <section class="container" >
         <div class="left-content">
