@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav"  >Nama Sparring</a>
+        <a class="navbar-nav"  >{{$usersparring->title}}</a>
 
         <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>

@@ -20,7 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p style="font-size: 14px" >Nama</p>
+            <p style="font-size: 14px; font-family: opensans-bold;" >Nama</p>
             <img src="" alt="">
         </a>
     </section>
@@ -118,7 +118,7 @@
     </section> 
     <section class="no-data" >
         <div class="flag-icon" ></div>
-        <p >Tidak ada hasil yang ditemukan.</p>
+        <p style="opacity: 50%;" >Tidak ada hasil yang ditemukan.</p>
     </section>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>

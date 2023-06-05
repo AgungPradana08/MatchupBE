@@ -20,7 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p style="font-size: 14px" >Nama</p>
+            <p style="font-size: 14px; font-family: opensans-bold;" >Nama</p>
             <img src="" alt="">
         </a>
     </section>
@@ -116,7 +116,7 @@
         <section class="white-space" ></section>   
         @else
         <div class="flag-icon" ></div>
-        <p >Tidak ada hasil yang ditemukan.</p>
+        <p style="opacity: 50%;">Tidak ada hasil yang ditemukan.</p>
     @endif
     </section>
     <script src="/js/mapslist.js"></script>

@@ -20,7 +20,6 @@
             <a class="tentang" href="/usersparring/home">Sparring</a>
             <a class="mabar" href="/usermabar/home" >Mabar</a>
             <a class="kontak" href="/usertim/home" >Tim</a>
-            <a class="kontak"href="/logout">Logout</a>
         </div>
     </section>
     <div class="content">
@@ -30,7 +29,7 @@
                 <img class="img-preview"  alt="">  
                 <div class="edit-image">
                     <label for="image">
-                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
+                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/setting.jpg">
                     </label>
                   
                     <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
