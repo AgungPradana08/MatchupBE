@@ -92,7 +92,7 @@
                 </div>
                 <div class="member-bottom">
                     <div class="member1">
-                        <img class="host-logo" src="" alt="">
+                        <img class="host-logo" src="{{asset('storage/'. Auth::user()->image)}}" alt="">
                         <span style="margin-left: 5%;" >
                             <p style="font-family: opensans-bold; font-size: 1vw; " >{{ Auth::user()->username}}</p>
                             <p style="font-size: 0.8vw;">Host</p>
