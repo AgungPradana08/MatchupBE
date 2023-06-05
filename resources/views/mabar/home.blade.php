@@ -34,7 +34,7 @@
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <form action="/sparring/search" method="GET">
+            <form action="/mabar/search" method="GET">
                 <input class="searchname" id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
                 </div>
                 <div class="input-box">
@@ -60,15 +60,15 @@
                 </div>
                 <button class="search" type="submit">
                     Cari
-                </button>
+                </button>   
             </form>
     </section>
     <section class="box-wrapper">
-    @foreach ($mabar as $mabar)
+    @foreach ($usermabar as $mabar)
         <a class="box" href="/mabar/{{$mabar->id}}/mabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
              <div class="box-top">
-             <img class="box-logo" src="{{asset('storage/'. $mabar->image)}}" alt="">
+                <img class="box-logo" src="{{asset('storage/'. $mabar->image)}}" alt="">
                  <!-- <div class="box-logo">
  
                  </div> -->
@@ -110,8 +110,12 @@
     @endforeach
     </section> 
     <section class="no-data" >
+        @if($usermabar->count() > 0)
+        <section class="white-space" ></section>   
+        @else
         <div class="flag-icon" ></div>
-        <p >Tidak ada hasil yang ditemukan.</p> 
+        <p >Tidak ada hasil yang ditemukan.</p>
+    @endif
     </section> 
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
