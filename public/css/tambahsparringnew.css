@@ -56,7 +56,14 @@
 
 .content {  
     width: 100%;
-    padding: 8vh 25%;
+    padding: 8vh 25% 0px 25%;
+    box-sizing: border-box;
+
+}
+
+.content1 {  
+    width: 100%;
+    padding: 0px 25% 8vh 25%;
     box-sizing: border-box;
 
 }
@@ -180,12 +187,12 @@ p {
 
 .form1-wrapper {
     box-sizing: border-box;
-    padding: 4%;
+    padding: 2% 4% 2% 4%;
     height: 60vh;
     display: grid;
     grid-template-columns: minmax(auto, 1fr) 1fr;
-    grid-template-rows: 1fr 4fr;
-    grid-template-areas: "nama olahraga" "deskripsi deskripsi";
+    grid-template-rows: 1fr 1fr 4fr;
+    grid-template-areas: "tim tim" "nama olahraga" "deskripsi deskripsi";
     column-gap: 6%;
     row-gap: 2% ;
 
@@ -266,6 +273,19 @@ p {
     border-radius: 5px;
 }
 
+.form1-wrapper > .input0 {
+    grid-area: tim;
+    width: 100%;
+}
+
+.input0 > input {
+    width: 100%;
+    height: 60%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
 .description {
     width: 100%;
     height: 90%;
@@ -337,6 +357,12 @@ p {
     height: 8vh;
 }
 
+.delete {
+    margin-top: 5vh;
+    width: 100%;
+    height: 8vh;
+}
+
 .form4-wrapper > .input1 {
     grid-area: tanggal;
 }
@@ -359,6 +385,15 @@ p {
 
 .add {
     background-color: #FE6B00;
+    color: white;
+    font-family: opensans-bold;
+    font-size: 25px;
+    border-radius: 8px;
+    border: transparent;
+}
+
+.delete {
+    background-color: red;
     color: white;
     font-family: opensans-bold;
     font-size: 25px;
