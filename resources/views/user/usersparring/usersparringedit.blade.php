@@ -36,7 +36,7 @@
             </div>
             <div class="input1">
                 <p>Nama Tim</p>
-                <input name="nama_tim" type="text" placeholder="Input nama tim..." >
+                <input name="nama_tim" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama tim..." >
             </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
