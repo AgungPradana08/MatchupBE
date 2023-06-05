@@ -20,7 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p style="font-size: 14px" >Nama</p>
+            <p style="font-size: 14px" >{{ Auth::user()->username}}</p>
             <img src="" alt="">
         </a>
     </section>
