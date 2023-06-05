@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav"  >Nama Sparring</a>
+        <a class="navbar-nav"  >Detail Sparring</a>
 
         <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>
@@ -116,7 +116,7 @@
                         <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon"  alt="">
                         <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
                     </div>
-                    <div class="de-detail">
+                    {{-- <div class="de-detail">
                         <table>
                             <tr>
                                 <td class="td1" >
@@ -127,7 +127,7 @@
                                     harga
                                 </td>
                                 <td>
-                                    [Detail-Harga]
+                                    {{$usersparring->harga_tiket}}
                                 </td>
                             </tr>
                             <tr>
@@ -138,7 +138,7 @@
                                     Tanggal dan waktu
                                 </td>
                                 <td>
-                                    [Tanggal dan waktu]
+                                    {{$usersparring->tanggal_pertandingan}}
                                 </td>
                             </tr>
                             <tr>
@@ -149,7 +149,7 @@
                                     Lokasi/Avenue
                                 </td>
                                 <td>
-                                    [Lokasi/Avenue]
+                                    {{$usersparring->lokasi}}
                                 </td>
                             </tr>
                             <tr>
@@ -160,11 +160,11 @@
                                     Lama Permainan
                                 </td>
                                 <td>
-                                    [Lama Permainan]
+                                    {{$usersparring->lama_pertandingan}}
                                 </td>
                             </tr>
                         </table>
-                    </div>
+                    </div> --}}
                     <div class="de-button">
                         <a class="primary" href="/usersparring/versus">
                             <button>AMBIL SPARRING</button>

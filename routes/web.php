@@ -95,6 +95,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tambah', [UserMabarController::class, 'tambah']);
         Route::post('/store', [UserMabarController::class, 'store']);
         Route::get('/{id}/usermabardetail', [UserMabarController::class, 'detail']);
+        Route::get('/{id}/usermabaredit', [UserMabarController::class, 'edit']);
+        Route::put('/{id}',[UserMabarController::class, 'update']);
+        Route::delete('/{id}',[UserMabarController::class, 'destroy']);
     });
 
     Route::get('/mabar/home', [UserMabarController::class, 'index2']);

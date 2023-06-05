@@ -20,8 +20,8 @@
             <a class="tim" style="color: #FE6B00;" href="#" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p style="font-size: 14px" >Nama</p>
-            <img src="" alt="">
+            <p style="font-size: 14px" >{{ Auth::user()->username}}</p>
+            <img src="{{asset('storage/'. Auth::user()->image)}}" alt="">
         </a>
     </section>
     <section class="sparring-header" >

@@ -20,8 +20,8 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-            <p>nama</p>
-            <img src="" alt="">
+            <p>{{ Auth::user()->username}}</p>
+            <img src="{{asset('storage/'. Auth::user()->image)}}" alt="">
         </a>
     </section>
     <section class="sparring-header" >

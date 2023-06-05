@@ -24,7 +24,6 @@
         </div>
     </section>
     <div class="content">
-<<<<<<< HEAD
         <div class="content-upper">
                 <div class="add-image">
                     <div class="image-box">
@@ -47,18 +46,6 @@
                     <a class="facebook" href="#">
                         <img src="/css/img/facebook.jpg" height="25px" alt="">
                     </a>
-=======
-        <div class="background"></div>
-        <div class="profile">
-            <div class="image-box" >
-                <img class="img-preview"  alt="">  
-                <div class="edit-image">
-                    <label for="image">
-                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
-                    </label>
-                  
-                    <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
->>>>>>> c63c912971bba0a09c970f2ccb7313813bcb825d
                 </div>
             </div>
             <span class="username" >Username</span>

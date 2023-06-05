@@ -62,7 +62,7 @@
                     <div class="edit-data">
                         <a class="see-button" href="/usermabar/{{$usermabar->id}}/usermabardetail">
                         </a>
-                        <a class="edit-button" href="ubah_data.html"></a>
+                        <a class="edit-button" href="/usermabar/{{$usermabar->id}}/usermabaredit"></a>
                     </div>
                     <img class="box-logo" src="{{asset('storage/'. $usermabar->image)}}" alt="">
                     <div style="margin-left: 5%; width: 60%;" >

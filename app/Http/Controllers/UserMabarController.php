@@ -100,4 +100,25 @@ class UserMabarController extends Controller
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
+    public function edit($id)
+    {
+        // dd($id);
+        $usermabar = UserMabar::find($id);
+        return view('user.usermabar.usermabaredit', compact(['usermabar']));
+    }
+    
+    public function update($id, Request $request)
+    {
+        $usermabar = UserMabar::find($id);
+        $usermabar->update($request -> except(['_token','submit']));
+        return redirect('/usermabar/home');
+    }
+
+    public function destroy($id)
+    {
+        $usermabar = UserMabar::find($id);
+        $usermabar->delete();
+        return redirect('/usermabar/home');
+    }
+
 }
