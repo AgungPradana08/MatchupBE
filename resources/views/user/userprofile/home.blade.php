@@ -26,7 +26,7 @@
         <div class="background"></div>
         <div class="profile">
             <div class="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview" src="/css/img/kompetitif.png" alt="">  
                 <div class="edit-image">
                     <label for="image">
                       <a href="">
