@@ -29,7 +29,7 @@
                 <img class="img-preview"  alt="">  
                 <div class="edit-image">
                     <label for="image">
-                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/setting.jpg">
+                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
                   
                     <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
