@@ -20,11 +20,7 @@
             <a class="tim" href="/tim/home" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
-<<<<<<< HEAD
             <p>nama</p>
-=======
-            <p style="font-size: 14px" >Nama</p>
->>>>>>> 90911148a8ff724081eeebbb80ebfe01ac828ec2
             <img src="" alt="">
         </a>
     </section>
