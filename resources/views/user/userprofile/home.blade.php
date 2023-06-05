@@ -26,7 +26,7 @@
         <div class="background"></div>
         <div class="profile">
             <div class="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview" src="{{asset('storage/'. $pengguna->image)}}" alt="">  
                 <div class="edit-image">
                     <label for="image">
                       <a href="">
@@ -35,8 +35,8 @@
                     </label>
                 </div>
             </div>
-            <span class="username" >Username</span>
-            <span class="name" >{{ Auth::user()->name }}</span>
+            <span class="username" >{{$pengguna->username}}</span>
+            <span class="name" >{{$pengguna->name}}</span>
             <hr>
             <span class="deskripsi" >Deskripsi</span>
             <div class="social">

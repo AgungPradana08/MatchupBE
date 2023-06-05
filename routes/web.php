@@ -71,6 +71,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/userprofile')->group(function () {
         Route::get('/home', [UserProfileController::class, 'index']);
+        Route::get('/setting', [UserProfileController::class, 'edit']);
+        Route::put('/settings', [UserProfileController::class, 'update']);
     });
 
     Route::prefix('/usersparring')->group(function () {
