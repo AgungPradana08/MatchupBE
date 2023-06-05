@@ -55,12 +55,12 @@
             <div class="bio">
                 <div class="opening">
                     Bio Data
-                    <button class="icon-small" >
+                    <button class="icon-small" onclick="bio()" >
 
                     </button>
                 </div>
-                <div style="padding: 2%" >
-                    <table>
+                <div id="biocontent"  style="padding: 2%" >
+                    <table >
                         <tr>
                             <td class="bio1" >
                                 <div class="center" >
@@ -172,11 +172,11 @@
             <div class="activity">
                 <div class="opening">
                     About me
-                    <button class="icon-small" >
+                    <button class="icon-small" onclick="activity()" >
 
                     </button>
                 </div>
-                <div class="activity-wrapper">
+                <div id="accontent" class="activity-wrapper">
                     <span>
                         Tim Favorit
                     </span>
@@ -210,6 +210,7 @@
         </div>
         <div class="white-space"></div>
     </div>
-    {{-- <section class="white-space" ></section> --}}
+    <script src="/js/profile.js" ></script>
+    <section class="white-space" ></section>
 </body>
 </html>
