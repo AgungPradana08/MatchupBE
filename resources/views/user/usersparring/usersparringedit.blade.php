@@ -158,12 +158,13 @@
             </div>
         </div>
         <button class="add" type="submit" name="submit" value="save">Edit</button>
+    </form>
         <form action="/usersparring/{{$usersparring->id}}" method="POST">
             @csrf
             @method('delete')
             <input class="add" type="submit" value="Delete">
         </form>
-    </form>
+    
     <script src="/js/mapslist.js"></script>
     <script src="/js/sparring.js"></script>
 </body>
