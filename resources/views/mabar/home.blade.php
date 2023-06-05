@@ -75,7 +75,7 @@
                  <div style="margin-left: 5%; width: 60%;" >
                      <p style="font-size: 0.8vw;" >{{$mabar->olahraga}}</p>
                      <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$mabar->title}}</p>
-                    <p>Nama Host</p>
+                    <p>Host | {{ Auth::user()->username}}</p>
                  </div>
              </div>
              <div class="box-bottom">
@@ -102,7 +102,7 @@
                  <hr>
                  <div style="display: flex; justify-content: space-between; " >
                      <Span>Slot Terbatas</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >0/12</span>
+                     <span style="font-family: opensans-bold; color: #FE6B00; " >1/12</span>
                  </div>
              </div>
             </button>

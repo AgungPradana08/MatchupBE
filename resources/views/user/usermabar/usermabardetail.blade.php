@@ -9,8 +9,8 @@
 </head>
 <body>
     <section class="navbar" >
-        <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav"  >Nama Mabar</a>
+        <a class="navbar-btn" href="/mabar/home"><img src="/css/img/back button.png" alt=""></a>
+        <a class="navbar-nav"  >Detail Mabar</a>
 
         <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>
@@ -88,7 +88,7 @@
             <div class="member">
                 <div class="member-top">
                     <span style="font-size: 1.2vw; color: grey; " >Member</span>
-                    <span style="font-size: 1.2vw; color: grey; ">0</span>
+                    <span style="font-size: 1.2vw; color: grey; ">1</span>
                 </div>
                 <div class="member-bottom">
                     <div class="member1">
@@ -96,10 +96,10 @@
                             
                         </div>
                         <span style="margin-left: 5%;" >
-                            <p style="font-family: opensans-bold; font-size: 1vw; " >Tyo</p>
+                            <p style="font-family: opensans-bold; font-size: 1vw; " >{{ Auth::user()->username}}</p>
                             <p style="font-size: 0.8vw;">Host</p>
                         </span>
-                    </div>
+                    {{-- </div>
                         <div class="member1">
                         <div class="member-logo">
                             
@@ -108,7 +108,7 @@
                             <p style="font-family: opensans-bold; font-size: 1vw; " >USERNAME</p>
                             <p style="font-size: 0.8vw;">member</p>
                         </span>
-                    </div>
+                    </div> --}}
                     
                 </div>
             </div>
