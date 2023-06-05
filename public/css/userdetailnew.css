@@ -171,10 +171,33 @@ hr {
     justify-content: space-between;
 }
 
-.box {
-    height: 30px;
-    width: 30px;
-    background-color: grey;
+.social > div {
+    height: 25px;
+    width: 25px;
+    background-color: #ff8935;
+}
+
+.social > .instagram {
+    background-image: url(img/instagram.jpg);
+    background-size: contain;
+    background-position: center;
+
+}
+
+
+.social > .facebook {
+    background-image: url(img/facebook.jpg);
+    background-size: contain;
+    background-position: center;
+
+}
+
+
+.social > .whatapps {
+    background-image: url(img/whatapps.jpg);
+    background-size: contain;
+    background-position: center;
+
 }
 
 .activity {
@@ -273,8 +296,13 @@ table {
 .icon-small {
     height: 30px;
     width: 30px;
-    background-color: grey;
+    background: url("img/next-head.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     display: inline-block;
+    border: transparent;
+    cursor: pointer;
 
 }
 
