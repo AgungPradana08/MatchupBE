@@ -31,12 +31,10 @@
                     <label for="image">
                       <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                  
-                    <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
                 </div>
             </div>
             <span class="username" >Username</span>
-            <span class="name" >Name</span>
+            <span class="name" >{{ Auth::user()->name }}</span>
             <hr>
             <span class="deskripsi" >Deskripsi</span>
             <div class="social">
