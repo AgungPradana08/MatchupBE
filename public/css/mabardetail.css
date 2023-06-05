@@ -304,8 +304,8 @@ hr {
     box-sizing: border-box;
     width: 60px;
     height: 60px;
-    background-size: cover;
-    background-position: center;
+    object-fit: contain;
+    object-position: center;
     border-radius: 100%;
     
 }

@@ -24,8 +24,6 @@ function BackPage() {
 }
 
 function passwordsee() {
-    function passwordsee() {
-
         let LoginInputPassword = document.getElementById("PasswordInput");
     
         if (LoginInputPassword.classList.contains("active")) {
@@ -35,7 +33,6 @@ function passwordsee() {
             LoginInputPassword.classList.add("active");
             LoginInputPassword.type = "text";
         }
-    }
 }
 
 function previewImage() {
