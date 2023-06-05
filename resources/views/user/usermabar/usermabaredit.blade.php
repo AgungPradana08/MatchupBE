@@ -11,7 +11,7 @@
 
     <div class="navbar">
         <a href="/usermabar/home"></a>
-        <p>Ubah sparring</p>
+        <p>Ubah Mabar</p>
         <a style="visibility: hidden;" ></a>
     </div>
 
@@ -38,7 +38,7 @@
                 <p>Nama Tim</p>
                 <input name="nama_tim" value="{{$usermabar->nama_tim}}" type="text" placeholder="Input nama tim..." >
             </div> --}}
-            <div id="wrapper0" class="form1-wrapper">
+            <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
                     <p>Nama Pertandingan</p>
                     <input oninput="InputChange()" name="title" id="TitleInput" type="text" value="{{$usermabar->title}}" placeholder="Input nama pertandingan..." >
@@ -54,7 +54,7 @@
                         <option value="Renang">Renang</option>
                     </select>
                 </div>
-                <div class="input3">
+                <div class="input3-des">
                     <p>Deskrispi</p>
                     <input name="deskripsi" id="DesInput" type="text" value="{{$usermabar->deskripsi}}" placeholder="Input deskripsi pertandingan...">
                 </div>
@@ -159,10 +159,10 @@
         </div>
         <button class="add" type="submit" name="submit" value="save">Edit</button>
     </form>
-        <form action="/usermabar/{{$usermabar->id}}" method="POST">
+        <form class="content1" action="/usermabar/{{$usermabar->id}}" method="POST">
             @csrf
             @method('delete')
-            <input class="add" type="submit" value="Delete">
+            <input class="delete" type="submit" value="Delete">
         </form>
     
     <script src="/js/mapslist.js"></script>

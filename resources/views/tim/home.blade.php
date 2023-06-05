@@ -30,11 +30,11 @@
         </div>
     </section>
     <section class="sparring-search" >
-        <div class="input-box">
+        <div  class="input-box">
             <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
             <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
             </div>
-            <form action="/sparring/search" method="GET">
+            <form style="width: 100%" action="/sparring/search" method="GET">
                 <input class="searchname" id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
                 </div>
                 <div class="input-box">
