@@ -34,11 +34,11 @@
                 Title
                 <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
-            <div class="input1">
-                <p>Nama Tim</p>
-                <input name="nama_tim" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama tim..." >
-            </div>
             <div id="wrapper0" class="form1-wrapper">
+                <div class="input0">
+                    <p>Nama Tim</p>
+                    <input name="nama_tim" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama tim..." >
+                </div>
                 <div class="input1">
                     <p>Nama Pertandingan</p>
                     <input oninput="InputChange()" name="title" id="TitleInput" type="text" value="{{$usersparring->title}}" placeholder="Input nama pertandingan..." >
@@ -159,10 +159,10 @@
         </div>
         <button class="add" type="submit" name="submit" value="save">Edit</button>
     </form>
-        <form action="/usersparring/{{$usersparring->id}}" method="POST">
+        <form class="content1" action="/usersparring/{{$usersparring->id}}" method="POST">
             @csrf
             @method('delete')
-            <input class="add" type="submit" value="Delete">
+            <input class="delete" type="submit" value="Delete">
         </form>
     
     <script src="/js/mapslist.js"></script>
