@@ -72,6 +72,7 @@ class UserMabarController extends Controller
     {
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
 
         $usermabar = UserMabar::query();
 
@@ -82,10 +83,21 @@ class UserMabarController extends Controller
         if ($olahragaFilter) {
             $usermabar->where('olahraga', $olahragaFilter);
         }
+        if ($lokasiFilter) {
+            $usermabar->where('lokasi', $lokasiFilter);
+        }
 
         $usermabar = $usermabar->get();
 
         return view('mabar.home', compact(['usermabar']));
+    }
+
+    public function detail($id)
+    {
+        $usermabar = UserMabar::find($id);
+        // $takesparring = UserSparring::with('ambilsparring')->get();
+        return view('user.usermabar.usermabardetail', compact(['usermabar']));
+        // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
 }

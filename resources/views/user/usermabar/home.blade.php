@@ -60,11 +60,11 @@
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data">
-                        <a class="see-button" href="mabardetail.html">
+                        <a class="see-button" href="/usermabar/{{$usermabar->id}}/usermabardetail">
                         </a>
                         <a class="edit-button" href="ubah_data.html"></a>
                     </div>
-                    <img class="box-logo" alt="">
+                    <img class="box-logo" src="{{asset('storage/'. $usermabar->image)}}" alt="">
                     <div style="margin-left: 5%; width: 60%;" >
                         <p style="font-size: 0.8vw;" >Mabar | {{$usermabar->olahraga}}</p>
                         <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$usermabar->title}}</p>
