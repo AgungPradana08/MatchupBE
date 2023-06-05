@@ -10,16 +10,16 @@
 <body>
     <section class="navbar" >
         <div class="navbar-left">
-            <a style="background: url(/css/img/back\ button.png); background-position: center; background-repeat: no-repeat; " class="logo" href="/sparring/home">
+            <a class="logo" href="/sparring/home">
         
             </a>
             <!-- <div style="margin-left: 7%;" class="logo">
 
             </div> -->
             <a class="home" href="/userprofile/home" >Profil</a>
-            <a class="tentang" href="/usersparring/home">Sparring</a>
-            <a class="mabar" href="/usermabar/home"  >Mabar</a>
-            <a class="kontak" href="#" style="color: #FE6B00; " >Tim</a>
+            <a class="tentang" href="#">Sparring</a>
+            <a class="mabar" href="/usermabar/home" >Mabar</a>
+            <a class="kontak" href="/usertim/home" style="color: #FE6B00;"  >Tim</a>
         </div>
     </section>
     <div class="container">

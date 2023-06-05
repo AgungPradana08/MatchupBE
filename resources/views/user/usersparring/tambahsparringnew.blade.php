@@ -24,7 +24,7 @@
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                    <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                    <input   style="display: none" type="file" id="image" name="image" onchange="previewImage()">
                 </div>
             </div>
         </div>
@@ -40,11 +40,11 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama Pertandingan</p>
-                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select  id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
@@ -95,15 +95,15 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Member</p>
-                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." >
+                    <input  id="MinInput" type="text" name="min_member" placeholder="min-member..." >
                 </div>
                 <div class="input2">
                     <p style="opacity: 0%;" >Peta</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
+                    <input  id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
                 <div class="input3">
                     <p>Akses</p>
-                    <select oninput="InputChange()" id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
+                    <select  id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
                         <option value="">Aksesibilitas</option>
                         <option value="Terbuka">Public</option>
                         <option value="Private">Private</option>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
-                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>
@@ -130,15 +130,15 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p>Tanggal</p>
-                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
+                    <input  id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." >
+                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..." >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
+                        <select  id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
@@ -148,17 +148,17 @@
                 </div>
                 <div class="input4">
                     <p>Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
+                    <input  name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
                 </div>
                 <div class="input5">
                     <p>Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
+                    <textarea  class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
                 </div>
             </div>
         </div>
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
     </form>
     <script src="/js/mapslist.js"></script>
-    <script src="/js/sparring.js"></script>
+    <script src="/js/tambahsparring.js"></script>
 </body>
 </html>
