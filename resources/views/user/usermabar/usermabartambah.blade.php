@@ -157,6 +157,6 @@
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
     </form>
     <script src="/js/mapslist.js"></script>
-    <script src="/js/sparring.js"></script>
+    <script src="/js/tambah.js"></script>
 </body>
 </html>
