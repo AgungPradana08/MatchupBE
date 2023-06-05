@@ -94,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/home', [UserMabarController::class, 'index']);
         Route::get('/tambah', [UserMabarController::class, 'tambah']);
         Route::post('/store', [UserMabarController::class, 'store']);
+        Route::get('/{id}/usermabardetail', [UserMabarController::class, 'detail']);
     });
 
     Route::get('/mabar/home', [UserMabarController::class, 'index2']);

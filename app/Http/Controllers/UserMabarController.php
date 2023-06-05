@@ -88,4 +88,12 @@ class UserMabarController extends Controller
         return view('mabar.home', compact(['usermabar']));
     }
 
+    public function detail($id)
+    {
+        $usermabar = UserMabar::find($id);
+        // $takesparring = UserSparring::with('ambilsparring')->get();
+        return view('user.usermabar.usermabardetail', compact(['usermabar']));
+        // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
+    }
+
 }
