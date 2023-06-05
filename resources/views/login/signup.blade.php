@@ -75,10 +75,7 @@
                     <input  type="text" name="username" placeholder="Masukkan Nama..." >
                 </div>
                 <div style="display: flex; align-items:flex-end;">
-                    <button type="submit" value="save">signup</button>
-                    <a class="signup" type="submit" >
-                        Buat Akun
-                    </a>
+                    <button class="signup" type="submit" value="save">signup</button>
                 </div>
                 <a class="log" onclick="BackPage()" >Kembali Ke Laman Sebelumnya</a>
             </div>
