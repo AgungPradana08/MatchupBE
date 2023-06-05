@@ -92,7 +92,7 @@
                 </div>
                 <div class="member-bottom">
                     <div class="member1">
-                        <img class="host-logo" style="" src="/css/img/kompetitif.png" alt="">
+                        <img class="host-logo" style="" alt="">
                         <span style="margin-left: 5%;" >
                             <p style="font-family: opensans-bold; font-size: 1vw; " >{{ Auth::user()->username}}</p>
                             <p style="font-size: 0.8vw;">Host</p>

@@ -31,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/newriko', function () {
-    return view('user.userprofile.homeold');
+    return view('usersetting.home');
 });
 
 Route::get('/about', function () {

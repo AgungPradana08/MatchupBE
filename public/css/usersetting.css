@@ -1,0 +1,401 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* === NAVBAR === */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    z-index: 4;
+}
+
+.logo {
+    margin-left: 8%;
+    width: 25px;
+    height: 25px;
+    background: url(img/back\ button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.navbar-left {
+    width: 50%;
+    display: flex;
+    color: black;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.sign-up, .log-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+}
+
+.log-in {
+    font-family: opensans-bold;
+}
+
+.navbar-left > div >  .home, .tentang, .kontak, .mabar {
+    font-size: 12px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.mabar {
+    font-family: opensans-bold;
+}
+
+/* === CONTENT === */ 
+
+.content {  
+    width: 100%;
+    padding: 8vh 25%;
+    box-sizing: border-box;
+
+}
+
+p {  
+    font-size: 1vw;
+
+}
+
+.image-container {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-image {
+    margin-top: 5%;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: url("img/no-damage.jpg");
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.image-box-1 > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: url("img/no-damage.jpg");
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.title-1 {
+    height: 100%;
+    width: 100%;
+}
+
+
+.edit-image {
+    position: absolute;
+    margin: 0px 5px 5px 0px;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color: white;
+    border: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.img-preview {
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-box-1 {
+    object-fit: cover;
+    object-position: center;
+}
+
+.form1, .form2, .form3, .form4 {
+    margin-top: 5vh;
+    width: 100%;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.form1 {
+    position: relative;
+    z-index: 0;
+}
+
+.form2 {
+    position: relative;
+    z-index: 1;
+}
+
+.form3 {
+    position: relative;
+    z-index: 2;
+}
+
+.form4 {
+    position: relative;
+    z-index: 3;
+}
+
+.title2 > select > option {
+    width: 100%;
+    height: 30px;
+    background-color: #FFA767;
+}
+
+
+.form1-wrapper {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: minmax(auto, 1fr) 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "nama nama" "deskripsi deskripsi";
+    column-gap: 6%;
+    row-gap: 2% ;
+
+}
+
+.form2-wrapper {
+    box-sizing: border-box;
+    padding: 4% 4% 4% 4%;
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 2% ;
+
+}
+
+.form4-wrapper {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "tanggal harga lama pukul" "deskripsi-tam deskripsi-tam deskripsi-tam deskripsi-tam";
+    column-gap: 3%;
+    row-gap: 2% ;
+
+}
+
+.form3 > .form3-wrapper {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 65vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 5% ;
+
+}
+
+.form1 > .header, .form2 > .header, .form3 > .header, .form4 > .header {
+    height: 6vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFA767;
+    padding: 5%;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: opensans-bold;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.header > a {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    background-image: url(img/next-head.png);
+    background-position: center;
+    background-size: contain;
+    border: transparent;
+    cursor: pointer;
+}
+
+.form1-wrapper > .input1 {
+    grid-area: nama;
+    width: 100%;
+}
+
+.input1 > input {
+    width: 100%;
+    height: 60%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.description {
+    width: 100%;
+    height: 90%;
+    padding: 8px 0px 0px 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
+
+
+.form1-wrapper > .input2 {
+    grid-area: olahraga;
+}
+
+.input2 > select {
+    width: 100%;
+    height: 60%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form1-wrapper > .input3 {
+    grid-area: deskripsi;
+}
+
+.input3 > input {
+    width: 100%;
+    height: 90%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.input3 > iframe {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form3-wrapper > .input1 > select, .form3-wrapper > .input2 > input,.form3-wrapper > .input3 > input,.form3-wrapper > .input4 > input {
+    width: 100%;
+    height: 75%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > select,.form4-wrapper > .input4 > input {
+    width: 100%;
+    height: 60%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form4-wrapper > .input5 > input {
+    width: 100%;
+    height: 90%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.add {
+    margin-top: 5vh;
+    width: 100%;
+    height: 8vh;
+}
+
+.form4-wrapper > .input1 {
+    grid-area: tanggal;
+}
+
+.form4-wrapper > .input2 {
+    grid-area: harga;
+}
+
+.form4-wrapper > .input3 {
+    grid-area: lama;
+}
+
+.form4-wrapper > .input4 {
+    grid-area: pukul;
+}
+
+.form4-wrapper > .input5 {
+    grid-area: deskripsi-tam;
+}
+
+.add {
+    background-color: #FE6B00;
+    color: white;
+    font-family: opensans-bold;
+    font-size: 25px;
+    border-radius: 8px;
+    border: transparent;
+}
+
+.tambahaninfo {
+    width: 100%;
+    height: 90%;
+    padding: 8px 0px 0px 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
