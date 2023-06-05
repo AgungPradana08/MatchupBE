@@ -52,10 +52,10 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/mabar')->group(function () {
-        Route::get('/home', [MabarController::class, 'index']);
-        Route::get('/{id}/mabardetail', [MabarController::class, 'detail']);
-        Route::get('/tambahmabar', [MabarController::class, 'tambah']);
-        Route::post('/store', [MabarController::class, 'store']);
+        // Route::get('/home', [MabarController::class, 'index']);
+        // Route::get('/{id}/mabardetail', [MabarController::class, 'detail']);
+        // Route::get('/tambahmabar', [MabarController::class, 'tambah']);
+        // Route::post('/store', [MabarController::class, 'store']);
     });
 
     Route::prefix('/kompetisi')->group(function () {
@@ -92,7 +92,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/usermabar')->group(function () {
         Route::get('/home', [UserMabarController::class, 'index']);
+        Route::get('/tambah', [UserMabarController::class, 'tambah']);
+        Route::post('/store', [UserMabarController::class, 'store']);
     });
+
+    Route::get('/mabar/home', [UserMabarController::class, 'index2']);
+    Route::get('/mabar/search', [UserMabarController::class, 'search']);
 
     Route::prefix('/usertim')->group(function () {
         Route::get('/home', [UserTimController::class, 'index']);

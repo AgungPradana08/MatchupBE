@@ -54,6 +54,7 @@
         </button>
     </section>
     <section class="box-wrapper">
+        @foreach ($usermabar as $usermabar)
         <div class="box">
             <a href="mabardetail.html">
             <button class="box-outer" style="width: 100%; height: 100%;" >
@@ -65,8 +66,8 @@
                     </div>
                     <img class="box-logo" alt="">
                     <div style="margin-left: 5%; width: 60%;" >
-                        <p style="font-size: 0.8vw;" >Sparring | Futsal</p>
-                        <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >TITLE</p>
+                        <p style="font-size: 0.8vw;" >Mabar | {{$usermabar->olahraga}}</p>
+                        <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$usermabar->title}}</p>
                         <p>Pemilik / host</p>
                     </div>
                 </div>
@@ -76,28 +77,29 @@
                         <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                         </div>
-                        Waktu Dan Tanggal Bermain
+                        {{$usermabar->tanggal_pertandingan}}
                     </div>
                     <div class="line">
                         
                         <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                         </div>
-                        Lokasi Pertandingan
+                        {{$usermabar->lokasi}}
                     </div>
                     <div class="line">
                         <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                         </div>
-                        Biaya Pendaftaran
+                        {{$usermabar->harga_tiket}}
                     </div>
                 </div>
 
             </button>
             </a>
         </div>
+        @endforeach
     </section> 
     <section class="white-space" ></section>   
-    <a href="tambahsparring.html" class="add-sparring" >+</a>
+    <a href="/usermabar/tambah" class="add-sparring" >+</a>
 </body>
 </html>
