@@ -72,6 +72,7 @@ class UserMabarController extends Controller
     {
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
 
         $usermabar = UserMabar::query();
 
@@ -81,6 +82,9 @@ class UserMabarController extends Controller
 
         if ($olahragaFilter) {
             $usermabar->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usermabar->where('lokasi', $lokasiFilter);
         }
 
         $usermabar = $usermabar->get();

@@ -107,6 +107,7 @@ class UserSparringController extends Controller
     {
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
 
         $usersparring = UserSparring::query();
 
@@ -116,6 +117,9 @@ class UserSparringController extends Controller
 
         if ($olahragaFilter) {
             $usersparring->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usersparring->where('lokasi', $lokasiFilter);
         }
 
         $usersparring = $usersparring->get();
