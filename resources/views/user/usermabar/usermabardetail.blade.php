@@ -10,7 +10,7 @@
 <body>
     <section class="navbar" >
         <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav"  >Nama Sparring</a>
+        <a class="navbar-nav"  >Nama Mabar</a>
 
         <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
     </section>
@@ -46,12 +46,13 @@
             </div>
             <hr>
             <div class="left3">
-                <div>Lokasi Mabar</div>
-                <span>Detail Lokasi</span>
-                <div class="maps">
+                <div>Lokasi Sparring</div>
+                <span id="detaillokasi" >Detail Lokasi</span>
+                <iframe  id="MapDisplay" class="maps">
 
-                </div>
+                </iframe>
             </div>
+            <section class="white-space" ></section>
         </div>
         <div class="right-content"> 
             <div>
@@ -70,7 +71,7 @@
                 <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="icon">
 
                 </div>
-                {{$usermabar->lokasi}}
+                <span id="locationTarget" >{{$usermabar->lokasi}}</span>
             </div>
             <div class="line1">
                 <div style="background: url(/css/img/clock.png); background-position: center; background-size: contain;" class="icon">
@@ -114,5 +115,24 @@
         </div>
     </section>
     <section class="white-space" ></section> 
+    <script src="/js/mapslist.js"></script>
+    <script>
+        DetectMap()
+
+        function DetectMap() {
+            var Target = document.getElementById("locationTarget")
+            var detail = document.getElementById("detaillokasi")
+            var mapsview = document.getElementById("MapDisplay")
+
+            
+                for (let index = 0; index < maps.length; index++) {
+                if (Target.innerHTML === maps[index].lokasi) {
+                    detail.innerHTML = maps[index].detaillokasi
+                    mapsview.src = maps[index].embed
+                    break; // Menghentikan iterasi setelah menemukan kecocokan
+                }
+            }
+        }
+    </script>
 </body>
 </html>

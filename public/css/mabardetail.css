@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     margin: 0px;
     padding: 0px;
 }
@@ -158,6 +158,8 @@ hr {
 .left3 {
     padding-top: 30px;
     height: 70vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .left3 > div {
@@ -172,6 +174,7 @@ hr {
 }
 
 .maps {
+    margin-top: 1%;
     height: 90%;
     background-color: grey;
 }
