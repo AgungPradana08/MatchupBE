@@ -29,7 +29,7 @@
                 <img class="img-preview" src="{{asset('storage/'. $pengguna->image)}}" alt="">  
                 <div class="edit-image">
                     <label for="image">
-                      <a href="">
+                      <a href="/userprofile/setting">
                         <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/setting.jpg">
                       </a>
                     </label>

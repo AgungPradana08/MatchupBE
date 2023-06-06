@@ -16,7 +16,6 @@
             </div> -->
             <a class="sparring"  href="/sparring/home" >Sparring</a>
             <a class="mabar" href="/mabar/home">Mabar</a>
-            <a class="kompetisi" href="/kompetisi/home" >Kompetisi</a>
             <a class="tim" style="color: #FE6B00;" href="#" >Tim</a>
         </div>
         <a href="/userprofile/home" class="navbar-right" >
