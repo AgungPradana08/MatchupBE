@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserSparring;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserSparringController extends Controller
 {
@@ -90,10 +91,8 @@ class UserSparringController extends Controller
     public function update($id, Request $request)
     {
         $usersparring = UserSparring::find($id);
-        $usersparring->update($request -> except(['_token','submit']));
+        $usersparring->update($request -> except(['_token','submit',]));
         return redirect('/usersparring/home');
-
-        
     }
 
     public function destroy($id)
