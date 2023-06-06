@@ -160,5 +160,6 @@
     </form>
     <script src="/js/mapslist.js"></script>
     <script src="/js/tambah.js"></script>
+    <script src="/js/sparring.js"></script>
 </body>
 </html>

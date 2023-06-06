@@ -11,7 +11,7 @@
 
     <div class="navbar">
         <a href="/usermabar/home"></a>
-        <p>Tambah sparring</p>
+        <p>Tambah Mabar</p>
         <a style="visibility: hidden;" ></a>
     </div>
 
@@ -35,7 +35,7 @@
             </div>
             <div class="input1">
             </div>
-            <div id="wrapper0" class="form1-wrapper">
+            <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
                     <p>Nama Pertandingan</p>
                     <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
@@ -51,7 +51,7 @@
                         <option value="Renang">Renang</option>
                     </select>
                 </div>
-                <div class="input3">
+                <div class="input3-des">
                     <p>Deskrispi</p>
                     <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
                 </div>
@@ -136,12 +136,12 @@
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
-                            <option value="30 Menit">30 Menit</option>
-                            <option value="60 Menit">60 Menit</option>
-                            <option value="90 Menit">90 Menit</option>
-                            <option value="120 Menit">120 Menit</option>
-                            <option value="120+ Menit">120+ Menit</option>
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price() >
+                            <option value="1">30 Menit</option>
+                            <option value="1">60 Menit</option>
+                            <option value="2">90 Menit</option>
+                            <option value="2">120 Menit</option>
+                            <option value="3">120+ Menit</option>
                         </select>
                 </div>
                 <div class="input4">
@@ -155,8 +155,12 @@
             </div>
         </div>
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
+        <div class="white-space">
+
+        </div>
     </form>
     <script src="/js/mapslist.js"></script>
     <script src="/js/tambah.js"></script>
+    <script src="/js/sparring.js"></script>
 </body>
 </html>

@@ -63,7 +63,7 @@
     <section class="about3" >
         <div class="about3-image" >
             <div class="text-button" >
-                <a href=""><button class="instagram" >
+                <a href="https://www.instagram.com/matchup_indonesia/?igshid=NGExMmI2YTkyZg%3D%3D"><button class="instagram" >
                     
                 </button></a>
                 <a href=""><button class="facebook" >
@@ -97,13 +97,13 @@
             <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Riko.jpg); background-size: cover; background-position: center; " >
                 <span>RIKO ADITYA ZAKI</span>
                 <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px;" >
-                    <a href="">
+                    <a href="https://www.instagram.com/_radityaz_/">
                         <img src="css/img/instagram-white.png" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://web.facebook.com/riko.adityazaki">
                         <img src="css/img/facebook-white.png" alt="">
                     </a>
-                    <a  href="">
+                    <a  href="https://api.whatsapp.com/send/?phone=%2B6289668145090&text&type=phone_number&app_absent=0">
                         <img src="css/img/whatapps-white.png" alt="">
                     </a>
                 </div>
@@ -112,13 +112,10 @@
             <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Agung.jpg); background-size: cover; background-position: center; ">
                 <span>RIZQI AGUNG PRADANA</span>
                 <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px; " >
-                    <a href="">
+                    <a href="https://www.instagram.com/izunnaaa_/">
                         <img src="css/img/instagram-white.png" alt="">
                     </a>
-                    <a href="">
-                        <img src="css/img/facebook-white.png" alt="">
-                    </a>
-                    <a  href="">
+                    <a  href="https://api.whatsapp.com/send/?phone=%2B6288238084456&text&type=phone_number&app_absent=0">
                         <img src="css/img/whatapps-white.png" alt="">
                     </a>
                 </div>
@@ -126,13 +123,13 @@
             <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Tyo.jpg); background-size: cover; background-position: center; ">
                 <span>Maulana Riky Adityo Afristianto</span>
                 <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px; " >
-                    <a href="">
+                    <a href="https://www.instagram.com/__tyotyo/?igshid=MzRlODBiNWFlZA%3D%3D">
                         <img src="css/img/instagram-white.png" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://www.facebook.com/dritz.anoli?mibextid=ZbWKwL">
                         <img src="css/img/facebook-white.png" alt="">
                     </a>
-                    <a  href="">
+                    <a  href="https://api.whatsapp.com/send/?phone=%2B6282231815579&text&type=phone_number&app_absent=0">
                         <img src="css/img/whatapps-white.png" alt="">
                     </a>
                 </div>

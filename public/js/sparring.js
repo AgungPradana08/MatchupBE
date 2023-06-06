@@ -123,30 +123,30 @@ function dropdown(index) {
     }
 }
 
-function mapsviews() {
-    console.log("read");
-    var locationInput = document.getElementById("locationtext");
-    var frame = document.getElementById("frame-location");
+// function mapsviews() {
+//     console.log("read");
+//     var locationInput = document.getElementById("locationtext");
+//     var frame = document.getElementById("frame-location");
   
-    for (let index = 0; index < maps.length; index++) {
-      if (locationInput.value === maps[index].lokasi) {
-        frame.src = maps[index].embed;
-        break; // Menghentikan iterasi setelah menemukan kecocokan
-      }
-    }
-  }
+//     for (let index = 0; index < maps.length; index++) {
+//       if (locationInput.value === maps[index].lokasi) {
+//         frame.src = maps[index].embed;
+//         break; // Menghentikan iterasi setelah menemukan kecocokan
+//       }
+//     }
+//   }
 
 
-for (let index = 0; index < maps.length; index++) {
-    var locationInput = document.getElementById("location_list")
-    var newElement = document.createElement("option")
+// for (let index = 0; index < maps.length; index++) {
+//     var locationInput = document.getElementById("location_list")
+//     var newElement = document.createElement("option")
 
-    newElement.value = maps[index].lokasi
-    newElement.innerHTML = maps[index].detaillokasi
+//     newElement.value = maps[index].lokasi
+//     newElement.innerHTML = maps[index].detaillokasi
 
-    locationInput.appendChild(newElement);
+//     locationInput.appendChild(newElement);
     
-}
+// }
 
 function passwordsee() {
 

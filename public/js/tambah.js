@@ -21,9 +21,21 @@ function locationinput() {
     for (let index = 0; index < maps.length; index++) {
       if (locationInput.value === maps[index].lokasi) {
         frame.src = maps[index].embed;
+        mapsindex = index
+        Price()
         break; // Menghentikan iterasi setelah menemukan kecocokan
       }
     }
+  }
+
+  var mapsindex;
+
+  function Price(i) {
+    var priceselect = document.getElementById("LamaPertandinganSelect");
+    var priceinput = document.getElementById("HargaInput")
+    var hargatiket = maps[mapsindex].harga
+    priceinput.value = priceselect.value * hargatiket
+    console.log(priceselect.value * hargatiket)
   }
 
 
@@ -39,7 +51,3 @@ for (let index = 0; index < maps.length; index++) {
 }
 
 
-function Price() {
-  var priceselect = document.getElementById("LamaPertandinganSelect");
-  console.log(priceselect.value)
-}
