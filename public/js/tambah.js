@@ -37,3 +37,9 @@ for (let index = 0; index < maps.length; index++) {
     locationInput.appendChild(newElement);
     
 }
+
+
+function Price() {
+  var priceselect = document.getElementById("LamaPertandinganSelect");
+  console.log(priceselect.value)
+}
