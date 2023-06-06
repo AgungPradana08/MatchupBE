@@ -17,7 +17,7 @@
 
             </div> -->
             <a class="home" href="/userprofile/home" >Profil</a>
-            <a class="tentang" href="#">Sparring</a>
+            <a class="tentang" href="/usersparring/home">Sparring</a>
             <a class="mabar" href="/usermabar/home" >Mabar</a>
             <a class="kontak" href="/usertim/home" style="color: #FE6B00;"  >Tim</a>
         </div>
@@ -28,31 +28,34 @@
                 <!-- <img class="icon-box" src="css/img/search.png" alt=""> -->
                 <div style="background: url(/css/img/search.png); background-position: center; background-size: contain;" class="icon-box">
                 </div>
-                <input type="text" placeholder="Cari Nama Sparring..." >
-            </div>
-            <div class="input-box">
-                <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
-                </div>
-                <select name="" id="" >
-                    <option value="" disabled selected hidden>Pilih Lokasi Olahraga</option>
-                    <option value="">ITEM 1</option>
-                    <option value="">ITEM 1</option>
-                    <option value="">ITEM 1</option>
-                </select>
-            </div>
-            <div class="input-box">
-                <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
-                </div>
-                <select name="" id="" >
-                    <option value="" disabled selected hidden>Pilih Cabang Olahraga...</option>
-                    <option value="">ITEM 1</option>
-                    <option value="">ITEM 1</option>
-                    <option value="">ITEM 1</option>
-                </select>
-            </div>
-            <button class="search" >
-                Cari
-            </button>
+                <form action="/sparring/search" method="GET">
+                    <input class="searchname" id="sparringname" type="search" name="search" onchange="InputChange()" placeholder="Cari Nama Sparring...">
+                    </div>
+                    <div class="input-box">
+                        <div style="background: url(/css/img/location.png); background-position: center; background-size: contain;" class="icon-box">
+                        </div>
+                        <input class="Searchmap" placeholder="Masukkan nama lokasi..." id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="InputChange()" >
+                        <datalist id="location_list" >
+                            {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
+                            <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
+                        </datalist>
+                    </div>
+                    <div class="input-box">
+                        <div style="background: url(/css/img/keyword.png); background-position: center; background-size: contain;" class="icon-box">
+                        </div>
+                        <select class="searchsport" name="olahraga"  id="sparringsport" onchange="InputChange()" >
+                            <option value="">Pilih Cabang Olahraga...</option>
+                            <option value="Futsal">Futsal</option>
+                            <option value="Sepak Bola">Sepak Bola</option>
+                            <option value="Badminton">Badminton</option>
+                            <option value="Ping Pong">Ping Pong</option>
+                            <option value="Renang">Renang</option>
+                        </select>
+                    </div>
+                    <button class="search" type="submit">
+                        Cari
+                    </button>
+                </form>
         </section>
         <section class="box-wrapper">
             <div class="box" >
@@ -96,6 +99,8 @@
         </section> 
         <section class="white-space" ></section>
         <a href="tambahsparring.html" class="add-sparring" >+</a> 
+        <script src="/js/mapslist.js"></script>
+        <script src="/js/searchhome.js"></script>
             
     </div>
 </body>

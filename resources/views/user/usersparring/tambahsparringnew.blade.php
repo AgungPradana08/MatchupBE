@@ -33,11 +33,11 @@
                 Title
                 <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
-            <div class="input1">
-                <p>Nama Tim</p>
-                <input name="nama_tim" type="text" placeholder="Input nama tim..." required >
-            </div>
             <div id="wrapper0" class="form1-wrapper">
+                <div class="input0">
+                    <p>Nama Tim</p>
+                    <input name="nama_tim" type="text" placeholder="Input nama tim..." required >
+                </div>
                 <div class="input1">
                     <p>Nama Pertandingan</p>
                     <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
@@ -138,12 +138,12 @@
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>
-                        <select  id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" >
-                            <option value="30 Menit">30 Menit</option>
-                            <option value="60 Menit">60 Menit</option>
-                            <option value="90 Menit">90 Menit</option>
-                            <option value="120 Menit">120 Menit</option>
-                            <option value="120+ Menit">120+ Menit</option>
+                        <select  id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price()" >
+                            <option value="1">30 Menit</option>
+                            <option value="1">60 Menit</option>
+                            <option value="2">90 Menit</option>
+                            <option value="2">120 Menit</option>
+                            <option value="3">120+ Menit</option>
                         </select>
                 </div>
                 <div class="input4">
@@ -159,6 +159,6 @@
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
     </form>
     <script src="/js/mapslist.js"></script>
-    <script src="/js/tambahsparring.js"></script>
+    <script src="/js/tambah.js"></script>
 </body>
 </html>

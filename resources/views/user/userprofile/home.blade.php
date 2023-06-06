@@ -63,7 +63,7 @@
                         <tr>
                             <td class="bio1" >
                                 <div class="center" >
-                                    <div class="icon"></div>
+                                    <div class="icon" style="background: url(/css/img/gender.png); background-size:contain;"></div>
                                 </div>
                             </td>
                             <td>
@@ -76,7 +76,7 @@
                         <tr>
                             <td class="bio1">
                                 <div class="center" >
-                                    <div class="icon"></div>
+                                    <div class="icon" style="background: url(/css/img/age.png); background-size:contain;"></div>
                                 </div>
                             </td>
                             <td>
@@ -89,7 +89,7 @@
                         <tr>
                             <td class="bio1">
                                 <div class="center" >
-                                    <div class="icon"></div>
+                                    <div class="icon" style="background: url(/css/img/weight.png); background-size:contain;" ></div>
                                 </div>
                             </td>
                             <td>
@@ -102,7 +102,7 @@
                         <tr>
                             <td class="bio1">
                                 <div class="center" >
-                                    <div class="icon"></div>
+                                    <div class="icon" style="background: url(/css/img/height.png); background-size:contain;"></div>
                                 </div>
                             </td>
                             <td>
@@ -170,7 +170,7 @@
             </div>
             <div class="activity">
                 <div class="opening">
-                    About me
+                    Tentang Aku
                     <button id="acnext" class="icon-small" onclick="activity()" >
 
                     </button>
@@ -180,7 +180,7 @@
                         Tim Favorit
                     </span>
                     <span>
-                        <div class="icon-big"></div>
+                        <img class="icon-big" src="/css/img/bola icon.png" alt="">
                     </span>
                     <span>
                         <a href="">Info Lengkap</a>
@@ -190,7 +190,7 @@
                         Olahraga
                     </span>
                     <span>
-                        <div class="icon-big"></div>
+                       <img class="icon-big" src="/css/img/juventus 2.png" alt="">
                     </span>
                     <span>
                         <a href="">Info Lengkap</a>

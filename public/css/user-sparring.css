@@ -118,11 +118,6 @@ body {
 
 }
 
-.input-box > input, select {
-    border-radius: 10px;
-    border: 2px solid grey;
-}
-
 .icon-box {
     width: 25px;
     height: 25px;
@@ -148,7 +143,36 @@ body {
     border-radius: 10px;
 }
 
-input, option {
+.searchname, .Searchmap, .searchsport {
+    border-radius: 10px;
+    border: 2px solid #FE6B00;
+    outline: transparent;
+    transition: 0.3s ease;
+}
+
+.searchname:focus, .Searchmap:focus, .searchsport:focus {
+    border-radius: 10px;
+    border: 4px solid #FE6B00;
+    transition: 0.3s ease;
+}
+
+form {
+    width: 100%;
+}
+
+input{
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+}
+
+input{
+    width: 100%;
+    height: 50px;
+    padding-left: 50px;
+}
+
+option{
     width: 100%;
     height: 45px;
     padding-left: 50px;
@@ -160,9 +184,6 @@ select {
     padding-left: 50px;
 }
 
-option {
-    height: 500px;
-}
 
 /* === CONTAINER === */
 

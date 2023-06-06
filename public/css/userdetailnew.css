@@ -321,9 +321,13 @@ table {
 .icon-big {
     height: 80px;
     width: 80px;
-    background-color: grey;
     display: inline-block;
     margin-right: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: contain;
+    object-position: center;
 
 }
 
@@ -378,7 +382,7 @@ table {
 }
 
 .white-space {
-    height:5vh;
+    height:10vh;
 }
 
 .hide {
