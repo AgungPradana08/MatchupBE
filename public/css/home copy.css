@@ -19,7 +19,7 @@
 
 .navbar {
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
     height: 50px;
     position: fixed;
     display: flex;
@@ -366,9 +366,5 @@ th {
 } */
 
 
-@media screen and (max-width: 768px) {
-    .navbar {
-      width: 50%; /* Lebar saat ukuran layar <= 768px */
-    }
-  }
+
 
