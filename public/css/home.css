@@ -1,374 +1,741 @@
 @font-face {
     font-family: opensans;
-    src: url(Font/OpenSans-Regular.ttf);
+    src: url(font/OpenSans-Regular.ttf);
 }
 
 @font-face {
     font-family: opensans-bold;
-    src: url(Font/OpenSans-Bold.ttf);
+    src: url(font/OpenSans-Bold.ttf);
 }
 
 * {
-    font-family: opensans;
     /* outline: 1px solid red; */
-    margin: 0px;
-    padding: 0px;
 }
 
-/* === NAVBAR === */
+/* NAVBAR */
 
-.navbar {
-    box-sizing: border-box;
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    
+
+.nav-item {
+    font-size: 13px;
+    width: 100px;
+    text-align: center;
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
+    height: 5vh;
+    width: 5vh;
+    background-color: grey;
 }
 
-.navbar-left {
-    width: 50%;
-    display: flex
-}
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-}
-
-.sign-up, .log-in {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 30px;
-    font-size: 12px;
-    text-transform: capitalize;
-    color: black;
-    text-decoration: none;
-}
-
-.log-in {
-    font-family: opensans-bold;
-}
-
-.navbar-left > a {
-    font-size: 12px;
-    text-transform: capitalize;
-    color: black;
-    text-decoration: none;
-    width: 100px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-.home {
-    font-family: opensans-bold;
-}
-
-/* === HOME 1 === */
-
-.home1 {
-    padding-top: 2%;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-
-.home1-left, .home1-right {
-    width: 50%;
-    height: 100%;
-    padding: 0px 10%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
-.home1-right {
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-    padding: 6%;
-    box-sizing: border-box;
-}
-
-.home1-left > p {
-    margin-bottom: 3%;
-}
-
-.home1-left > a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 10px;
-    text-decoration: none;
-    font-family: opensans-bold;
-    background: #FE6B00;
-    width: 250px;
-    font-size: 12px;
-    height: 30px;
+.login{
+    background-color: #FE6B00;
     color: white;
+    border-radius: 0px;
+    border: 3px solid white;
+    font-size: 13px;
 }
 
-.next {
-    height: 20px;
-    width: 20px;
-    background-image: url(img/next.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.image1 {
-    width: 400px;
-    height: 90%;
-    background: grey;
-}
-
-.image1-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 350px;
-    margin-left: 30px;
-    font-size: 15px;
-
-}
-
-.image1-button > a {
-    font-family: opensans-bold;
-    text-decoration: none;
+.login:hover{
+    border: 3px solid #FE6B00;
     color: black;
+    border-radius: 0px;
 }
 
-/* === HOME 2 === */
+.login, .signup {
+    width: 17vh;
+    font-size: 13px;
 
-.home2 {
-    padding: 5%;
-    box-sizing: border-box;
-    text-align: center;
-    width: 100%;
-    height: 100vh;
+}
+
+.active > span {
+    font-family: opensans-bold;
+    color: #FE6B00;
+}
+
+.login {
+    background-color: #FE6B00;
+    border-radius: 0px;
+    color: white;
+    font-family: opensans-bold;
+}
+
+/* HOME */
+
+.nextbutton {
+    transform: scale(1);
+    color: white;
+    transition: 0.3s ease;
+}
+
+.nextbutton:hover {
+    transform: scale(1.1);
+    background: #FE6B00;
+    color: white;
+    
+}
+
+.col-left > .text-muted {
+    margin: 0px;
+}
+
+.col-left {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.col-left > h1 {
+    font-family: opensans-bold;
+    font-size: 6vw;
+    color: #FE6B00;
+}
+
+.col-left > p {
+    width: 75%;
+    font-size: 12px;
+}
+
+.col-left > button {
+    width: 50%;
+    background-color: #FE6B00;
+}
+
+.col-right {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home2-content {
-    margin-top: 5%;
-    height: 100%;
-    width: 70%;
+.col-right > img {
+    height: 75%;
+    width: 60%;
+}
+
+/* OFFER */
+
+.offer-container {
+    height: 100vh;
+}
+
+.offertitle {
+    color: #FE6B00;
+    font-size: 1.5vw;
+    font-family: opensans-bold;
+}
+
+.rowoffer {
+    width: 80%;
+    margin-top: 8vh;
+    height: 50vh;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-.box > span {
-    font-family: opensans-bold;
-    text-transform: uppercase;
-    font-size: 1.2vw;
-}
-
-.box > p {
-    font-size: 0.8vw;
-}
-
-.box {
-    height: 100%;
-    width: 280px;
-    border: 3px solid orange;
+.rowoffer > div {
+    border: 3px solid #FE6B00;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
-    padding: 2%;
-    box-sizing: border-box;
-}
-
-.box-image {
-    width: 120px;
-    height: 120px;
-}
-
- /* === HOME 3 === */
-
-.home3 {
-    padding: 2%;
-    height: 75vh;
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
 }
 
-.image3 {
-    width: 25%;
-    height: 100%;
-    margin-right: 30px;
-    background-image: url(img/jadijuara.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.home3-content > span {
-    display: block;
-}
-
-.home3-content {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
+.rowoffer > div > img  {
+    height: 10vh;
 
 }
 
- /* === HOME 4 === */
-
- .home4 {
-    padding: 2%;
-    height: 75vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-
+.rowoffer > div > h4  {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2vw;
+    font-family: opensans-bold;
+    color: #FE6B00;
+    
 }
 
-.image4 {
-    width: 25%;
-    height: 100%;
-    margin-left: 30px;
-    background-image: url(img/kompetitif.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
-
-}
-
-.home4-content > span {
-    display: block;
-}
-
-.home4-content {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 40%;
-
-}
-
-/* === home5 === */
-
-.home5 {
-    color: white;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.home5-box {
-    width: 70%;
-    height: 65%;
-    display: flex;
-    align-items: center;
-    padding: 2%;
-    box-sizing: border-box;
-    background-color: #FF8A35;
-}
-
-.image6 {
-    width: 50%;
-    height: 90%;
-    background-color: white;
-    background-image: url(img/aboutimg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.home3-btn > button{
-    text-decoration: none;
-    background-color: white;
-    color: #FF8A35;
-    width: 40%;
-    height: 30px;
-    border: transparent;
-    margin-right: 20px;
-}
-
-/* === FOOTER === */
-
-.home-footer {
-    height: 30vh;
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-right {
-    width: 80%;
-    height: 100%;
-    display: flex;
-}
-
-table {
-    height: 100%;
-    width: 50%;
-}
-
-th {
-    text-align: left;
+.rowoffer > div > p {
+    line-height: 1.2rem;
+    text-align: center;
     font-size: 0.8vw;
 }
 
-.footer-left {
-    padding-top: 15px;
+.offer-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+/* OFFER1 */
+
+.offer1-container {
+    height: 100vh;
+    padding-top: 8vh;
+}
+
+.offer1-container > div > img{
+    height: 75%;
+    width: 60%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.offer1-description {
+    padding: 5% 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer1-description > div > h3 {
+    width: 75%;
+}
+
+.offer1-description > div > p {
+    width: 75%;
+}
+
+/* OFFER2 */
+
+.offer2-container {
+    height: 100vh;
+    padding-top: 8vh;
+}
+
+.offer2-container > div > img{
+    height: 75%;
+    width: 60%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.offer2-description {
+    padding: 8% 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer2-description > div > h1 {
+    width: 100%;
+    text-align: right;
+}
+
+.offer2-description > div  {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.offer2-description > div > h3 {
+    width: 75%;
+}
+
+.offer2-description > div > p {
+    width: 75%;
+}
+
+/* ABOUT4 */
+
+.login-offer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-offer > .row {
+    height: 50%;
+    width: 80%;
+    padding: 2%;
+    background-color: #FF8A35;
+}
+
+.login-offer-content {
+    color: white;
+    margin-left: 2%;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.login-offer-img {
+    background-image: url(img/aboutimg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-offer-content > div > button {
+    width: 13vw;
+    height: 35px;
+    color: #FE6B00;
+    border: transparent;
+}
+
+.login-button {
+    margin-left: 5%;
+}
+
+/* FOOTER */
+
+.about-footer {
+    height: 35vh;
+}
+
+.footer-title {
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.about-footer > div {
+    padding-top: 2%;
+}
+
+.list-unstyled > a {
+    text-decoration: none;
+    margin-top: 4%;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 75%;
+}
+
+.list-unstyled > li {
+    font-family: opensans-bold;
+}
+
+.footer-title > h4 {
+    margin-top: 5%;
+    font-size: 18px;
+    font-weight: opensans-bold;
+}
+
+.footer-title > h6 {
+    font-size: 13px;
     width: 50%;
     text-align: center;
-
 }
 
-.footer-left > p {
-    margin-top: 10px;
+.footer-icon {
+    background-image: url(img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 5vw;
+    width: 5vw;
 }
 
-.footer-logo {
-    height: 90px;
-    width: 90px;
-}
 
-/* === WHITE SPACE === */
+/* TABLET */
 
-.white-space {
-    height: 10vh;
-}
-
-/* .home-1, .home-2 {
-    display: none;
-} */
-
-
-@media screen and (max-width: 768px) {
-    .navbar {
-      width: 50%; /* Lebar saat ukuran layar <= 768px */
+@media screen and (min-width: 720px) and (max-width: 1023px) {
+    .hero {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 79.69%), url(img/sepakbola.png);
+        background-size: cover;
+        background-position: center;
+        
     }
-  }
 
+    .col-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 2%;
+    }
+
+    .col-left > h1 {
+        color: white;
+        font-size: 12vh;
+        width: 25%;
+    }
+
+    .col-left > p {
+        color: white;
+        width: 100%;
+    }
+
+    .col-left > button {
+        width: 100%;
+        background-color: white;
+        color: #FE6B00;
+        font-size: 2vw;
+        font-family: opensans-bold;
+        height: 7vh;
+
+    }
+
+/* OFFER */
+
+.offertitle {
+    color: #FE6B00;
+    font-size: 2.5vw;
+    font-family: opensans-bold;
+}
+
+.rowoffer > div {
+    border: transparent;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 3px solid #FE6B00;
+}
+
+.rowoffer > div > img  {
+    height: 15vh;
+
+}
+
+.rowoffer > div > h4  {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2vw;
+    font-family: opensans-bold;
+    color: #FE6B00;
+    
+}
+
+.rowoffer {
+    height: 80%;
+}
+
+.rowoffer > div > p {
+    line-height: 1.2rem;
+    text-align: center;
+    font-size: 1.5vw;
+    width: 75%;
+}
+
+.offer-container {
+    height: 230vh;
+}
+
+/* OFFER1 */
+
+.offer1-container {
+    padding-top: 8vh;
+    height: 100vh;
+}
+
+.upper-offer1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offer1-container > div > img {
+    height: 80%;
+}
+
+.offer1-description > div > h3 {
+    width: 100%;
+    font-size: 20px;
+}
+
+.offer1-description > div > p {
+    width: 100%;
+    font-size: 12px;
+}
+
+.bottom-offer1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* OFFER2 */
+
+.offer2-container {
+    padding-top: 8vh;
+    height: 100vh;
+}
+
+.upper-offer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offer2-container > div > img {
+    height: 80%;
+}
+
+.offer2-description > div > h3 {
+    width: 100%;
+    font-size: 20px;
+}
+
+.offer2-description > div > p {
+    width: 100%;
+    font-size: 12px;
+}
+
+.bottom-offer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-offer > .row {
+    height: 80%;
+    width: 80%;
+    padding: 0%;
+    background-color: transparent;
+}
+
+.login-offer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginofferpage {
+    background-color: #FE6B00;
+    margin-top: 8%;
+}
+
+.login-offer-content > div > button {
+    width: 28vw;
+    height: 35px;
+    color: #FE6B00;
+    border: transparent;
+}
+
+.login-offer-content {
+    color: white;
+    margin-left: 2%;
+    padding: 10% 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.footer-title > h4 {
+    font-size: 16px;
+    text-align: center;
+    font-family: opensans-bold;
+}
+
+.footer-icon {
+    width: 8vw;
+    height: 8vw;
+}
+
+}
+
+@media screen and (max-width: 720px){
+    .hero {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 79.69%), url(img/sepakbola.png);
+        background-size: cover;
+        background-position: center;
+        
+    }
+
+    .col-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 2%;
+    }
+
+    .col-left > h1 {
+        color: white;
+        font-size: 12vh;
+        width: 25%;
+    }
+
+    .col-left > p {
+        color: white;
+        width: 100%;
+        font-size: 1.8vh;
+    }
+
+    .col-left > button {
+        width: 100%;
+        background-color: white;
+        color: #FE6B00;
+        font-size: 4vw;
+        font-family: opensans-bold;
+        height: 7vh;
+        text-align: center;
+    }
+
+    /* OFFER */
+
+    .offertitle {
+        color: #FE6B00;
+        font-size: 5vw;
+        font-family: opensans-bold;
+    }
+    
+    .rowoffer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .rowoffer > div {
+        padding: 10% 0%;
+        box-sizing: border-box;
+        border: transparent;
+        border-radius: 0px;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        border-bottom: 3px solid #FE6B00;
+    }
+    
+    .rowoffer > div > img  {
+        height: 10vh;
+    
+    }
+    
+    .rowoffer > div > h4  {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 5vw;
+        font-family: opensans-bold;
+        color: #FE6B00;
+        
+    }
+    
+    .rowoffer > div > p {
+        line-height: 1.2rem;
+        text-align: center;
+        font-size: 3vw;
+        width: 75%;
+    }
+    
+    .offer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 230vh;
+    }
+
+    .rowoffer {
+        height: 90%;
+    }
+
+    .offer1-container {
+        padding-top: 8vh;
+    }
+    
+    .offer1-container > div > img{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
+    
+    .offer1-description {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .offer1-description > div > h3 {
+        width: 100%;
+        font-size: 20px;
+    }
+    
+    .offer1-description > div > p {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    /* OFFER2  */
+
+    .offer2-container {
+        padding-top: 8vh;
+    }
+    
+    .offer2-container > div > img{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
+    
+    .offer2-description {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .offer2-description > div > h3 {
+        width: 100%;
+        font-size: 20px;
+    }
+    
+    .offer2-description > div > p {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .loginofferpage {
+        margin-top: 15%;
+        background-color: #FE6B00;
+    }
+
+    .login-offer > .row {
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        background-color: transparent;
+    }
+
+    .login-offer-content {
+        color: white;
+        margin-left: 2%;
+        padding: 20% 0%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-evenly;
+    }
+
+    .login-offer-content > div > button {
+        width: 95%;
+        height: 50px;
+        color: #FE6B00;
+        border: transparent;
+        font-size: 18px;
+    }
+
+    .login-button {
+        margin-left: 0px;
+        margin-top: 4%;
+    }
+
+    .footer-icon {
+        background-color: grey;
+        height: 20vw;
+        width: 20vw;
+    }
+
+    .about-footer > div {
+        margin-top: 5%;
+        padding-top: 5%;
+    }
+}

@@ -2,202 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Up</title>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/about.css">
 </head>
 <body>
-    <section class="navbar" >
-        <div class="navbar-left">
-            <img style="margin-left: 7%;" class="logo" src="css/img/logo.png" alt="">
-            <!-- <div style="margin-left: 7%;" class="logo">
-
-            </div> -->
-            <a class="home" href="/" >Home</a>
-            <a class="tentang" href="#" style="color: #FE6B00;;" >tentang</a>
-            <a class="kontak" href="/contact" >Kontak</a>
-        </div>
-        <div class="navbar-right">
-            <a class="sign-up" href="signup.html">Sign Up</a>
-            <a class="log-in" style="margin-right: 20%; margin-left: 5%; background-color: #FE6B00;; color: white; " href="/login/">Log In</a>
-        </div>
-    </section>
-    <section class="about1">
-        <div class="about-box">
-            <div style="background-image: url('css/img/logo.png'); background-size: contain; " class="image1">
-
+    <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
+        <div class="container bg-ms-primary ">
+          <a class="navbar-brand" href="#"><img src="/css/img/logo.png" style="height: 6vh;" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item mx-0 mx-lg-2">
+                <a class="nav-link text-start text-lg-center" aria-current="page" href="/"><span>Home</span></a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-2">
+                <a class="nav-link text-start text-lg-center active" aria-current="page" href="/about"><span>Tentang</span></a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-2">
+                <a class="nav-link text-start text-lg-center" aria-current="page" href="/contact">Kontak</a>
+              </li>
+              
+            </ul>
+            <div>
+                <a class="btn d-block d-lg-inline-block pt-1 pb-1 mb-2 mb-lg-0 text-start text-lg-center signup" href="/register" type="submit">Sign Up</a>
+                <a class="btn d-block d-lg-inline-block pt-1 pb-1 login text-start text-lg-center" type="submit" href="/login" >Log In</a>
             </div>
-            Match <span style="font-family: opensans-bold;"  >UP</span>
+          </div>
         </div>
-        <div class="about-box">
-            <div style="background-image: url('css/img/Trio_Mid.png');" class="image1-1">
+    </nav>
+    <div class="container about-1">
+        <div class="row ">
+            <div class="col-12 col-lg-6 about-content">
+                <div class="matchup">
 
-            </div>
-            <span style="font-family: opensans-bold;" >TRIO MID</span>
-        </div>
-    </section>
-    <section class="about2" >
-        <div class="about2-image" >
-            <div class="text-button" >
-                <a href="">01</a>
-                <a href="">02</a>
-            </div>
-            <img class="image2" src="css/img/tentang_matchup.png" alt="">
-            <!-- <div class="image2">
-
-            </div> -->
-
-        </div>
-
-        <div class="about2-content" >
-            <p style="font-size: 8vh; text-transform: uppercase; " >
-                tentang Match Up
-            </p>
-            <p style="font-size: 17px;">
-                Match up adalah sebuah website untuk mencari <br> lawan sparring, dengan 3 mode utama yaitu: <li>Sparring <li>Main Bareng <li>Kompetisi</li></li></li> 
-            </p>
-            <p style="font-size: 12px;" >Di dalam Match juga terdapat fitur Tim yang memungkinkan pengguna <br> bergabung dan bermain bersama member tim</p>
-        </div>
-    </section>
-    <section class="about3" >
-        <div class="about3-image" >
-            <div class="text-button" >
-                <a href="https://www.instagram.com/matchup_indonesia/?igshid=NGExMmI2YTkyZg%3D%3D"><button class="instagram" >
-                    
-                </button></a>
-                <a href=""><button class="facebook" >
-                    
-                </button></a>
-                <a href=""><button class="whatapps" >
-                    
-                </button></a>
-            </div>
-            <img class="image3" src="css/img/triomidpict.jpg" alt="">   
-            <!-- <div class="image3">
-
-            </div> -->
-
-        </div>
-
-        <div class="about3-content" >
-            <p style="font-size: 8vh; text-transform: uppercase; " >
-                tentang TRIO MID
-            </p>
-            <p style="font-size: 12px;">
-                Trio Mid adalah kelompok yang bertanggung jawab dalam proses <br> development website Match UP, tim kita terdiri dari 3 orang.
-            </p>
-            <p style="font-size: 12px;" >Kami berusaha untuk memberikan pengalaman <br> berolahraga dengan mudah dan cepat melalui website kita.</p>
-        </div>
-    </section>
-    <section class="home2" >
-        <p style="font-family: opensans-bold; font-size: 20px;" >TIM KITA
-        </p>
-        <div class="home2-content">
-            <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Riko.jpg); background-size: cover; background-position: center; " >
-                <span>RIKO ADITYA ZAKI</span>
-                <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px;" >
-                    <a href="https://www.instagram.com/_radityaz_/">
-                        <img src="css/img/instagram-white.png" alt="">
-                    </a>
-                    <a href="https://web.facebook.com/riko.adityazaki">
-                        <img src="css/img/facebook-white.png" alt="">
-                    </a>
-                    <a  href="https://api.whatsapp.com/send/?phone=%2B6289668145090&text&type=phone_number&app_absent=0">
-                        <img src="css/img/whatapps-white.png" alt="">
-                    </a>
                 </div>
-                
+                <span>MATCH UP</span>
             </div>
-            <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Agung.jpg); background-size: cover; background-position: center; ">
-                <span>RIZQI AGUNG PRADANA</span>
-                <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px; " >
-                    <a href="https://www.instagram.com/izunnaaa_/">
-                        <img src="css/img/instagram-white.png" alt="">
-                    </a>
-                    <a  href="https://api.whatsapp.com/send/?phone=%2B6288238084456&text&type=phone_number&app_absent=0">
-                        <img src="css/img/whatapps-white.png" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="box" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%), url(css/img/Tyo.jpg); background-size: cover; background-position: center; ">
-                <span>Maulana Riky Adityo Afristianto</span>
-                <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 20px; " >
-                    <a href="https://www.instagram.com/__tyotyo/?igshid=MzRlODBiNWFlZA%3D%3D">
-                        <img src="css/img/instagram-white.png" alt="">
-                    </a>
-                    <a href="https://www.facebook.com/dritz.anoli?mibextid=ZbWKwL">
-                        <img src="css/img/facebook-white.png" alt="">
-                    </a>
-                    <a  href="https://api.whatsapp.com/send/?phone=%2B6282231815579&text&type=phone_number&app_absent=0">
-                        <img src="css/img/whatapps-white.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="home5" >
-        <div class="home5-box">
-            <!-- <img class="image6" src="css/img/aboutimg.png" alt=""> -->
-            <div class="image6">
+            <div class="col-12 col-lg-6 about-content">
+                <div class="trio">
 
+                </div>
+                <span>TRIO MID</span>
             </div>
-            <div class="home5-content" style="margin-left: 5%;" >
-                <p style="text-transform: uppercase; font-size: 2.5vw; padding-bottom: 10%;" >ayo mulai mencari <br> lawan sparring</p>
-                <p style="font-size: 12px; margin-bottom: 10%;" >berteman dengan ratusan user dan bertanding <br>
-                     di lapangan sekarang dengan Match Up
-                </p>
-                <a class="home3-btn" href=""><button >
-                    Sign Up
-                </button></a>
-                <a class="home3-btn" href=""><button >
-                    Log In
-                </button></a>
             </div>
         </div>
-    </section>
-    <section class="home-footer">
-        <div class="footer-left">
-            <img class="footer-logo" src="css/img/logo.png" alt="">
-            <!-- <div class="footer-logo">
+    </div>
+    <div class="container about-2">
+      <div class="row">
+        <div class="col-12 col-lg-6 about-2-content1">
+            <div class="about2-img">
+              
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 about-2-content2">
+          <h1 class="text-uppercase" >Tentang match up</h1>
+          <div>
+            <p>Match up adalah sebuah website untuk mencarilawan sparring, dengan 3 mode utama yaitu:</p>
+            <ul>
+              <li>Sparring</li>
+              <li>Main Bareng</li>
+              <li>Kompetisi</li>
+            </ul>
+            <p>Di dalam Match juga terdapat fitur Tim yang memungkinkan penggunabergabung dan bermain bersama member tim</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container offer-container">
+      <div class="row ">
+        <div class="col d-flex justify-content-center text-uppercase"   >
+          <span class="offertitle" >Programmer</span>
+        </div>
+      </div>
+      <div class="row rowoffer ">
+        <div class="col-lg-3 col-12 left riko">
+          <h1>Riko Aditya Zaki</h1>
+          <p>Halo, saya adalah front end</p>
+        </div>
+        <div class="col-lg-3 col-12 right agung">
+          <h1>Rizqi Agung Pradana</h1>
+          <p>Halo, saya adalah Back end</p>
 
-            </div> -->
-            <p style="font-family: opensans-bold; font-size: 15px;" >
-                PT Match Up Indonesia
-            </p>
-            <p style="font-size: 12px; font-family: opensans-bold;color: grey;" >Jl Besito Raya No.25 <br>
-                 Kudus</p>
         </div>
-        <div class="footer-right">
-            <table class="table">
-                <tr>
-                    <th>Perusahaan</th>
-                    <th>Ekosistem</th>
-                    <th>Hubungi Kami</th>
-                </tr>
-                <tr>
-                    <td>Tentang</td>
-                    <td>Sparring</td>
-                    <td>Ekosistem</td>
-                </tr>
-                <tr>
-                    <td>Kebijakan & Privasi</td>
-                    <td>Main Bareng</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Syarat & Ketentuan</td>
-                    <td>Kompetisi</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>Direktori Tim</td>
-                    <td></td>
-                </tr>
-            </table>
+        <div class="col-lg-3 col-12 left tyo">
+          <h1>Maulana Rifki Adityo Afristianto</h1>
+          <p>Halo, saya adalah Admin</p>
         </div>
-    </section>
-    <section class="white-space" ></section>
+      </div>
+    </div>
+    <div class="loginofferpage">
+      <div class="container login-offer">
+        <div class="row">
+          <div class="col-4 d-none d-lg-block login-offer-img">
+            
+          </div>  
+          <div class="col-lg-6 col-12 login-offer-content">
+            <h1>Ayo mulai berkolaborasi dan berkompetisi</h1>
+            <p>berteman dengan ratusan user dan bertanding di lapangan sekarang dengan Match Up</p>
+            <div class="div" style="width: 100%;">
+              <button>Sign Up</button>
+              <button class="login-button"">Log In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container ">
+      <div class="row about-footer">
+        <div class="col-lg-3 col-sm-3 footer-title">
+          <div class="footer-icon"></div>
+          <h4>PT Match Up Indonesia</h4>
+          <h6>Jl Besito Raya No.25 Kudus</h6>
+        </div>
+        <div class="col-lg-2 col-sm-3">
+          <ul class="list-unstyled" >
+            <li>Perusahana</li>
+            <a style="display: block;" href="">Tentang</a>
+            <a style="display: block;" href="">Kebijakan dan Privasi</a>
+            <a  style="display: block;"href="">Syarat dan ketentuan</a>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-sm-3">
+          <ul class="list-unstyled">
+            <li>Ekosistem</li>
+            <a style="display: block;" href="">Sparring</a>
+            <a style="display: block;" href="">Main Bareng</a>
+            <a style="display: block;" href="">kompetisi</a>
+            <a style="display: block;" href="">Direktori Tim</a>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-sm-3">
+          <ul class="list-unstyled">
+            <li>hubungi Kita</li>
+            <a style="display: block;" href="">Kontak</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>
-</html>       
+</html>
