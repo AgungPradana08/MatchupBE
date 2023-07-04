@@ -126,13 +126,12 @@ function dropdown(index) {
 // function mapsviews() {
 //     console.log("read");
 //     var locationInput = document.getElementById("locationtext");
-//     var frame = document.getElementById("frame-location");
+//    for var frame = document.getElementById("frame-location");
   
-//     for (let index = 0; index < maps.length; index++) {
+//      (let index = 0; index < maps.length; index++) {
 //       if (locationInput.value === maps[index].lokasi) {
 //         frame.src = maps[index].embed;
-//         break; // Menghentikan iterasi setelah menemukan kecocokan
-//       }
+//         break; // Menghentikan iterasi setelah menemukan kecocoka
 //     }
 //   }
 

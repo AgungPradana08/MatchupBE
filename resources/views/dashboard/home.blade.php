@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <section class="navbar" >
-        <div class="navbar-left">
+        {{-- <div class="navbar-left">
             <img style="margin-left:7% ;" class="logo" src="css/img/logo.png" alt="">
             <!-- <div style="margin-left: 7%;" class="logo">
 
@@ -21,9 +20,8 @@
         <div class="navbar-right">
             <a class="sign-up" href="/register">Sign Up</a>
             <a class="log-in" style="margin-right: 20%; margin-left: 5%; background-color: #FE6B00; color: white; " href="/login/">Log In</a>
-        </div>
-    </section>
-    <section class="home1">
+        </div> --}}
+    {{-- <section class="home1">
         <div class="home1-left">
             <p style="font-size: 1vw; color: grey;" >Selamat Datang</p>
             <p style="font-size: 5.5vw;  color: #FE6B00;" >MATCH <span style="font-family: opensans-bold;" >UP</span></p>
@@ -175,6 +173,6 @@
             </table>
         </div>
     </section>
-    <section class="white-space" ></section>
+    <section class="white-space" ></section> --}}
 </body>
 </html>

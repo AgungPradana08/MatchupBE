@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     margin: 0px;
     padding: 0px;
 }
@@ -18,12 +18,14 @@
 /* === NAVBAR === */
 
 .navbar {
+    box-sizing: border-box;
     width: 100%;
     height: 50px;
     position: fixed;
     display: flex;
     justify-content: space-between;
     background-color: white;
+    
 }
 
 .logo {
@@ -364,5 +366,9 @@ th {
 } */
 
 
-
+@media screen and (max-width: 768px) {
+    .navbar {
+      width: 50%; /* Lebar saat ukuran layar <= 768px */
+    }
+  }
 
