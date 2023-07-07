@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="/css/sparringpage.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
+    <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="#"><img src="/css/img/logo.png" style="height: 5vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
-                <a class="nav-link text-start text-lg-center active" aria-current="page" href="#"><span>Sparring</span></a>
+                <a class="nav-link text-start text-lg-center active" aria-current="page" href="/sparring/home"><span>Sparring</span></a>
               </li>
               <li class="nav-item mx-0 mx-lg-2">
-                <a class="nav-link text-start text-lg-center" aria-current="page" href="#"><span>Mabar</span></a>
+                <a class="nav-link text-start text-lg-center" aria-current="page" href="/mabar/home"><span>Mabar</span></a>
               </li>
               <li class="nav-item mx-0 mx-lg-2">
-                <a class="nav-link text-start text-lg-center" aria-current="page" href="#"><span>Kompetisi</span></a>
+                <a class="nav-link text-start text-lg-center" aria-current="page"href="/kompetisi/home"><span>Kompetisi</span></a>
               </li>
               <li class="nav-item mx-0 mx-lg-2">
-                <a class="nav-link text-start text-lg-center" aria-current="page" href="#"><span>Tim</span></a>
+                <a class="nav-link text-start text-lg-center" aria-current="page" href="/tim/home"><span>Tim</span></a>
               </li>
             </ul>
           </div>
@@ -118,19 +118,19 @@
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
         <div class="row">
             <a href="/sparring/home" class="col-3">
-                <div class="bottom-nav-icon"></div>
+                <div class="bottom-nav-icon" style="background: url(/css/img/bn-sparring.png); background-size: contain;" ></div>
                 <p class="m-0">Sparring</p>
             </a>
             <a href="/mabar/home" class="col-3">
-                <div class="bottom-nav-icon"></div>
+                <div class="bottom-nav-icon" style="background: url(/css/img/bn-mabar.png); background-size: contain;"></div>
                 <p class="m-0">Mabar</p>
             </a>
             <a href="/kompetisi/home" class="col-3">
-                <div class="bottom-nav-icon"></div>
+                <div class="bottom-nav-icon" style="background: url(/css/img/bn-kompetisi.png); background-size: contain;"></div>
                 <p class="m-0">Kompetisi</p>
             </a>
             <a href="/tim/home" class="col-3">
-                <div class="bottom-nav-icon"></div>
+                <div class="bottom-nav-icon" style="background: url(/css/img/bn-sparring.png); background-size: contain;"></div>
                 <p class="m-0">Tim</p>
             </a>    
         </div>
