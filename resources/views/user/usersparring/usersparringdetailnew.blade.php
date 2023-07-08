@@ -5,177 +5,163 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/css/detailsparringnewnew.css">
 </head>
 <body>
-    <section class="navbar" >
-        <a class="navbar-btn" href="/sparring/home"><img src="/css/img/back button.png" alt=""></a>
-        <a class="navbar-nav"  >Detail Sparring</a>
-
-        <a class="navbar-btn"  href="#"><img src="/css/img/report.png" alt=""></a>
-    </section>
-    <div class="wrapper">
-        <div id="Detail" class="container1">
-            <a class="versus" id="versus-bookmark" onclick="VersusSparring()" href="#Versus">Versus</a>
-            <div class="left-content">
-                <div class="left1">
-                    <img class="left1-logo" src="{{asset ('storage/' . $usersparring->image)}}" alt="">
-                    <!-- <div class="left1-logo">
-    
-                    </div> -->
-                    <div class="left1-box">
-                        <p>{{$usersparring->title}}</p>
-                        <div style="display: flex; align-items: center; width: 50%;">
-                            <img class="left1-icon" src="/css/img/bola icon.png" alt="">
-                            <!-- <div class="left1-icon">
-    
-                            </div> -->
-                            <p style="font-size: 0.8vw; margin-left: 5%;" >{{$usersparring->olahraga}}</p>
-                        </div>
-                        <div>
-                            <div class="access">
-                                {{$usersparring->aksebilitas}}
-                            </div>
-                            <div class="age">
-                                {{$usersparring->tingkatan}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="left2">
-                    <div>Deskripsi Sparring</div>
-                    <span>{{$usersparring->deskripsi}}</span>
-                </div>
-                <hr>
-                <div class="left3">
-                    <div>Lokasi Sparring</div>
-                    <span id="detaillokasi" >Detail Lokasi</span>
-                    <iframe  id="MapDisplay" class="maps">
-    
-                    </iframe>
-                </div>
-                <section class="white-space" ></section>
-            </div>
-            <div class="right-content">
-                <span class="biaya" >Biaya Masuk</span>
-                <span class="harga" style="display: block;" >Rp 5000 <text style="color: grey; font-size: 1.3vw;" >/Tim</text> </span>
-                <button>
-                    Ambil Sparring
-                </button>
-                <div class="line1">
-                    <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="icon">
-    
-                    </div>
-                    {{$usersparring->tanggal_pertandingan}}
-                </div>
-                <div class="line1">
-                    <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="icon">
-    
-                    </div>
-                    <span id="locationTarget" >{{$usersparring->lokasi}}</span>
-                </div>
-                <div class="line1">
-                    <div style="background: url(/css/img/clock.png); background-position: center; background-size: contain;" class="icon">
-    
-                    </div>
-                    {{$usersparring->lama_pertandingan}}
-                </div>
-                <br>
-                <span class="biaya" >Informasi Tambahan</span><br><br>
-    
-                <span style="font-size: 1vw;" >{{$usersparring->deskripsi_tambahan}}</span>
-            </div>
-
+    <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
+        <div class="container bg-ms-primary ">
+          <a class="navbar-brand" href="#"><img src="logo.png" style="height: 5vh;" alt=""></a>
+          <span>{{$usersparring->title}}</span>
+          <button class="report" ></button>
         </div>
-        <div id="Versus" class="container2">
-            <a class="detail" id="detail-bookmark" onclick="detailSparring()" href="#Detail">Detail</a>
-            <div class="vs-background">
-                <img id="teambackground1" class="background-away" src="/css/img/psg.png" alt="">
-                <img id="teambackground2" class="background-home" src="{{asset ('storage/' . $usersparring->image)}}" alt="">
-            </div>
-            <div class="vs-away-home">
-                <div id="awayteam" class="vs-away"></div>
-                <div id="hometeam" class="vs-home"></div>
-            </div>
-            <div class="vs-detail">
-                <div class="vs-container">
-                    <div class="de-title">
-                        {{$usersparring->title}}
+    </nav>
+    <div class="container content">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="title">
+                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usersparring->image)}}" >
+                    <div class="ms-0 ms-sm-4 mt-3 mt-sm-0" >
+                        <h1>{{$usersparring->title}}</h1>
+                        <div style="display: flex; align-items: center;" class="title-content">
+                            <div class="sportlogo me-2"></div>
+                            <span class="me-2">{{$usersparring->olahraga}}</span>
+                            <span>| {{$usersparring->lokasi}}</span>
+                        </div>
                     </div>
-                    <div class="de-away">
-                        <img src="/css/img/psg.png" class="box-icon"  alt="">
-                        {{-- @foreach ($takesparring as $takesparring) --}}
-                        <p style="margin-top: 5%;" >nama</p>
-                        {{-- @endforeach --}}
+                </div>
+                <hr>
+                <div class="description">
+                    <h4>Deskripsi Sparring</h4>
+                    <span class="des">{{$usersparring->deskripsi}}</span>
+                </div>
+                <hr>
+                <div class="maps pb-lg-5 pb-0">
+                    <h4>Lokasi Sparring</h4>
+                    <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
+                    <iframe id="MapDisplay" class="maps"></iframe></iframe>
+                </div>
+                <hr>
+                <div class="d-block d-lg-none extra-description">
+                    <h4>Deskripsi Tambahan</h4>
+                    <span class="des">{{$usersparring->deskripsi_tambahan}}</span>
+                </div>
+                <hr>
+                    <div class="access-phone d-block d-lg-none">
+                        <h4>Biaya Pendaftaran</h4>
+                        <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
+                        <div class="access-badge" >
+                            <div class="one">{{$usersparring->aksebilitas}}</div>
+                            <div class="two">{{ $usersparring->tingkatan }}</div>
+                        </div>
                     </div>
-                    <div class="de-vs">
-                        VS
-                    </div>
-                    <div class="de-home">
-                        <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon"  alt="">
-                        <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
-                    </div>
-                    {{-- <div class="de-detail">
+                    <hr>
+                    <div class="box-content d-block d-lg-none">
                         <table>
                             <tr>
-                                <td class="td1" >
-
-                                </td>
-                                <td style="opacity: 70%" >
-
-                                    harga
-                                </td>
                                 <td>
-                                    {{$usersparring->harga_tiket}}
+                                    <div class="icon mx-auto"   ></div>
                                 </td>
+                                <td  style="font-family: opensans-bold;">tanggal Permainan</td>
                             </tr>
                             <tr>
-                                <td class="td2">
-
-                                </td>
-                                <td style="opacity: 70%" >
-                                    Tanggal dan waktu
-                                </td>
                                 <td>
-                                    {{$usersparring->tanggal_pertandingan}}
+                                    
                                 </td>
+                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
                             </tr>
-                            <tr>
-                                <td class="td3">
-
-                                </td>
-                                <td style="opacity: 70%" >
-                                    Lokasi/Avenue
-                                </td>
-                                <td>
-                                    {{$usersparring->lokasi}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td4">
-
-                                </td>
-                                <td  style="opacity: 70%"  >
-                                    Lama Permainan
-                                </td>
-                                <td>
-                                    {{$usersparring->lama_pertandingan}}
-                                </td>
-                            </tr>
+                            <td>
+                                <div class="icon mx-auto"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Jadwal Sparring</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
+                        </tr>
+                        <td>
+                            <div class="icon mx-auto"></div>
+                        </td>
+                        <td style="font-family: opensans-bold;">Lokasi Sparring</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td style="font-size: 13px;" id="locationTarget" >{{$usersparring->lokasi}}</td>
+                        </tr>
                         </table>
-                    </div> --}}
-                    <div class="de-button">
-                        <a class="primary" href="/usersparring/versus">
-                            <button>AMBIL SPARRING</button>
-                        </a>
                     </div>
+            </div>
+            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
+                <div class="box1 d-none d-lg-flex ">
+                    <div class="access">
+                        <h4>Biaya Pendaftaran</h4>
+                        <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
+                        <div class="access-badge" >
+                            <div class="one">Terbuka</div>
+                            <div class="two">20 tahun+</div>
+                        </div>
+                    </div>
+                    <div class="box-content ">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="icon mx-auto"   ></div>
+                                </td>
+                                <td  style="font-family: opensans-bold;">tanggal Permainan</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                            </tr>
+                            <td>
+                                <div class="icon mx-auto"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Jadwal Sparring</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
+                        </tr>
+                        <td>
+                            <div class="icon mx-auto"></div>
+                        </td>
+                        <td style="font-family: opensans-bold;">Lokasi Sparring</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td style="font-size: 13px;" id="locationTarget" >{{$usersparring->lokasi}}</td>
+                        </tr>
+                        </table>
+                    </div>
+                    <button>Ambil Sparring</button>
+                </div>
+                <div class="box2 d-none d-lg-block">
+                    <h5>Deskripsi Tambahan</h5>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste rem, commodi maxime quibusdam perspiciatis similique aliquid alias? Accusantium sit officia qui, illum provident, natus mollitia commodi, necessitatibus accusamus iusto rem.</span>
                 </div>
             </div>
-
         </div>
     </div>
+    <div class="container fixed-bottom bg-white d-block d-lg-none">
+        <div class="row phone-button">
+            <a class="col-12 href="">Ambil Sparring</a>
+        </div>
+    </div>
+    
     <script src="/js/mapslist.js"></script>
     <script src="/js/detailsparring.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>
 </html>

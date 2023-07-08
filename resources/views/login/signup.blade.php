@@ -5,58 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="/css/signup.css">
 </head>
 <body>
-        <div class="navbar">
-            <a href="/">
-                <button class="goback" >
-
-                </button>
-            </a>
+    <nav class="navbar navbar-expand-lg p-0 position-fixed" style="width: 100vw; z-index: 100;">
+        <div class="container bg-ms-primary ">
+          <a class="navbar-brand" href="/"><div></div></a>
         </div>
+    </nav>
     <form action="/register/store" method="POST" enctype="multipart/form-data">
-            @csrf
-        <div  class="container"  >
-            <div class="big-box" id="box1">
-                <div class="title">
-                    SIGN UP
+        @csrf
+    <div  class="container login-container">
+        <div id="box1" class="box">
+            <div class="upper">
+                <h5>Sign Up</h5>
+                <div class="input-box">
+                    <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
+                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan Username...">
                 </div>
-                <div class="form">
-                    <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
-    
-                    </div>
-                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan username...">
-                    {{-- <input id="inputnama" type="text" name="name" placeholder="Masukkan Username..." required > --}}
+                <div class="input-box">
+                    <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
+                    <input id="email" type="email" name="email" type="text" placeholder="Masukkan Email...">
                 </div>
-                <div class="form">
-                    <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
-    
-                    </div>
-                    <input id="email" type="email" name="email" placeholder="Masukkan Email..." required >
+                <div class="input-box">
+                    <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
+                    <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password...">
+                    <div class="icon-eye" style="background: url(/css/img/eye.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  onclick="passwordsee()"></div>
                 </div>
-                <div class="form-eye">
-                    <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; " >
-    
-                    </div>
-                    <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password..." required >
-                    <div class="eye" onclick="passwordsee()" >
-                    </div>
-                </div>
-                <div style="display: flex; align-items:flex-end;" >
-                    {{-- <button type="submit" value="save">signup</button> --}}
-                    <div class="signup" onclick="NextPage()" >
-                        Selanjutnya
-                    </div>
-                </div>
-                <a class="log" href="/login">Sudah Punya Akun?</a>
-                
+                <input class="d-none" type="text">
             </div>
-    
-            <div class="big-box2" id="box2" >
-                <div class="title">
-                    Selamat Datang
-                </div>
+            <div class="footer">
+                <div onclick="NextPage()" >SELANJUTNYA</div>
+                <a style="text-align: center;" href="/login">Sudah Punya Akun?, klik disini</a>
+            </div>
+        </div>
+        <div id="box2" class="box">
+            <div class="upper2">
+                <h5>Selamat Datang</h5>
                 <div class="image-container">
                     <div class="image-box" >
                         <img class="img-preview"  alt="">  
@@ -68,19 +55,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="form">
-                    <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; " >
-    
-                    </div>
-                    <input  type="text" name="username" placeholder="Masukkan Nama..." >
-                </div>
-                <div style="display: flex; align-items:flex-end;">
-                    <button class="signup" type="submit" value="save">signup</button>
-                </div>
-                <a class="log" onclick="BackPage()" >Kembali Ke Laman Sebelumnya</a>
+                <div class="input-box">
+                    <div class="icon"></div>
+                    <input type="text" name="username" placeholder="Masukkan Nama...">
+                </div> 
+            </div>
+            <div class="footer2">
+                <button type="submit" value="save" onclick="BackPage()" >BUAT AKUN</button>
             </div>
         </div>
-    </form>
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="/js/signup.js"></script>
 </body>
 </html>
