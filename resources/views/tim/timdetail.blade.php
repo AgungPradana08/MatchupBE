@@ -5,104 +5,138 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/timdetail.css">
 </head>
 <body>
-    <section class="navbar" >
-        <a href="/tim/home">
-        <img src="/css/img/back button.png" alt="">
-        </a>
-        <p>TITLE</p>
-        <a href="#">
-        <img src="/css/img/report.png" alt="">
-        </a>
-    </section>
-    <section class="container" >
-        <div class="left-content">
-            <div class="left1">
-                <img class="left1-logo" src="/css/img/pxg.png" alt="">
-                <!-- <div class="left1-logo">
-
-                </div> -->
-                <div class="left1-box">
-                    <p>{{$tim->title}}</p>
-                    <div style="display: flex; align-items: center; width: 50%;">
-                        <img class="left1-icon" src="/css/img/bola icon.png" alt="">
-                        <!-- <div class="left1-icon">
-
-                        </div> -->
-                        <p style="font-size: 0.8vw; margin-left: 5%;" >{{$tim->olahraga}}</p>
-                    </div>
-                    <div>
-                        <div class="access">
-                        {{$tim->aksebilitas}}
-                        </div>
-                        <div class="age">
-                        {{$tim->tingkatan}}
+    <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
+        <div class="container bg-ms-primary ">
+          <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <span>TITLE</span>
+          <button class="report" ></button>
+        </div>
+    </nav>
+    <div class="container content">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="title">
+                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $tim->image)}}" >
+                    <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
+                        <h1>{{$tim->title}}</h1>
+                        <div style="display: flex; align-items: center;" class="title-content">
+                            <div class="sportlogo me-2"></div>
+                            <span class="me-2">{{$tim->olahraga}}</span>
+                            <span>| {{$tim->lokasi}}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr>
-            <div class="left2">
-                <div>Deskripsi Tim</div>
-                <span>{{$tim->deskripsi}}</span>
-            </div>
-            <hr>
-            <div class="left3">
-                <div>Member Tim</div>
-                <div class="maps">
-                    <div class="box">
-                        <div class="box-logo">
-
-                        </div>
-                        <span style="margin-left: 5%;" >
-                            <p style="font-family: opensans-bold; font-size: 1vw; " >USERNAME</p>
-                            <p style="font-size: 0.8vw;">Lore</p>
-                        </span>
+                <hr>
+                <div class="description">
+                    <h4>Deskripsi Mabar</h4>
+                    <span class="des">{{$tim->deskripsi}}</span>
+                </div>
+                <hr>
+                <div class="left3">
+                    <div style="display: flex; justify-content: space-between;" >
+                        <h4>Member Tim</h4>
+                        <h4>1/12</h4>
                     </div>
+                    <div class="maps">
+                        <div class="box">
+                            <div class="box-logo">
+    
+                            </div>
+                            <span style="margin-left: 5%;" >
+                                <p class="username-label m-0" style="font-family: opensans-bold;" >USERNAME</p>
+                                <p class="lore-label m-0 mt-2">Lore</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <section class="white-space d-none d-lg-block" ></section> 
+                <hr class="d-block d-lg-none">
+                    <div class="access-phone d-flex d-lg-none">
+                        <h4>Biaya Pendaftaran</h4>
+                        <h1>Rp. {{$tim->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <div class="access-badge" >
+                            <div class="one">{{$tim->aksebilitas}}</div>
+                            <div class="two">{{$tim->tingkatan}}</div>
+                        </div>
+                    </div>
+                    <hr class="d-block d-lg-none">
+                    <div class="box-content d-block d-lg-none">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="icon mx-auto"   ></div>
+                                </td>
+                                <td  style="font-family: opensans;">phone Number</td>
+                            </tr>
+                            <td>
+                                <div class="icon mx-auto"></div>
+                            </td>
+                            <td style="font-family: opensans;">instagram</td>
+                        </tr>
+                        <td>
+                            <div class="icon mx-auto"></div>
+                        </td>
+                        <td style="font-family: opensans;">whatapps</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icon mx-auto"   ></div>
+                            </td>
+                            <td  style="font-family: opensans;">facebook</td>
+                        </tr>
+                        </table>
+                    </div>
+            </div>
+            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
+                <div class="box1 d-none d-lg-flex ">
+                    <div class="access">
+                        <h4>Biaya Pendaftaran</h4>
+                        <h1>Rp. {{$tim->harga_tiket}} <span class="text-muted" >/orang </span> </h1>
+                        <div class="access-badge" >
+                            <div class="one">{{$tim->aksebilitas}}</div>
+                            <div class="two">{{$tim->tingkatan}}</div>
+                        </div>
+                    </div>
+                    <div class="box-content ">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="icon mx-auto"   ></div>
+                                </td>
+                                <td  style="font-family: opensans;">phone Number</td>
+                            </tr>
+                            <td>
+                                <div class="icon mx-auto"></div>
+                            </td>
+                            <td style="font-family: opensans;">instagram</td>
+                        </tr>
+                        <td>
+                            <div class="icon mx-auto"></div>
+                        </td>
+                        <td style="font-family: opensans;">whatapps</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icon mx-auto"   ></div>
+                            </td>
+                            <td  style="font-family: opensans;">facebook</td>
+                        </tr>
+                        </table>
+                    </div>
+                    <button>Bergabung Sekarang</button>
                 </div>
             </div>
         </div>
-        <div class="right-content">
-            <span class="biaya" >Biaya Masuk</span>
-            <span class="harga" style="display: block;" >Rp {{$tim->harga_tiket}} <text style="color: grey; font-size: 1.3vw;" >/Orang</text> </span>
-            <button>
-                Bergabung
-            </button>
-            <div class="line1" style="margin-bottom: 2vh;" >
-                Jumlah Slot: 0/12
-            </div>
-            <span class="biaya" >Informasi Tambahan</span><br>
-            <div class="line1">
-                <div style="background: url(/css/img/user.png); background-position: center; background-size: contain;" class="icon">
-
-                </div>
-                Pemilik
-            </div>
-            <div class="line1">
-                <div style="background: url(/css/img/instagram.jpg); background-position: center; background-size: contain;" class="icon">
-
-                </div>
-                Instagram
-            </div>
-            <div class="line1">
-                <div style="background: url(/css/img/whatapps.jpg); background-position: center; background-size: contain;" class="icon">
-
-                </div>
-                WhatApps
-            </div>
-            <div class="line1">
-                <div style="background: url(/css/img/facebook.jpg); background-position: center; background-size: contain;" class="icon">
-
-                </div>
-                Facebook
-            </div>
-            <br>
-            
-            <span style="font-size: 1vw;" >{{$tim->deskripsi_tambahan}}</span>
+    </div>
+    <div class="container fixed-bottom bg-white d-block d-lg-none">
+        <div class="row phone-button">
+            <a class="col-12 href="">Bergabung Sekarang</a>
         </div>
-    </section>
+    </div>
     <section class="white-space" ></section>
 
 </body>

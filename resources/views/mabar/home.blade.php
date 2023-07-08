@@ -33,7 +33,8 @@
             <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt="">
           </a>
         </div>
-    </nav><section class="container sparring-header" >
+    </nav>
+    <section class="container sparring-header" >
         <div class="banner text-uppercase" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">
             Ayo Main Bersama
         </div>

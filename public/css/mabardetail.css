@@ -1,320 +1,334 @@
 @font-face {
     font-family: opensans;
-    src: url(Font/OpenSans-Regular.ttf);
+    src: url(font/OpenSans-Regular.ttf);
 }
 
 @font-face {
     font-family: opensans-bold;
-    src: url(Font/OpenSans-Bold.ttf);
+    src: url(font/OpenSans-Bold.ttf);
 }
 
 * {
-    font-family: opensans;
     /* outline: 1px solid red; */
-    margin: 0px;
-    padding: 0px;
 }
+/* NAVBAR */
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* === NAVBAR === */
-
-.navbar {
-    z-index: 10;
-    padding: 0px 2%;
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    box-sizing: border-box;
-}
-
-.navbar > p {
-    font-size: 1.5vw;
-    font-family: opensans-bold;
-}
-
-.navbar-nav {
-    text-decoration: none;
-    font-family: opensans-bold;
-    color: black;
-    font-size: 20px;
-}
-
-.navbar > .navbar-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-    text-transform: capitalize;
-    color: black;
-    text-decoration: none;
-    justify-content: center;    
-    align-items: center;
-    display: flex;
-}
-
-.navbar > .navbar-btn > img {
-    width: 30px;
-    height: 30px;
-    object-position: center;
-    object-fit: contain;
-
-}
-
-
-/* === CONTAINER ===  */
-
-.container {
-    width: 100%;
-    display: flex;
-    padding: 0px 10%;
-    box-sizing: border-box;
-    justify-content: space-between;
-}
-
-.left-content {
-    width: 53%;
-}
-
-.right-content {
-    margin-top: 10%;
-    width: 35%;
-    box-sizing: border-box;
-}
-
-hr {
-    border: 1px solid grey;
-}
-
-/* === Left1 === */
-
-.left1 {
-    padding-top: 60px;
-    height: 30vh;
-    display: flex;
-    align-items: center;
-}
-
-.left1-box {
-    margin-left: 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 70%;
-    height: 40%;
-}
-
-.left1-box > p {
-    font-size: 2vw;  
-    font-family: opensans-bold;
-}
-
-.left1-logo {
-    width: 100px;
-    height: 100px;
-    background: url(img/Tyo.jpg);
-    background-position: center;
-    background-size: cover;
-    border-radius: 100%;
-    
-}
-
-.left1-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-}
-
-/* === Left2 === */
-
-.left2 {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.left2 > div {
-    margin-bottom: 5%;
-    font-family: opensans-bold;
-    font-size: 1.7vw;
-}
-
-.left2 > span {
-    font-size: 1vw;
-    line-height: 20px;
-}
-
-/* === Left3 === */
-
-.left3 {
-    padding-top: 30px;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.left3 > div {
-    font-family: opensans-bold;
-    font-size: 1.7vw;
-    margin-bottom: 2%;
-}
-
-.left3 > span {
-    font-size: 1vw;
-    line-height: 20px;
-}
-
-.maps {
-    margin-top: 1%;
-    height: 90%;
+.report {
+    height: 5vh;
+    width: 5vh;
     background-color: grey;
 }
 
-.white-space {
-    height: 15vh;
-}
-
-/* === RIGHT CONTENT === */
-
-.right-content > div {
-    padding: 5%;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-}
-
-.right-content > div > button {
-    height: 50px;
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 1.2vw;
+.navbar > div > span {
+    font-size: 25px;
     font-family: opensans-bold;
-    color: white;
-    background-color: #FE6B00;
-    border: transparent;
-    border-radius: 8px;
 }
 
-.right-content > div > .biaya {
-    font-size: 1.2vw;
-    font-family: opensans;
-    color: grey;
+/* LEFTCONTENT */
+
+.content > .row {
+    padding-top: 8vh;
 }
 
-.right-content > div > .harga {
-    font-size: 2.8vw;
-    font-family: opensans-bold;
-    margin-bottom: 5%;
-}
-
-.line1 {
-    margin-top: 5%;
-    align-items: center;
-    width: 100%;
+.title {
+    height: 35vh;
     display: flex;
-    font-size: 1.1vw;
+    align-items: center;
 }
 
-.access, .age {
-    margin-top: 2%;
-    margin-right: 5px;
-    text-align: center;
+.userlogo {
+    height: 7vw;
+    width: 7vw;
+}
+
+.sportlogo {
+    height: 1.2vw;
+    width: 1.2vw;
     display: inline-block;
-    border: 3px solid black;
-    width: 30%;
-    font-size: 0.9vw;
-    font-family: opensans-bold;
-    border-radius: 5px;
+    background-color: grey;
+}
+
+.title > div > span > span {
+    display: flex;
+    align-items: center;
+}
+
+.title-content > span {
+    font-size: 11px;
+}
+
+.maps > iframe {
+    width: 100%;
+    height: 50vh;
+    background-color: grey;
+}
+/* BOX1 */
+
+.box1 {
+    padding: 8% 8%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70vh;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box2 {
+    margin-top: 5%;
+    padding: 8% 8%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50vh;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box2-phone {
+    margin-top: 5%;
+    padding: 0% 0%;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .access {
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.access > h1 {
+    font-family: opensans-bold;
+}
+
+.access > h1 > span {
+    font-family: opensans;
+    font-size: 15px;
+}
+
+.access-badge {
+    height: 3.5vh;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    font-size: 12px;
+    font-family: opensans-bold;
+}
+
+.access-badge > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.access-badge > .one {
     border: 3px solid #FE6B00;
     color: #FE6B00;
 }
 
-.age {
+.access-badge > .two {
+    border: 3px solid #8F8F8F;
     color: #8F8F8F;
-    border: solid #8F8F8F;
 }
 
-.line1 > .icon {
-    height: 20px;
-    width: 20px;
-    background-color: grey;
-    margin-right: 2%;
-
-}
-
-/* === RIGHT MEMEBER === */
-
-.right-content > .member {
-    margin-top: 5%;
-    padding: 5%;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-    height: 60vh;
-
-}
-
-.right-content > .member > span > {
-    font-size: 3vw;
-    font-family: opensans;
-    color: grey;
-}
-
-.member-top {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* === MEMBER === */
-
-.member-bottom {
+/* .box-content {
     margin-top: 2%;
-    height: 50vh;
-    width: 100%;
+    height: 50%;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "icon1 title1" "icon1 description1";
+} */
+
+table {
+    margin-top: 4%;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+.icon {
+    height: 1.3vw;
+    width: 1.3vw;
+    background-color: grey;
+}
+
+.box1 > button  {
+    width: 100%;
+    height: 12%;
+    color: white;
+    background-color: #FE6B00;
+    border: transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: opensans-bold;
+}
+
+.phone-button {
+    height: 10vh;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.phone-button > a {
+    background-color: #FE6B00;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: opensans-bold;
+    text-decoration: none;
+    
+}
+
+.mabar-member {
+    height: 90%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 100% ;
     grid-template-rows: 10vh;
     overflow-y: auto;
     gap: 15px;
 }
 
-.member1 {
-    background-color: #F8F8F8;
-    height: 10vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0% 3%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.host-logo {
-    box-sizing: border-box;
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 100%;
-    
-}
-
 .member-logo {
-    box-sizing: border-box;
     width: 60px;
     height: 60px;
-    background-color: grey;
-    border-radius: 100%;
+}
+
+.member {
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    padding: 1%;
+    box-sizing: border-box;
+    margin-bottom: 9px;
+    height: 10vh;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+
+}
+
+.member > div > p {
+    font-size: 12px;
+}
+
+/* TABLET */
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+    .extra-description {
+        padding-bottom: 20vh;
+    }
+
+    .userlogo {
+        height: 13vw;
+        width: 13vw;
+        background-color: grey;
+    }
+
+    .sportlogo {
+        height: 2vw;
+        width: 2vw;
+        display: inline-block;
+        background-color: grey;
+    }
+}
+
+/* SMARTPHONE */
+@media (max-width: 575.98px) {
+    .userlogo {
+        height: 25vw;
+        width: 25vw;
+        background-color: grey;
+    }
+
+    .sportlogo {
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        background-color: grey;
+    }
+
+    .title {
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title > div > h1 {
+        text-align: center;
+    }
+
+    .title > div > div > span {
+        font-family: opensans-bold;
+        font-size: 12px;
+    }
+
+    .access-phone {
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .access-phone > h1 {
+        font-family: opensans-bold;
+    }
+
+    .access-phone > h1 > span {
+        font-size: 15px;
+    }
+
+    .des {
+        font-size: 12px;
+    }
+
+    .icon {
+        height: 4vw;
+        width: 4vw;
+    }
+
+    .box-content {
+        padding-bottom: 15vh;
+    }
+
+    .access-badge > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
     
+    .access-badge > .one {
+        border: 3px solid #FE6B00;
+        color: #FE6B00;
+    }
+    
+    .access-badge > .two {
+        border: 3px solid #8F8F8F;
+        color: #8F8F8F;
+    }
+
+    .access-badge {
+        height: 3.5vh;
+        width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        font-size: 12px;
+        font-family: opensans-bold;
+    }
 }

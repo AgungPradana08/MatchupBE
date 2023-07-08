@@ -26,7 +26,6 @@ function detailSparring() {
 }
 
 
-
 function DetectMap() {
     var Target = document.getElementById("locationTarget")
     var detail = document.getElementById("detaillokasi")

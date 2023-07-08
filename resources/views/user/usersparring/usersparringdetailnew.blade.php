@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="#"><img src="logo.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="#"><img src="\css\img\back button.png" style="height: 5vh;" alt=""></a>
           <span>{{$usersparring->title}}</span>
           <button class="report" ></button>
         </div>
@@ -40,7 +40,7 @@
                 <div class="maps pb-lg-5 pb-0">
                     <h4>Lokasi Sparring</h4>
                     <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
-                    <iframe id="MapDisplay" class="maps"></iframe></iframe>
+                    <iframe id="MapDisplay" class="maps"></iframe>
                 </div>
                 <hr>
                 <div class="d-block d-lg-none extra-description">
