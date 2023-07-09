@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('min_member');
             $table->string('max_member');
-            $table->string('aksebilitas');
             $table->string('tingkatan');
             $table->string('tanggal_pertandingan');
             $table->string('harga_tiket');
