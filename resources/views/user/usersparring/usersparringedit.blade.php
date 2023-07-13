@@ -89,10 +89,6 @@
             
         </div>
         <div class="form3">
-            <div class="header">
-                Aksesibilitas
-                <a id="drop2" onclick="dropdown(2)" ></a>
-            </div>
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Member</p>
@@ -101,14 +97,6 @@
                 <div class="input2">
                     <p style="opacity: 0%;" >Peta</p>
                     <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."  value="{{$usersparring->max_member}}" >
-                </div>
-                <div class="input3">
-                    <p>Akses</p>
-                    <select oninput="InputChange()" id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
-                        <option value="{{$usersparring->aksebilitas}}">{{$usersparring->aksebilitas}}</option>
-                        <option value="Terbuka">Public</option>
-                        <option value="Private">Private</option>
-                    </select>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>

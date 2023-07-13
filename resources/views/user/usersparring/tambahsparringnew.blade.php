@@ -101,14 +101,6 @@
                     <p style="opacity: 0%;" >Peta</p>
                     <input  id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
-                <div class="input3">
-                    <p>Akses</p>
-                    <select  id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
-                        <option value="">Aksesibilitas</option>
-                        <option value="Terbuka">Public</option>
-                        <option value="Private">Private</option>
-                    </select>
-                </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
                     <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >

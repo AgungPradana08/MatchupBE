@@ -33,7 +33,7 @@
             </div>
             <div class="footer">
                 <button name="submit" type="submit" >LOG IN</button>
-                <a style="text-align: center;" href="/login">tidak punya akun?, klik disini</a>
+                <a style="text-align: center;" href="/register">tidak punya akun?, klik disini</a>
             </div>
         </div>
     </div>

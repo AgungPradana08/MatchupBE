@@ -88,14 +88,6 @@
                 @error ('max_member')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror
-                <select class="ac-title2" id="AksesInput" onchange="InputChange()" type="text" placeholder="TWO" name="aksebilitas" >
-                    <option value="">Terbuka/Privat</option>
-                    <option value="Terbuka">Terbuka</option>
-                    <option value="Private">Private</option>
-                </select>
-                @error ('aksebilitas')
-                        <p class="text-danger" >{{ $message }}</p>
-                @enderror
                 <select class="ac-title2" id="TingkatanInput" onchange="InputChange()" type="text" placeholder="TWO" name="tingkatan" >
                     <option value="">Pilih Tingkatan...</option>
                     <option value="7-10">7-10</option>
