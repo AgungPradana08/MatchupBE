@@ -71,9 +71,6 @@
                         <div style="margin-left: 5%; width: 60%;" >
                             <p style="font-size: 0.8vw;" >Sparring | {{$usersparring->olahraga}}</p>
                             <p style="font-size: 1.5vw; font-family: opensans-bold; margin-top: 3%;" >{{$usersparring->title}}</p>
-                            <div class="access">
-                                {{$usersparring->aksebilitas}}
-                            </div>
                             <div class="age">
                                 {{$usersparring->tingkatan}}
                             </div>
