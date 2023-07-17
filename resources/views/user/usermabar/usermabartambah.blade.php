@@ -86,10 +86,6 @@
             
         </div>
         <div class="form3">
-            <div class="header">
-                Aksesibilitas
-                <a id="drop2" onclick="dropdown(2)" ></a>
-            </div>
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Member</p>
@@ -100,12 +96,6 @@
                     <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
                 <div class="input3">
-                    <p>Akses</p>
-                    <select oninput="InputChange()" id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
-                        <option value="">Aksesibilitas</option>
-                        <option value="Terbuka">Public</option>
-                        <option value="Private">Private</option>
-                    </select>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>

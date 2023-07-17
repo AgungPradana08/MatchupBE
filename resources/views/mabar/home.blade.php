@@ -76,7 +76,6 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
                     <div>
-                        <div class="access">{{$mabar->aksebilitas}}</div>
                         <div class="age">{{$mabar->tingkatan}}</div> 
                     </div>
                 </div>

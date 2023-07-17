@@ -22,7 +22,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview"  src="{{asset('storage/'. $userprofile->image)}}">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -39,11 +39,11 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <input  name="title" id="TitleInput" value="{{$userprofile->name}}" type="text" placeholder="Input nama..." >
                 </div>
                 <div class="input3">
-                    <p>Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
+                    <p>Username</p>
+                    <input name="deskripsi" id="DesInput" value="{{$userprofile->username}}" type="text" placeholder="Input Username...">
                 </div>
             </div>
         </div>

@@ -89,7 +89,25 @@ class UserSparringController extends Controller
     public function update($id, Request $request)
     {
         $usersparring = UserSparring::find($id);
-        $usersparring->update($request -> except(['_token','submit',]));
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image2', $file_name);
+        // $usersparring->update($request -> except(['_token','submit',]));
+        $usersparring->update([
+            'title' => $request->title,
+            'nama_tim' => $request->nama_tim,
+            'image' => $image,
+            'olahraga' => $request->olahraga,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'min_member' => $request->min_member,
+            'max_member' => $request->max_member,
+            'tingkatan' => $request->tingkatan,
+            'tanggal_pertandingan' => $request->tanggal_pertandingan,
+            'harga_tiket' => $request->harga_tiket,
+            'lama_pertandingan' => $request->lama_pertandingan,
+            'waktu_pertandingan' => $request->waktu_pertandingan,
+            'deskripsi_tambahan' => $request->deskripsi_tambahan,
+        ]);
         return redirect('/usersparring/home');
     }
 

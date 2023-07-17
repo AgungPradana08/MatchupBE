@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="#"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="/sparring/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
@@ -132,7 +132,7 @@
             </a>    
         </div>
     </div>
-    <a href="/usersparring/tambah" class="add-sparring" >+</a>
+    <a href="/usersparring/usersparringtambah" class="add-sparring" >+</a>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

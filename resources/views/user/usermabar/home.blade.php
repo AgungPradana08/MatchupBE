@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="#"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="/sparring/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
@@ -72,7 +72,6 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
                     <div>
-                        <div class="access">{{$mabar->aksebilitas}}</div>
                         <div class="age">{{$mabar->tingkatan}}</div> 
                     </div>
                 </div>

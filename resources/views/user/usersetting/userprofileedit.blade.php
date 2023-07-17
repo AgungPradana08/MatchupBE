@@ -39,7 +39,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama..." >
                 </div>
                 <div class="input3">
                     <p>Deskrispi</p>

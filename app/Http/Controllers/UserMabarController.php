@@ -38,7 +38,6 @@ class UserMabarController extends Controller
             'lokasi' => 'required',
             'min_member' => 'required',
             'max_member' => 'required',
-            'aksebilitas' => 'required',
             'tingkatan' => 'required',
             'tanggal_pertandingan' => 'required',
             'harga_tiket' => 'required',
@@ -57,7 +56,6 @@ class UserMabarController extends Controller
             'lokasi' => $request->lokasi,
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
-            'aksebilitas' => $request->aksebilitas,
             'tingkatan' => $request->tingkatan,
             'tanggal_pertandingan' => $request->tanggal_pertandingan,
             'harga_tiket' => $request->harga_tiket,
@@ -110,7 +108,23 @@ class UserMabarController extends Controller
     public function update($id, Request $request)
     {
         $usermabar = UserMabar::find($id);
-        $usermabar->update($request -> except(['_token','submit']));
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image4', $file_name);
+        $usermabar->update([
+            'title' => $request->title,
+            'image' => $image,
+            'olahraga' => $request->olahraga,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'min_member' => $request->min_member,
+            'max_member' => $request->max_member,
+            'tingkatan' => $request->tingkatan,
+            'tanggal_pertandingan' => $request->tanggal_pertandingan,
+            'harga_tiket' => $request->harga_tiket,
+            'lama_pertandingan' => $request->lama_pertandingan,
+            'waktu_pertandingan' => $request->waktu_pertandingan,
+            'deskripsi_tambahan' => $request->deskripsi_tambahan,
+        ]);
         return redirect('/usermabar/home');
     }
 
