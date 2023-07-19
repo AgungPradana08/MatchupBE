@@ -18,7 +18,8 @@
         </div>
     </section>
 
-    <form action="/usersparring/store" method="POST" enctype="multipart/form-data" class="content" >
+    <form action="/userprofile/{id}/settings" method="POST" enctype="multipart/form-data" class="content" >
+        @method('put')
         @csrf
         <div class="image-container">
             <div class="image-box" >
@@ -39,11 +40,11 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p>Nama</p>
-                    <input  name="title" id="TitleInput" value="{{$userprofile->name}}" type="text" placeholder="Input nama..." >
+                    <input  name="name" id="TitleInput" value="{{$userprofile->name}}" type="text" placeholder="Input nama..." >
                 </div>
                 <div class="input3">
                     <p>Username</p>
-                    <input name="deskripsi" id="DesInput" value="{{$userprofile->username}}" type="text" placeholder="Input Username...">
+                    <input name="username" id="DesInput" value="{{$userprofile->username}}" type="text" placeholder="Input Username...">
                 </div>
             </div>
         </div>

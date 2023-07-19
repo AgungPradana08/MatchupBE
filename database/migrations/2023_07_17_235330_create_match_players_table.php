@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('match_players', function (Blueprint $table) {
+            $table->unsignedBigInteger('match_id');
+            $table->unsignedBigInteger('user_id');
+            // Kolom-kolom tambahan jika diperlukan
+            $table->timestamps();
+
+            $table->foreign('match_id')->references('id')->on('matches')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->primary(['match_id', 'user_id']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('match_players');
+    }
+};

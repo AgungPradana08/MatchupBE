@@ -22,15 +22,16 @@ class UserProfileController extends Controller
         return view('user.userprofile.userprofileedit', compact(['userprofile']));
     }
 
-    // public function update(Request $request)
-    // {
-    //     $pengguna = Auth::user();
+    public function update(Request $request){
+        // dd($request->all());
+        $pengguna = User::find(Auth::user()->id);
 
-    //     $validatedData = $request->validate([
-    //         'username' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($pengguna->id)],
-    //     ]);
 
-    //     $pengguna->username = $validatedData['username'];
-    //     $pengguna->save($request -> except(['_token','submit']));
-    // }
+        $pengguna->update([
+            $pengguna->name = $request->name,
+            $pengguna->username = $request->username,
+        ]);
+        
+        return redirect('/userprofile/home');
+    }
 }

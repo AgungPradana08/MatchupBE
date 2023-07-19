@@ -72,7 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/userprofile')->group(function () {
         Route::get('/home', [UserProfileController::class, 'index']);
         Route::get('/setting', [UserProfileController::class, 'edit']);
-        Route::put('/settings', [UserProfileController::class, 'update']);
+        Route::put('/{id}/settings', [UserProfileController::class, 'update']);
     });
 
     Route::prefix('/usersparring')->group(function () {
@@ -122,7 +122,9 @@ Route::get('/registerr', [LoginController::class, 'showregister']);
 Route::post('/registerr/store', [LoginController::class, 'register']);
 
 
-
 Route::get('/logout', [LoginController::class, 'logout']);
+
+
+Route::post('/matches/join', [UserMabarController::class, 'joinMatch'])->name('matches.join');
 
 

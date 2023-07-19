@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
-          <span>TITLE</span>
+          <span>DETAIL</span>
           <button class="report" ></button>
         </div>
     </nav>
@@ -157,7 +157,10 @@
                         </tr>
                             </table>
                     </div>
-                    <button>Ambil Mabar</button>
+                    {{-- <form action="{{ route('matches.join') }}" method="post">
+                        @csrf --}}
+                        <button>Ambil Mabar</button>
+                    {{-- </form> --}}
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Member</h5>
