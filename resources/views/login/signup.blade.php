@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="input-box">
-                    <div class="icon"></div>
+                    <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
                     <input type="text" name="username" placeholder="Masukkan Nama...">
                 </div> 
             </div>
