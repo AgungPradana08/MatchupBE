@@ -12,7 +12,8 @@ class UserSparringController extends Controller
 {
     public function index()
     {   
-        $usersparring = UserSparring::all();
+        // $usersparring = UserSparring::all();
+        $usersparring = UserSparring::where('user_id', session('user_id'))->get();
         return view('user.usersparring.home', compact(['usersparring']));
     }
 
@@ -54,6 +55,7 @@ class UserSparringController extends Controller
         $image = $request->image->storeAs('image2', $file_name);
 
         $post = UserSparring::create([
+            'user_id' => $pengguna->id,
             'title' => $request->title,
             'nama_tim' => $request->nama_tim,
             'image' => $image,

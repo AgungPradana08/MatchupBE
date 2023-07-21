@@ -17,6 +17,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        // $user = Auth::user();
+        // session(['user_id' => $user->id]);
+
         $request->validate([
             'email' => 'required',
             'password' => 'required'
