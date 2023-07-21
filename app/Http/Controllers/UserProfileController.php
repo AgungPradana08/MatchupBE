@@ -13,6 +13,7 @@ class UserProfileController extends Controller
     {   
         // $pengguna = User::all();
         $pengguna = Auth::user();
+        session(['user_id' => $pengguna->id]);
         return view('user.userprofile.home', compact(['pengguna']));
     }
 

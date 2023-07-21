@@ -32,6 +32,7 @@ class UserSparringController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $pengguna = Auth::user();
 
         $this->validate($request, rules: [
             'title' => 'required',
@@ -52,7 +53,7 @@ class UserSparringController extends Controller
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image2', $file_name);
 
-        UserSparring::create([
+        $post = UserSparring::create([
             'title' => $request->title,
             'nama_tim' => $request->nama_tim,
             'image' => $image,
@@ -68,6 +69,9 @@ class UserSparringController extends Controller
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
+
+        $pengguna->posts()->save($post);
+
         return redirect('/usersparring/home');
     }
 
