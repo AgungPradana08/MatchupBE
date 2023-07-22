@@ -10,4 +10,9 @@ class UserTimController extends Controller
     {
         return view('user.usertim.home');
     }
+
+    public function tambah()
+    {
+        return view('user.usertim.tambahtim');
+    }
 }

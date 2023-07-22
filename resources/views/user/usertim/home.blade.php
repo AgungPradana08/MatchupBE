@@ -60,25 +60,21 @@
         </section>          
     </div>
     <div class="container">
-        <section class="box-wrapper">
+        <section class="box-wrapper p-2 ">
             <div class="box" >
             <a href="timdetail.html" >
                <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data">
-                        <a class="see-button" href="timdetail.html">
+                        <a class="see-button" href="/usermabar/usermabardetail" >
                         </a>
-                        <a class="edit-button" href="ubahtim.html"></a>
+                        <a class="edit-button" href="/usermabar/usermabaredit"></a>
                     </div>
-                    <div class="box-logo  rounded-circle">
-    
+                    <div class="box-logo rounded-circle">
                     </div>
-                    <div style=" width: 60%;" class="letter-container" >
-                        <p style="font-size: 12px;" >Futsal</p>
-                        <p style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >TITLE</p>
-                        <div class="access">
-                            Terbuka
-                        </div>
+                    <div style=" width: 60%;" class="letter-container pt-3 pt-lg-0" >
+                        <p style="font-size: 12px; p-0 m-0" >Futsal</p>
+                        <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >TITLE</p>
                         <div class="age">
                             15-17
                         </div>
@@ -86,8 +82,8 @@
                 </div>
                 <div class="box-bottom">    
                     <span style="height: 40vh;" >deskripsi</span>
-                    <hr>
-                    <div style="width: 100%; display: flex; justify-content: center; align-items: center;" >
+                    <hr class="m-1" >
+                    <div class="w-100 d-flex justify-content-center align-items-center justify-content-lg-between" style="width: 100%; display: flex; justify-content: center; align-items: center;" >
                         <p class="p-0 m-0 me-1" >
                          Slot Tersedia
                         </p>
@@ -123,7 +119,7 @@
         </div>
     </div>
     <section class="white-space" ></section>
-    <a href="tambahsparring.html" class="add-sparring" >+</a> 
+    <a href="usertim/tambahtim" class="add-sparring" >+</a> 
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
 </body>

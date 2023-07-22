@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     margin: 0px;
     padding: 0px;
 }
@@ -218,7 +218,7 @@ body {
 }
 
 .box {
-    height: 30vh;
+    height: 33vh;
 }
 
 .box-outer {
@@ -433,7 +433,7 @@ body {
     .line {
         display: flex;
         align-items: center;
-        font-size: 15px;
+        font-size: 12px;
         margin-bottom: 5px;
     }
 

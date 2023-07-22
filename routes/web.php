@@ -107,6 +107,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/usertim')->group(function () {
         Route::get('/home', [UserTimController::class, 'index']);
+        Route::get('/tambahtim', [UserTimController::class, 'tambah']);
+
     });
 
 });

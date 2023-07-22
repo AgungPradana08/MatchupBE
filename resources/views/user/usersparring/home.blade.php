@@ -59,7 +59,7 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
-        <div class="box">
+        <div class="box shadow-ms ">
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
                 <div class="edit-data">
@@ -72,7 +72,6 @@
                     <p class="m-0 " style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div>
-                        <div class="access">{{$sparring->aksebilitas}}</div>
                         <div class="age">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>

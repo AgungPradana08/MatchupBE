@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -32,8 +32,9 @@
 }
 
 .navbar > p {
-    font-size: 1.5vw;
+    font-size: 15px;
     font-family: opensans-bold;
+    text-transform: uppercase;
 }
 
 .navbar > a {
@@ -436,3 +437,83 @@ p {
     border-radius: 5px;
     resize: none;
 }
+
+.white-space {
+    height: 10vh;
+}
+
+
+
+/* TABLET  */
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+
+
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .content {  
+        width: 80%;
+        padding: 8vh 2% 0px 2%;
+        box-sizing: border-box;
+    
+    }
+}
+
+/* SMARTPHONE */
+
+@media (max-width: 575.98px) {
+
+    .content {  
+        width: 100%;
+        padding: 8vh 2% 0px 2%;
+        box-sizing: border-box;
+    
+    }
+
+    .form1-wrapper-mabar {
+        box-sizing: border-box;
+        padding: 2% 4% 2% 4%;
+        height: 60vh;
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 4fr;
+        grid-template-areas: "nama " "olahraga" " deskripsis";
+        column-gap: 6%;
+        row-gap: 2% ;
+    
+    }
+
+    p {  
+        font-size: 15px;
+    
+    }
+
+    .form4-wrapper {
+        box-sizing: border-box;
+        padding: 4%;
+        height: 60vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 4fr;
+        grid-template-areas: "tanggal harga " "lama pukul" "deskripsi-tam deskripsi-tam";
+        /* grid-template-areas: "tanggal harga lama pukul" "deskripsi-tam deskripsi-tam deskripsi-tam deskripsi-tam"; */
+        column-gap: 3%;
+        row-gap: 2% ;
+    
+    }
+
+    .form3 > .form3-wrapper {
+        box-sizing: border-box;
+        padding: 4%;
+        height: 17vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr 2fr;
+        column-gap: 3%;
+        row-gap: 2% ;
+    
+    }
+}
+

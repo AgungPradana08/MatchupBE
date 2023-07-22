@@ -22,7 +22,7 @@
 
     <section class="content" >
         <div class="add-image">
-    <form action="/sparring/store" method="POST" enctype="multipart/form-data">
+        <form action="/sparring/store" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="image-box" >
                 <img class="img-preview"  alt="">  
@@ -50,12 +50,14 @@
 
                 <select name="olahraga" id="OlahragaSelect" onchange="InputChange()" class="title2" type="text" placeholder="TWO">
                     <option value="" >Pilih Olahraga...</option>
-                    <option value="Sepak Bola">Sepak Bola</option>
+                    <option data-icon="" value="Sepak Bola">Sepak Bola</option>
                     <option value="Futsal">Futsal</option>
                     <option value="Ping Pong">Ping Pong</option>
                     <option value="Bulutangkis">Bulutangkis</option>
                     <option value="Renang">Renang</option>
+                    
                 </select>
+
                 @error ('olahraga')
                         <p class="text-danger" >{{ $message }}</p>
                 @enderror

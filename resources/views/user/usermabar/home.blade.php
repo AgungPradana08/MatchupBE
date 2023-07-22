@@ -97,10 +97,10 @@
                      </div>
                      {{$mabar->harga_tiket}}
                  </div>
-                 <hr class="d-none d-sm-block" >
+                 <hr class="d-block m-1" >
                  <div style="display: flex; justify-content: space-between;" class="" >
                      <Span>Slot Terbatas</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >1/12</span>
+                     <span style="font-family: opensans-bold; color: #FE6B00; " class="ms-2 ms-lg-0 " >1/12</span>
                  </div>
              </div>
             </button>
