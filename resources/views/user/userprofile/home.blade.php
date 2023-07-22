@@ -49,6 +49,8 @@
             <hr>
             <span class="deskripsi" >Deskripsi</span>
             <div class="social">
+                
+                {{-- WOI INI SOCIALNYA GA BISA DIPENCET --}}
                 <div class="instagram">
 
                 </div>
