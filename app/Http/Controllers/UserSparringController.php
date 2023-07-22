@@ -97,6 +97,7 @@ class UserSparringController extends Controller
         $usersparring = UserSparring::find($id);
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image2', $file_name);
+        
         // $usersparring->update($request -> except(['_token','submit',]));
         $usersparring->update([
             'title' => $request->title,

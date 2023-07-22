@@ -27,8 +27,11 @@ class UserProfileController extends Controller
         // dd($request->all());
         $pengguna = User::find(Auth::user()->id);
 
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image2', $file_name);
 
         $pengguna->update([
+            'image' => $image,
             $pengguna->name = $request->name,
             $pengguna->username = $request->username,
         ]);

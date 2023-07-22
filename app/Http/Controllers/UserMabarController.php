@@ -6,12 +6,14 @@ use App\Models\User;
 use App\Models\Matching;
 use App\Models\UserMabar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserMabarController extends Controller
 {
     public function index()
     {
-        $usermabar = UserMabar::all();
+        // $usermabar = UserMabar::all();
+        $usermabar = UserMabar::where('user_id', session('user_id'))->get();
         return view('user.usermabar.home', compact(['usermabar']));
     }
 
@@ -31,6 +33,8 @@ class UserMabarController extends Controller
     {
         // dd($request->all());
 
+        $pengguna = Auth::user();
+
         $this->validate($request, rules: [
             'title' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png',
@@ -49,7 +53,8 @@ class UserMabarController extends Controller
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image4', $file_name);
 
-        UserMabar::create([
+        $post = UserMabar::create([
+            'user_id' => $pengguna->id,
             'title' => $request->title,
             'image' => $image,
             'olahraga' => $request->olahraga,
@@ -64,6 +69,8 @@ class UserMabarController extends Controller
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
+
+        $pengguna->postsmabar()->save($post);
         return redirect('/usermabar/home');
     }
 

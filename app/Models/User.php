@@ -20,6 +20,11 @@ class User extends Authenticatable
         return $this->hasMany(UserSparring::class);
     }
 
+    public function postsmabar()
+    {
+        return $this->hasMany(UserMabar::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

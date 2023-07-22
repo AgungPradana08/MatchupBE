@@ -23,7 +23,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" >
-                <img class="img-preview"  src="{{asset('storage/'. $userprofile->image)}}">  
+                    <img class="img-preview" src="{{asset('storage/'. $userprofile->image)}}">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
