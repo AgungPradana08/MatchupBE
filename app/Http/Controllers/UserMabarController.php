@@ -14,7 +14,7 @@ class UserMabarController extends Controller
     {
         // $usermabar = UserMabar::all();
         $usermabar = UserMabar::where('user_id', session('user_id'))->get();
-        return view('user.usermabar.home', compact(['usermabar']));
+        return view('user.usermabar.home', compact(['usermabar',]));
     }
 
     public function index2()
@@ -53,8 +53,9 @@ class UserMabarController extends Controller
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image4', $file_name);
 
-        $post = UserMabar::create([
+        $mabar = UserMabar::create([
             'user_id' => $pengguna->id,
+            'host_id' => $pengguna->id,
             'title' => $request->title,
             'image' => $image,
             'olahraga' => $request->olahraga,
@@ -70,7 +71,9 @@ class UserMabarController extends Controller
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
 
-        $pengguna->postsmabar()->save($post);
+        // $pengguna->postsmabar()->save($mabar);
+        $mabar->joinedUsers()->attach($pengguna->id);
+
         return redirect('/usermabar/home');
     }
 
@@ -100,10 +103,9 @@ class UserMabarController extends Controller
 
     public function detail($id)
     {
-        $usermabar = UserMabar::find($id);
-        // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usermabar.usermabardetail', compact(['usermabar']));
-        // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
+        $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);
+        $pengguna = Auth::user();
+        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna'));
     }
 
     public function edit($id)
@@ -143,23 +145,24 @@ class UserMabarController extends Controller
         return redirect('/usermabar/home');
     }
 
-    public function joinmatch(Request $request, $matchId){
-        // Periksa apakah mabar dengan $matchId ada
-        $match = Matching::find($matchId);
+    public function joinmabar($usermabarId)
+    {
+        $pengguna = Auth::user();
+        $mabar = UserMabar::with('joinedUsers')->find($usermabarId);
 
-        if (!$match) {
-            return response()->json(['message' => 'Match not found'], 404);
+        if ($mabar) {
+            // Cek apakah user sudah terdaftar sebagai peserta mabar
+            if (!$mabar->joinedUsers->contains($pengguna->id)) {
+                // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
+                $mabar->joinedUsers()->attach($pengguna->id);
+                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('success', 'Anda telah bergabung dengan Mabar!');
+            } else {
+                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('error', 'Anda sudah terdaftar sebagai peserta Mabar ini!');
+            }
+        } else {
+            return redirect()->route('mabar.index')->with('error', 'Mabar tidak ditemukan!');
         }
-
-        // Periksa apakah status mabar memungkinkan bergabung (misalnya 'pending')
-        if ($match->status !== 'pending') {
-            return response()->json(['message' => 'Match is not available for joining'], 400);
-        }
-
-        // Buat entri baru di tabel pivot yang mengaitkan pengguna dengan mabar
-        $match->players()->attach($request->user_id);
-
-        return response()->json(['message' => 'Joined the match successfully'], 200);
     }
+
 
 }
