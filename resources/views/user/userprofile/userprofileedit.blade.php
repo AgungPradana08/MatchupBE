@@ -23,7 +23,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" >
-                <img class="img-preview"  src="{{asset('storage/'. $userprofile->image)}}">  
+                    <img class="img-preview" src="{{asset('storage/'. $userprofile->image)}}">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -77,22 +77,22 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Gender</p>
-                    <select  id="MinInput" type="text" name="min_member" placeholder="min-member..." >
-                        <option value="">Laki-Laki</option>
-                        <option value="">Perempuan</option>
+                    <select  id="MinInput" type="text" name="gender" placeholder="min-member..." >
+                        <option value="Laki-Laki">Laki-Laki</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="input2">
                     <p>Usia</p>
-                    <input  type="number" placeholder="masukkan Usia anda">
+                    <input name="usia" type="number" value="{{$userprofile->usia}}" placeholder="masukkan Usia anda">
                 </div>
                 <div class="input3">
                     <p>Berat Badan</p>
-                    <input type="number" placeholder="masukkan berat badan (Kg)" >
+                    <input name="berat_badan" type="number" value="{{$userprofile->berat_badan}}" placeholder="masukkan berat badan (Kg)" >
                 </div>
                 <div class="input4">
                     <p>Tinggi Badan</p>
-                    <input type="number" placeholder="masukkan Tinggi Badan (Cm)">
+                    <input name="tinggi_badan" type="number" value="{{$userprofile->tinggi_badan}}" placeholder="masukkan Tinggi Badan (Cm)">
                 </div>
             </div>
         </div>

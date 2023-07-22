@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('usermabar', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('host_id')->nullable();
             $table->string('title');
             $table->string('image')->nullable();
             $table->string('olahraga');

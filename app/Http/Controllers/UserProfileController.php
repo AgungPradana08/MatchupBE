@@ -27,10 +27,17 @@ class UserProfileController extends Controller
         // dd($request->all());
         $pengguna = User::find(Auth::user()->id);
 
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image2', $file_name);
 
         $pengguna->update([
+            'image' => $image,
             $pengguna->name = $request->name,
             $pengguna->username = $request->username,
+            $pengguna->gender = $request->gender,
+            $pengguna->usia = $request->usia,
+            $pengguna->berat_badan = $request->berat_badan,
+            $pengguna->tinggi_badan = $request->tinggi_badan,
         ]);
         
         return redirect('/userprofile/home');

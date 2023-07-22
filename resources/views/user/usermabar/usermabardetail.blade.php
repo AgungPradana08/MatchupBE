@@ -157,21 +157,32 @@
                         </tr>
                             </table>
                     </div>
-                    {{-- <form action="{{ route('matches.join') }}" method="post">
-                        @csrf --}}
-                        <button>Ambil Mabar</button>
-                    {{-- </form> --}}
+                    <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit">Ambil Mabar</button>
+                    </form>
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Member</h5>
                     <div class="mabar-member">
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}" >
+                            @if($usermabar->host)
+                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usermabar->host->image)}}" >
+                                <div class="ms-2">
+                                    <h6 class="m-0" >{{$usermabar->host->name}}</h6>
+                                    <p class="m-0" >Host</p>
+                            </div>
+                            @endif
+                        </div>
+                        @foreach ($usermabar->players as $player)
+                        <div class="member">
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
                             <div class="ms-2">
-                                <h6 class="m-0" >Nama</h6>
-                                <p class="m-0" >Host</p>
+                                <h6 class="m-0" >{{$player->name}}</h6>
+                                <p class="m-0" >Player</p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
