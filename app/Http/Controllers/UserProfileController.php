@@ -34,6 +34,10 @@ class UserProfileController extends Controller
             'image' => $image,
             $pengguna->name = $request->name,
             $pengguna->username = $request->username,
+            $pengguna->gender = $request->gender,
+            $pengguna->usia = $request->usia,
+            $pengguna->berat_badan = $request->berat_badan,
+            $pengguna->tinggi_badan = $request->tinggi_badan,
         ]);
         
         return redirect('/userprofile/home');

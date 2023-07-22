@@ -77,7 +77,7 @@
                                 Gender
                             </td>
                             <td>
-                                L/P
+                                {{$pengguna->gender}}
                             </td>
                         </tr>
                         <tr>
@@ -88,7 +88,7 @@
                                 Usia
                             </td>
                             <td>
-                                Tahun
+                                {{$pengguna->usia}} Tahun
                             </td>
                         </tr>
                         <tr>
@@ -99,7 +99,7 @@
                                 Berat Badan
                             </td>
                             <td>
-                                Kg
+                                {{$pengguna->berat_badan}} Kg
                             </td>
                         </tr>
                         <tr>
@@ -110,7 +110,7 @@
                                 Tinggi Badan
                             </td>
                             <td>
-                                CM
+                                {{$pengguna->tinggi_badan}} CM
                             </td>
                         </tr>
                     </table>
