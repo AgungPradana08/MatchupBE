@@ -20,7 +20,7 @@
 }
 
 .navbar > div > span {
-    font-size: 25px;
+    font-size: 20px;
     font-family: opensans-bold;
 }
 
@@ -103,31 +103,16 @@
     font-size: 15px;
 }
 
-.access-badge {
+.two {
     height: 3.5vh;
-    width: 60%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
     font-size: 12px;
     font-family: opensans-bold;
-}
-
-.access-badge > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-}
-
-.access-badge > .one {
-    border: 3px solid #FE6B00;
-    color: #FE6B00;
-}
-
-.access-badge > .two {
     border: 3px solid #8F8F8F;
     color: #8F8F8F;
+    width: 10vw;
+    border-radius: 50px;
+    text-align: center;
 }
 
 /* .box-content {
@@ -686,32 +671,23 @@ td {
         padding-bottom: 15vh;
     }
 
-    .access-badge > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 15px;
-    }
-    
-    .access-badge > .one {
-        border: 3px solid #FE6B00;
-        color: #FE6B00;
-    }
-    
-    .access-badge > .two {
-        border: 3px solid #8F8F8F;
-        color: #8F8F8F;
-    }
-
-    .access-badge {
+    .two {
         height: 3.5vh;
-        width: 50%;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
         font-size: 12px;
         font-family: opensans-bold;
+        border: 3px solid #8F8F8F;
+        color: #8F8F8F;
+        width: 30vw;
+        border-radius: 50px;
+        text-align: center;
     }
+
+    .navbar > div > span {
+        font-size: 20px;
+        font-family: opensans-bold;
+    }
+    
 }
 
 

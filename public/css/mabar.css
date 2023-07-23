@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     margin: 0px;
     padding: 0px;
 }
@@ -449,14 +449,14 @@ body {
     }
 
     .box {
-        height: 50vh;
+        height: 60vh;
     }
 
     .line {
         display: flex;
         align-items: center;
         font-size: 15px;
-        margin-bottom: 5px;
+        margin-bottom: 2px;
     }
 
     .box-top, .box-bottom {

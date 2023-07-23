@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     margin: 0px;
     padding: 0px;
 
@@ -399,8 +399,6 @@ body {
 .see-button, .edit-button{
     height: 25px;
     width: 25px;
-    background: grey;
-    display: inline;
 }
 
 .see-button {
