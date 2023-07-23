@@ -66,7 +66,7 @@
                <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data">
-                        <a class="see-button" href="/usermabar/usermabardetail" >
+                        <a class="see-button" href="/usertim/userdetail" >
                         </a>
                         <a class="edit-button" href="/usermabar/usermabaredit"></a>
                     </div>
@@ -99,27 +99,27 @@
         
     </div>
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
-        <div class="row">
-            <a href="/userprofile/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/userwhite.png); background-size: contain;" ></div>
+        <div class="row mobile-nav">
+            <a href="/userprofile/home" class="col-3 ">
+                <img width="30px" src="/css/img/userwhite.png" >
                 <p class="m-0">Profile</p>
             </a>
             <a href="/usersparring/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-sparring.png); background-size: contain;"></div>
+                <img width="30px" src="/css/img/bn-sparring.png" >
                 <p class="m-0">Sparring</p>
             </a>
-            <a href="/usermabar/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-mabar.png); background-size: contain;"></div>
+            <a href="/usermabar/home" class="col-3 ">
+                <img width="30px" src="/css/img/bn-mabar.png" >
                 <p class="m-0">Mabar</p>
             </a>
-            <a href="/usertim/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-tim.png); background-size: contain;"></div>
+            <a href="/usertim/home" class="col-3 active-m">
+                <img width="30px" src="/css/img/bn-tim.png  " >
                 <p class="m-0">Tim</p>
             </a>    
         </div>
     </div>
     <section class="white-space" ></section>
-    <a href="usertim/tambahtim" class="add-sparring" >+</a> 
+    <a href="/usertim/tambahtim" class="add-sparring" >+</a> 
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
 </body>

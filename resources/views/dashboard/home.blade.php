@@ -14,7 +14,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+      <div class="collapse navbar-collapse p-2"  id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item mx-0 mx-lg-2">
             <a class="nav-link text-start text-lg-center active" aria-current="page" href="/"><span>Home</span></a>
@@ -79,7 +79,7 @@
         </div>
       </div>
       <section class="container ">
-        <div class="row offer1-container">
+        <div class="row offer1-container px-1">
           <div class="col-lg-6 col-12 d-lg-flex align-items-center justify-content-center upper-offer1">
             <img class="offer1-img" src="/css/img/jadijuara.png" alt="">
           </div>
@@ -98,7 +98,7 @@
           <div class="col-lg-6 col-12  d-flex align-items-center justify-content-center">
             <img src="/css/img/kompetitif.png" alt="">
           </div>
-          <div class="col-lg-6 col-12 offer2-description">
+          <div class="col-lg-6 col-12 offer2-description px-1">
             <h1 class="text-center text-lg-end"  style="font-family: opensans-bold;">KOMPETITIF</h1>
             <div>
             <h3 class="text-center text-lg-end">menjadi lebih baik dari sebelumnya</h3>

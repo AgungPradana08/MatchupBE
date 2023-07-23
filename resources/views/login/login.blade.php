@@ -32,6 +32,15 @@
                 <input class="d-none" type="text">
             </div>
             <div class="footer">
+
+
+                @if (session('error'))
+                <div class="alert alert-warning m-0 p-0 d-flex align-items-center justify-content-center"  role="alert">
+                    ! password atau email invalid !
+                </div>      
+                @else
+                  <div></div>  
+                @endif
                 <button name="submit" type="submit" >LOG IN</button>
                 <a style="text-align: center;" href="/register">tidak punya akun?, klik disini</a>
             </div>

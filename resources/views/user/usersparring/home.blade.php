@@ -72,7 +72,7 @@
                     <p class="m-0 " style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div>
-                        <div class="age">{{$sparring->tingkatan}}</div> 
+                        <div class="age">{{$sparring->tingkatan}} Tahun</div> 
                     </div>
                 </div>
             </div>
@@ -112,21 +112,21 @@
     @endif
     </section>
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
-        <div class="row">
-            <a href="/userprofile/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/userwhite.png); background-size: contain;" ></div>
+        <div class="row mobile-nav">
+            <a href="/userprofile/home" class="col-3 ">
+                <img width="30px" src="/css/img/userwhite.png" >
                 <p class="m-0">Profile</p>
             </a>
-            <a href="/usersparring/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-sparring.png); background-size: contain;"></div>
+            <a href="/usersparring/home" class="col-3 active-m">
+                <img width="30px" src="/css/img/bn-sparring.png" >
                 <p class="m-0">Sparring</p>
             </a>
             <a href="/usermabar/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-mabar.png); background-size: contain;"></div>
+                <img width="30px" src="/css/img/bn-mabar.png" >
                 <p class="m-0">Mabar</p>
             </a>
-            <a href="/usertim/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-tim.png); background-size: contain;"></div>
+            <a href="/usertim/home" class="col-3 ">
+                <img width="30px" src="/css/img/bn-tim.png  " >
                 <p class="m-0">Tim</p>
             </a>    
         </div>

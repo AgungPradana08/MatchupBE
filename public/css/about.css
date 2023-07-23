@@ -23,7 +23,6 @@
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
 }
 
 
@@ -309,7 +308,8 @@
     .about2-img {
         height: 100%;
         width: 100%;
-        background: grey;
+        background: url(img/tentang_matchup.png);
+        background-size: cover;
     }
 
     .about-2-content2 {

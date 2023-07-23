@@ -13,7 +13,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <span>TITLE</span>
-          <button class="report" ></button>
+          <button class="report" style="background:  url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -24,7 +24,7 @@
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
                         <h1>{{$tim->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
-                            <div class="sportlogo me-2"></div>
+                            <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$tim->olahraga}}</span>
                             <span>| {{$tim->lokasi}}</span>
                         </div>
@@ -44,7 +44,6 @@
                     <div class="maps">
                         <div class="box">
                             <div class="box-logo">
-    
                             </div>
                             <span style="margin-left: 5%;" >
                                 <p class="username-label m-0" style="font-family: opensans-bold;" >USERNAME</p>
@@ -55,13 +54,10 @@
                 </div>
                 <section class="white-space d-none d-lg-block" ></section> 
                 <hr class="d-block d-lg-none">
-                    <div class="access-phone d-flex d-lg-none">
+                    <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. {{$tim->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$tim->aksebilitas}}</div>
-                            <div class="two">{{$tim->tingkatan}}</div>
-                        </div>
+                        <div class="two">{{$tim->tingkatan}}</div>
                     </div>
                     <hr class="d-block d-lg-none">
                     <div class="box-content d-block d-lg-none">
@@ -73,18 +69,18 @@
                                 <td  style="font-family: opensans;">phone Number</td>
                             </tr>
                             <td>
-                                <div class="icon mx-auto"></div>
+                                <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
                             </td>
-                            <td style="font-family: opensans;">instagram</td>
+                            <td style="font-family: opensans;" >instagram</td>
                         </tr>
                         <td>
-                            <div class="icon mx-auto"></div>
+                            <div class="icon mx-auto" style="background:  url(/css/img/whatapps.jpg); background-size: contain;"></div>
                         </td>
                         <td style="font-family: opensans;">whatapps</td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="icon mx-auto"   ></div>
+                                <div class="icon mx-auto" style="background:  url(/css/img/facebook.jpg); background-size: contain;"  ></div>
                             </td>
                             <td  style="font-family: opensans;">facebook</td>
                         </tr>
@@ -96,10 +92,7 @@
                     <div class="access">
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. {{$tim->harga_tiket}} <span class="text-muted" >/orang </span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$tim->aksebilitas}}</div>
-                            <div class="two">{{$tim->tingkatan}}</div>
-                        </div>
+                        <div class="two">{{$tim->tingkatan}}</div>
                     </div>
                     <div class="box-content ">
                         <table>
@@ -110,18 +103,18 @@
                                 <td  style="font-family: opensans;">phone Number</td>
                             </tr>
                             <td>
-                                <div class="icon mx-auto"></div>
+                                <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
                             </td>
-                            <td style="font-family: opensans;">instagram</td>
+                            <td style="font-family: opensans;" >instagram</td>
                         </tr>
                         <td>
-                            <div class="icon mx-auto"></div>
+                            <div class="icon mx-auto" style="background:  url(/css/img/whatapps.jpg); background-size: contain;"></div>
                         </td>
                         <td style="font-family: opensans;">whatapps</td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="icon mx-auto"   ></div>
+                                <div class="icon mx-auto" style="background:  url(/css/img/facebook.jpg); background-size: contain;"  ></div>
                             </td>
                             <td  style="font-family: opensans;">facebook</td>
                         </tr>

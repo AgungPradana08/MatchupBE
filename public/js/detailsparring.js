@@ -38,6 +38,7 @@ function DetectMap() {
             mapsview.src = maps[index].embed
             break; // Menghentikan iterasi setelah menemukan kecocokan
         }
+        
     }
 }
 

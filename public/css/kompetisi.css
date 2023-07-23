@@ -323,7 +323,7 @@ body {
 /* === WHITE SPACE === */
 
 .white-space {
-    height: 30vh;
+    height: 25vh;
 }
 
 .searchname, .Searchmap, .searchsport {
@@ -500,4 +500,29 @@ body {
         margin-top: 2vh;
         margin-bottom: 3vh;
     }
+
+    .mobile-nav > .col-3 {
+        background: white;
+    }
+
+    .mobile-nav > .col-3 > p {
+        color: black;
+    }
+
+    .mobile-nav > .col-3 > img {
+        filter: invert(70%); /* Mengubah logo putih menjadi hitam */
+    }
+
+    .mobile-nav > .active-m {
+        background: #FE6B00;
+    }
+
+    .mobile-nav > .active-m > p {
+        color: white;
+    }
+
+    .mobile-nav > .active-m > img {
+        filter: invert(0%); /* Mengubah logo putih menjadi hitam */
+    }
+
 }

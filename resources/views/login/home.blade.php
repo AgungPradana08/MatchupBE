@@ -25,8 +25,7 @@
                 @csrf
             
             <div class="container" >
-                <div>
-                        
+                <div>   
                         <div class="input-box">
                             <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain;" ></div>
                             <input class="normal-input" placeholder="Input Email Pengguna..." type="email" value="{{Session::get('email')}}">
@@ -51,5 +50,11 @@
             <a class="hint" href="signup.html">Sudah Punya Akun?</a>
         </div>
     </div>
+    @if(session('error'))
+    <script>
+        // Menggunakan JavaScript untuk menampilkan pesan alert
+        alert("{{ session('error') }}");
+    </script>
+    @endif
 </body>
 </html>

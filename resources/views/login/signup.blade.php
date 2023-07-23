@@ -37,7 +37,10 @@
                 <input class="d-none" type="text">
             </div>
             <div class="footer">
-                <div onclick="NextPage()" >SELANJUTNYA</div>
+                <div id="error1" class="alert alert-warning  p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
+                    This is a warning alert—check it out!
+                  </div>
+                <div onclick="validatepage1()" class="next-button" >SELANJUTNYA</div>
                 <a style="text-align: center;" href="/login">Sudah Punya Akun?, klik disini</a>
             </div>
         </div>
@@ -61,7 +64,8 @@
                 </div> 
             </div>
             <div class="footer2">
-                <button type="submit" value="save" onclick="BackPage()" >BUAT AKUN</button>
+                <div></div>
+                <button type="submit" value="save" >BUAT AKUN</button>
             </div>
         </div>
     </div>

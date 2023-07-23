@@ -595,4 +595,28 @@ body {
         text-decoration: none;
         z-index: 100;
     }
+
+    .mobile-nav > .col-3 {
+        background: white;
+    }
+
+    .mobile-nav > .col-3 > p {
+        color: black;
+    }
+
+    .mobile-nav > .col-3 > img {
+        filter: invert(70%); /* Mengubah logo putih menjadi hitam */
+    }
+
+    .mobile-nav > .active-m {
+        background: #FE6B00;
+    }
+
+    .mobile-nav > .active-m > p {
+        color: white;
+    }
+
+    .mobile-nav > .active-m > img {
+        filter: invert(0%); /* Mengubah logo putih menjadi hitam */
+    }
 }

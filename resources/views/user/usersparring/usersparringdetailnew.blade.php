@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/css/detailsparringnewnew.css">
 </head>
 <body>
@@ -14,7 +13,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/sparring/home"><img src="\css\img\back button.png" style="height: 5vh;" alt=""></a>
           <span>Detail Sparring</span>
-          <button class="report" ></button>
+          <button class="report" style="background: url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -25,7 +24,7 @@
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0" >
                         <h1>{{$usersparring->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
-                            <div class="sportlogo me-2"></div>
+                            <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain;"></div>
                             <span class="me-2">{{$usersparring->olahraga}}</span>
                             <span>| {{$usersparring->lokasi}}</span>
                         </div>
@@ -42,26 +41,26 @@
                     <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
                     <iframe id="MapDisplay" class="maps"></iframe>
                 </div>
-                <hr>
+                <hr class=" d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
                     <h4>Deskripsi Tambahan</h4>
                     <span class="des">{{$usersparring->deskripsi_tambahan}}</span>
                 </div>
-                <hr>
+                <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
                         <div class="access-badge" >
                             <div class="one">{{$usersparring->aksebilitas}}</div>
-                            <div class="two">{{ $usersparring->tingkatan }}</div>
+                            <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
                         </div>
                     </div>
-                    <hr>
+                    <hr class=" d-block d-lg-none">
                     <div class="box-content d-block d-lg-none">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"  ></div>
                                 </td>
                                 <td  style="font-family: opensans-bold;">tanggal Permainan</td>
                             </tr>
@@ -72,7 +71,7 @@
                                 <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
                             </tr>
                             <td>
-                                <div class="icon mx-auto"></div>
+                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
                             </td>
                             <td style="font-family: opensans-bold;">Jadwal Sparring</td>
                         </tr>
@@ -83,7 +82,7 @@
                             <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
                         </tr>
                         <td>
-                            <div class="icon mx-auto"></div>
+                            <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
                         </td>
                         <td style="font-family: opensans-bold;">Lokasi Sparring</td>
                         </tr>
@@ -102,15 +101,14 @@
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
                         <div class="access-badge" >
-                            <div class="one">Terbuka</div>
-                            <div class="two">20 tahun+</div>
+                            <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                         </div>
                     </div>
                     <div class="box-content ">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"  ></div>
                                 </td>
                                 <td  style="font-family: opensans-bold;">tanggal Permainan</td>
                             </tr>
@@ -121,7 +119,7 @@
                                 <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
                             </tr>
                             <td>
-                                <div class="icon mx-auto"></div>
+                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
                             </td>
                             <td style="font-family: opensans-bold;">Jadwal Sparring</td>
                         </tr>
@@ -132,7 +130,7 @@
                             <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
                         </tr>
                         <td>
-                            <div class="icon mx-auto"></div>
+                            <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
                         </td>
                         <td style="font-family: opensans-bold;">Lokasi Sparring</td>
                         </tr>
@@ -148,7 +146,7 @@
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Deskripsi Tambahan</h5>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste rem, commodi maxime quibusdam perspiciatis similique aliquid alias? Accusantium sit officia qui, illum provident, natus mollitia commodi, necessitatibus accusamus iusto rem.</span>
+                    <span>{{$usersparring->deskripsi_tambahan}}</span>
                 </div>
             </div>
         </div>

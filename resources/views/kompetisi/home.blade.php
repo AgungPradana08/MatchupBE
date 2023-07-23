@@ -122,21 +122,21 @@
         @endif
         </section> 
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
-        <div class="row">
-            <a href="/sparring/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-sparring.png); background-size: contain;" ></div>
+        <div class="row mobile-nav">
+            <a href="/sparring/home" class="col-3 ">
+                <img width="30px" src="/css/img/bn-sparring.png" alt="" srcset="">
                 <p class="m-0">Sparring</p>
             </a>
             <a href="/mabar/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-mabar.png); background-size: contain;"></div>
+                <img width="30px" src="/css/img/bn-mabar.png" alt="">
                 <p class="m-0">Mabar</p>
             </a>
-            <a href="/kompetisi/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-kompetisi.png); background-size: contain;"></div>
+            <a href="/kompetisi/home" class="col-3 active-m">
+                <img width="30px" src="/css/img/bn-kompetisi.png" alt="">
                 <p class="m-0">Kompetisi</p>
             </a>
-            <a href="/tim/home" class="col-3">
-                <div class="bottom-nav-icon" style="background: url(/css/img/bn-tim.png); background-size: contain;"></div>
+            <a href="/tim/home" class="col-3 ">
+                <img width="30px" src="/css/img/bn-sparring.png" alt="">
                 <p class="m-0">Tim</p>
             </a>    
         </div>

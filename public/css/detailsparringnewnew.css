@@ -16,7 +16,7 @@
 .report {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    border: none;
 }
 
 .navbar > div > span {

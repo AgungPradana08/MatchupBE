@@ -16,7 +16,7 @@
 .report {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    border: none;
 }
 
 .navbar > div > span {
@@ -114,31 +114,17 @@
     font-size: 15px;
 }
 
-.access-badge {
-    height: 3.5vh;
-    width: 60%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    font-size: 12px;
-    font-family: opensans-bold;
-}
-
-.access-badge > div {
+.two {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-}
-
-.access-badge > .one {
-    border: 3px solid #FE6B00;
-    color: #FE6B00;
-}
-
-.access-badge > .two {
     border: 3px solid #8F8F8F;
     color: #8F8F8F;
+    height: 3.5vh;
+    width: 50%;
+    font-size: 12px;
+    font-family: opensans-bold;
 }
 
 /* .box-content {
@@ -305,6 +291,26 @@ table {
         display: inline-block;
         background-color: grey;
     }
+
+    .two {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        border: 3px solid #8F8F8F;
+        color: #8F8F8F;
+        height: 3.5vh;
+        width: 20%;
+        font-size: 12px;
+        font-family: opensans-bold;
+    }
+
+    .icon {
+        height: 25px;
+        width: 25px;
+        background-color: grey;
+    }
+    
 }
 
 /* SMARTPHONE */
@@ -367,30 +373,17 @@ table {
         padding-bottom: 15vh;
     }
 
-    .access-badge > div {
+    .two {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 15px;
-    }
-    
-    .access-badge > .one {
-        border: 3px solid #FE6B00;
-        color: #FE6B00;
-    }
-    
-    .access-badge > .two {
         border: 3px solid #8F8F8F;
         color: #8F8F8F;
-    }
-
-    .access-badge {
         height: 3.5vh;
-        width: 50%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        width: 30%;
         font-size: 12px;
         font-family: opensans-bold;
     }
+    
 }

@@ -13,7 +13,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <span>DETAIL</span>
-          <button class="report" ></button>
+          <button class="report" style="background:  url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -24,7 +24,7 @@
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
                         <h1>{{$usermabar->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
-                            <div class="sportlogo me-2"></div>
+                            <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usermabar->olahraga}}</span>
                             <span>| {{$usermabar->lokasi}}</span>
                         </div>
@@ -38,43 +38,50 @@
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
                     <h4>Lokasi Sparring</h4>
-                    <p class="des" id="detaillokasi" >{{$usermabar->lokasi}}</p>
-                    <iframe id="MapDisplay" ></iframe>
+                    <p class="des " id="detaillokasi" >{{$usermabar->lokasi}}</p>
+                    <iframe id="MapDisplay" class="maps"></iframe>
                 </div>
                 <hr class="d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
                     <h4>Deskripsi Tambahan</h4>
                     <span class="des">{{$usermabar->description_tambahan}}</span>
                 </div>
-                <hr>
+                <hr class="d-block d-lg-none"> 
                 <div class="box2-phone d-flex d-lg-none">
                     <h5>Member</h5>
                     <div class="mabar-member">
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}" >
+                            @if($usermabar->host)
+                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usermabar->host->image)}}" >
+                                <div class="ms-2">
+                                    <h6 class="m-0" >{{$usermabar->host->name}}</h6>
+                                    <p class="m-0" >Host</p>
+                            </div>
+                            @endif
+                        </div>
+                        @foreach ($usermabar->players as $player)
+                        <div class="member">
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
                             <div class="ms-2">
-                                <h6 class="m-0" >{{ Auth::user()->username}}</h6>
-                                <p class="m-0" >Host</p>
+                                <h6 class="m-0" >{{$player->name}}</h6>
+                                <p class="m-0" >Player</p>
                             </div>
                         </div>
-                        
+                        @endforeach
                     </div>
                 </div>
                 <hr class="d-block d-lg-none">
-                    <div class="access-phone d-flex d-lg-none">
+                    <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$usermabar->aksesibilitas}}</div>
-                            <div class="two">{{$usermabar->tingkatan}}</div>
-                        </div>
+                        <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <hr class="d-block d-lg-none">
                     <div class="box-content d-block d-lg-none">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
                                 </td>
                                 <td  style="font-family: opensans-bold;">Tanggal Pertandingan</td>
                             </tr>
@@ -85,7 +92,7 @@
                                 <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
                             </tr>
                             <td>
-                                <div class="icon mx-auto"></div>
+                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
                             </td>
                             <td style="font-family: opensans-bold;">Lama Pertandingan</td>
                         </tr>
@@ -93,59 +100,10 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} jam</td>
                         </tr>
                         <td>
-                            <div class="icon mx-auto"></div>
-                        </td>
-                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                
-                            </td>
-                            <td style="font-size: 13px;"  >{{$usermabar->lokasi}} </td>
-                        </tr>
-                            </table>
-                    </div>
-            </div>
-            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
-                <div class="box1 d-none d-lg-flex ">
-                    <div class="access">
-                        <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$usermabar->aksebilitas}}</div>
-                            <div class="two">{{$usermabar->tingkatan}}</div>
-                        </div>
-                    </div>
-                    <div class="box-content ">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="icon mx-auto"   ></div>
-                                </td>
-                                <td  style="font-family: opensans-bold;">Tanggal Pertandingan</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    
-                                </td>
-                                <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
-                            </tr>
-                            <td>
-                                <div class="icon mx-auto"></div>
-                            </td>
-                            <td style="font-family: opensans-bold;">Lama Pertandingan</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                
-                            </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
-                        </tr>
-                        <td>
-                            <div class="icon mx-auto"></div>
+                            <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
                         </td>
                         <td style="font-family: opensans-bold;">Lokasi Mabar</td>
                         </tr>
@@ -157,9 +115,55 @@
                         </tr>
                             </table>
                     </div>
+            </div>
+            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
+                <div class="box1 d-none d-lg-flex ">
+                    <div class="access">
+                        <h4>Biaya Pendaftaran</h4>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <div class="two">{{$usermabar->tingkatan}} Tahun</div>
+                    </div>
+                    <div class="box-content ">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                                </td>
+                                <td  style="font-family: opensans-bold;">Tanggal Pertandingan</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    
+                                </td>
+                                <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
+                            </tr>
+                            <td>
+                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Lama Pertandingan</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} Jam</td>
+                        </tr>
+                            <td>
+                                <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                        </tr>
+                        <tr>
+
+                            
+                            <td></td>
+                            <td style="font-size: 13px;" id="locationTarget"  >{{$usermabar->lokasi}} </td>
+                        </tr>
+                            </table>
+                    </div>
                     <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
                         @csrf
-                        <button type="submit">Ambil Mabar</button>
+                        <button class="ambil" type="submit">Ambil Mabar</button>
                     </form>
                 </div>
                 <div class="box2 d-none d-lg-block">
@@ -195,23 +199,7 @@
     </div>
     <section class="white-space" ></section> 
     <script src="/js/mapslist.js"></script>
-    <script>
-    DetectMap();
-
-    function DetectMap() {
-        var Target = document.getElementById("locationTarget");
-        var detail = document.getElementById("detaillokasi");
-        var mapsview = document.getElementById("MapDisplay");
-
-        for (let index = 0; index < maps.length; index++) {
-            if (Target.innerHTML === maps[index].lokasi) {
-                detail.innerHTML = maps[index].detaillokasi;
-                mapsview.src = maps[index].embed
-                break;
-            }
-        }
-    }
-    </script>
+    <script src="/js/detailsparring.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>

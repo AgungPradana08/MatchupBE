@@ -111,8 +111,8 @@ function dropdown(index) {
             document.getElementById("wrapper" + index).setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding:4%");
             document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
             drop[index] = false;
-        } else if(index == 1) {
-            document.getElementById("wrapper" + index).setAttribute("style","height: 50vh; opacity: 100%; transition: 0.5s ease;");
+        } else if(index == 0) {
+            document.getElementById("wrapper" + index).setAttribute("style","height: 30vh; opacity: 100%; transition: 0.5s ease;");
             document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
             drop[index] = false;
         } else {

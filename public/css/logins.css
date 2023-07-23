@@ -136,10 +136,10 @@ h5 {
 }
 
 .footer {
-    height: 15%;
-    gap: 5%;
+    height: 25%;
+    gap: 2%;
     display: grid;
-    grid-template-rows: 2fr 1fr ;
+    grid-template-rows: 2fr 2fr 1fr ;
 }
 
 .footer > button {
