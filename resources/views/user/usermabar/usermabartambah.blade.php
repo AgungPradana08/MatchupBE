@@ -88,8 +88,8 @@
         <div class="form3">
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
-                    <p>Member</p>
-                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." >
+                    <p>Min Member</p>
+                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly>
                 </div>
                 <div class="input2">
                     <p style="opacity: 0%;" >Peta</p>

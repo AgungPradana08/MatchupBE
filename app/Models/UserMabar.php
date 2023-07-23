@@ -30,4 +30,10 @@ class UserMabar extends Model
     {
         return $this->belongsToMany(User::class, 'matches_mabar', 'usermabar_id', 'user_id');
     }
+
+    public function getJoinedSlotsAttribute()
+    {
+        $totalJoined = $this->joinedUsers()->count();
+        return $totalJoined . '/' . $this->max_member;
+    }
 }

@@ -104,7 +104,7 @@
                  <hr class=" p-0 m-1" >
                  <div style="display: flex; justify-content: space-between;" class="" >
                      <Span>Slot Terbatas</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >1/12</span>
+                     <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $mabar->joinedUsers->count() }}/{{ $mabar->max_member }}</span>
                  </div>
              </div>
             </button>
