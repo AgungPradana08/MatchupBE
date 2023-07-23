@@ -153,6 +153,10 @@ class UserMabarController extends Controller
         if ($mabar) {
             // Cek apakah user sudah terdaftar sebagai peserta mabar
             if (!$mabar->joinedUsers->contains($pengguna->id)) {
+                
+                if ($mabar->joinedUsers->count() >= $mabar->max_member) {
+                    return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('error', 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!');
+                }
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $mabar->joinedUsers()->attach($pengguna->id);
                 return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('success', 'Anda telah bergabung dengan Mabar!');

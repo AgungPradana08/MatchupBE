@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('min_member');
+            // $table->integer('min_member')->default(1);
             $table->string('max_member');
             $table->string('tingkatan');
             $table->string('tanggal_pertandingan');
