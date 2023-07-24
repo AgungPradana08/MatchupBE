@@ -101,6 +101,30 @@ class UserMabarController extends Controller
         return view('mabar.home', compact(['usermabar']));
     }
 
+    public function search2(Request $request)
+    {
+        $searchtitle = $request->input('search');
+        $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
+
+        $usermabar = UserMabar::query();
+
+        if ($searchtitle) {
+            $usermabar->where('title', 'like', '%'.$searchtitle.'%');
+        }
+
+        if ($olahragaFilter) {
+            $usermabar->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usermabar->where('lokasi', $lokasiFilter);
+        }
+
+        $usermabar = $usermabar->get();
+
+        return view('user.usermabar.home', compact(['usermabar']));
+    }
+
     public function detail($id)
     {
         $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);

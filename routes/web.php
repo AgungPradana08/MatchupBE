@@ -64,8 +64,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/tim')->group(function () {
-        Route::get('/home', [TimController::class, 'index']);
-        Route::get('/{id}/timdetail', [TimController::class, 'detail']);
+        Route::get('/home', [UserTimController::class, 'index2']);
+        Route::get('/{id}/timdetail', [UserTimController::class, 'detail']);
         Route::get('/tambahtim', [TimController::class, 'tambah']);
     });
 
@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/usersparring')->group(function () {
+        Route::get('/search', [UserSparringController::class, 'search2']);
         Route::get('/home', [UserSparringController::class, 'index']);
         Route::get('/usersparringtambah', [UserSparringController::class, 'tambah']);
         Route::post('/store', [UserSparringController::class, 'store']);
@@ -93,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sparring/search', [UserSparringController::class, 'search']);
 
     Route::prefix('/usermabar')->group(function () {
+        Route::get('/search', [UserMabarController::class, 'search2']);
         Route::get('/home', [UserMabarController::class, 'index']);
         Route::get('/tambah', [UserMabarController::class, 'tambah']);
         Route::post('/store', [UserMabarController::class, 'store']);
@@ -108,10 +110,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mabar/search', [UserMabarController::class, 'search']);
 
     Route::prefix('/usertim')->group(function () {
+        Route::get('/search', [UserTimController::class, 'search2']);
         Route::get('/home', [UserTimController::class, 'index']);
         Route::get('/tambahtim', [UserTimController::class, 'tambah']);
-
+        Route::post('/tambahtim/store', [UserTimController::class, 'store']);
+        Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail'])->name('tim.detail');
+        Route::post('/{id}/usertimdetail/join', [UserTimController::class, 'jointim'])->name('tim.join');
+        Route::get('/{id}/usertimedit', [UserTimController::class, 'edit']);
+        Route::put('/{id}',[UserTimController::class, 'update']);
+        Route::delete('/{id}',[UserTimController::class, 'destroy']);
     });
+
+    Route::get('/tim/search', [UserTimController::class, 'search']);
 
 });
 

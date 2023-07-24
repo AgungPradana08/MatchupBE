@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="#"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="/sparring/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
@@ -32,7 +32,7 @@
     </nav>
     <div class="container"></div>
         <section class="container sparring-search " >
-            <form action="/mabar/search" class="wrapper" method="get">
+            <form action="/usertim/search" class="wrapper" method="get">
                 <div style="grid-area: search1;" >
                     <div class="icon icon-name" ></div>
                     <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
@@ -59,6 +59,8 @@
             </form>
         </section>          
     </div>
+    
+    @foreach ($usertim as $usertim)
     <div class="container">
         <section class="box-wrapper p-2 ">
             <div class="box" >
@@ -66,22 +68,23 @@
                <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data">
-                        <a class="see-button" href="/usertim/userdetail" >
+                        <a class="see-button" href="/usertim/{{$usertim->id}}/usertimdetail" >
                         </a>
-                        <a class="edit-button" href="/usermabar/usermabaredit"></a>
+                        <a class="edit-button" href="/usertim/{{$usertim->id}}/usertimedit"></a>
                     </div>
                     <div class="box-logo rounded-circle">
+                        <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="">
                     </div>
                     <div style=" width: 60%;" class="letter-container pt-3 pt-lg-0" >
-                        <p style="font-size: 12px; p-0 m-0" >Futsal</p>
-                        <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >TITLE</p>
+                        <p style="font-size: 12px; p-0 m-0" >{{$usertim->olahraga}}</p>
+                        <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >{{$usertim->nama_tim}}</p>
                         <div class="age">
-                            15-17
+                            {{$usertim->tingkatan}}
                         </div>
                     </div>
                 </div>
                 <div class="box-bottom">    
-                    <span style="height: 40vh;" >deskripsi</span>
+                    <span style="height: 40vh;" >{{$usertim->deskripsi}}</span>
                     <hr class="m-1" >
                     <div class="w-100 d-flex justify-content-center align-items-center justify-content-lg-between" style="width: 100%; display: flex; justify-content: center; align-items: center;" >
                         <p class="p-0 m-0 me-1" >
@@ -98,6 +101,15 @@
         </section> 
         
     </div>
+    @endforeach
+    <section class="no-data" >
+        @if($usertim->count() > 0)
+        <section class="white-space" ></section>   
+        @else   
+        <div class="flag-icon" ></div>
+        <p style="opacity: 50%;">Tidak ada hasil yang ditemukan.</p>
+    @endif
+    </section>
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
         <div class="row mobile-nav">
             <a href="/userprofile/home" class="col-3 ">
