@@ -166,9 +166,14 @@ table {
     
 }
 
+.sparring-team-icon {
+    width: 200px;
+    height: 200px;
+}
+
 /* === RIGHT CONTENT === */
 
-/* .right-content > button {
+.right-content > button {
     height: 50px;
     width: 100%;
     text-transform: uppercase;
@@ -282,7 +287,7 @@ table {
 }
 
 .vs-away {
-    opacity: 0%;
+    opacity: 100%;
     background: url("img/AWAY.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -292,7 +297,7 @@ table {
 }
 
 .vs-home {
-    opacity: 0%;
+    opacity: 100%;
     background: url("img/HOME.png");
     background-position: center;
     background-repeat: no-repeat;
@@ -464,7 +469,7 @@ td {
     height: 100%;
     width: 50px;
     background-color: green;
-} */
+}
 
 @keyframes background-left {
     0% {
@@ -537,7 +542,7 @@ td {
         margin-bottom: 0px;
     }
 }
-
+/* 
 .background-animation {
     animation-name: background-left;
     animation-duration: 0.8s;
@@ -562,7 +567,7 @@ td {
     animation-fill-mode: forwards;
 }
 
-/* .background-animation-leave {
+.background-animation-leave {
     animation-name: background-left-leave;
     animation-duration: 0.8s;
     animation-delay: 0.2s;
@@ -585,6 +590,11 @@ td {
     animation-delay: 0.6s;
     animation-fill-mode: forwards;
 } */
+
+.decoration {
+    position: absolute;
+    width: 75vw;
+}
 
 /* TABLET */
 @media (min-width: 576px) and (max-width: 991.98px) {

@@ -26,7 +26,7 @@ class UserMabarController extends Controller
     public function tambah()
     {
         $usermabar = UserMabar::all();
-        return view('user.usermabar.usermabartambah', compact(['usermabar']));
+        return view('user.usermabar.usermabartambah', compact(['usermabar']))->with('notification', 'Mabar berhasil di tambah');
     }
 
     public function store(Request $request)
@@ -155,13 +155,13 @@ class UserMabarController extends Controller
             if (!$mabar->joinedUsers->contains($pengguna->id)) {
                 
                 if ($mabar->joinedUsers->count() >= $mabar->max_member) {
-                    return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('error', 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!');
+                    return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('notification', 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!');
                 }
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $mabar->joinedUsers()->attach($pengguna->id);
-                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('success', 'Anda telah bergabung dengan Mabar!');
+                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('notification', 'Anda telah bergabung dengan Mabar!');
             } else {
-                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('error', 'Anda sudah terdaftar sebagai peserta Mabar ini!');
+                return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('notification', 'Anda sudah terdaftar sebagai peserta Mabar ini!');
             }
         } else {
             return redirect()->route('mabar.index')->with('error', 'Mabar tidak ditemukan!');

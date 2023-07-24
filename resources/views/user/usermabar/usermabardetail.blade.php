@@ -7,8 +7,14 @@
     <title>Match Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/mabardetail.css">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 <body>
+    <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Mabar ini!' || session('notification') === 'Anda telah bergabung dengan Mabar!'  ? 'appear' : 'd-none' }}"  role="alert">
+        <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
+        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+    </div>
+
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
@@ -197,6 +203,7 @@
             <a class="col-12 href="">Ambil Mabar</a>
         </div>
     </div>
+    <script src="/js/notification.js"></script>
     <section class="white-space" ></section> 
     <script src="/js/mapslist.js"></script>
     <script src="/js/detailsparring.js"></script>
