@@ -69,9 +69,6 @@
             <div class="bio">
                 <div class="opening">
                     Bio Data
-                    <button id="next-bio" class="icon-small" onclick="bio()" >
-
-                    </button>
                 </div>
                 <div id="biocontent"  style="padding: 2%" >
                     <table >
@@ -178,9 +175,6 @@
             <div class="activity">
                 <div class="opening">
                     Tentang Aku
-                    <button id="acnext" class="icon-small" onclick="activity()" >
-
-                    </button>
                 </div>
                 <div id="accontent" class="activity-wrapper">
                     <span>
@@ -237,7 +231,6 @@
         </div>
     </div>
     <script src="/js/notification.js"></script>
-    <script src="/js/profile.js" ></script>
     <section class="white-space" ></section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

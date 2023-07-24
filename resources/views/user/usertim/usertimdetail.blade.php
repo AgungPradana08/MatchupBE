@@ -42,24 +42,24 @@
                         <h4>{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</h4>
                     </div>
                     <div class="maps">
-                        <div class="box">
-                            @if($usertim->hostTim)
-                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usertim->hostTim->image)}}" >
-                                <div class="ms-2">
-                                    <h6 class="m-0" >{{$usertim->hostTim->name}}</h6>
-                                    <p class="m-0" >Host</p>
-                            </div>
-                            @endif
-                            @foreach ($usertim->playersTim as $player)
+                        @if($usertim->hostTim)
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $usertim->hostTim->image)}}" >
                             <div class="ms-2">
-                                <h6 class="m-0" >{{$player->name}}</h6>
-                                <p class="m-0" >Member</p>
+                                <h6 class="m-0" >{{$usertim->hostTim->name}}</h6>
+                                <p class="m-0" >Host</p>
                             </div>
                         </div>
-                        @endforeach
+                    @endif
+                    @foreach ($usertim->playersTim as $player)
+                    <div class="member">
+                        <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                        <div class="ms-2">
+                            <h6 class="m-0" >{{$player->name}}</h6>
+                            <p class="m-0" >Member</p>
                         </div>
+                    </div>
+                    @endforeach
                     </div>
                 </div>
                 <section class="white-space d-none d-lg-block" ></section> 
@@ -140,7 +140,7 @@
     <div class="container fixed-bottom bg-white d-block d-lg-none">
         <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
             @csrf
-            <button class="ambil" type="submit">Join Tim</button>
+            <button class="ambil" type="submit">BERGABUNG SEKARANG</button>
         </form>
     </div>
     <section class="white-space" ></section>
