@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
-          <span>TITLE</span>
+          <span>DETAIL TIM</span>
           <button class="report" style="background:  url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>

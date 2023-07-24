@@ -71,10 +71,10 @@
         <a class="box" href="/tim/{{$tim->id}}/timdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <img class="box-logo" src="/css/img/pxg.png" alt="">
+                <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="">
                 <div class="title-box" style="width: 100%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
-                    <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->title}}</p>
+                    <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
                     <div>
                         <div class="access">
                             {{$tim->aksebilitas}}
@@ -90,7 +90,7 @@
                 <hr>
                 <div style="width: 100%;" class="d-flex align-items-center justify-content-between" >
                     Slot Tersedia
-                    <span class="p-0 m-0" style="font-family: opensans-bold; color: #FE6B00; " >5/12</span>
+                    <span class="p-0 m-0" style="font-family: opensans-bold; color: #FE6B00; " >{{ $tim->joinedPlayers->count() }}/{{ $tim->max_member }}</span>
                  </div>
             </div>
            </button>

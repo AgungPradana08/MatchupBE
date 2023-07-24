@@ -16,4 +16,25 @@ class Usertim extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function joinedPlayers()
+    {
+        return $this->belongsToMany(User::class, 'all_tim', 'usertim_id', 'user_id');
+    }
+
+    public function hostTim()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function playersTim()
+    {
+        return $this->belongsToMany(User::class, 'all_tim', 'usertim_id', 'user_id');
+    }
+
+    public function getJoinedSlotsTim()
+    {
+        $totalJoined = $this->joinedPlayers()->count();
+        return $totalJoined . '/' . $this->max_member;
+    }
 }

@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
-          <span>TITLE</span>
+          <span>DETAIL TIM</span>
           <button class="report" style="background:  url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>
@@ -22,7 +22,7 @@
                 <div class="title">
                     <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usertim->image)}}" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
-                        <h1>{{$usertim->title}}</h1>
+                        <h1>{{$usertim->nama_tim}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usertim->olahraga}}</span>
@@ -39,16 +39,26 @@
                 <div class="left3">
                     <div style="display: flex; justify-content: space-between;" >
                         <h4>Member Tim</h4>
-                        <h4>1/12</h4>
+                        <h4>{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</h4>
                     </div>
                     <div class="maps">
                         <div class="box">
-                            <div class="box-logo">
+                            @if($usertim->hostTim)
+                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usertim->hostTim->image)}}" >
+                                <div class="ms-2">
+                                    <h6 class="m-0" >{{$usertim->hostTim->name}}</h6>
+                                    <p class="m-0" >Host</p>
                             </div>
-                            <span style="margin-left: 5%;" >
-                                <p class="username-label m-0" style="font-family: opensans-bold;" >USERNAME</p>
-                                <p class="lore-label m-0 mt-2">Lore</p>
-                            </span>
+                            @endif
+                            @foreach ($usertim->playersTim as $player)
+                        <div class="member">
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                            <div class="ms-2">
+                                <h6 class="m-0" >{{$player->name}}</h6>
+                                <p class="m-0" >Member</p>
+                            </div>
+                        </div>
+                        @endforeach
                         </div>
                     </div>
                 </div>
@@ -119,15 +129,19 @@
                         </tr>
                         </table>
                     </div>
-                    <button>Bergabung Sekarang</button>
+                    <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
+                        @csrf
+                        <button class="ambil" type="submit">BERGABUNG SEKARANG</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="container fixed-bottom bg-white d-block d-lg-none">
-        <div class="row phone-button">
-            <a class="col-12 href="">Bergabung Sekarang</a>
-        </div>
+        <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
+            @csrf
+            <button class="ambil" type="submit">Join Tim</button>
+        </form>
     </div>
     <section class="white-space" ></section>
 

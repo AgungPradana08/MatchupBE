@@ -10,7 +10,7 @@
 <body>
 
     <div class="navbar">
-        <a href="/usermabar/home"></a>
+        <a href="/usertim/home"></a>
         <p>Tambah Tim </p>
         <a style="visibility: hidden;" ></a>
     </div>

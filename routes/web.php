@@ -114,7 +114,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/home', [UserTimController::class, 'index']);
         Route::get('/tambahtim', [UserTimController::class, 'tambah']);
         Route::post('/tambahtim/store', [UserTimController::class, 'store']);
-        Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail']);
+        Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail'])->name('tim.detail');
+        Route::post('/{id}/usertimdetail/join', [UserTimController::class, 'jointim'])->name('tim.join');
         Route::get('/{id}/usertimedit', [UserTimController::class, 'edit']);
         Route::put('/{id}',[UserTimController::class, 'update']);
         Route::delete('/{id}',[UserTimController::class, 'destroy']);

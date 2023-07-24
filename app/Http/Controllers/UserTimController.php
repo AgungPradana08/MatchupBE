@@ -69,7 +69,8 @@ class UserTimController extends Controller
             'facebook' => $request->facebook,
         ]);
 
-        $pengguna->poststim()->save($tim);
+        // $pengguna->poststim()->save($tim);
+        $tim->joinedPlayers()->attach($pengguna->id);
 
         return redirect('/usertim/home');
     }
@@ -157,5 +158,28 @@ class UserTimController extends Controller
         $usertim = $usertim->get();
 
         return view('user.usertim.home', compact(['usertim']));
+    }
+
+    public function jointim($usertimId)
+    {
+        $pengguna = Auth::user();
+        $tim = UserTim::with('joinedPlayers')->find($usertimId);
+
+        if ($tim) {
+            // Cek apakah user sudah terdaftar sebagai peserta tim
+            if (!$tim->joinedPlayers->contains($pengguna->id)) {
+                
+                if ($tim->joinedPlayers->count() >= $tim->max_member) {
+                    return redirect()->route('tim.detail', ['id' => $usertimId])->with('error', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
+                }
+                // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
+                $tim->joinedPlayers()->attach($pengguna->id);
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('success', 'Anda telah bergabung dengan Tim!');
+            } else {
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('error', 'Anda sudah terdaftar sebagai peserta Tim ini!');
+            }
+        } else {
+            return redirect()->route('mabar.index')->with('error', 'Tim tidak ditemukan!');
+        }
     }
 }
