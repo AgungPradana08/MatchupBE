@@ -31,7 +31,7 @@
         </div>
     </nav>
     <section class="container sparring-search " >
-        <form action="/sparring/search" class="wrapper" method="get">
+        <form action="/usersparring/search" class="wrapper" method="get">
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">

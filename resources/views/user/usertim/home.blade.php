@@ -32,7 +32,7 @@
     </nav>
     <div class="container"></div>
         <section class="container sparring-search " >
-            <form action="/mabar/search" class="wrapper" method="get">
+            <form action="/usertim/search" class="wrapper" method="get">
                 <div style="grid-area: search1;" >
                     <div class="icon icon-name" ></div>
                     <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
@@ -59,6 +59,7 @@
             </form>
         </section>          
     </div>
+    
     @foreach ($usertim as $usertim)
     <div class="container">
         <section class="box-wrapper p-2 ">
@@ -101,6 +102,14 @@
         
     </div>
     @endforeach
+    <section class="no-data" >
+        @if($usertim->count() > 0)
+        <section class="white-space" ></section>   
+        @else   
+        <div class="flag-icon" ></div>
+        <p style="opacity: 50%;">Tidak ada hasil yang ditemukan.</p>
+    @endif
+    </section>
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
         <div class="row mobile-nav">
             <a href="/userprofile/home" class="col-3 ">

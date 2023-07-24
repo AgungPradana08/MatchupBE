@@ -40,7 +40,7 @@
         </div>
     </section>
     <section class="container sparring-search " >
-        <form action="/mabar/search" class="wrapper" method="get">
+        <form action="/tim/search" class="wrapper" method="get">
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
@@ -98,7 +98,7 @@
     @endforeach
 </section> 
 <section class="no-data" >
-    @if($tim->count() > 0)
+    @if($usertim->count() > 0)
     <section class="white-space" ></section>   
     @else   
     <div class="flag-icon" ></div>

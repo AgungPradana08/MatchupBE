@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/usersparring')->group(function () {
+        Route::get('/search', [UserSparringController::class, 'search2']);
         Route::get('/home', [UserSparringController::class, 'index']);
         Route::get('/usersparringtambah', [UserSparringController::class, 'tambah']);
         Route::post('/store', [UserSparringController::class, 'store']);
@@ -93,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sparring/search', [UserSparringController::class, 'search']);
 
     Route::prefix('/usermabar')->group(function () {
+        Route::get('/search', [UserMabarController::class, 'search2']);
         Route::get('/home', [UserMabarController::class, 'index']);
         Route::get('/tambah', [UserMabarController::class, 'tambah']);
         Route::post('/store', [UserMabarController::class, 'store']);
@@ -108,6 +110,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mabar/search', [UserMabarController::class, 'search']);
 
     Route::prefix('/usertim')->group(function () {
+        Route::get('/search', [UserTimController::class, 'search2']);
         Route::get('/home', [UserTimController::class, 'index']);
         Route::get('/tambahtim', [UserTimController::class, 'tambah']);
         Route::post('/tambahtim/store', [UserTimController::class, 'store']);
@@ -116,6 +119,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{id}',[UserTimController::class, 'update']);
         Route::delete('/{id}',[UserTimController::class, 'destroy']);
     });
+
+    Route::get('/tim/search', [UserTimController::class, 'search']);
 
 });
 

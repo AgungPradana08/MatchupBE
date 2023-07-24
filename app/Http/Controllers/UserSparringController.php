@@ -149,6 +149,30 @@ class UserSparringController extends Controller
         return view('sparring.home', compact(['usersparring']));
     }
 
+    public function search2(Request $request)
+    {
+        $searchtitle = $request->input('search');
+        $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
+
+        $usersparring = UserSparring::query();
+
+        if ($searchtitle) {
+            $usersparring->where('title', 'like', '%'.$searchtitle.'%');
+        }
+
+        if ($olahragaFilter) {
+            $usersparring->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usersparring->where('lokasi', $lokasiFilter);
+        }
+
+        $usersparring = $usersparring->get();
+
+        return view('user.usersparring.home', compact(['usersparring']));
+    }
+
     public function versus()
     {
         return view('user.usersparring.versus');

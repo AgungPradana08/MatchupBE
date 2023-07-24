@@ -12,8 +12,8 @@ class UserTimController extends Controller
 {
     public function index()
     {
-        $usertim = UserTim::all();
-        return view('user.usertim.home', compact('usertim'));
+        $usertim = UserTim::where('user_id', session('user_id'))->get();
+        return view('user.usertim.home', compact(['usertim']));
     }
 
     public function index2(User $user)
@@ -109,5 +109,53 @@ class UserTimController extends Controller
         $usertim = UserTim::find($id);
         $usertim->delete();
         return redirect('/usertim/home');
+    }
+
+    public function search(Request $request)
+    {
+        $searchtitle = $request->input('search');
+        $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
+
+        $usertim = UserTim::query();
+
+        if ($searchtitle) {
+            $usertim->where('title', 'like', '%'.$searchtitle.'%');
+        }
+
+        if ($olahragaFilter) {
+            $usertim->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usertim->where('lokasi', $lokasiFilter);
+        }
+
+        $usertim = $usertim->get();
+
+        return view('tim.home', compact(['usertim']));
+    }
+
+    public function search2(Request $request)
+    {
+        $searchtitle = $request->input('search');
+        $olahragaFilter = $request->input('olahraga');
+        $lokasiFilter = $request->input('lokasi');
+
+        $usertim = UserTim::query();
+
+        if ($searchtitle) {
+            $usertim->where('title', 'like', '%'.$searchtitle.'%');
+        }
+
+        if ($olahragaFilter) {
+            $usertim->where('olahraga', $olahragaFilter);
+        }
+        if ($lokasiFilter) {
+            $usertim->where('lokasi', $lokasiFilter);
+        }
+
+        $usertim = $usertim->get();
+
+        return view('user.usertim.home', compact(['usertim']));
     }
 }
