@@ -64,8 +64,8 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/tim')->group(function () {
-        Route::get('/home', [TimController::class, 'index']);
-        Route::get('/{id}/timdetail', [TimController::class, 'detail']);
+        Route::get('/home', [UserTimController::class, 'index2']);
+        Route::get('/{id}/timdetail', [UserTimController::class, 'detail']);
         Route::get('/tambahtim', [TimController::class, 'tambah']);
     });
 
@@ -110,7 +110,11 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/usertim')->group(function () {
         Route::get('/home', [UserTimController::class, 'index']);
         Route::get('/tambahtim', [UserTimController::class, 'tambah']);
-
+        Route::post('/tambahtim/store', [UserTimController::class, 'store']);
+        Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail']);
+        Route::get('/{id}/usertimedit', [UserTimController::class, 'edit']);
+        Route::put('/{id}',[UserTimController::class, 'update']);
+        Route::delete('/{id}',[UserTimController::class, 'destroy']);
     });
 
 });

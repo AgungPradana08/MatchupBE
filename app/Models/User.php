@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\UserTim;
 use App\Models\UserSparring;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,11 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(UserSparring::class);
+    }
+
+    public function poststim()
+    {
+        return $this->hasMany(UserTim::class);
     }
 
     public function postsmabar()
