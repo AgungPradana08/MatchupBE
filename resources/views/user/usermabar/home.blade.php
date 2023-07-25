@@ -109,6 +109,11 @@
             </button>
          </div>
     @endforeach
+    {{-- @if(session('notification'))
+    <div class="alert alert-success">
+        {{ session('notification') }}
+    </div>
+    @endif --}}
     </section> 
     <section class="no-data" >
         @if($usermabar->count() > 0)
