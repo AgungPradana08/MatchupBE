@@ -126,7 +126,7 @@
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..." >
+                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..." readonly >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>

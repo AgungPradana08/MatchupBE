@@ -73,12 +73,10 @@
                         <a class="edit-button" href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="">
-                <div class="title-box ms-md-2" >
+                <div class="title-box ms-md-2 w-50" >
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div>
-                        <div class="age">{{$mabar->tingkatan}}</div> 
-                    </div>
+                    <div class="age w-50">{{$mabar->tingkatan}}</div> 
                 </div>
             </div>
              <div class="box-bottom">

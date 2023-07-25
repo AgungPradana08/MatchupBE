@@ -77,7 +77,7 @@
                     <p class="m-0 " style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div>
-                        <div class="age">{{$sparring->tingkatan}} Tahun</div> 
+                        <div class="age">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>
             </div>

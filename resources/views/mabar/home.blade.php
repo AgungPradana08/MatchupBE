@@ -75,8 +75,8 @@
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div>
-                        <div class="age">{{$mabar->tingkatan}} </div> 
+                    <div class="w-100">
+                        <div class="age w-100">{{$mabar->tingkatan}} </div> 
                     </div>
                 </div>
             </div>
