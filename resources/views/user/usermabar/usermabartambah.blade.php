@@ -36,7 +36,7 @@
             </div>
             <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
-                    <p>Nama Pertandingan</p>
+                    <p>Nama Mabar</p>
                     <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." >
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." readonly >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>

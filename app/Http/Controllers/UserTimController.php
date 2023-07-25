@@ -170,13 +170,13 @@ class UserTimController extends Controller
             if (!$tim->joinedPlayers->contains($pengguna->id)) {
                 
                 if ($tim->joinedPlayers->count() >= $tim->max_member) {
-                    return redirect()->route('tim.detail', ['id' => $usertimId])->with('error', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
+                    return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
                 }
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $tim->joinedPlayers()->attach($pengguna->id);
-                return redirect()->route('tim.detail', ['id' => $usertimId])->with('success', 'Anda telah bergabung dengan Tim!');
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda telah bergabung dengan Tim!');
             } else {
-                return redirect()->route('tim.detail', ['id' => $usertimId])->with('error', 'Anda sudah terdaftar sebagai peserta Tim ini!');
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda sudah terdaftar sebagai peserta Tim ini!');
             }
         } else {
             return redirect()->route('mabar.index')->with('error', 'Tim tidak ditemukan!');
