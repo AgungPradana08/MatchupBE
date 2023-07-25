@@ -26,7 +26,7 @@ class UserMabarController extends Controller
     public function tambah()
     {
         $usermabar = UserMabar::all();
-        return view('user.usermabar.usermabartambah', compact(['usermabar']))->with('notification', 'Mabar berhasil di tambah');
+        return view('user.usermabar.usermabartambah', compact(['usermabar']));
     }
 
     public function store(Request $request)
@@ -73,9 +73,9 @@ class UserMabarController extends Controller
 
         // $pengguna->postsmabar()->save($mabar);
         $mabar->joinedUsers()->attach($pengguna->id);
-
+        session()->flash('notification', 'Mabar berhasil ditambahkan.');
         return redirect('/usermabar/home');
-    }
+    }   
 
     public function search(Request $request)
     {
