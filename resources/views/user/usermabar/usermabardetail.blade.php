@@ -173,9 +173,9 @@
                     </form>
                 </div>
                 <div class="box2 d-none d-lg-block">
-                    <h5>Member</h5>
+                    <h5>Player</h5>
                     <div class="mabar-member">
-                        <div class="member">
+                        {{-- <div class="member">
                             @if($usermabar->host)
                                 <img class="member-logo rounded-circle " src="{{asset('storage/'. $usermabar->host->image)}}" >
                                 <div class="ms-2">
@@ -183,7 +183,7 @@
                                     <p class="m-0" >Host</p>
                             </div>
                             @endif
-                        </div>
+                        </div> --}}
                         @foreach ($usermabar->players as $player)
                         <div class="member">
                             <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >

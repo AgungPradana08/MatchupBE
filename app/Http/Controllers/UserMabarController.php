@@ -73,7 +73,7 @@ class UserMabarController extends Controller
 
         // $pengguna->postsmabar()->save($mabar);
         $mabar->joinedUsers()->attach($pengguna->id);
-        session()->flash('notification', 'Mabar berhasil ditambahkan.');
+        // session()->flash('notification', 'Mabar berhasil ditambahkan.');
         return redirect('/usermabar/home');
     }   
 
