@@ -120,7 +120,8 @@ class UserMabarController extends Controller
             $usermabar->where('lokasi', $lokasiFilter);
         }
 
-        $usermabar = $usermabar->get();
+        // $usermabar = $usermabar->get();
+        $usermabar = $usermabar->where('user_id', session('user_id'))->get();
 
         return view('user.usermabar.home', compact(['usermabar']));
     }

@@ -156,6 +156,7 @@ class UserSparringController extends Controller
         $lokasiFilter = $request->input('lokasi');
 
         $usersparring = UserSparring::query();
+        // $usersparring = UserSparring::where('user_id', session('user_id'))->get();
 
         if ($searchtitle) {
             $usersparring->where('title', 'like', '%'.$searchtitle.'%');
@@ -168,7 +169,8 @@ class UserSparringController extends Controller
             $usersparring->where('lokasi', $lokasiFilter);
         }
 
-        $usersparring = $usersparring->get();
+        // $usersparring = $usersparring->get();
+        $usersparring = $usersparring->where('user_id', session('user_id'))->get();
 
         return view('user.usersparring.home', compact(['usersparring']));
     }

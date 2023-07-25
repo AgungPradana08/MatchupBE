@@ -155,7 +155,8 @@ class UserTimController extends Controller
             $usertim->where('lokasi', $lokasiFilter);
         }
 
-        $usertim = $usertim->get();
+        // $usertim = $usertim->get();
+        $usertim = $usertim->where('user_id', session('user_id'))->get();
 
         return view('user.usertim.home', compact(['usertim']));
     }
