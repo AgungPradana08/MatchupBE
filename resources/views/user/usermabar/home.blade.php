@@ -74,9 +74,9 @@
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="">
                 <div class="title-box ms-md-2 w-50" >
-                    <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
+                    <p class="m-0" style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div class="age w-50">{{$mabar->tingkatan}}</div> 
+                    <div class="age w-50 d-flex justify-content-center align-items-center">{{$mabar->tingkatan}}</div> 
                 </div>
             </div>
              <div class="box-bottom">

@@ -38,7 +38,7 @@ class UserSparringController extends Controller
         $this->validate($request, rules: [
             'title' => 'required',
             'nama_tim' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'olahraga' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
@@ -73,7 +73,7 @@ class UserSparringController extends Controller
         ]);
 
         $pengguna->posts()->save($post);
-
+        session()->flash('notification', 'Sparring berhasil di tambah');
         return redirect('/usersparring/home');
     }
 

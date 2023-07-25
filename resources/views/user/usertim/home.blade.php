@@ -7,8 +7,14 @@
     <title>Match up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/userteam.css">
+    <link rel="stylesheet" href="/css/notification.css">
+
 </head>
 <body>
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Tim berhasil di tambah' || session('notification') === 'Tim berhasil di hapus' || session('notification') === 'Tim Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+        <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
+        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+    </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/sparring/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
@@ -60,9 +66,10 @@
         </section>          
     </div>
     
-    @foreach ($usertim as $usertim)
+
     <div class="container">
         <section class="box-wrapper p-2 ">
+            @foreach ($usertim as $usertim)
             <div class="box" >
             <a href="timdetail.html" >
                <button class="box-outer" style="width: 100%; height: 100%;" >
@@ -76,7 +83,7 @@
                         <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="">
                     </div>
                     <div style=" width: 60%;" class="letter-container pt-3 pt-lg-0" >
-                        <p style="font-size: 12px; p-0 m-0" >{{$usertim->olahraga}}</p>
+                        <p class="p-0 m-0" style="font-size: 12px; " >{{$usertim->olahraga}}</p>
                         <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >{{$usertim->nama_tim}}</p>
                         <div class="age">
                             {{$usertim->tingkatan}}
@@ -91,17 +98,17 @@
                          Slot Tersedia
                         </p>
                         <div style="color: #FE6B00; font-family: opensans-bold" class="slot-access">
-                         0/12
+                            {{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}
                          </div>
                      </div>
                 </div>
                </button>
             </a>
         </div>
+        @endforeach
         </section> 
         
     </div>
-    @endforeach
     <section class="no-data" >
         @if($usertim->count() > 0)
         <section class="white-space" ></section>   
@@ -132,6 +139,7 @@
     </div>
     <section class="white-space" ></section>
     <a href="/usertim/tambahtim" class="add-sparring" >+</a> 
+    <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
 </body>

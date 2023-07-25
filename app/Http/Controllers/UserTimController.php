@@ -41,7 +41,7 @@ class UserTimController extends Controller
 
         $this->validate($request, rules: [
             'nama_tim' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'olahraga' => 'required',
             'deskripsi' => 'required',
             'max_member' => 'required',
@@ -71,7 +71,7 @@ class UserTimController extends Controller
 
         // $pengguna->poststim()->save($tim);
         $tim->joinedPlayers()->attach($pengguna->id);
-
+        session()->flash('notification', 'Tim berhasil di tambah');
         return redirect('/usertim/home');
     }
     

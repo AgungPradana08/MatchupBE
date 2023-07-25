@@ -37,7 +37,7 @@ class UserMabarController extends Controller
 
         $this->validate($request, rules: [
             'title' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'required|mimes:jpg,jpeg,png,gif',
             'olahraga' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
@@ -73,7 +73,7 @@ class UserMabarController extends Controller
 
         // $pengguna->postsmabar()->save($mabar);
         $mabar->joinedUsers()->attach($pengguna->id);
-        session()->flash('notification', 'Mabar berhasil ditambahkan.');
+        session()->flash('notification', 'Mabar berhasil di tambah');
         return redirect('/usermabar/home');
     }   
 

@@ -73,7 +73,7 @@
                     <a class="edit-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
                 </div>
                 <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="">
-                <div class="title-box ms-md-2" >
+                <div class="title-box ms-md-4 ms-0" >
                     <p class="m-0 " style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div>

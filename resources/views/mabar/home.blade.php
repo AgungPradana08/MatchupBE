@@ -72,10 +72,10 @@
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="">
-                <div class="title-box ms-md-2" >
+                <div class="title-box w-75 ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div class="w-100">
+                    <div class="w-25">
                         <div class="age w-100">{{$mabar->tingkatan}} </div> 
                     </div>
                 </div>

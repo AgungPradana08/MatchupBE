@@ -81,7 +81,7 @@
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
-                    <div class="w-75" >
+                    <div class="w-25" >
                         <div class="age w-100">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>

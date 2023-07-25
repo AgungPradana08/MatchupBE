@@ -244,6 +244,7 @@ body {
 } 
 
 .title-box {
+    width: 50%;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -430,16 +431,16 @@ body {
         margin-top: 2%;
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(2 , 1fr);
-        column-gap: 15px;
-        row-gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 33vh;
+        gap: 15px;
     
     }
 
     .see-button {
-    background: url(img/eye-white.png);
-    background-size: contain;
-    border-radius: 5px;
+        background: url(img/eye-white.png);
+        background-size: contain;
+        border-radius: 5px;
     }
 
     .edit-button {
@@ -477,6 +478,7 @@ body {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
+        grid-template-rows: 60vh;
         gap: 15px   ;
     
     }
