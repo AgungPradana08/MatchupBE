@@ -15,7 +15,7 @@
         <a style="visibility: hidden;" ></a>
     </div>
 
-    <form action="/usersparring/store" method="POST" enctype="multipart/form-data" class="content" >
+    <form action="/usersparring/store" method="POST" enctype="multipart/form-data" class="content" style="padding-bottom: 10vh" >
         @csrf
         <div class="image-container">
             <div class="image-box" >
