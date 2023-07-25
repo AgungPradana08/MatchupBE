@@ -48,15 +48,15 @@
                         <h4>{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</h4>
                     </div>
                     <div class="maps">
-                        @if($usertim->hostTim)
-                        <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $usertim->hostTim->image)}}" >
-                            <div class="ms-2">
-                                <h6 class="m-0" >{{$usertim->hostTim->name}}</h6>
-                                <p class="m-0" >Host</p>
+                        {{-- @if($usertim->hostTim)
+                            <div class="member">
+                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usertim->hostTim->image)}}" >
+                                <div class="ms-2">
+                                    <h6 class="m-0" >{{$usertim->hostTim->name}}</h6>
+                                    <p class="m-0" >Host</p>
+                                </div>
                             </div>
-                        </div>
-                    @endif
+                         @endif --}}
                     @foreach ($usertim->playersTim as $player)
                     <div class="member">
                         <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >

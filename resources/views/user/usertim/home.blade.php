@@ -17,7 +17,7 @@
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="/sparring/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
