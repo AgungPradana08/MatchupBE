@@ -8,8 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/sparringpage.css">
     <link rel="shortcut icon" href="/css/img/logo-matchup.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 <body>
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Welcome' ? 'appear' : 'd-none' }}"  role="alert">
+        <p class="d-inline-block p-0 m-0 " >Selamat Datang, {{ Auth::user()->username }}</p>
+        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+    </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="#"><img src="/css/img/logo.png" style="height: 5vh;" alt=""></a>
@@ -135,6 +140,7 @@
             </a>    
         </div>
     </div>
+    <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

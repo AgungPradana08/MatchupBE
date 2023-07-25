@@ -17,6 +17,7 @@
         <img src="/css/img/report.png" alt="">
         </a>
     </section>
+
     <section class="container" >
         <div class="left-content">
             <div class="left1">

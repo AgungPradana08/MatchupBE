@@ -76,9 +76,6 @@
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
                     <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
                     <div>
-                        <div class="access">
-                            {{$tim->aksebilitas}}
-                            </div>
                             <div class="age">
                             {{$tim->tingkatan}}
                             </div>

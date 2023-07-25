@@ -58,7 +58,7 @@
                 <span class="biaya" >Biaya Masuk</span>
             <span class="harga" style="display: block;" >Rp {{$mabar->harga_tiket}} <text style="color: grey; font-size: 1.3vw;" >/Tim</text> </span>
             <button>
-                Ambil Sparring
+                Ambil Mabar
             </button>
             <div class="line1">
                 <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="icon">

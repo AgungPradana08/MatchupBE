@@ -31,7 +31,6 @@
         <div class="form1">
             <div class="header">
                 Title
-                <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
             <div class="input1">
             </div>
@@ -60,7 +59,6 @@
         <div class="form2">
             <div class="header">
                 Lokasi
-                <a id="drop1" onclick="dropdown(1)" ></a>
             </div>
            
                 
@@ -86,18 +84,19 @@
             
         </div>
         <div class="form3">
+            <div class="header">
+                Aksesibilitas
+            </div>
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Min Member</p>
                     <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly>
                 </div>
-                <div class="input2">
+                <div class="input1">
                     <p style="opacity: 0%;" >Peta</p>
                     <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
                 <div class="input3">
-                </div>
-                <div class="input4">
                     <p>Tingkatan-umur</p>
                     <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
@@ -113,7 +112,6 @@
         <div class="form4">
             <div class="header">
                 Informasi
-                <a id="drop3" onclick="dropdown(3)" ></a>
             </div>
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">

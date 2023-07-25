@@ -7,8 +7,13 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/detailsparringnewnew.css">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 <body>
+    <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta acara Sparring telah mencapai batas maksimum!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
+        <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
+        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+    </div>
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/sparring/home"><img src="\css\img\back button.png" style="height: 5vh;" alt=""></a>
@@ -16,6 +21,86 @@
           <button class="report" style="background: url(/css/img/report.png); background-size: contain;" ></button>
         </div>
     </nav>
+    <div id="Versus" class="container2">
+        <a class="detail" id="detail-bookmark" onclick="detailSparring()" href="#Detail">Detail</a>
+
+        <div class="vs-away-home">
+            <div id="awayteam" class="vs-away"></div>
+            <div id="hometeam" class="vs-home"></div>
+        </div>
+        <div class="vs-detail">
+                <div class="de-away me-5">
+                    <img src="/css/img/psg.png" class="box-icon"  alt="">
+                    {{-- @foreach ($takesparring as $takesparring) --}}
+                    <p style="margin-top: 5%;" >nama</p>
+                    {{-- @endforeach --}}
+                </div>
+                <div class="de-vs">
+                    VS
+                </div>
+                <div class="de-home ms-5 ">
+                    <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon"  alt="">
+                    <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
+                </div>
+                {{-- <div class="de-detail">
+                    <table>
+                        <tr>
+                            <td class="td1" >
+
+                            </td>
+                            <td style="opacity: 70%" >
+
+                                harga
+                            </td>
+                            <td>
+                                {{$usersparring->harga_tiket}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td2">
+
+                            </td>
+                            <td style="opacity: 70%" >
+                                Tanggal dan waktu
+                            </td>
+                            <td>
+                                {{$usersparring->tanggal_pertandingan}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td3">
+
+                            </td>
+                            <td style="opacity: 70%" >
+                                Lokasi/Avenue
+                            </td>
+                            <td>
+                                {{$usersparring->lokasi}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td4">
+
+                            </td>
+                            <td  style="opacity: 70%"  >
+                                Lama Permainan
+                            </td>
+                            <td>
+                                {{$usersparring->lama_pertandingan}}
+                            </td>
+                        </tr>
+                    </table>
+                </div> --}}
+                {{-- <div class="de-button">
+                    <a class="primary" href="/usersparring/versus">
+                        <button>AMBIL SPARRING</button>
+                    </a>
+                </div> --}}
+        </div>
+
+    </div>
+    
+</div>
     <div class="container content">
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -96,13 +181,11 @@
                     </div>
             </div>
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
-                <div class="box1 d-none d-lg-flex ">
-                    <div class="access">
+                <div class="box1 d-none d-lg-flex w-100 ">
+                    <div class="access w-100 d-flex justify-content-center border-0">
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="two">{{$usersparring->tingkatan}} Tahun</div>
-                        </div>
+                        <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
                         <table>
@@ -156,7 +239,7 @@
             <a class="col-12 href="">Ambil Sparring</a>
         </div>
     </div>
-    
+    <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/detailsparring.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

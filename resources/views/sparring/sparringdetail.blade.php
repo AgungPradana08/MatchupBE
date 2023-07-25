@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Up</title>
     <link rel="stylesheet" href="/css/sparringdetail.css">
+    <link rel="stylesheet" href="/css/notification.css">
 </head>
 <body>
+    
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Sparring sudah Penuh' || session('notification') === 'Anda berhasil bergabung' ? 'appear' : 'd-none' }}"  role="alert">
+        <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
+        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+    </div>
+
     <section class="navbar" >
         <a href="/sparring/home">
         <img src="/css/img/back button.png" alt="">
@@ -87,6 +94,7 @@
             <span style="font-size: 1vw;" >{{$sparring->deskripsi_tambahan}}</span>
         </div>
     </section>
+    <script src="/js/notification.js"></script>
     <section class="white-space" ></section>
 
 </body>

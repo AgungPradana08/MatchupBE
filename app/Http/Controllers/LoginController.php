@@ -34,7 +34,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            return redirect('/sparring/home');
+            return redirect('/sparring/home')->with('notification', 'Welcome');
         }else{
             //return 'gagal'
             return redirect('/login')->with('error', 'true');
@@ -83,7 +83,7 @@ class LoginController extends Controller
             'password' => $request->password,
         ];
         if (Auth::attempt($infologin)) {
-            return redirect('/login');
+            return redirect('/login')->with('notification', 'new-account');
         }else{
             return 'gagal';
             // return redirect('/login')->withErrors('username dan password yang di masukkan tidak valid');
