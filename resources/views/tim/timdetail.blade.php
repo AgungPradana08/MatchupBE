@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/timdetail.css">
     <link rel="stylesheet" href="/css/notification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>otifica
     <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('ntion') === 'Slot tim penuh' || session('notification') === 'Anda berhasil bergabung' ? 'appear' : 'd-none' }}"  role="alert">

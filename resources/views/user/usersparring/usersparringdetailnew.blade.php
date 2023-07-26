@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/detailsparringnewnew.css">
     <link rel="stylesheet" href="/css/notification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
     <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta acara Sparring telah mencapai batas maksimum!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
@@ -134,7 +136,7 @@
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
+                        <h1 class="m-0" >Rp. 750,000<span class="text-muted m-0 p-0" >/tim</span> </h1>
                         <div class="access-badge" >
                             <div class="one">{{$usersparring->aksebilitas}}</div>
                             <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
@@ -184,7 +186,7 @@
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. 750,000 <span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. 750,000<span class="text-muted" >/tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">

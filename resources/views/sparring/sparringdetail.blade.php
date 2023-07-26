@@ -7,6 +7,8 @@
     <title>Match Up</title>
     <link rel="stylesheet" href="/css/sparringdetail.css">
     <link rel="stylesheet" href="/css/notification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
     

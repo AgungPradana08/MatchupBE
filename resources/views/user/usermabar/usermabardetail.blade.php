@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/mabardetail.css">
     <link rel="stylesheet" href="/css/notification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
     <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Mabar ini!' || session('notification') === 'Anda telah bergabung dengan Mabar!'  ? 'appear' : 'd-none' }}"  role="alert">

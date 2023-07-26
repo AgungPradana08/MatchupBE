@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
     <link rel="stylesheet" href="/css/usersetting.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
     <section class="navbar" >

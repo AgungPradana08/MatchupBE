@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
     <link rel="stylesheet" href="/css/Tambahtim.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
 
@@ -66,7 +68,7 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input2">
                     <p>Max-member</p>
-                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->max_member}}" name="max_member" type="text" placeholder="max-member...">
+                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->max_member}}" name="max_member" type="text" placeholder="max-member..." readonly>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>

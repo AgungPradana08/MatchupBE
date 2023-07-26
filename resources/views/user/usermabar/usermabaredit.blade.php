@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
     <link rel="stylesheet" href="/css/tambahsparringnew.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
 
@@ -96,19 +98,11 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p>Member</p>
-                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." value="{{$usermabar->min_member}}" >
+                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." value="{{$usermabar->min_member}}" readonly>
                 </div>
                 <div class="input2">
                     <p style="opacity: 0%;" >Peta</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."  value="{{$usermabar->max_member}}" >
-                </div>
-                <div class="input3">
-                    <p>Aksesibilitas</p>
-                    <select oninput="InputChange()" id="AksesInput" class="ac-title2" type="text" placeholder="TWO" name="aksebilitas" >
-                        <option value="{{$usermabar->aksebilitas}}">{{$usermabar->aksebilitas}}</option>
-                        <option value="Terbuka">Public</option>
-                        <option value="Private">Private</option>
-                    </select>
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."  value="{{$usermabar->max_member}}" readonly >
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>

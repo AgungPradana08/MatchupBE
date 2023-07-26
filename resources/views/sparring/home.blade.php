@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/sparringpage.css">
     <link rel="shortcut icon" href="/css/img/logo-matchup.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/notification.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+
 </head>
 <body>
     <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Welcome' ? 'appear' : 'd-none' }}"  role="alert">

@@ -219,7 +219,6 @@ table {
 
 .access {
     border: 3px solid #FE6B00;
-    color: #FE6B00;
 }
 
 .age {
@@ -426,7 +425,6 @@ table {
 
 td {
     padding-left: 10px;
-    border-bottom: 2px solid #FE6B00;
     font-size: 15px;
 }
 
