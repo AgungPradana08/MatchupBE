@@ -13,7 +13,31 @@ function previewImage() {
 }
 
 
-function locationinput() {
+function searchLocation() {
+  const input = document.getElementById('searchinput').value.toLowerCase();
+  const mapsBoxes = document.querySelectorAll('.maps-box');
+
+  mapsBoxes.forEach(box => {
+    const dataFilter = box.getAttribute('data-filter');
+    const dataName = box.querySelector('h6').innerText.toLowerCase();
+
+    if (dataName.includes(input)) {
+      box.style.display = 'block';
+    } else {
+      box.style.display = 'none';
+    }
+  });
+}
+
+
+function mapsList(index) {
+  var locationInput = document.getElementById("locationtext");
+  locationInput.value = maps[index].lokasi
+  locationdisplay()
+}
+
+
+function locationdisplay() {
     console.log("read");
     var locationInput = document.getElementById("locationtext");
     var frame = document.getElementById("frame-location");
@@ -28,7 +52,7 @@ function locationinput() {
     }
   }
 
-  var mapsindex;
+  // var mapsindex;
 
   function Price(i) {
     var priceselect = document.getElementById("LamaPertandinganSelect");
@@ -39,15 +63,15 @@ function locationinput() {
   }
 
 
-for (let index = 0; index < maps.length; index++) {
-    var locationInput = document.getElementById("location_list")
-    var newElement = document.createElement("option")
+// for (let index = 0; index < maps.length; index++) {
+//     var locationInput = document.getElementById("location_list")
+//     var newElement = document.createElement("option")
 
-    newElement.value = maps[index].lokasi
-    newElement.innerHTML = maps[index].detaillokasi
+//     newElement.value = maps[index].lokasi
+//     newElement.innerHTML = maps[index].detaillokasi
 
-    locationInput.appendChild(newElement);
+//     locationInput.appendChild(newElement);
     
-}
+// }
 
 

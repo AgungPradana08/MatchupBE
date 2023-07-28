@@ -34,7 +34,7 @@
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usertim->olahraga}}</span>
-                            <span>| {{$usertim->lokasi}}</span>
+                            <span>Kudus</span>
                         </div>
                     </div>
                 </div>
@@ -75,13 +75,15 @@
                     <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Tingkatan</h4>
                         <div class="two">{{$usertim->tingkatan}}</div>
+                        <h5 class="m-0 mt-3" >Radius Bermain</h5>
+                        <h3 class="fw-bold m-0" style="color: #FE6B00" >Kudus</h3>
                     </div>
                     <hr class="d-block d-lg-none">
                     <div class="box-content d-block d-lg-none">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"  ></div>
                                 </td>
                                 <td  style="font-family: opensans;">phone Number</td>
                             </tr>
@@ -107,14 +109,16 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
-                        <h4>Tingkatan</h4>
-                        <div class="two">{{$usertim->tingkatan}}</div>
+                        <h5>Tingkatan</h5>
+                        <div class="two" style="font-size: 15px" >{{$usertim->tingkatan}}</div>
+                        <h5 class="m-0 mt-3" >Radius Bermain</h5>
+                        <h3 class="fw-bold m-0" style="color: #FE6B00" >Kudus</h3>
                     </div>
                     <div class="box-content ">
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"    ></div>
                                 </td>
                                 <td  style="font-family: opensans;">{{$usertim->nomor_telepon}}</td>
                             </tr>

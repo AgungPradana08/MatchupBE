@@ -202,7 +202,7 @@
 
                         Status
                     </span>
-                    <span>
+                    <span class="fw-bold" >
                         Aktif
                     </span>
                     <span>

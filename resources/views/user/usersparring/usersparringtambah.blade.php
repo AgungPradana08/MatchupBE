@@ -73,9 +73,7 @@
             <span style="padding: 1%;" >LOKASI</span>
             <div class="location-container">
                 <input class="title1" id="locationtext" onchange="InputChange()" type="text" name="lokasi" placeholder="Rincian Lokasi Sparring..." >
-                @error ('lokasi')
-                        <p class="text-danger" >{{ $message }}</p>
-                @enderror
+                <button>Hello</button>
                 <div class="map">
 
                 </div>

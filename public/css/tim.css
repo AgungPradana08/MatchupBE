@@ -26,7 +26,6 @@ body {
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
 }
 
 
@@ -115,7 +114,6 @@ body {
 .banner {
     color: white;
     height: 70%;
-    background: grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,13 +263,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .box-logo {
     height: 80px;
     width: 80px;
-    background-color: grey;
     border-radius: 100%;
 }
 
@@ -308,7 +305,7 @@ body {
     display: inline-block;
     width: 80px;
     font-family: opensans-bold;
-    font-size: 1vw;
+    font-size: 20px;
 }
 
 .bottom-icon {
