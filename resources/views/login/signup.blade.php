@@ -41,7 +41,7 @@
                 <div id="error1" class="alert alert-warning  p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
                     This is a warning alert—check it out!
                   </div>
-                <div onclick="validatepage1()" class="next-button" >SELANJUTNYA</div>
+                <div onclick="validatepage1()" class="next-button " >SELANJUTNYA</div>
                 <a style="text-align: center;" href="/login">Sudah Punya Akun?, klik disini</a>
             </div>
         </div>

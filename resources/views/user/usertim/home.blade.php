@@ -19,7 +19,7 @@
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
+          <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 4vh;" alt=""></a>
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
@@ -39,33 +39,34 @@
         </div>
     </nav>
     <div class="container"></div>
-        <section class="container sparring-search " >
-            <form action="/usertim/search" class="wrapper" method="get">
-                <div style="grid-area: search1;" >
-                    <div class="icon icon-name" ></div>
-                    <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
-                </div>
-                <div style="grid-area: search2;">
-                    <div class="icon icon-location"></div>
-                    <input class="Searchmap" placeholder="Masukkan nama lokasi..." style="font-size: 13px" id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" 			onchange="InputChange()" >
-                    <datalist id="location_list" >
-                        
-                    </datalist>
-                </div>
-                <div style="grid-area: search3;">
-                    <div class="icon icon-sport"></div>
-                    <select class="searchsport" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
-                        <option value="">Pilih Cabang Olahraga...</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Renang">Renang</option>
-                    </select>
-                </div>
-                <button style="grid-area: button;">CARI</button>
-            </form>
-        </section>          
+    <section class="container sparring-search " >
+        <form action="/usertim/search" class="wrapper" method="get">
+            <a href="/usertim/tambahtim" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
+            <div style="grid-area: search1;" >
+                <div class="icon icon-name" ></div>
+                <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
+            </div>
+            <div style="grid-area: search2;">
+                <div class="icon icon-location"></div>
+                <input class="Searchmap" placeholder="Masukkan nama lokasi..." style="font-size: 13px" id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" 			onchange="InputChange()" >
+                <datalist id="location_list" >
+                    
+                </datalist>
+            </div>
+            <div style="grid-area: search3;">
+                <div class="icon icon-sport"></div>
+                <select class="searchsport" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
+                    <option value="">Pilih Cabang Olahraga...</option>
+                    <option value="Futsal">Futsal</option>
+                    <option value="Sepak Bola">Sepak Bola</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Ping Pong">Ping Pong</option>
+                    <option value="Renang">Renang</option>
+                </select>
+            </div>
+            <button style="grid-area: button;">CARI</button>
+        </form>
+    </section>       
     </div>
     
 
@@ -140,7 +141,7 @@
         </div>
     </div>
     <section class="white-space" ></section>
-    <a href="/usertim/tambahtim" class="add-sparring" >+</a> 
+    <a href="/usertim/tambahtim" class="add-sparring d-flex d-lg-none" >+</a> 
     <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>

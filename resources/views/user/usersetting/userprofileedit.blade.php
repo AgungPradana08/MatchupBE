@@ -131,6 +131,7 @@
                 </div>
             </div>
         </div>
+        
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">Ubah</button>
     </form>
     <script src="/js/setting.js"></script>

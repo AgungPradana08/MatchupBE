@@ -157,6 +157,7 @@ h5 {
 }
 
 .footer > .next-button {
+    height: 100%;
     background-color: #FE6B00;
     color: white;
     font-family: opensans-bold;
@@ -299,10 +300,10 @@ h5 {
 
     .footer {
         padding-bottom: 5%;
-        height: 15%;
+        height: 25%;
         gap: 5%;
         display: grid;
-        grid-template-rows: 2fr 1fr ;
+        grid-template-rows: 1fr  1fr ;
     }
 
     .icon {

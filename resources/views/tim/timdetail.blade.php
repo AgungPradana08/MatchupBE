@@ -71,7 +71,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"  ></div>
                                 </td>
                                 <td  style="font-family: opensans;">phone Number</td>
                             </tr>
@@ -105,7 +105,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <div class="icon mx-auto"   ></div>
+                                    <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"  ></div>
                                 </td>
                                 <td  style="font-family: opensans;">phone Number</td>
                             </tr>

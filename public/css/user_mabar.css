@@ -143,9 +143,9 @@ body {
 .wrapper {
     height: 7vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "search1 search2 search3 button";
+    grid-template-areas: " add search1 search2 search3 button";
     gap: 15px;
 }
 
@@ -200,6 +200,19 @@ body {
     border: transparent;
     border-radius: 12px;
 }
+
+.wrapper > div > a:focus {
+    outline: 3px solid #FE6B00;
+}
+
+.wrapper > a {
+    background-color: #FE6B00;
+    color: white;
+    font-size: 15px;
+    font-family: opensans-bold;
+    border: transparent;
+    border-radius: 12px;
+}   
 
 .icon-name {
     background: url(img/search.png);

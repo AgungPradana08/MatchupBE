@@ -173,7 +173,7 @@ p {
     object-position: center;
 }
 
-.form1, .form2, .form3, .form4 {
+.form1, .form2, .form3, .form4, .form5 {
     margin-top: 5vh;
     width: 100%;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
@@ -198,6 +198,11 @@ p {
 .form4 {
     position: relative;
     z-index: 3;
+}
+
+.form5 {
+    position: relative;
+    z-index: 4;
 }
 
 .title2 > select > option {
@@ -230,19 +235,6 @@ p {
 
 }
 
-.form4-wrapper {
-    box-sizing: border-box;
-    padding: 4%;
-    height: 60vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 4fr;
-    grid-template-areas: "tanggal harga lama pukul" "deskripsi-tam deskripsi-tam deskripsi-tam deskripsi-tam";
-    column-gap: 3%;
-    row-gap: 2% ;
-
-}
-
 .form3 > .form3-wrapper {
     box-sizing: border-box;
     padding: 4%;
@@ -250,6 +242,18 @@ p {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     row-gap: 5% ;
+
+}
+
+.form4-wrapper {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 120vh;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr;
+    grid-template-columns: 1fr;
+    column-gap: 3%;
+    row-gap: 2% ;
 
 }
 
@@ -340,12 +344,18 @@ p {
     border-radius: 5px;
 }
 
-.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > select,.form4-wrapper > .input4 > input {
+.form4-wrapper > div > .olahraga, .form4-wrapper > div > .tim,.form4-wrapper > div > .status{
     width: 100%;
     height: 60%;
     padding-left: 8px;
     border: 3px solid #FFA767;
     border-radius: 5px;
+}
+
+textarea {
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+
 }
 
 .form4-wrapper > .input5 > input {
@@ -361,27 +371,6 @@ p {
     width: 100%;
     height: 8vh;
 }
-
-.form4-wrapper > .input1 {
-    grid-area: tanggal;
-}
-
-.form4-wrapper > .input2 {
-    grid-area: harga;
-}
-
-.form4-wrapper > .input3 {
-    grid-area: lama;
-}
-
-.form4-wrapper > .input4 {
-    grid-area: pukul;
-}
-
-.form4-wrapper > .input5 {
-    grid-area: deskripsi-tam;
-}
-
 .add {
     background-color: #FE6B00;
     color: white;
@@ -445,19 +434,6 @@ p {
     
     }
 
-    .form4-wrapper {
-        box-sizing: border-box;
-        padding: 4%;
-        height: 60vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 4fr;
-        grid-template-areas: "tanggal harga " "lama pukul" "deskripsi-tam deskripsi-tam";
-        /* grid-template-areas: "tanggal harga lama pukul" "deskripsi-tam deskripsi-tam deskripsi-tam deskripsi-tam"; */
-        column-gap: 3%;
-        row-gap: 2% ;
-    
-    }
 
     .form3 > .form3-wrapper {
         box-sizing: border-box;

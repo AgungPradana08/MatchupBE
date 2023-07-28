@@ -16,6 +16,35 @@
     box-sizing: border-box;
 }
 
+/* MODAL  */
+
+.modal-content {
+    height: 90vh;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.maps-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 80px 80px;
+    overflow-y: scroll;
+    height: 60vh;
+    
+}
+
+.maps-box {
+    height: 80px;
+    border: transparent;
+    border-bottom: 3px solid grey;
+    text-align: left;
+    background-color: white;
+}
+
 /* === NAVBAR === */
 
 .navbar{
@@ -217,11 +246,10 @@ p {
     padding: 4% 4% 9% 4%;
     height: 80vh;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 8fr 2fr;
     grid-template-rows: 1fr 4fr;
-    grid-template-areas: "olahraga" "deskripsi";
-    column-gap: 6%;
-    row-gap: 2% ;
+    grid-template-areas: "maps-detail  map-button" "maps maps";
+    gap: 15px;
 
 }
 
@@ -461,6 +489,24 @@ p {
     height: 10vh;
 }
 
+
+.add-maps {
+    margin-top: 3px;
+    background-color: #FE6B00;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.add-logo {
+    margin-top: 3px;
+    background-color: #FE6B00;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 
 /* TABLET  */
