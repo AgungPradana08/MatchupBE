@@ -140,10 +140,18 @@
                         </tr>
                         </table>
                     </div>
-                    <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
-                        @csrf
-                        <button class="ambil" type="submit">BERGABUNG SEKARANG</button>
-                    </form>
+                    @if (!$usertim->joinedPlayers->contains(Auth::user()->id))
+                        <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" type="submit">BERGABUNG SEKARANG</button>
+                        </form>
+                    <!-- Jika pengguna sudah bergabung dengan tim, tampilkan tombol "KELUAR TIM" -->
+                    @else
+                        <form action="{{ route('tim.leave', ['id' => $usertim->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil bg-danger" type="submit">KELUAR TIM</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
