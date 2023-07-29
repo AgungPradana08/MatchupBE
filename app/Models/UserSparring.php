@@ -15,5 +15,9 @@ class UserSparring extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }  
+    }
+    
+    public function maps(){
+        return $this->hasMany(Map::class);
+    }
 }

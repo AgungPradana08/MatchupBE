@@ -20,6 +20,36 @@ var maps = [
     
 ];
 
+// JavaScript (jQuery)
+// $(document).ready(function() {
+//     // Mengambil data dari API saat halaman dimuat
+//     $.ajax({
+//         url: '/getdatalocation', // Ganti URL ini dengan URL endpoint API Anda
+//         method: 'GET',
+//         success: function(response) {
+//             // Respons sukses, data diterima dari API
+//             var maps = response.datalokasi; // Misalkan respons API berisi data lokasi dalam array "datalokasi"
+
+//             // Mengganti konten pada mapsList dengan data dari API
+//             var mapsListContainer = $('#table_data');
+//             mapsListContainer.empty(); // Hapus konten yang ada sebelumnya
+
+//             // Loop melalui data maps dan tambahkan ke dalam mapsListContainer
+//             $.each(maps, function(index, map) {
+//                 var mapBox = $('<button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(' + index + ')" data-bs-dismiss="modal">');
+//                 mapBox.append('<h6 class="fw-bold">' + map.lokasi + '</h6>');
+//                 mapBox.append('<p>' + map.detaillokasi + '</p>');
+//                 mapsListContainer.append(mapBox);
+//             });
+//         },
+//         error: function(error) {
+//             // Respons gagal, tangani kesalahan di sini
+//             console.log('Terjadi kesalahan saat memuat data dari API.');
+//         }
+//     });
+// });
+
+
 
 
 
