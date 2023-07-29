@@ -13,8 +13,8 @@
 <body>
 
     <div class="modal" id="MapsInput" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content" >
+        <div class="modal-dialog modal-dialog-centered" 
+            <div class="modal-content"  >
             <div class="modal-header bg-primary-mu">
               <div class="blank logo-sm rounded-circle d-inline-block"></div>
               <h5 class="ps-2 modal-title ">
@@ -38,14 +38,15 @@
                     <p class="m-0" >Detail</p>
                   </button>
                 </div>
-              </div>
+            </div>
               
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
             </div>
           </div>
         </div>
-      </div>
+        </div>
+    </div>
 
     <div class="navbar">
         <a href="/usermabar/home"></a>
