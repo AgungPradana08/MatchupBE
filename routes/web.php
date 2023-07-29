@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tambahsparringnew', [LokasiController::class, 'index']);
         Route::post('/store', [UserSparringController::class, 'store']);
         Route::get('/{id}/usersparringedit', [UserSparringController::class, 'edit']);
-        Route::put('/{id}',[UserSparringController::class, 'update']); 
+        Route::put('/{id}',[UserSparringController::class, 'update']);
         Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
         Route::delete('/{id}',[UserSparringController::class, 'destroy']);
         //page versus
