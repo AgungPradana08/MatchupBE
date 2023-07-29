@@ -102,9 +102,6 @@
                 Lokasi
 
             </div>
-           
-                
-            
             <div id="wrapper1" class="form2-wrapper">
                 
                 {{-- <div class="input1">
@@ -130,7 +127,6 @@
                     {{-- @endforeach --}}
                 </div>
             </div>
-            
         </div>
         <div class="form3">
             <div class="header">

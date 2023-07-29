@@ -5,15 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/tambahsparringnew.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 
 </head>
 <body>
 
+    <div class="modal" id="MapsInput" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class="ps-2 modal-title ">
+                Masukkan Peta
+              </h5>
+              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%" type="text">
+                <div id="table_data" class="w-100 maps-wrapper">
+                  <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
+                    <h6 class="fw-bold">Markas</h6>
+                    <p class="m-0" >Detail</p>
+                  </button>
+                  <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
+                    <h6 class="fw-bold">Berlian</h6>
+                    <p class="m-0" >Detail</p>
+                  </button>
+                  <button class="maps-box p-3 b-0" data-filter="lapangan" onclick="mapsList(2)" data-bs-dismiss="modal">
+                    <h6 class="fw-bold">Lapangan Besito</h6>
+                    <p class="m-0" >Detail</p>
+                  </button>
+                </div>
+              </div>
+              
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div class="navbar">
         <a href="/usermabar/home"></a>
-        <p>Tambah Mabar</p>
+        <p class="m-0" >Tambah Mabar</p>
         <a style="visibility: hidden;" ></a>
     </div>
 
@@ -38,11 +74,11 @@
             </div>
             <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
-                    <p>Nama Mabar</p>
+                    <p class="m-0" >Nama Mabar</p>
                     <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
-                    <p>Olahraga</p>
+                    <p class="m-0" >Olahraga</p>
                     <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
@@ -53,7 +89,7 @@
                     </select>
                 </div>
                 <div class="input3-des">
-                    <p>Deskrispi</p>
+                    <p class="m-0" >Deskrispi</p>
                     <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
                 </div>
             </div>
@@ -61,29 +97,33 @@
         <div class="form2">
             <div class="header">
                 Lokasi
+
             </div>
-           
-                
-            
             <div id="wrapper1" class="form2-wrapper">
                 
-                <div class="input1">
-                    <p>Rincian Lokasi</p>
+                {{-- <div class="input1">
+                    <p class="m-0" >Rincian Lokasi</p>
                     <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" >
                     <datalist id="location_list" >
-                        {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
-                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
                     </datalist>
+                </div> --}}
+
+                <div class="input1" style="grid-area: maps-detail;">
+                    <p class="m-0" >Rincian Lokasi</p>
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly >
                 </div>
-                <div class="input3">
-                    <p>Peta</p>
+                <div class="d-flex align-items-center justify-content-center" >
+                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button;" >Masukkan Lokasi</a>
+                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50 d-flex align-items-center justify-content-center add-logo  d-flex d-md-none" style="grid-area: map-button;" >Logo</a>
+
+                </div>
+                <div style="grid-area: maps;" class="input3">
+                    <p class="m-0" >Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
                     <iframe id="frame-location" src=""></iframe>
                     {{-- @endforeach --}}
                 </div>
-                
             </div>
-            
         </div>
         <div class="form3">
             <div class="header">
@@ -91,15 +131,15 @@
             </div>
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
-                    <p>Min Member</p>
+                    <p class="m-0" >Min Member</p>
                     <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly>
                 </div>
                 <div class="input1">
-                    <p style="opacity: 0%;" >Peta</p>
+                    <p class="m-0" >Max Member</p>
                     <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
                 </div>
                 <div class="input3">
-                    <p>Tingkatan-umur</p>
+                    <p class="m-0" >Tingkatan-umur</p>
                     <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
@@ -117,15 +157,15 @@
             </div>
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
-                    <p>Tanggal</p>
+                    <p class="m-0" >Tanggal</p>
                     <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
                 </div>
                 <div class="input2">
-                    <p>Harga</p>
+                    <p class="m-0" >Harga</p>
                     <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." readonly >
                 </div>
                 <div class="input3">
-                        <p>Lama Pertandingan</p>
+                        <p class="m-0" >Lama Pertandingan</p>
                         <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price() >
                             <option value="1">30 Menit</option>
                             <option value="1">60 Menit</option>
@@ -135,11 +175,11 @@
                         </select>
                 </div>
                 <div class="input4">
-                    <p>Pukul</p>
+                    <p class="m-0" >Pukul</p>
                     <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
                 </div>
                 <div class="input5">
-                    <p>Informasi Tambahan</p>
+                    <p class="m-0" >Informasi Tambahan</p>
                     <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
                 </div>
             </div>
@@ -152,5 +192,7 @@
     <script src="/js/mapslist.js"></script>
     <script src="/js/tambah.js"></script>
     <script src="/js/sparring.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

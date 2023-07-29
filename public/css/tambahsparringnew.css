@@ -253,6 +253,18 @@ p {
 
 }
 
+.form2-wrapper-e {
+    box-sizing: border-box;
+    padding: 4% 4% 9% 4%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 8fr;
+    grid-template-areas: "maps-detail" "maps";
+    gap: 15px;
+
+}
+
 .form4-wrapper {
     box-sizing: border-box;
     padding: 4%;
