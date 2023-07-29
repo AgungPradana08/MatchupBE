@@ -180,7 +180,26 @@ class UserTimController extends Controller
                 return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda sudah terdaftar sebagai peserta Tim ini!');
             }
         } else {
-            return redirect()->route('mabar.index')->with('error', 'Tim tidak ditemukan!');
+            return redirect()->route('tim.index')->with('error', 'Tim tidak ditemukan!');
+        }
+    }
+
+    public function leaveTim($usertimId)
+    {
+        $pengguna = Auth::user();
+        $tim = UserTim::with('joinedPlayers')->find($usertimId);
+
+        if ($tim) {
+            // Cek apakah user sudah terdaftar sebagai peserta tim
+            if ($tim->joinedPlayers->contains($pengguna->id)) {
+                // Hapus user dari relasi Many-to-Many
+                $tim->joinedPlayers()->detach($pengguna->id);
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda telah keluar dari Tim.');
+            } else {
+                return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda belum terdaftar sebagai peserta Tim ini.');
+            }
+        } else {
+            return redirect()->route('tim.index')->with('error', 'Tim tidak ditemukan!');
         }
     }
 }

@@ -24,14 +24,14 @@
             </div>
             <div class="modal-body">
                 <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%" type="text">
-                @foreach ($peta as $peta)
+                {{-- @foreach ($peta as $peta) --}}
                 <div id="table_data" class="w-100 maps-wrapper">
                         <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
-                            <h6 class="fw-bold">{{$peta->title_lokasi}}</h6>
+                            <h6 class="fw-bold">markas haram</h6>
                             <p>Detail</p>
                         </button>
                 </div>
-                @endforeach
+                {{-- @endforeach --}}
               </div>
               
             <div class="modal-footer">

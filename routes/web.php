@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tambahsparringnew', [LokasiController::class, 'index']);
         Route::post('/store', [UserSparringController::class, 'store']);
         Route::get('/{id}/usersparringedit', [UserSparringController::class, 'edit']);
-        Route::put('/{id}',[UserSparringController::class, 'update']); 
+        Route::put('/{id}',[UserSparringController::class, 'update']);
         Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
         Route::delete('/{id}',[UserSparringController::class, 'destroy']);
         //page versus
@@ -118,6 +118,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/tambahtim/store', [UserTimController::class, 'store']);
         Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail'])->name('tim.detail');
         Route::post('/{id}/usertimdetail/join', [UserTimController::class, 'jointim'])->name('tim.join');
+        Route::post('/{id}/usertimdetail/leave', [UserTimController::class, 'leavetim'])->name('tim.leave');
         Route::get('/{id}/usertimedit', [UserTimController::class, 'edit']);
         Route::put('/{id}',[UserTimController::class, 'update']);
         Route::delete('/{id}',[UserTimController::class, 'destroy']);
