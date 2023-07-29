@@ -43,11 +43,11 @@
                 </div>
                 <div class="input1">
                     <p>Nama Pertandingan</p>
-                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" value="{{$usersparring->title}}" placeholder="Input nama pertandingan..." >
+                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" value="{{$usersparring->title}}" placeholder="Input nama pertandingan..." readonly >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" disabled >
                         <option value="{{$usersparring->olahraga}}" >{{$usersparring->olahraga}}</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
@@ -70,11 +70,11 @@
            
                 
             
-            <div id="wrapper1" class="form2-wrapper">
+            <div id="wrapper1" class="form2-wrapper-e">
                 
                 <div class="input1">
                     <p>Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" value="{{$usersparring->lokasi}}" type="search" autocomplete="off" list="location_list" type="text" onchange="mapsviews()" >
+                    <input id="locationtext" name="lokasi" value="{{$usersparring->lokasi}}" type="search" autocomplete="off" list="location_list" type="text" onchange="mapsviews()" readonly >
                     <datalist id="location_list" >
                         {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
@@ -121,15 +121,15 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p>Tanggal</p>
-                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usersparring->tanggal_pertandingan}}" >
+                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usersparring->tanggal_pertandingan}}" readonly >
                 </div>
                 <div class="input2">
                     <p>Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" >
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" readonly >
                 </div>
                 <div class="input3">
                         <p>Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}" >
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}"  >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
@@ -139,11 +139,11 @@
                 </div>
                 <div class="input4">
                     <p>Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usersparring->waktu_pertandingan}}" >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usersparring->waktu_pertandingan}}" readonly >
                 </div>
                 <div class="input5">
                     <p>Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." value="{{$usersparring->deskripsi_tambahan}}" ></textarea>
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." value="{{$usersparring->deskripsi_tambahan}}" disabled></textarea>
                 </div>
             </div>
         </div>
