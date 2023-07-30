@@ -39,7 +39,7 @@
     </nav>
     <section class="container sparring-search " >
         <form action="/usersparring/search" class="wrapper" method="get">
-            <a href="/usersparring/usersparringtambah" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
+            <a href="/usersparring/sparringapi" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">

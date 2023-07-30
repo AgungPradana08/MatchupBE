@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LokasiController;
+use App\Http\Controllers\api\SparringApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/getdatalocation', [LokasiController::class, 'getdatalocation']);
 // Route::get('/tambahsparingnewapi', [LokasiController::class, 'index']);
+
+Route::get('/getdatasparring', [SparringApiController::class, 'getdatasparring']);
+Route::get('/sparring/api', [SparringApiController::class, 'index']);       
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\LokasiController;
+use App\Http\Controllers\api\SparringApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimController;
 use App\Http\Controllers\LoginController;
@@ -80,7 +81,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/search', [UserSparringController::class, 'search2']);
         Route::get('/home', [UserSparringController::class, 'index']);
         Route::get('/usersparringtambah', [UserSparringController::class, 'tambah']);
+
+        // api lokasi
         Route::get('/tambahsparringnew', [LokasiController::class, 'index']);
+        // --------------------------------SPACE-----------------------------
+        // api sparring
+        Route::get('/sparringapi', [SparringApiController::class, 'index2']);
+        // --------------------------------SPACE-----------------------------
+
         Route::post('/store', [UserSparringController::class, 'store']);
         Route::get('/{id}/usersparringedit', [UserSparringController::class, 'edit']);
         Route::put('/{id}',[UserSparringController::class, 'update']);
