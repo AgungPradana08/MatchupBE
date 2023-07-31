@@ -227,7 +227,10 @@
                         </tr>
                         </table>
                     </div>
-                    <button>Ambil Sparring</button>
+                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                        @csrf
+                        <button class="ambil" type="submit">Ambil Sparring</button>
+                    </form>
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Deskripsi Tambahan</h5>

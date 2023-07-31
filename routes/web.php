@@ -92,7 +92,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/store', [UserSparringController::class, 'store']);
         Route::get('/{id}/usersparringedit', [UserSparringController::class, 'edit']);
         Route::put('/{id}',[UserSparringController::class, 'update']);
-        Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail']);
+        Route::get('/{id}/usersparringdetail', [UserSparringController::class, 'detail'])->name('sparring.detail');
+        Route::post('/{id}/usersparringdetail/join', [UserSparringController::class, 'joinsparring'])->name('sparring.join');
         Route::delete('/{id}',[UserSparringController::class, 'destroy']);
         //page versus
         Route::get('/versus', [UserSparringController::class, 'versus']);
@@ -154,3 +155,5 @@ Route::post('/matches/join', [UserMabarController::class, 'joinMatch'])->name('m
 
 
 Route::get('/skuy', [SparringApiController::class, 'datasparringapi']);
+
+Route::get('/skuylah', [SparringApiController::class, 'getHelloFromApi']);

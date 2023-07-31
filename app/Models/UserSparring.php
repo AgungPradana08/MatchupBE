@@ -20,4 +20,25 @@ class UserSparring extends Model
     public function maps(){
         return $this->hasMany(Map::class);
     }
+
+    public function hostSparring()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function joinedSparrings()
+    {
+        return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id');
+    }
+
+    public function playerSparring()
+    {
+        return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id');
+    }
+
+    public function getJoinedSlotSparring()
+    {
+        $totalJoined = $this->joinedSparrings()->count();
+        return $totalJoined . '/' . $this->max_member;
+    }
 }

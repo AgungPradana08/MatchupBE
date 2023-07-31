@@ -37,4 +37,10 @@ class Usertim extends Model
         $totalJoined = $this->joinedPlayers()->count();
         return $totalJoined . '/' . $this->max_member;
     }
+
+    public function sparrings()
+    {
+        return $this->hasMany(UserSparring::class);
+    }
+
 }

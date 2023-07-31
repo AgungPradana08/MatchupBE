@@ -26,5 +26,11 @@ Route::get('/getdatalocation', [LokasiController::class, 'getdatalocation']);
 Route::get('/getdatasparring', [SparringApiController::class, 'getdatasparring']);
 Route::get('/sparring/api', [SparringApiController::class, 'index']);       
 
+Route::get('/hello', function () {
+    return 'Hello, World!';
+});
+
+Route::get('/skuylah', [SparringApiController::class, 'getHelloFromApi']);
+
 
 

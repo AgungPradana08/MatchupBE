@@ -40,10 +40,29 @@ class SparringApiController extends Controller
     }
 
     public function datasparringapi(){
-        $url = 'http://127.0.0.1:8000/api/getdatasparring';
+        $url = 'https://127.0.0.1:8000/api/getdatasparring';
         $response = Http::get($url);
         $data = $response->json();
         // dd($data);
+        return view('testingapi.home', ['data' => $data]);
+    }
+
+    public function datasparringapi2(){
+        $sumber = 'https://127.0.0.1:8000/api/getdatasparring';
+        $konten = file_get_contents($sumber);
+        $data = json_decode($konten, true);
+        var_dump($data);
+    }
+
+    public function getHelloFromApi()
+    {
+        // Lakukan permintaan HTTP ke API
+        $response = Http::get('http://127.0.0.1:8000/api/hello');
+
+        // Ambil data dari respons API
+        $data = $response->body();
+
+        // Kembalikan data ke view atau format lainnya
         return view('testingapi.home', ['data' => $data]);
     }
 }
