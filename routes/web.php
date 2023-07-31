@@ -153,3 +153,4 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::post('/matches/join', [UserMabarController::class, 'joinMatch'])->name('matches.join');
 
 
+Route::get('/skuy', [SparringApiController::class, 'datasparringapi']);

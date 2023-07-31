@@ -27,15 +27,23 @@ class SparringApiController extends Controller
     }
 
     public function index2()
-{
-    $url = 'http://127.0.0.1:8000/api/getdatasparring';
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
+    {
+        $url = 'http://127.0.0.1:8000/api/getdatasparring';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-    $data = json_decode($response, true);
-    $usersparring = $data['data'];
-    return view('user.usersparring.tambahsparringnew', compact('usersparring'));
-}
+        $data = json_decode($response, true);
+        $usersparring = $data['data'];
+        return view('user.usersparring.tambahsparringnew', compact('usersparring'));
+    }
+
+    public function datasparringapi(){
+        $url = 'http://127.0.0.1:8000/api/getdatasparring';
+        $response = Http::get($url);
+        $data = $response->json();
+        // dd($data);
+        return view('testingapi.home', ['data' => $data]);
+    }
 }
