@@ -13,7 +13,7 @@
 <body>
 
     <div class="modal" id="MapsInput" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" 
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content"  >
             <div class="modal-header bg-primary-mu">
               <div class="blank logo-sm rounded-circle d-inline-block"></div>

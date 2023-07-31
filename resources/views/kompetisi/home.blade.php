@@ -78,7 +78,6 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$kompetisi->title}}</p>
                     <div>
-                        <div class="access">{{$kompetisi->aksebilitas}}</div>
                         <div class="age">{{$kompetisi->tingkatan}}</div> 
                     </div>
                 </div>

@@ -9,11 +9,9 @@
     <link rel="stylesheet" href="/css/timdetail.css">
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
-
-
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -75,7 +73,7 @@
                     <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Tingkatan</h4>
                         <div class="two">{{$usertim->tingkatan}}</div>
-                        <h5 class="m-0 mt-3" >Radius Bermain</h5>
+                        <h5 class="m-0 mt-3" >Bermain Sekitar</h5>
                         <h3 class="fw-bold m-0" style="color: #FE6B00" >Kudus</h3>
                     </div>
                     <hr class="d-block d-lg-none">
@@ -149,7 +147,28 @@
                     @else
                         <form action="{{ route('tim.leave', ['id' => $usertim->id]) }}" method="POST">
                             @csrf
-                            <button class="ambil bg-danger" type="submit">KELUAR TIM</button>
+                            <a class=" btn ambil bg-danger d-flex align-items-center justify-content-center" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" >KELUAR TIM</a>
+
+                            <div class="modal" id="exampleModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered ">
+                                  <div class="modal-content" style="width: 32vw" >
+                                    <div class="modal-header bg-primary-mu">
+                                      <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                      <h5 class=" modal-title ">
+                                        Keluar Dari {{$usertim->nama_tim}}?
+                                      </h5>
+                                      <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p  >Anda yakin ingin keluar dari tim ini?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                      <button type="button" class="btn btn-danger">Blokir</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </form>
                     @endif
                 </div>

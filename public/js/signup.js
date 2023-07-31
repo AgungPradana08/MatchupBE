@@ -11,8 +11,17 @@ Box2.style.display = "none"
 alert1.style.visibility = "hidden"
 
 function validatepage1() {
-    if (names.value.length > 0) {
-        validate2()
+
+    let tolowercase = document.getElementById("UsernameInput").value.toLowerCase()
+    let nameinput = document.getElementById("UsernameInput").value
+
+    if (nameinput.length > 0) {
+        if (nameinput == tolowercase && !nameinput.includes(" ")) {
+            validate2()
+        } else {
+            alert1.style.visibility = "visible"
+            alert1.innerHTML = "! Username Harus Lowercase Tanpa Spasi !"
+        }
     } else {
         alert1.style.visibility = "visible"
         alert1.innerHTML = "! Username Kosong !"

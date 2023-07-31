@@ -283,7 +283,7 @@ p {
     padding: 4%;
     height: 17vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     column-gap: 3%;
     row-gap: 2% ;
 

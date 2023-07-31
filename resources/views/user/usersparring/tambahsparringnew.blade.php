@@ -128,15 +128,8 @@
 
             </div>
             <div id="wrapper2" class="form3-wrapper">
-                <div class="input1">
-                    <p class="m-0" >Member</p>
-                    <input  id="MinInput" type="text" name="min_member" placeholder="min-member..." >
-                </div>
-                <div class="input2">
-                    <p class="m-0"  style="opacity: 0%;" >Peta</p>
-                    <input  id="MaxInput" name="max_member" type="text" placeholder="max-member...">
-                </div>
-                <div class="input4">
+
+                <div class="input4 w-100">
                     <p class="m-0" >Tingkatan-umur</p>
                     <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
@@ -148,6 +141,14 @@
                     </select>
                 </div>
             </div>
+        </div>
+        <div class="input1 d-none">
+            <p class="m-0 " >Member</p>
+            <input  id="MinInput" type="text" name="min_member" placeholder="min-member..." value="1" >
+        </div>
+        <div class="input2 d-none">
+            <p class="m-0"  style="opacity: 0%;" >Peta</p>
+            <input  id="MaxInput" name="max_member" type="text" placeholder="max-member..." value="2">
         </div>
         <div class="form4">
             <div class="header">
