@@ -63,7 +63,6 @@
         <div class="form1">
             <div class="header">
                 Title
-
             </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
@@ -129,7 +128,7 @@
             </div>
             <div id="wrapper2" class="form3-wrapper">
 
-                <div class="input4 w-100">
+                <div class="input4">
                     <p class="m-0" >Tingkatan-umur</p>
                     <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="">Pilih Tingkatan...</option>
