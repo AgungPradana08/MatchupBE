@@ -63,9 +63,10 @@
         <div class="right-content">
             <span class="biaya" >Biaya Masuk</span>
             <span class="harga" style="display: block;" >Rp {{$usersparring->harga_tiket}} <text style="color: grey; font-size: 1.3vw;" >/Tim</text> </span>
-            <button>
-                Ambil Sparring
-            </button>
+            <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                @csrf
+                <button class="ambil" type="submit">Ambil Sparring</button>
+            </form>
             <div class="line1">
                 <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="icon">
 

@@ -31,6 +31,28 @@ class User extends Authenticatable
         return $this->hasMany(UserMabar::class);
     }
 
+    public function teams()
+    {
+        return $this->belongsToMany(UserTim::class, 'all_tim');
+    }
+
+    public function joinTim($usertimId)
+    {
+        $tim = UserTim::findOrFail($usertimId);
+        $this->teams()->syncWithoutDetaching($tim);
+    }
+
+    public function joinSparring($usersparringId)
+    {
+        // Pastikan pengguna sudah bergabung dengan tim sebelumnya
+        if ($this->teams->isEmpty()) {
+            return false; // Atau tampilkan pesan peringatan bahwa pengguna harus bergabung dengan tim terlebih dahulu.
+        }
+
+        $sparring = UserSparring::findOrFail($usersparringId);
+        $this->sparrings()->syncWithoutDetaching($sparring);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
