@@ -32,10 +32,9 @@ class UserSparringController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $pengguna = Auth::user();
 
-        $this->validate($request, rules: [
+        $this->validate($request, [
             'title' => 'required',
             'nama_tim' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,gif',
@@ -56,6 +55,7 @@ class UserSparringController extends Controller
 
         $post = UserSparring::create([
             'user_id' => $pengguna->id,
+            'usertim_id' => $pengguna->userTim->id, // Simpan usertim_id di sini
             'title' => $request->title,
             'nama_tim' => $request->nama_tim,
             'image' => $image,
@@ -70,17 +70,24 @@ class UserSparringController extends Controller
             'lama_pertandingan' => $request->lama_pertandingan,
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
+             
         ]);
 
-        // $pengguna->posts()->save($post);
-        $post->joinedSparrings()->attach($pengguna->id);
-        session()->flash('notification', 'Sparring berhasil di tambah');
+        // $post->joinedSparrings()->attach($pengguna->id);
+        // if ($pengguna->SparringTims) {
+        //     $post->teams()->attach($pengguna->SparringTims->id);
+        //     $post->save();
+        // }    
+        $usertimId = $pengguna->usertim->id;
+        $post->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $usertimId]);
+        session()->flash('notification', 'Sparring berhasil ditambahkan');
         return redirect('/usersparring/home');
     }
 
+
     public function detail($usersparringId)
     {
-        $usersparring = UserSparring::with('joinedSparrings')->find($usersparringId);
+        $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($usersparringId);
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
         return view('user.usersparring.usersparringdetailnew', compact(['usersparring']));

@@ -21,6 +21,11 @@ class UserSparring extends Model
         return $this->hasMany(Map::class);
     }
 
+    public function SparringTims()
+    {
+        return $this->belongsTo(UserTim::class);
+    }
+
     public function hostSparring()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -40,5 +45,16 @@ class UserSparring extends Model
     {
         $totalJoined = $this->joinedSparrings()->count();
         return $totalJoined . '/' . $this->max_member;
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Gunakan event "creating" untuk mengisi usertim_id
+        self::creating(function ($usersparring) {
+            // Ambil usertim_id dari relasi 'teams' pada model 'User'
+            $usersparring->usertim_id = $usersparring->user->teams->first()->pivot->usertim_id;
+        });
     }
 }

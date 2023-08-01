@@ -34,7 +34,11 @@
                 <div class="de-away me-5">
                     <img src="/css/img/psg.png" class="box-icon"  alt="">
                     {{-- @foreach ($takesparring as $takesparring) --}}
-                    <p style="margin-top: 5%;" >nama</p>
+                    @foreach ($usersparring->joinedSparrings as $sparring)
+                        @foreach ($sparring->sparringTeams as $team)
+                            <p style="margin-top: 5%;">{{ $team->nama_tim }}</p>
+                        @endforeach
+                    @endforeach
                     {{-- @endforeach --}}
                 </div>
                 <div class="de-vs">

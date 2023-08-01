@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             // $table->foreignId('user_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('usertim_id');
             $table->string('title');
             $table->string('nama_tim_lawan')->nullable();
             $table->string('nama_tim');

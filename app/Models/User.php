@@ -15,6 +15,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     
+    public function userTim()
+    {
+        return $this->hasOne(UserTim::class);
+    }
     
     public function posts()
     {
@@ -34,6 +38,12 @@ class User extends Authenticatable
     public function teams()
     {
         return $this->belongsToMany(UserTim::class, 'all_tim');
+    }
+
+    // Relasi dengan tabel pivot matches_sparring
+    public function sparringTeams()
+    {
+        return $this->belongsToMany(UserTim::class, 'matches_sparring');
     }
 
     public function joinTim($usertimId)

@@ -10,4 +10,9 @@ class MatchesSparring extends Model
     use HasFactory;
     protected $table = 'matches_sparring';
     protected $guarded = [];
+
+    public function userTimss()
+    {
+        return $this->belongsTo(UserTim::class, 'usertim_id');
+    }
 }
