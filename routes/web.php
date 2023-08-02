@@ -79,7 +79,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/usersparring')->group(function () {
         Route::get('/search', [UserSparringController::class, 'search2']);
-        Route::get('/home', [UserSparringController::class, 'index']);
+        Route::get('/home', [UserSparringController::class, 'index'])->name('usersparring.home');
         Route::get('/usersparringtambah', [UserSparringController::class, 'tambah']);
 
         // api lokasi
