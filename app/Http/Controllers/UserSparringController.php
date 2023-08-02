@@ -25,8 +25,14 @@ class UserSparringController extends Controller
     }
 
     public function tambah()
-    {
+    {   
+        $user = Auth::user();
         $usersparring = UserSparring::all();
+
+        if ($user->teams->isEmpty()) {
+            // Jika belum, arahkan user ke halaman tertentu atau tampilkan pesan peringatan
+            return redirect()->route('usersparring.home')->with('error', 'Anda harus tergabung dalam tim terlebih dahulu sebelum dapat membuat sparring.');
+        }
         return view('user.usersparring.tambahsparringnew', compact(['usersparring']));
     }
 
@@ -229,7 +235,9 @@ class UserSparringController extends Controller
             // Cek apakah user sudah terdaftar sebagai peserta sparring
             if (!$sparring->joinedSparrings->contains($pengguna->id)) {
                 // Cek apakah user sudah bergabung dengan tim
-                if ($pengguna->teams->isEmpty()) {
+                $userTim = $pengguna->userTim; // Ambil data tim dari user
+
+                if (!$userTim) {
                     return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!');
                 }
 
@@ -238,7 +246,7 @@ class UserSparringController extends Controller
                 }
 
                 // Jika belum terdaftar dan sudah bergabung dengan tim, tambahkan user ke relasi Many-to-Many
-                $sparring->joinedSparrings()->attach($pengguna->id);
+                $sparring->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $userTim->id]);
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda sudah terdaftar sebagai peserta Sparring ini!');
@@ -248,17 +256,17 @@ class UserSparringController extends Controller
         }
     }
 
-    public function joinsparring2($usersparringId)
-    {
-        $user = Auth::user();
+    // public function joinsparring2($usersparringId)
+    // {
+    //     $user = Auth::user();
 
-        // Panggil fungsi joinSparring dari model User untuk bergabung dengan sparring
-        $result = $user->joinSparring($usersparringId);
+    //     // Panggil fungsi joinSparring dari model User untuk bergabung dengan sparring
+    //     $result = $user->joinSparring($usersparringId);
 
-        if ($result) {
-            return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
-        } else {
-            return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('error', 'Anda harus bergabung dengan Tim terlebih dahulu.');
-        }
-    }
+    //     if ($result) {
+    //         return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
+    //     } else {
+    //         return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('error', 'Anda harus bergabung dengan Tim terlebih dahulu.');
+    //     }
+    // }
 }
