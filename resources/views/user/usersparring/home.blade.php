@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Sparring berhasil di tambah' || session('notification') === 'Sparring berhasil di hapus' || session('notification') === 'Sparring Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.' || session('notification') === 'Sparring berhasil di tambah' || session('notification') === 'Sparring berhasil di hapus' || session('notification') === 'Sparring Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
     </div>
