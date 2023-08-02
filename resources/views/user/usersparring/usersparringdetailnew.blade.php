@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta acara Sparring telah mencapai batas maksimum!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -244,9 +244,10 @@
         </div>
     </div>
     <div class="container fixed-bottom bg-white d-block d-lg-none">
-        <div class="row phone-button">
-            <a class="col-12 href="">Ambil Sparring</a>
-        </div>
+        <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST" class="row phone-button">
+            @csrf
+            <button class="col-12 ambil" type="submit" >Ambil Sparring</button>
+        </form>
     </div>
     <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>

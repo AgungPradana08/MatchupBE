@@ -327,6 +327,17 @@ table {
     box-sizing: border-box;
 }
 
+.ambil  {
+    width: 100%;
+    height: 8vh;
+    color: white;
+    background-color: #FE6B00;
+    border: transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: opensans-bold;
+}
+
 .de-title {
     grid-area: title;
     display: flex;

@@ -124,7 +124,9 @@ class UserSparringController extends Controller
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
+
         return redirect('/usersparring/home');
+        
     }
 
     public function destroy($id)
