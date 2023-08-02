@@ -53,6 +53,20 @@ class UserSparringController extends Controller
         $file_name = $request->image->getClientOriginalName();
         $image = $request->image->storeAs('image2', $file_name);
 
+        
+        $usertimId = $pengguna->userTim->id ?? null; // Cek jika pengguna sudah memiliki tim
+
+        // Jika pengguna belum memiliki tim, cari tim dari pengguna yang baru saja bergabung dengan sparring
+        if (!$usertimId) {
+            $latestJoinedUser = UserSparring::where('user_id', '!=', $pengguna->id)
+                ->orderByDesc('created_at')
+                ->first();
+
+            if ($latestJoinedUser) {
+                $usertimId = $latestJoinedUser->usertim_id;
+            }
+        }
+
         $post = UserSparring::create([
             'user_id' => $pengguna->id,
             'usertim_id' => $pengguna->userTim->id, // Simpan usertim_id di sini
