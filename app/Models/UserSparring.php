@@ -23,7 +23,7 @@ class UserSparring extends Model
 
     public function SparringTims()
     {
-        return $this->belongsTo(UserTim::class);
+        return $this->belongsTo(UserTim::class. 'usertim_id');
     }
 
     public function hostSparring()
@@ -33,7 +33,8 @@ class UserSparring extends Model
 
     public function joinedSparrings()
     {
-        return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id');
+        return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id')
+            ->withPivot('nama_tim_lawan'); // Add the pivot data here
     }
 
     public function playerSparring()
@@ -56,5 +57,11 @@ class UserSparring extends Model
             // Ambil usertim_id dari relasi 'teams' pada model 'User'
             $usersparring->usertim_id = $usersparring->user->teams->first()->pivot->usertim_id;
         });
+    }
+
+    public function sparringTeams()
+    {
+        return $this->belongsToMany(UserTim::class, 'matches_sparring', 'usersparring_id', 'usertim_id')
+            ->withPivot('nama_tim_lawan');
     }
 }
