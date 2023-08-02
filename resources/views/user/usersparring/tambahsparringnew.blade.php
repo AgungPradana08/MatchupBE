@@ -56,7 +56,7 @@
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                    <input   style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                    <input   style="display: none" type="file" id="image" name="image" onchange="previewImage()" required>
                 </div>
             </div>
         </div>
@@ -71,11 +71,11 @@
                 </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <select  id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select  id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
