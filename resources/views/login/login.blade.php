@@ -33,7 +33,7 @@
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain; background-repeat: no-repeat; " ></div>
-                    <input id="PasswordLog" name="password" type="password"  placeholder="Masukkan Password...">
+                    <input id="PasswordLog" name="password" type="password"  placeholder="Masukkan Password..." required >
                     <div class="icon-eye" onclick="passwordsee1()"  style="background: url(/css/img/eye.png); background-position: center; background-size: contain; background-repeat: no-repeat; " ></div>
                 </div>
                 <input class="d-none" type="text">

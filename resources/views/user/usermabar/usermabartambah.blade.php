@@ -63,7 +63,7 @@
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                    <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                    <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()" required>
                 </div>
             </div>
         </div>
@@ -76,11 +76,11 @@
             <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
                     <p class="m-0" >Nama Mabar</p>
-                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
+                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan..." required>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly required>
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button;" >Masukkan Lokasi</a>
@@ -133,15 +133,15 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input1">
                     <p class="m-0" >Min Member</p>
-                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly>
+                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly required>
                 </div>
                 <div class="input1">
                     <p class="m-0" >Max Member</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..." required>
                 </div>
                 <div class="input3">
                     <p class="m-0" >Tingkatan-umur</p>
-                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" required>
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>
@@ -159,15 +159,15 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="m-0" >Tanggal</p>
-                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
+                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." readonly >
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." readonly required>
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price() >
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price() required>
                             <option value="1">30 Menit</option>
                             <option value="1">60 Menit</option>
                             <option value="2">90 Menit</option>
@@ -177,11 +177,11 @@
                 </div>
                 <div class="input4">
                     <p class="m-0" >Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." required >
                 </div>
                 <div class="input5">
                     <p class="m-0" >Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." ></textarea>
                 </div>
             </div>
         </div>
