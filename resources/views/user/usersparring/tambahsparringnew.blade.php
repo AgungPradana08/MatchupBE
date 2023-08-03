@@ -65,11 +65,10 @@
                 Title
             </div>
             <div id="wrapper0" class="form1-wrapper">
-                {{-- <div class="input0">
+                <div class="input0">
                     <p class="m-0" >Nama Tim</p>
-                    <input name="nama_tim" type="text" aria-required="true" placeholder="Input nama tim..." required >
-                    
-                </div> --}}
+                    <input name="nama_tim" type="text" placeholder="Input nama tim..." required >
+                </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>
                     <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." required>

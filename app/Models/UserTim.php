@@ -43,4 +43,18 @@ class Usertim extends Model
         return $this->hasMany(UserSparring::class);
     }
 
+    public function teamLeader()
+    {
+        return $this->belongsTo(User::class, 'team_leader_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Gunakan event "creating" untuk mengisi kolom host_id
+        self::creating(function ($usertim) {
+            $usertim->host_id = auth()->id();
+        });
+    }
 }

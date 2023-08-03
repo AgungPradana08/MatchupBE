@@ -63,6 +63,21 @@ class User extends Authenticatable
         $this->sparrings()->syncWithoutDetaching($sparring);
     }
 
+    public function currentTeam()
+    {
+        return $this->hasOne(UserTim::class, 'id', 'usertim_id');
+    }
+
+    public function hostedTim()
+    {
+        return $this->hasOne(UserTim::class, 'host_id');
+    }
+
+    public function hostedTeams()
+    {
+        return $this->hasMany(UserTim::class, 'host_id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

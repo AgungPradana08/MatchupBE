@@ -169,7 +169,18 @@ class UserTimController extends Controller
         if ($tim) {
             // Cek apakah user sudah terdaftar sebagai peserta tim
             if (!$tim->joinedPlayers->contains($pengguna->id)) {
-                
+                // Cek apakah user sudah bergabung dengan tim lain atau menjadi team leader di tim lain
+                $isJoinedOtherTeam = $pengguna->teams->isNotEmpty();
+                $isTeamLeaderInOtherTeam = $pengguna->hostedTeams->isNotEmpty();
+
+                if ($isJoinedOtherTeam || $isTeamLeaderInOtherTeam) {
+                    return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Maaf, Anda hanya dapat bergabung dengan satu tim!');
+                }
+
+                if ($pengguna->hostedTim) {
+                    return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda telah menjadi team leader pada tim lain dan tidak dapat bergabung dengan tim lainnya.');
+                }
+
                 if ($tim->joinedPlayers->count() >= $tim->max_member) {
                     return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
                 }
@@ -183,6 +194,7 @@ class UserTimController extends Controller
             return redirect()->route('tim.index')->with('error', 'Tim tidak ditemukan!');
         }
     }
+
 
     public function leaveTim($usertimId)
     {
