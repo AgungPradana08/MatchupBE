@@ -206,6 +206,11 @@ class UserTimController extends Controller
             if ($tim->joinedPlayers->contains($pengguna->id)) {
                 // Hapus user dari relasi Many-to-Many
                 $tim->joinedPlayers()->detach($pengguna->id);
+                // Jika pengguna adalah host tim, set host_id menjadi nul
+                if ($tim->host_id === $pengguna->id) {
+                    $tim->host_id = null;
+                    $tim->save();
+                }
                 return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda telah keluar dari Tim.');
             } else {
                 return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda belum terdaftar sebagai peserta Tim ini.');
@@ -214,5 +219,6 @@ class UserTimController extends Controller
             return redirect()->route('tim.index')->with('error', 'Tim tidak ditemukan!');
         }
     }
+
 
 }
