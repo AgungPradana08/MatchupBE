@@ -228,7 +228,7 @@ class UserSparringController extends Controller
     public function joinsparring($usersparringId)
     {
         $pengguna = Auth::user();
-        $sparring = UserSparring::with(['joinedSparrings.sparringTeams', 'user.teams'])->find($usersparringId);
+        $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
 
         if ($sparring) {
             // Cek apakah user sudah terdaftar sebagai peserta sparring
@@ -242,11 +242,15 @@ class UserSparringController extends Controller
                     return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Maaf, jumlah peserta acara sparing telah mencapai batas maksimum!');
                 }
 
-                // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
-                $namaTimLawan = $sparring->user->teams->first()->nama_tim;
-
                 // Jika belum terdaftar dan sudah bergabung dengan tim, tambahkan user ke relasi Many-to-Many
-                $sparring->joinedSparrings()->attach($pengguna->id, ['nama_tim_lawan' => $namaTimLawan]);
+                $sparring->joinedSparrings()->attach($pengguna->id);
+
+                // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
+                if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
+                    $namaTimLawan = $sparring->joinedSparrings->first()->sparringTeams->first()->nama_tim;
+                    // Update kolom nama_tim_lawan pada tabel matches_sparring
+                    $sparring->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
+                }
 
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
@@ -256,6 +260,7 @@ class UserSparringController extends Controller
             return redirect()->route('mabar.index')->with('error', 'Sparring tidak ditemukan!');
         }
     }
+
 
 
 
