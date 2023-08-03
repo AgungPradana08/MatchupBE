@@ -40,11 +40,11 @@
             <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
                     <p>Nama Tim</p>
-                    <input oninput="InputChange()" name="nama_tim" id="TitleInput" type="text" placeholder="Input nama tim..." >
+                    <input oninput="InputChange()" name="nama_tim" id="TitleInput" type="text" placeholder="Input nama tim..." required >
                 </div>
                 <div class="input2">
                     <p>Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO">
+                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
                         <option value="" >Pilih Olahraga...</option>
                         <option value="Sepak Bola">Sepak Bola</option>
                         <option value="Futsal">Futsal</option>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="input3-des">
                     <p>Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi tim...">
+                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi tim..." required>
                 </div>
             </div>
         </div>
@@ -67,11 +67,11 @@
             <div id="wrapper2" class="form3-wrapper">
                 <div class="input2">
                     <p>Max-member</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member...">
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..." required>
                 </div>
                 <div class="input4">
                     <p>Tingkatan-umur</p>
-                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" required>
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>
@@ -89,7 +89,7 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p>Nomor Telpon</p>
-                    <input name="nomor_telepon" type="number" placeholder="Input nomor telpon..." >
+                    <input name="nomor_telepon" type="number" placeholder="Input nomor telpon..." required>
                 </div>
                 <div class="input2">
                     <p>Instagram</p>
@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
+        <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button >
         <div class="white-space">
 
         </div>

@@ -86,7 +86,7 @@
                 </div>
                 <div class="input3">
                     <p class="m-0" >Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan...">
+                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan..." required>
                 </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly >
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly re>
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button;" >Masukkan Lokasi</a>
@@ -130,7 +130,7 @@
 
                 <div class="input4">
                     <p class="m-0" >Tingkatan-umur</p>
-                    <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
+                    <select  id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" required >
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>
@@ -157,7 +157,7 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="m-0" >Tanggal</p>
-                    <input  id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." >
+                    <input  id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required >
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>
-                        <select  id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price()" >
+                        <select  id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price()" required >
                             <option value="1">30 Menit</option>
                             <option value="1">60 Menit</option>
                             <option value="2">90 Menit</option>
@@ -175,7 +175,7 @@
                 </div>
                 <div class="input4">
                     <p class="m-0" >Pukul</p>
-                    <input  name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." >
+                    <input  name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." required >
                 </div>
                 <div class="input5">
                     <p class="m-0" >Informasi Tambahan</p>
@@ -183,7 +183,7 @@
                 </div>
             </div>
         </div>
-        <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">TAMBAH</button>
+        <button class="add" type="submit" name="submit" value="save">TAMBAH</button>
         
     </form>
     <script src="/js/mapslist.js"></script>
