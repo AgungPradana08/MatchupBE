@@ -3,12 +3,16 @@ var Box2 = document.getElementById('box2');
 var names = document.getElementById("UsernameInput")
 var emails = document.getElementById("email")
 var alert1 = document.getElementById("error1")
+var alert2 = document.getElementById("error2")
+
 let LoginInputPasswords = document.getElementById("PasswordInput");
 
 Box1.style.display = "flex"
 Box2.style.display = "none"
 
 alert1.style.visibility = "hidden"
+alert2.style.visibility = "hidden"
+
 
 function validatepage1() {
 
@@ -35,7 +39,7 @@ function validate2() {
     var inputText = inputElement.value;
 
     if (emails.value.length > 0) {
-        if (inputText.includes('@')) {
+        if (inputText.includes('@gmail.com')) {
             validate3()
           } else {
             alert1.style.visibility = "visible"
@@ -89,15 +93,58 @@ function passwordsee() {
 }
 
 function previewImage() {
-    const image = document.querySelector('#image');
-    const imgPreview = document.querySelector('.img-preview');
+  const image = document.querySelector('#image');
+  const imgPreview = document.querySelector('.img-preview');
 
+  // Periksa apakah ada file yang dipilih
+  if (image.files && image.files[0]) {
     imgPreview.style.display = 'block';
 
     const oFReader = new FileReader();
     oFReader.readAsDataURL(image.files[0]);
 
     oFReader.onload = function(oFREvent) {
-        imgPreview.src = oFREvent.target.result;
-    }
+      imgPreview.src = oFREvent.target.result;
+    };
+  } else {
+    // Jika tidak ada file yang dipilih, tampilkan gambar "ppblank.png" sebagai default
+    imgPreview.style.display = 'block';
+    imgPreview.src = '/css/img/ppblank.png';
+  }
 }
+
+
+
+setInterval(() => {
+
+    var buttonreal = document.getElementById("buttonreal")
+    var buttonfake = document.getElementById("buttonfake")
+    var image = document.getElementById("image")
+    var usernameinput = document.getElementById("usernameinput")
+
+    if (image.value.length > 0 && usernameinput.value.length > 0) {
+        buttonreal.style.display = "flex"
+        buttonfake.style.display = "none"
+    } else {
+        buttonreal.style.display = "none"
+        buttonfake.style.display = "flex"
+    }
+}, 0);
+
+
+function validateuser() {
+    var image = document.getElementById("image")
+    var usernameinput = document.getElementById("usernameinput")
+
+    if (image.value.length > 0) {
+        if (usernameinput.value.length == 0) {
+            alert2.style.visibility = "visible"
+            alert2.innerHTML = "! Masukkan Nama Pengguna !"
+        }
+    } else {
+        alert2.style.visibility = "visible"
+        alert2.innerHTML = "! Masukkan Profile Image !"
+    }
+
+}
+
