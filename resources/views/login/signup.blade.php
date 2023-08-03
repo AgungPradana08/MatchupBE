@@ -40,7 +40,7 @@
             <div class="footer">
                 <div id="error1" class="alert alert-warning  p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
                     This is a warning alert—check it out!
-                  </div>
+                </div>
                 <div onclick="validatepage1()" class="next-button " >SELANJUTNYA</div>
                 <a style="text-align: center;" href="/login">Sudah Punya Akun?, klik disini</a>
             </div>
@@ -61,12 +61,15 @@
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
-                    <input type="text" name="username" placeholder="Masukkan Nama...">
+                    <input type="text" id="usernameinput" name="username" placeholder="Masukkan Nama...">
                 </div> 
             </div>
             <div class="footer2">
-                <div></div>
-                <button type="submit" value="save" >BUAT AKUN</button>
+                <div id="error2" class="alert alert-warning  p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
+                    This is a warning alert—check it out!
+                </div>
+                <button id="buttonreal" type="submit" value="save" >BUAT AKUN</button>
+                <a id="buttonfake" onclick="validateuser()" style="color: white" >BUAT AKUN</a>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
 }
 
 * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 /* NAVBAR */
 
@@ -179,6 +179,17 @@ h5 {
     justify-content: center;
 }
 
+.footer2 > a {
+    background-color: #FE6B00;
+    color: white;
+    font-family: opensans-bold;
+    border: transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer > a {
     font-size: 12px;
     color: #FE6B00;
@@ -204,7 +215,7 @@ h5 {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/no-damage.jpg");
+    background: url("img/ppblank.png");
     background-position: center;
     background-size: contain;
     display: flex;
@@ -219,7 +230,7 @@ h5 {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/no-damage.jpg");
+    background: url("img/ppblank.png");
     background-position: center;
     background-size: contain;
     display: flex;
