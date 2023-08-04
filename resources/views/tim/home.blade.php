@@ -77,10 +77,13 @@
                 <div class="title-box   " style="width: 100%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
                     <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
-                    <div>
-                        <div class="age">
-                        {{$tim->tingkatan}}
-                        </div>
+                    <div class="w-75 d-flex">
+                        @if ($tim->joinedPlayers->count() == $tim->max_member)
+                            <div class="age w-50">Penuh</div>   
+                        @else
+                            <div class="age w-50">Terbuka</div>  
+                        @endif
+                        <div class="age w-50">{{$tim->tingkatan}}</div>
                     </div>
                 </div>
             </div>
