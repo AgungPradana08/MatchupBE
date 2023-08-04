@@ -84,7 +84,22 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div class="w-75 d-flex" >
-                        <div class="age w-50">Terbuka</div> 
+                        {{-- @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
+                            <div class="age w-50">Selesai</div>   
+                            @else @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
+                            <div class="age w-50">Penuh</div>  
+                                
+                            @else
+                            <div class="age w-50">Terbuka</div>  
+                        @endif --}}
+                        @if ($DateNow > $sparring->tanggal_pertandingan)
+                        <div class="age w-50">Selesai</div>   
+                    @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
+                        <div class="age w-50">Penuh</div>  
+                    @else
+                        <div class="age w-50">Terbuka</div>  
+                    @endif
+                        
                         <div class="age w-50">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>
@@ -108,7 +123,7 @@
                     </div>
                     Rp {{$sparring->harga_tiket}}
                 </div>
-                <div style="display: flex; justify-content: space-between;" class="" >
+                <div style="display: flex; justify-content: space-between;" class="d-none" >
                     <Span>Slot Terbatas</Span>
                     <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $sparring->joinedSparrings->count() }}/{{ $sparring->max_member }}</span>
                 </div>
@@ -117,7 +132,6 @@
            </button>
         </a>
         @endforeach
-        
     </section> 
     <section class="no-data" >
         @if($usersparring->count() > 0)

@@ -7,6 +7,7 @@ use App\Models\UserSparring;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 
 class UserSparringController extends Controller
 {
@@ -19,9 +20,10 @@ class UserSparringController extends Controller
 
     public function index2(User $user)
     {   
+        $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user'])) ;
+        return view('sparring.home', compact(['usersparring', 'user','DateNow'])) ;
     }
 
     public function tambah()
