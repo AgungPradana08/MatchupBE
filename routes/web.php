@@ -157,3 +157,9 @@ Route::post('/matches/join', [UserMabarController::class, 'joinMatch'])->name('m
 Route::get('/skuy', [SparringApiController::class, 'datasparringapi']);
 
 Route::get('/skuylah', [SparringApiController::class, 'getHelloFromApi']);
+
+Route::get('/testingapi', [SparringApiController::class, 'testingapi']);
+
+Route::get('/cuy', function () {
+    return view('testingapi.home');
+});

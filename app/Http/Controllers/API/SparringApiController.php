@@ -65,4 +65,10 @@ class SparringApiController extends Controller
         // Kembalikan data ke view atau format lainnya
         return view('testingapi.home', ['data' => $data]);
     }
+
+    public function testingapi(){
+        $response = Http::get('http://127.0.0.1:8000/api/getdatasparring');
+        $data = $response->json();
+        return view('testingapi.home', ['data' => $data]);
+    }
 }
