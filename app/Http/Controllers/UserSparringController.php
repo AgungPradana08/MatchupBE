@@ -233,7 +233,7 @@ class UserSparringController extends Controller
         if ($sparring) {
             // Cek apakah user sudah terdaftar sebagai peserta sparring
             if (!$sparring->joinedSparrings->contains($pengguna->id)) {
-                // Cek apakah user sudah bergabung dengan tim
+                // Cek apakah user sudah bergabung dengan sparring
                 if ($pengguna->teams->isEmpty()) {
                     return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!');
                 }
