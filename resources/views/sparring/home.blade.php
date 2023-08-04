@@ -108,6 +108,10 @@
                     </div>
                     Rp {{$sparring->harga_tiket}}
                 </div>
+                <div style="display: flex; justify-content: space-between;" class="" >
+                    <Span>Slot Terbatas</Span>
+                    <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $sparring->joinedSparrings->count() }}/{{ $sparring->max_member }}</span>
+                </div>
 
             </div>
            </button>
