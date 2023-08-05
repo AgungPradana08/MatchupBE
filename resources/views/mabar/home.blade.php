@@ -77,7 +77,14 @@
                 <div class="title-box w-75 ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div class="w-25">
+                    <div class="w-75">
+                        @if ($DateNow > $mabar->tanggal_pertandingan)
+                        <div class="age w-100">Selesai</div>   
+                        @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
+                        <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  
+                        @else
+                        <div class="access w-100">Terbuka</div>  
+                        @endif
                         <div class="age w-100">{{$mabar->tingkatan}} </div> 
                     </div>
                 </div>

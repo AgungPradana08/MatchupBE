@@ -169,10 +169,14 @@
                         </tr>
                             </table>
                     </div>
-                    <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
-                        @csrf
-                        <button class="ambil" type="submit">Ambil Mabar</button>
-                    </form>
+                    @if ($usermabar->joinedUsers->count() == $usermabar->max_member )
+                        <button class="ambil" type="submit">Mabar Penuh</button>
+                    @else
+                        <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" type="submit">Ambil Mabar</button>
+                        </form>
+                    @endif
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Player</h5>
@@ -202,7 +206,14 @@
     </div>
     <div class="container fixed-bottom bg-white d-block d-lg-none">
         <div class="row phone-button">
-            <a class="col-12 href="">Ambil Mabar</a>
+            @if ($usermabar->joinedUsers->count() == $usermabar->max_member )
+                        <button class="ambil" type="submit">Mabar Penuh</button>
+                    @else
+                        <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" type="submit">Ambil Mabar</button>
+                        </form>
+                    @endif  
         </div>
     </div>
     <script src="/js/notification.js"></script>

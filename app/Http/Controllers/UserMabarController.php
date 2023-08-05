@@ -19,8 +19,9 @@ class UserMabarController extends Controller
 
     public function index2()
     {   
+        $DateNow = date('Y-m-d');
         $usermabar = UserMabar::all();
-        return view('mabar.home', compact(['usermabar'])) ;
+        return view('mabar.home', compact(['usermabar','DateNow'])) ;
     }
 
     public function tambah()

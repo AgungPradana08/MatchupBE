@@ -77,8 +77,16 @@
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$kompetisi->title}}</p>
-                    <div>
-                        <div class="age">{{$kompetisi->tingkatan}}</div> 
+                    <div class="w-75" >
+                        <div class="access w-100">Terbuka</div> 
+                        {{-- @if ($DateNow > $sparring->tanggal_pertandingan)
+                        <div class="age w-50">Selesai</div>   
+                    @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
+                        <div class="access w-50 text-light" style="background: #FE6B00" >Penuh</div>  
+                    @else
+                        <div class="access w-50">Terbuka</div>  
+                    @endif --}}
+                        <div class="age w-100">{{$kompetisi->tingkatan}}</div> 
                     </div>
                 </div>
             </div>

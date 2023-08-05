@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    
     <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
@@ -47,7 +48,6 @@
 
                 </div>
                 <div class="de-vs">
-                    VS
                 </div>
                 <div class="de-home ms-5 ">
                     <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon"  alt="">
@@ -236,10 +236,17 @@
                         </tr>
                         </table>
                     </div>
+                    @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
+                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                        @csrf
+                        <button class="ambil" type="submit">Sparring Penuh</button>
+                    </form>       
+                    @else
                     <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
                         @csrf
                         <button class="ambil" type="submit">Ambil Sparring</button>
-                    </form>
+                    </form>   
+                    @endif
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Deskripsi Tambahan</h5>

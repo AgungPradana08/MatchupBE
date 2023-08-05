@@ -93,15 +93,15 @@
                 </div>
                 <div class="input2">
                     <p>Instagram</p>
-                    <input name="instagram" type="instagram" placeholder="Input Tag instagram..." >
+                    <input name="instagram" type="text" placeholder="Input Tag instagram..." >
                 </div>
                 <div class="input3">
                         <p>whatapps</p>
-                    <input name="whatsapp" type="whatsapp" placeholder="Masukkan nomor whatapps...">
+                    <input name="whatsapp" type="number" placeholder="Masukkan nomor whatapps...">
                 </div>
                 <div class="input4">
                     <p>Facebook</p>
-                    <input name="facebook" type="facebook" placeholder="Input nama Facebook..." >
+                    <input name="facebook" type="text" placeholder="Input nama Facebook..." >
                 </div>
             </div>
         </div>

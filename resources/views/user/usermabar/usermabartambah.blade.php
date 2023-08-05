@@ -130,8 +130,8 @@
             <div class="header">
                 Aksesibilitas
             </div>
-            <div id="wrapper2" class="form3-wrapper">
-                <div class="input1">
+            <div id="wrapper2" class="form3-wrappermabars">
+                <div class="input1 d-none">
                     <p class="m-0" >Min Member</p>
                     <input oninput="InputChange()" id="MinInput" type="text" name="min_member" value="1" placeholder="min-member..." readonly required>
                 </div>
@@ -139,9 +139,9 @@
                     <p class="m-0" >Max Member</p>
                     <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..." required>
                 </div>
-                <div class="input3">
+                <div class="input2">
                     <p class="m-0" >Tingkatan-umur</p>
-                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" required>
+                    <select oninput="InputChange()" id="TingkatanInput" class="ac-title2 h-75" type="text" placeholder="TWO" name="tingkatan" required>
                         <option value="">Pilih Tingkatan...</option>
                         <option value="7-10">6-12 Tahun</option>
                         <option value="12-15">12-15 Tahun</option>

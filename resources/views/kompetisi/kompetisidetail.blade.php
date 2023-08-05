@@ -38,6 +38,27 @@
                     <span class="des">{{$kompetisi->deskripsi}}</span>
                 </div>
                 <hr>
+                <div class="price">
+                    <h4>Prize Pool</h4>
+                    <div class="pricewrapper">
+                        <div class="price-box">
+                            <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
+                            <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
+                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                        </div>
+                        <div class="price-box">
+                            <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
+                            <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 2</h5>
+                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                        </div>
+                        <div class="price-box">
+                            <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
+                            <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
+                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <div class="maps pb-lg-5 pb-0">
                     <h4>Lokasi Sparring</h4>
                     <p class="des" id="detaillokasi" >{{$kompetisi->lokasi}}</p>
@@ -67,7 +88,6 @@
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. {{$kompetisi->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
                         <div class="access-badge" >
-                            <div class="one">{{$kompetisi->aksebilitas}}</div>
                             <div class="two">{{$kompetisi->tingkatan}}</div>
                         </div>
                     </div>
@@ -117,7 +137,6 @@
                         <h4>Biaya Pendaftaran</h4>
                         <h1>Rp. {{$kompetisi->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
                         <div class="access-badge" >
-                            <div class="one">{{$kompetisi->aksebilitas}}</div>
                             <div class="two">{{$kompetisi->tingkatan}}</div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
 }
 
 * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 /* NAVBAR */
 
@@ -118,7 +118,7 @@
     height: 3.5vh;
     width: 60%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 15px;
     font-size: 12px;
     font-family: opensans-bold;
@@ -222,6 +222,24 @@ table {
 
 .member > div > p {
     font-size: 12px;
+}
+
+.pricewrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 15px;
+}
+
+.price-box {
+    padding: 5%;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.trophy {
+    height: 50px;
+    width: 50px;
 }
 
 /* TABLET */
@@ -330,5 +348,19 @@ table {
         gap: 15px;
         font-size: 12px;
         font-family: opensans-bold;
+    }
+
+    .price-box {
+        padding: 5%;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .price-box > p  {
+        font-size: 12px;
     }
 }

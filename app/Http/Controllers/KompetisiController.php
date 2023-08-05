@@ -10,7 +10,8 @@ class KompetisiController extends Controller
     public function index()
     {
         $kompetisi = Kompetisi::all();
-        return view('kompetisi.home', compact(['kompetisi']));
+        $DateNow = date('Y-m-d');
+        return view('kompetisi.home', compact(['kompetisi','DateNow']));
     }
 
     public function detail($id)

@@ -59,6 +59,7 @@
 
                 </div>
             </div>
+            
         </div>
         <div class="right-content">
             <span class="biaya" >Biaya Masuk</span>

@@ -139,10 +139,14 @@
                         </table>
                     </div>
                     @if (!$usertim->joinedPlayers->contains(Auth::user()->id))
+                        @if ( $usertim->joinedPlayers->count() ==  $usertim->max_member)
+                            <button class="ambil" >Tim Penuh</button>
+                        @else
                         <form action="{{ route('tim.join', ['id' => $usertim->id]) }}" method="POST">
                             @csrf
                             <button class="ambil" type="submit">BERGABUNG SEKARANG</button>
                         </form>
+                        @endif
                     <!-- Jika pengguna sudah bergabung dengan tim, tampilkan tombol "KELUAR TIM" -->
                     @else
                         <form action="{{ route('tim.leave', ['id' => $usertim->id]) }}" method="POST">
