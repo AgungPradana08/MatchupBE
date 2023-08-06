@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="title">
-                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usermabar->image)}}" >
+                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usermabar->image)}}"  style="object-fit: cover;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
                         <h1>{{$usermabar->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
@@ -69,7 +69,7 @@
                         </div>
                         @foreach ($usermabar->players as $player)
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}"  style="object-fit: cover;" >
                             <div class="ms-2">
                                 <h6 class="m-0" >{{$player->name}}</h6>
                                 <p class="m-0" >Player</p>

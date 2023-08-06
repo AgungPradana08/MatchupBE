@@ -24,6 +24,17 @@ body {
     overflow-x: hidden;
 }
 
+.word-wrapper {
+
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* Jumlah baris yang ingin ditampilkan */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Memastikan teks mematuhi jumlah baris yang ditentukan */x   
+}
+
 /* NAVBAR */
 
 .logo {

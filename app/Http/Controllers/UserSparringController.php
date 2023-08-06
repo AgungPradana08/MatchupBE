@@ -108,10 +108,11 @@ class UserSparringController extends Controller
 
     public function detail($usersparringId)
     {
+        $DateNow = date('Y-m-d');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($usersparringId);
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 

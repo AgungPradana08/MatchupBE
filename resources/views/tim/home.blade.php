@@ -32,7 +32,7 @@
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
             <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt="">
+            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
         </div>
     </nav>
@@ -88,12 +88,12 @@
                 </div>
             </div>
             <div class="box-bottom">    
-                <span style="height: 40vh;" >{{$tim->deskripsi}}</span>
-                <hr class="p-0 m-1" >
+                <div class="word-wrappers" style=" font-size: 12px" >{{$tim->deskripsi}}</div>
+                <hr class="p-0 m-0" >
                 <div style="width: 100%;" class="d-flex align-items-center justify-content-between" >
                     Slot Tersedia
                     <span class="p-0 m-0" style="font-family: opensans-bold; color: #FE6B00; " >{{ $tim->joinedPlayers->count() }}/{{ $tim->max_member }}</span>
-                 </div>
+                </div>
             </div>
            </button>
         </a>

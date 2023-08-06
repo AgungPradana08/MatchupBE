@@ -116,7 +116,7 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="title">
-                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usersparring->image)}}" >
+                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usersparring->image)}}"  style="object-fit: cover;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0" >
                         <h1>{{$usersparring->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
@@ -144,11 +144,10 @@
                 </div>
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
-                        <h4>Biaya Pendaftaran</h4>
+                        <h4 class="m-0" >Biaya Pendaftaran</h4>
                         <h1 class="m-0" >Rp. 750,000<span class="text-muted m-0 p-0" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$usersparring->aksebilitas}}</div>
-                            <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
+                        <div class="access-badge mt-2 w-50 " >
+                            <div class="two w-50">{{ $usersparring->tingkatan }} Tahun</div>
                         </div>
                     </div>
                     <hr class=" d-block d-lg-none">
@@ -175,7 +174,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
+                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}} jam</td>
                         </tr>
                         <td>
                             <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
@@ -221,7 +220,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}}</td>
+                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}} jam</td>
                         </tr>
                         <td>
                             <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
@@ -237,10 +236,16 @@
                         </table>
                     </div>
                     @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
-                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
-                        @csrf
-                        <button class="ambil" type="submit">Sparring Penuh</button>
-                    </form>       
+                        @if ($DateNow > $sparring->tanggal_pertandingan)
+                            <form>
+                                <button class="ambil bg-danger" >Sparring Selesai</button>
+                            </form>  
+                        @else
+                        <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" >Sparring Penuh</button>
+                        </form>     
+                        @endif  
                     @else
                     <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
                         @csrf
@@ -255,11 +260,25 @@
             </div>
         </div>
     </div>
+    <div class="white-space d-none d-lg-block"></div>
     <div class="container fixed-bottom bg-white d-block d-lg-none">
-        <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST" class="row phone-button">
-            @csrf
-            <button class="col-12 ambil" type="submit" >Ambil Sparring</button>
-        </form>
+        @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
+                        @if ($DateNow > $sparring->tanggal_pertandingan)
+                            <form>
+                                <button class="ambil bg-danger" >Sparring Selesai</button>
+                            </form>  
+                        @else
+                        <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST" class="row phone-button">
+                            @csrf
+                            <button class="col-12 ambil" type="submit" >Sparring Penuh</button>
+                        </form>    
+                        @endif  
+                    @else
+                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST" class="row phone-button">
+                        @csrf
+                        <button class="col-12 ambil" type="submit" >Ambil Sparring</button>
+                    </form>
+        @endif
     </div>
     <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
