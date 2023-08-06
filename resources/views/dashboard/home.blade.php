@@ -42,12 +42,12 @@
                     <p class="text-muted d-none d-lg-block">Selamat Datang</p>
                     <h1>MATCH UP</h1>
                     <p>platform website untuk mabar dan berkompetisi dalam bidang olahraga. website ini membuat berkompetisi menjadi lebih mudah dan penyenangkan. ayo mulai bertanding dari sekarang.</p>
-                    <button class="btn d-flex justify-content-between align-items-center nextbutton"  >
+                    <a href="#next" class="btn w-50 d-flex justify-content-between align-items-center nextbutton"  >
                         Pelajari Lebih Lanjut
                         <svg xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="currentColor" class="bi bi-arrow-right  d-none d-lg-block" viewBox="0 0 16 16">
                           <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                         </svg>
-                    </button>
+                    </a>
                 </div>
                 <div class="col-6 col-right d-none d-lg-flex ">
                     <img class="object-fit-cover" src="/css/img/sepakbola.png" alt="">
@@ -55,7 +55,7 @@
             </div>
         </div>
     </section>
-    <div class="container offer-container">
+    <div id="next" class="container offer-container">
         <div class="row ">
           <div class="col d-flex justify-content-center text-uppercase"   >
             <span class="offertitle" >Penawaran Kami</span>
@@ -118,8 +118,8 @@
             <h1>Ayo mulai berkolaborasi dan berkompetisi</h1>
             <p>berteman dengan ratusan user dan bertanding di lapangan sekarang dengan Match Up</p>
             <div class="div" style="width: 100%;">
-              <button>Sign Up</button>
-              <button class="login-button"">Log In</button>
+              <a href="/register"><button>Sign Up</button></a>
+              <a href="/login"><button class="login-button"">Log In</button></a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@
         </div>
         <div class="col-lg-2 col-sm-3">
           <ul class="list-unstyled">
-            <li>hubungi Kita</li>
+            <li>hubungi Kami</li>
             <a style="display: block;" href="">Kontak</a>
           </ul>
         </div>

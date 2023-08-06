@@ -38,7 +38,7 @@
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
             <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt="">
+            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
     </nav>
@@ -93,7 +93,7 @@
                             <div class="age w-50">Terbuka</div>  
                         @endif --}}
                         @if ($DateNow > $sparring->tanggal_pertandingan)
-                        <div class="age w-50">Selesai</div>   
+                        <div class="access w-50 bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
                     @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
                         <div class="access w-50 text-light" style="background: #FE6B00" >Penuh</div>  
                     @else

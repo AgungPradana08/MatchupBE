@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="box-bottom">    
-                    <span style="height: 40vh;" >{{$usertim->deskripsi}}</span>
+                    <div class="word-wrapper" style="height: 10vh; font-size: 12px" >{{$usertim->deskripsi}}</div>
                     <hr class="m-1" >
                     <div class="w-100 d-flex justify-content-center align-items-center justify-content-lg-between" style="width: 100%; display: flex; justify-content: center; align-items: center;" >
                         <p class="p-0 m-0 me-1" >

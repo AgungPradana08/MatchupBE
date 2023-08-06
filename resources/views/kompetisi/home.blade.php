@@ -32,7 +32,7 @@
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
             <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt="">
+            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
         </div>
     </nav>

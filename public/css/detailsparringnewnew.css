@@ -132,8 +132,8 @@ table {
 }
 
 .icon {
-    height: 1.3vw;
-    width: 1.3vw;
+    height: 20px;
+    width: 20px;
     background-color: grey;
 }
 
@@ -628,6 +628,13 @@ td {
     .box-content {
         padding-bottom: 15vh;
     }
+
+    table {
+        margin-top: 4%;
+        width: 40%;
+        border-collapse: separate;
+        border-spacing: 0 5px;
+    }
 }
 
 /* SMARTPHONE */
@@ -705,6 +712,10 @@ td {
     .navbar > div > span {
         font-size: 20px;
         font-family: opensans-bold;
+    }
+
+    .access-badge {
+        width: 300px;
     }
     
 }

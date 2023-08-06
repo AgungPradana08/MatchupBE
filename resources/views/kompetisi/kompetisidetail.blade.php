@@ -74,7 +74,7 @@
                     <h5>Member</h5>
                     <div class="mabar-member">
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}" >
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}"  style="object-fit: cover;">
                             <div class="ms-2">
                                 <h6 class="m-0" >{{ Auth::user()->username}}</h6>
                                 <p class="m-0" >Host</p>
@@ -184,7 +184,7 @@
                     <h5>Member</h5>
                     <div class="mabar-member">
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}" >
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}"  style="object-fit: cover;">
                             <div class="ms-2">
                                 <h6 class="m-0" >Nama</h6>
                                 <p class="m-0" >Member</p>

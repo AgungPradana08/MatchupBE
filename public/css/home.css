@@ -10,6 +10,7 @@
 
 * {
     /* outline: 1px solid red; */
+    scroll-behavior: smooth;
 }
 
 /* NAVBAR */
@@ -38,7 +39,7 @@
 
 .login:hover{
     border: 3px solid #FE6B00;
-    color: black;
+    color: #FE6B00;
     border-radius: 0px;
 }
 
@@ -63,6 +64,7 @@
 /* HOME */
 
 .nextbutton {
+    background: #FE6B00;
     transform: scale(1);
     color: white;
     transition: 0.3s ease;
@@ -275,11 +277,17 @@
     background-repeat: no-repeat;
 }
 
-.login-offer-content > div > button {
+.login-offer-content > div > a > button {
     width: 13vw;
     height: 35px;
     color: #FE6B00;
     border: transparent;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.login-offer-content > div > a > button:hover {
+    transform: scale(1.1);
 }
 
 .login-button {

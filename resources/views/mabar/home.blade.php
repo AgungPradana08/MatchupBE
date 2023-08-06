@@ -32,7 +32,7 @@
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
             <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt="">
+            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
         </div>
     </nav>
@@ -73,7 +73,7 @@
         <a class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
-                <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="">
+                <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" style="object-position: center; object-fit: cover;" alt="">
                 <div class="title-box w-75 ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
@@ -113,7 +113,7 @@
                  <hr class=" p-0 m-1" >
                  <div style="display: flex; justify-content: space-between;" class="" >
                      <Span>Slot Terbatas</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $mabar->joinedUsers->count() }}/{{ $mabar->max_member }}</span>
+                     <span class="ms-3" style="font-family: opensans-bold; color: #FE6B00; " >{{ $mabar->joinedUsers->count() }}/{{ $mabar->max_member }}</span>
                  </div>
              </div>
             </button>
