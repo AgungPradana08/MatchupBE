@@ -62,7 +62,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/kompetisi')->group(function () {
         Route::get('/home', [KompetisiController::class, 'index']);
-        Route::get('/{id}/kompetisidetail', [KompetisiController::class, 'detail']);
+        Route::get('/{id}/kompetisidetail', [KompetisiController::class, 'detail'])->name('kompetisi.detail');
+        Route::post('/{id}/kompetisidetail/join', [KompetisiController::class, 'joinkompetisi'])->name('kompetisi.join');
     });
 
     Route::prefix('/tim')->group(function () {

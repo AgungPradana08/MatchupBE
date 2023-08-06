@@ -213,7 +213,7 @@
                             @csrf
                             <button class="ambil" type="submit">Ambil Mabar</button>
                         </form>
-                    @endif  
+            @endif  
         </div>
     </div>
     <script src="/js/notification.js"></script>
