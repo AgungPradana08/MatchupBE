@@ -174,7 +174,7 @@
 
                 </div> --}}
             </div>
-            <div class="activity">
+            {{-- <div class="activity">
                 <div class="opening">
                     Tentang Aku
                 </div>
@@ -201,7 +201,7 @@
                     <span>
 
                         Status
-                    </span>
+                </span>
                     <span class="fw-bold" >
                         Aktif
                     </span>
@@ -209,7 +209,7 @@
                         <a href="">Info Lengkap</a>
                     </span>
                 </div>
-        </div>
+        </div> --}}
         <div class="white-space"></div>
     </div>
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">

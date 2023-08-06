@@ -145,7 +145,7 @@
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1 class="m-0" >Rp. 750,000<span class="text-muted m-0 p-0" >/tim</span> </h1>
+                        <h1 class="m-0" >Rp. {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
                         <div class="access-badge" >
                             <div class="one">{{$usersparring->aksebilitas}}</div>
                             <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
@@ -195,7 +195,7 @@
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. 750,000<span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
@@ -204,7 +204,7 @@
                                 <td>
                                     <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"  ></div>
                                 </td>
-                                <td  style="font-family: opensans-bold;">tanggal Permainan</td>
+                                <td  style="font-family: opensans-bold;">Tanggal Permainan</td>
                             </tr>
                             <tr>
                                 <td>

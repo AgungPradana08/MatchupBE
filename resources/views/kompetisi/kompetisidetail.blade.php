@@ -34,7 +34,7 @@
                 </div>
                 <hr>
                 <div class="description">
-                    <h4>Deskripsi Mabar</h4>
+                    <h4>Deskripsi Kompetisi</h4>
                     <span class="des">{{$kompetisi->deskripsi}}</span>
                 </div>
                 <hr>
@@ -44,17 +44,17 @@
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_pertama}}</p>
                         </div>
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 2</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_kedua}}</p>
                         </div>
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_ketiga}}</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <td>
                             <div class="icon mx-auto"></div>
                         </td>
-                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                        <td style="font-family: opensans-bold;">Lokasi Kompetisi</td>
                         </tr>
                         <tr>
                             <td>
@@ -168,7 +168,7 @@
                         <td>
                             <div class="icon mx-auto"></div>
                         </td>
-                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                        <td style="font-family: opensans-bold;">Lokasi Kompetisi</td>
                         </tr>
                         <tr>
                             <td>
