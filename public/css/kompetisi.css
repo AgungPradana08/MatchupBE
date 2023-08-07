@@ -195,6 +195,13 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.wrapper > button:hover {
+    transform: scale(1.03);
+
 }
 
 .icon-name {
@@ -222,12 +229,22 @@ body {
 }
 
 .box {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     height: 35vh;
+    border-radius: 8px;
+    transform: scale(1);
+    transition: 0.3s ease;
+
+}
+
+.box:hover {
+    transform: scale(1.03);
 
 }
 
 .box-outer {
+    border-radius: 8px;
     width: 100%;
     border: transparent;
     background-color: white;
@@ -235,7 +252,7 @@ body {
 
 .box-top, .box-bottom {
     height: 50%;
-    padding: 2% 4%;
+    padding: 2% 2%;
     box-sizing: border-box;
 } 
 
@@ -265,12 +282,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 
 .title-box {
     margin-top: 1%;
-    width: 80%;
+    width: 70%;
     height: 80%;
     display: flex;
     flex-direction: column;

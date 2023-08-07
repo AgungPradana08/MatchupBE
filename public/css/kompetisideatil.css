@@ -16,7 +16,8 @@
 .report {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    border: transparent;
+    visibility: hidden;
 }
 
 .navbar > div > span {
@@ -39,13 +40,17 @@
 .userlogo {
     height: 7vw;
     width: 7vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ;
+
 }
 
 .sportlogo {
-    height: 1.2vw;
-    width: 1.2vw;
+    height: 20px;
+    width: 20px;
     display: inline-block;
-    background-color: grey;
+    background: url(img/futsal.jpg);
+    background-position: center;
+    background-size: contain;
 }
 
 .title > div > span > span {
@@ -205,6 +210,8 @@ table {
 .member-logo {
     width: 60px;
     height: 60px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .member {
@@ -231,9 +238,27 @@ table {
     gap: 15px;
 }
 
+.ambil  {
+    width: 100%;
+    height: 8vh;
+    color: white;
+    background-color: #FE6B00;
+    border: transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: opensans-bold;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.ambil:hover {
+    transform: scale(1.05);
+}
+
 .price-box {
     padding: 5%;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }
 

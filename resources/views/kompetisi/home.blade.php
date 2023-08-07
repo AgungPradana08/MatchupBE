@@ -31,8 +31,8 @@
             </ul>
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
-            <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
+            <span style="color: black; font-size: 13px"><strong>Halo</strong>, {{ Auth::user()->username }}</span>
+            <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
         </div>
     </nav>
@@ -112,10 +112,10 @@
                      {{$kompetisi->harga_tiket}}
 
                  </div>
-                 <hr class="d-none d-sm-block" >
-                 <div style="display: flex; justify-content: space-between;" class="" >
-                     <Span>Slot Terbatas</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $kompetisi->joinedKompetisi->count() }}/{{ $kompetisi->max_member }}</span>
+                 <hr class="d-none d-sm-block m-0 p-0" >
+                 <div style="display: flex; justify-content: space-between; font-size: 14px" class="" >
+                     <Span>Slot Tersedia</Span>
+                     <span style="font-family: opensans-bold; color: #FE6B00; " >1/12</span>
                  </div>
              </div>
             </button>
