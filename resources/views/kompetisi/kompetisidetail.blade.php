@@ -34,7 +34,7 @@
                 </div>
                 <hr>
                 <div class="description">
-                    <h4>Deskripsi Mabar</h4>
+                    <h4>Deskripsi Kompetisi</h4>
                     <span class="des">{{$kompetisi->deskripsi}}</span>
                 </div>
                 <hr>
@@ -44,17 +44,17 @@
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_pertama}}</p>
                         </div>
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 2</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_kedua}}</p>
                         </div>
                         <div class="price-box">
                             <img src="/css/img/achievement.png" class="trophy mb-lg-0 mb-2">
                             <h5 class="d-inline-block ms-0 ms-lg-3 fw-bold" >Juara 1</h5>
-                            <p class="mt-lg-2 mt-0" >Deskripsi</p>
+                            <p class="mt-lg-2 mt-0" >{{$kompetisi->juara_ketiga}}</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <td>
                             <div class="icon mx-auto"></div>
                         </td>
-                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                        <td style="font-family: opensans-bold;">Lokasi Kompetisi</td>
                         </tr>
                         <tr>
                             <td>
@@ -168,7 +168,7 @@
                         <td>
                             <div class="icon mx-auto"></div>
                         </td>
-                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                        <td style="font-family: opensans-bold;">Lokasi Kompetisi</td>
                         </tr>
                         <tr>
                             <td>
@@ -178,27 +178,41 @@
                         </tr>
                             </table>
                     </div>
-                    <button>Daftar Kompetisi</button>
+                    @if ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member )
+                        <button class="ambil" type="submit">Kompetisi Penuh</button>
+                    @else
+                        <form action="{{ route('kompetisi.join', ['id' => $kompetisi->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" type="submit">JOIN KOMPETISI</button>
+                        </form>
+                    @endif
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Member</h5>
                     <div class="mabar-member">
+                        @foreach ($kompetisi->playersKompetisi as $player)
                         <div class="member">
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. Auth::user()->image)}}"  style="object-fit: cover;">
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
                             <div class="ms-2">
-                                <h6 class="m-0" >Nama</h6>
-                                <p class="m-0" >Member</p>
+                                <h6 class="m-0" >{{$player->name}}</h6>
+                                <p class="m-0" >Participants</p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container fixed-bottom bg-white d-block d-lg-none">
-        <div class="row phone-button">
-            <a class="col-12 href="">Daftar Kompetisi</a>
-        </div>
+        {{-- @if ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member )
+                        <button class="ambil" type="submit">Kompetisi Penuh</button>
+                    @else
+                        <form action="{{ route('kompetisi.join', ['id' => $kompetisi->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" type="submit">JOIN KOMPETISI</button>
+                        </form>
+            @endif   --}}
     </div>
     <section class="white-space" ></section> 
     <script src="/js/mapslist.js"></script>
