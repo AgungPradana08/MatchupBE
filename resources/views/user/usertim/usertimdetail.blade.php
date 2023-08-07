@@ -55,7 +55,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
-          <span>Detail {{$usertim->nama_tim}}</span>
+          <span>Detail Tim</span>
           <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
         </div>
     </nav>
