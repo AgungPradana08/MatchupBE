@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('olahraga')->nullable();
             $table->string('deskripsi');
             $table->string('max_member');
+            $table->string('area_bermain');
             $table->string('tingkatan')->nullable();
             $table->string('nomor_telepon')->nullable();
             $table->string('instagram')->nullable();

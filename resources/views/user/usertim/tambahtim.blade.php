@@ -73,7 +73,7 @@
                 </div>
                 <div class="input2">
                     <p class="p-0 m-0" >Area Bermain</p>
-                    <input name="max_member" type="text" placeholder="Masukkan kota area bermain" required>
+                    <input name="area_bermain" type="text" placeholder="Masukkan kota area bermain" required>
                 </div>
                 <div class="input4">
                     <p class="p-0 m-0" >Tingkatan-umur</p>

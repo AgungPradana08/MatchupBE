@@ -117,7 +117,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Area Bermain</p>
-                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->max_member}}" name="max_member" type="text" placeholder="Masukkan kota area bermain..." readonly>
+                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->max_member}}" name="area_bermain" type="text" placeholder="Masukkan kota area bermain..." readonly>
                 </div>
                 <div class="input4">
                     <p class="m-0" >Tingkatan-umur</p>
