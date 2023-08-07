@@ -66,7 +66,7 @@
         <a class="box" href="/tim/{{$tim->id}}/timdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover;">
+                <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ;">
                 <div class="title-box   " style="width: 100%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
                     <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
@@ -103,7 +103,7 @@
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
         <div class="row mobile-nav">
             <a href="/sparring/home" class="col-3 ">
-                <img width="30px" src="/css/img/bn-sparring.png" alt="" srcset="">
+                <img width="30px" src="/css/img/bn-sparring.png" alt="" srcset="" >
                 <p class="m-0">Sparring</p>
             </a>
             <a href="/mabar/home" class="col-3">

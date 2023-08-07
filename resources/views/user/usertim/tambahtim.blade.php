@@ -46,7 +46,7 @@
                 </div>
                 <div class="input2">
                     <p class="p-0 m-0" >Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
+                    <select oninput="InputChange()" id="OlahragaSelect" class="title2" type="text" placeholder="TWO" required>
                         <option value="" >Pilih Olahraga...</option>
                         <option value="12">Sepak Bola</option>
                         <option value="12">Futsal</option>
@@ -54,8 +54,9 @@
                         <option value="6">Badminton</option>
                         <option value="12">Voli</option>
                     </select>
+                    <input class="d-none" id="OlahragaInput" name="olahraga" type="text">
                 </div>
-                <div class="input3-des">
+                <div class="input3-des ">
                     <p class="p-0 m-0" >Deskrispi</p>
                     <textarea name="deskripsi" class="p-2" id="DesInput" style="resize: none" maxlength="255" type="text" placeholder="Input deskripsi tim (maksimal 255)" required></textarea>
                 </div>
