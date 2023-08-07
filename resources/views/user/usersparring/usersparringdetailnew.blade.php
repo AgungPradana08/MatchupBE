@@ -239,18 +239,11 @@
                 </div>
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
-<<<<<<< HEAD
                         <h4>Biaya Pendaftaran</h4>
                         <h1 class="m-0" >Rp. {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
                         <div class="access-badge" >
                             <div class="one">{{$usersparring->aksebilitas}}</div>
                             <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
-=======
-                        <h4 class="m-0" >Biaya Pendaftaran</h4>
-                        <h1 class="m-0" >Rp. 750.000<span class="text-muted m-0 p-0" >/tim</span> </h1>
-                        <div class="access-badge mt-2 w-50 " >
-                            <div class="two w-50">{{ $usersparring->tingkatan }} Tahun</div>
->>>>>>> 7ebc70e0bd952832fd4b2fbd47883636ff7cf0f9
                         </div>
                     </div>
                     <hr class=" d-block d-lg-none">

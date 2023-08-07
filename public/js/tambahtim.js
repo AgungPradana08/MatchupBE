@@ -1,4 +1,4 @@
-let drop = [false,false,false,false];
+// let drop = [false,false,false,false];
 
 function dropdown(index) {
 
@@ -47,6 +47,9 @@ function InputChange() {
 
 }
 
-function NumberInput() {
-    
-}
+function limitNumberLength(inputElement, maxLength) {
+    let value = inputElement.value;
+    if (value.length > maxLength) {
+      inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
+    }
+  }
