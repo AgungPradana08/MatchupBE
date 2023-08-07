@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse"  id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-0 mx-lg-2">
-                <a class="nav-link text-start text-lg-center " aria-current="page" href="/userprofile/home"><span>Profile</span></a>
+                <a class="nav-link text-start text- lg-center " aria-current="page" href="/userprofile/home"><span>Profile</span></a>
               </li>
               <li class="nav-item mx-0 mx-lg-2">
                 <a class="nav-link text-start text-lg-center " aria-current="page" href="/usersparring/home"><span>Sparring</span></a>
