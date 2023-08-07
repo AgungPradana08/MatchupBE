@@ -147,7 +147,7 @@
                     VS
                 </div>
                 <div class="de-home ms-5 ">
-                    <img src="{{asset ('storage/' . $usersparring->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
+                    <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
                     <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
                 </div>
                 {{-- <div class="de-detail">

@@ -67,7 +67,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
                     <p class="m-0" >Nama Tim</p>
-                    <input name="nama_tim" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" required >
+                    <input name="nama_tim" value="{{$namatim}}" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" readonly >
                 </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>

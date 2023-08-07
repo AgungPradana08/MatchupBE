@@ -23,7 +23,7 @@ class UserSparring extends Model
 
     public function SparringTims()
     {
-        return $this->belongsTo(UserTim::class. 'usertim_id');
+        return $this->belongsTo(UserTim::class, 'usertim_id');
     }
 
     public function hostSparring()
@@ -63,5 +63,10 @@ class UserSparring extends Model
     {
         return $this->belongsToMany(UserTim::class, 'matches_sparring', 'usersparring_id', 'usertim_id')
             ->withPivot('nama_tim_lawan');
+    }
+
+    public function userTeams()
+    {
+        return $this->hasOne(UserTim::class);
     }
 }
