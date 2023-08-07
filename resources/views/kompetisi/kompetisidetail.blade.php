@@ -12,64 +12,7 @@
 
 </head>
 <body>
-      <div class="modal" id="exampleModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered ">
-          <div class="modal-content" style="width: 32vw" >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class=" modal-title ">
-                Bergabung Kompetisi <strong>{{$kompetisi->title}}</strong>?
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                    <table class="m-0" width="100%">
-                        <tr>
-                            <th width="5%"></th>
-                            <th width="95%"></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
-                            </td>
-                            <td style="font-family: opensans-bold;">Tanggal Permainan</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="font-size: 13px;">{{$kompetisi->tanggal_pertandingan}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
-                            </td>
-                            <td style="font-family: opensans-bold;">Jadwal Sparring</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="font-size: 13px;">{{$kompetisi->lama_pertandingan}} jam</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
-                            </td>
-                            <td style="font-family: opensans-bold;">Lokasi Sparring</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="font-size: 13px;" id="locationTarget">{{$kompetisi->lokasi}}</td>
-                        </tr>
-                    </table>
-                <hr>
-              <p>Anda tidak akan bisa keluar setelah anda bergabung, anda akan harus menunggu sampai Kompetisi ini selesai</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Masuk</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta acara Kompetisi telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Kompetisi ini!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Kompetisi ini!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close" onclick="closenotification()" aria-label="Close"></button>
@@ -77,7 +20,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/kompetisi/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
-          <span>Detail {{$kompetisi->title}}</span>
+          <span>Detail Kompetisi</span>
           <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
         </div>
     </nav>
@@ -245,10 +188,67 @@
                         <button class="ambil" type="submit">Kompetisi Penuh</button>
                     @else
                         <button class="ambil" data-bs-toggle="modal" data-bs-target="#exampleModal"  >Join Kompetisi</button>
-                        {{-- <form action="{{ route('kompetisi.join', ['id' => $kompetisi->id]) }}" method="POST">
+                        <form action="{{ route('kompetisi.join', ['id' => $kompetisi->id]) }}" method="POST">
                             @csrf
-                            <button class="ambil" type="submit">Join Kompetisi</button>
-                        </form> --}}
+                            <div class="modal" id="exampleModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered ">
+                                  <div class="modal-content" style="width: 32vw" >
+                                    <div class="modal-header bg-primary-mu">
+                                      <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                      <h5 class=" modal-title ">
+                                        Bergabung Kompetisi <strong>{{$kompetisi->title}}</strong>?
+                                      </h5>
+                                      <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <table class="m-0" width="100%">
+                                                <tr>
+                                                    <th width="5%"></th>
+                                                    <th width="95%"></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Tanggal Permainan</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$kompetisi->tanggal_pertandingan}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Jadwal Sparring</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$kompetisi->lama_pertandingan}} jam</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Lokasi Sparring</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;" id="locationTarget">{{$kompetisi->lokasi}}</td>
+                                                </tr>
+                                            </table>
+                                        <hr>
+                                      <p> <strong style="color: red">Anda tidak akan bisa keluar setelah anda bergabung!!!,</strong> anda akan harus menunggu sampai Kompetisi ini selesai</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                      {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                      <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Join</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </form>
                     @endif
                 </div>
                 <div class="box2 d-none d-lg-block">
