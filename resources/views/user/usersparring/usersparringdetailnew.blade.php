@@ -339,7 +339,6 @@
                                     </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                  <button type="button" class="btn btn-danger">Keluar</button>
                                   <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Ambil</button>
                                 </div>
                               </div>
