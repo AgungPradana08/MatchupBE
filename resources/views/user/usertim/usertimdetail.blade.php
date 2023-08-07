@@ -68,8 +68,8 @@
                         <h1>{{$usertim->nama_tim}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
-                            <span class="me-2">{{$usertim->olahraga}}</span>
-                            <span>Kudus</span>
+                            <span class="me-2">{{$usertim->olahraga}} | </span> <span>{{$usertim->area_bermain}}</span>
+                            
                         </div>
                     </div>
                 </div>
