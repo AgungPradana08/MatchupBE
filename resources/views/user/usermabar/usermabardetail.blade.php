@@ -58,7 +58,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
-          <span>Detail {{$usermabar->title}}</span>
+          <span>Detail Mabar</span>
           <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
         </div>
     </nav>
@@ -83,7 +83,7 @@
                 </div>
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
-                    <h4>Lokasi Sparring</h4>
+                    <h4>Lokasi Mabar</h4>
                     <p class="des " id="detaillokasi" >{{$usermabar->lokasi}}</p>
                     <iframe id="MapDisplay" class="maps"></iframe>
                 </div>
@@ -119,7 +119,7 @@
                 <hr class="d-block d-lg-none">
                     <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <hr class="d-block d-lg-none">
@@ -146,7 +146,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} jam</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
                         </tr>
                         <td>
                             <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
@@ -166,7 +166,7 @@
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
                         <h5>Biaya Pendaftaran</h5>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
@@ -192,7 +192,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} Jam</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
                         </tr>
                             <td>
                                 <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
