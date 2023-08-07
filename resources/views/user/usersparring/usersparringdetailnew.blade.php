@@ -272,7 +272,83 @@
                             </tr>
                         </table>
                     </div>
-                    @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
+
+
+                    @if ($DateNow > $usersparring->tanggal_pertandingan)
+                    <form>
+                        <button class="ambil bg-danger" >Sparring Selesai</button>
+                    </form> 
+                    @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
+                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                        @csrf
+                        <button class="ambil" >Sparring Penuh</button>
+                    </form>  
+                    @else
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >Ambil Sparring</button>
+                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                        @csrf
+                        <div class="modal" id="exampleModal" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered ">
+                              <div class="modal-content" style="width: 32vw" >
+                                <div class="modal-header bg-primary-mu">
+                                  <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                  <h5 class=" modal-title ">
+                                    Bergabung Sparring <strong>{{$usersparring->title}}</strong>?
+                                  </h5>
+                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                            <table class="m-0" width="100%">
+                                                <tr>
+                                                    <th width="5%"></th>
+                                                    <th width="95%"></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Tanggal Permainan</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Jadwal Sparring</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}} jam</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Lokasi Sparring</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;" id="locationTarget">{{$usersparring->lokasi}}</td>
+                                                </tr>
+                                            </table>
+                                        <hr>
+                                    <p><strong style="color: red">Anda tidak akan bisa keluar setelah anda bergabung!!!</strong>, anda akan harus menunggu sampai sparring ini selesai</p>
+                                    </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                  <button type="button" class="btn btn-danger">Keluar</button>
+                                  <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Ambil</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </form>
+                    @endif
+
+                    {{-- @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
                         @if ($DateNow > $sparring->tanggal_pertandingan)
                             <form>
                                 <button class="ambil bg-danger" >Sparring Selesai</button>
@@ -339,14 +415,14 @@
                                     </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                  {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                  <button type="button" class="btn btn-danger">Keluar</button>
                                   <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Ambil</button>
                                 </div>
                               </div>
                             </div>
                         </div>
                     </form>
-                    @endif
+                    @endif --}}
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Deskripsi Tambahan</h5>
