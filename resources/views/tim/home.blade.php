@@ -45,7 +45,7 @@
         <form action="/tim/search" class="wrapper" method="get">
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
-                <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
+                <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="Masukkan nama Tim...">
             </div>
             <div style="grid-area: search3;">
                 <div class="icon icon-sport"></div>

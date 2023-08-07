@@ -71,17 +71,19 @@
         </div>
         <div class="vs-detail">
                 <div class="de-away me-5">
-                    <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
                     @if ($usersparring->joinedSparrings)
                         @foreach ($usersparring->joinedSparrings as $sparring)
                             @if ($sparring->pivot->nama_tim_lawan)
+                                <img src="{{asset('storage/'. $sparring->pivot->image_tim_lawan)}}" class="box-icon shadow rounded rounded-circle"  alt="">
                                 <p style="margin-top: 5%;">{{ $sparring->pivot->nama_tim_lawan }}</p>
-                            @else
-                                <p style="margin-top: 5%;">???</p>
+                            {{-- @else
+                                <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
+                                <p style="margin-top: 5%;">???</p> --}}
                             @endif
                         @endforeach
                     @else
-                        <p style="margin-top: 5%;">Belum ada sparring yang diikuti</p>
+                    <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
+                    <p style="margin-top: 5%;">???</p>
                     @endif
 
                 </div>

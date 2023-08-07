@@ -236,6 +236,11 @@ class UserSparringController extends Controller
         $pengguna = Auth::user();
         $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
 
+        $userTim = $pengguna->teams->first();
+        $usertimId = $userTim->id;
+        $namaTimLawan = $userTim->nama_tim;
+        $imageTimLawan = $userTim->image;
+
         if ($sparring) {
             // Cek apakah user sudah terdaftar sebagai peserta sparring
             if (!$sparring->joinedSparrings->contains($pengguna->id)) {
@@ -247,15 +252,22 @@ class UserSparringController extends Controller
                 if ($sparring->joinedSparrings->count() >= $sparring->max_member) {
                     return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Maaf, jumlah peserta acara sparing telah mencapai batas maksimum!');
                 }
-
                 // Jika belum terdaftar dan sudah bergabung dengan tim, tambahkan user ke relasi Many-to-Many
-                $sparring->joinedSparrings()->attach($pengguna->id);
+                $sparring->joinedSparrings()->attach($pengguna->id, [
+                    'usertim_id' => $usertimId,
+                    'nama_tim_lawan' => $namaTimLawan,
+                    'image_tim_lawan' => $imageTimLawan,
+
+                ]);
 
                 // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
                 if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
-                    $namaTimLawan = $sparring->joinedSparrings->first()->sparringTeams->first()->nama_tim;
+                    $namaTimLawan = $sparring->joinedSparrings->first()->sparringTeams->first()->nama_tim_lawan;
+                    
                     // Update kolom nama_tim_lawan pada tabel matches_sparring
-                    $sparring->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
+                    // $sparring->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
+
+                    $sparring->joinedSparrings->first()->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
                 }
 
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
@@ -284,4 +296,5 @@ class UserSparringController extends Controller
     //         return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('error', 'Anda harus bergabung dengan Tim terlebih dahulu.');
     //     }
     // }
+    
 }

@@ -45,7 +45,7 @@
         <form action="/mabar/search" class="wrapper" method="get">
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
-                <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
+                <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="Masukkan nama Kompetisi...">
             </div>
             <div style="grid-area: search2;">
                 <div class="icon icon-location"></div>

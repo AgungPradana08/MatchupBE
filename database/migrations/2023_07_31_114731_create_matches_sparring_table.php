@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('usertim_id')->nullable();
             $table->string('nama_tim_lawan')->nullable(); // Tambahkan kolom nama_tim_lawan dengan tipe string dan nullable
+            $table->string('image_tim_lawan')->nullable(); // Tambahkan kolom image_tim_lawan dengan tipe string dan nullable
             $table->timestamps();
 
             // Definisikan foreign key untuk "usersparring_id"

@@ -34,7 +34,7 @@ class UserSparring extends Model
     public function joinedSparrings()
     {
         return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id')
-            ->withPivot('nama_tim_lawan'); // Add the pivot data here
+            ->withPivot('usertim_id', 'nama_tim_lawan', 'image_tim_lawan'); // Add the pivot data here
     }
 
     public function playerSparring()
