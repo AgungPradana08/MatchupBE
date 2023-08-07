@@ -115,7 +115,7 @@
                  <hr class="d-none d-sm-block m-0 p-0" >
                  <div style="display: flex; justify-content: space-between; font-size: 14px" class="" >
                      <Span>Slot Tersedia</Span>
-                     <span style="font-family: opensans-bold; color: #FE6B00; " >1/12</span>
+                     <span style="font-family: opensans-bold; color: #FE6B00; " >{{ $kompetisi->joinedKompetisi->count() }}/{{$kompetisi->max_member}}</span>
                  </div>
              </div>
             </button>
