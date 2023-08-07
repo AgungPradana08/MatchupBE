@@ -62,7 +62,7 @@ function locationdisplay() {
 // }
 
 // Fungsi untuk membatasi panjang angka pada elemen input
-function limitNumberLength(inputElement, maxLength) {
+function NumberInput(inputElement, maxLength) {
   let value = inputElement.value;
   if (value.length > maxLength) {
     inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength

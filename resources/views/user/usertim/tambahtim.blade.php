@@ -89,7 +89,7 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p>Nomor Telpon</p>
-                    <input name="nomor_telepon" onchange="NumberInput()" type="number" maxlength="12" placeholder="Input nomor telpon..." required>
+                    <input name="nomor_telepon" onchange="limitNumberLength(this, 24);" id="myNumberInput" type="number" placeholder="Input nomor telpon..." required>
                 </div>
                 <div class="input2">
                     <p>Instagram</p>
