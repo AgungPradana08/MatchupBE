@@ -5,15 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match UP</title>
-    <link rel="stylesheet" href="/css/tambahsparringnew.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/editpage.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 
 </head>
 <body>
+    <div class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content" style="width: 32vw" >
+        <div class="modal-header bg-primary-mu">
+          <div class="blank logo-sm rounded-circle d-inline-block"></div>
+          <h5 class=" modal-title ">
+            Hapus Sparring <strong>{{$usersparring->nama_tim}}</strong>?
+          </h5>
+          <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Apakah anda yakin ingin menghapus sparring</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+          <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="navbar">
         <a href="/usersparring/home"></a>
-        <p>Ubah sparring</p>
+        <p>Ubah sparring {{$usersparring->nama_tim}}</p>
         <a style="visibility: hidden;" ></a>
     </div>
 
@@ -21,8 +43,8 @@
         @method ('put')
         @csrf
         <div class="image-container">
-            <div class="image-box" >
-                <img class="img-preview"  src="{{asset('storage/'. $usersparring->image)}}">  
+            <div class="image-box">
+                <img class="img-preview"  src="{{asset('storage/'. $usersparring->image)}}" style="object-fit: cover; object-position: center;">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -34,19 +56,18 @@
         <div class="form1">
             <div class="header">
                 Title
-                <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
-                    <p>Nama Tim</p>
-                    <input name="nama_tim" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama tim..." >
+                    <p class="m-0 p-0">Nama Sparring</p>
+                    <input name="nama_tim" maxlength="30" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama Sparring (maksimal 30)" >
                 </div>
                 <div class="input1">
-                    <p>Nama Pertandingan</p>
-                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" value="{{$usersparring->title}}" placeholder="Input nama pertandingan..." readonly >
+                    <p class="m-0 p-0">Nama Pertandingan</p>
+                    <input oninput="InputChange()" maxlength="30" name="title" id="TitleInput" type="text" value="{{$usersparring->title}}" placeholder="Input nama pertandingan (maksimal 30)"  >
                 </div>
                 <div class="input2">
-                    <p>Olahraga</p>
+                    <p class="m-0 p-0">Olahraga</p>
                     <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" disabled >
                         <option value="{{$usersparring->olahraga}}" >{{$usersparring->olahraga}}</option>
                         <option value="Sepak Bola">Sepak Bola</option>
@@ -57,31 +78,27 @@
                     </select>
                 </div>
                 <div class="input3">
-                    <p>Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" value="{{$usersparring->deskripsi}}" placeholder="Input deskripsi pertandingan...">
+                    <p class="m-0 p-0">Deskrispi</p>
+                    <textarea name="deskripsi" class="p-2" id="DesInput" maxlength="255" type="text" value="{{$usersparring->deskripsi}}" placeholder="Input deskripsi pertandingan (maksimal 255)"></textarea>
                 </div>
             </div>
         </div>
         <div class="form2">
             <div class="header">
                 Lokasi
-                <a id="drop1" onclick="dropdown(1)" ></a>
             </div>
-           
-                
-            
             <div id="wrapper1" class="form2-wrapper-e">
                 
                 <div class="input1">
-                    <p>Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" value="{{$usersparring->lokasi}}" type="search" autocomplete="off" list="location_list" type="text" onchange="mapsviews()" readonly >
+                    <p class="m-0 p-0">Rincian Lokasi</p>
+                    <input id="locationtext" name="lokasi" value="{{$usersparring->lokasi}}" type="search" autocomplete="off" list="location_list" type="text" onchange="mapsviews()" readonly  >
                     <datalist id="location_list" >
                         {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
                         <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
                     </datalist>
                 </div>
                 <div class="input3">
-                    <p>Peta</p>
+                    <p class="m-0 p-0">Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
                     <iframe id="frame-location" src=""></iframe>
                     {{-- @endforeach --}}
@@ -91,17 +108,12 @@
             
         </div>
         <div class="form3">
+            <div class="header">
+                Aksesibilitas
+            </div>
             <div id="wrapper2" class="form3-wrapper">
-                <div class="input1">
-                    <p>Member</p>
-                    <input oninput="InputChange()" id="MinInput" type="text" name="min_member" placeholder="min-member..." value="{{$usersparring->min_member}}" >
-                </div>
-                <div class="input2">
-                    <p style="opacity: 0%;" >Peta</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."  value="{{$usersparring->max_member}}" >
-                </div>
                 <div class="input4">
-                    <p>Tingkatan-umur</p>
+                    <p class="m-0 p-0">Tingkatan-umur</p>
                     <select oninput="InputChange()" id="TingkatanInput" class="ac-title2" type="text" placeholder="TWO" name="tingkatan" >
                         <option value="{{$usersparring->tingkatan}}">{{$usersparring->tingkatan}}</option>
                         <option value="7-10">6-12 Tahun</option>
@@ -116,20 +128,19 @@
         <div class="form4">
             <div class="header">
                 Informasi
-                <a id="drop3" onclick="dropdown(3)" ></a>
             </div>
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
-                    <p>Tanggal</p>
+                    <p class="m-0 p-0">Tanggal</p>
                     <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usersparring->tanggal_pertandingan}}" readonly >
                 </div>
                 <div class="input2">
-                    <p>Harga</p>
+                    <p class="m-0 p-0">Harga</p>
                     <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" readonly >
                 </div>
                 <div class="input3">
-                        <p>Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}"  >
+                        <p class="m-0 p-0">Lama Pertandingan</p>
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}" disabled >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
@@ -138,23 +149,22 @@
                         </select>
                 </div>
                 <div class="input4">
-                    <p>Pukul</p>
+                    <p class="m-0 p-0">Pukul</p>
                     <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usersparring->waktu_pertandingan}}" readonly >
                 </div>
                 <div class="input5">
-                    <p>Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." value="{{$usersparring->deskripsi_tambahan}}" disabled></textarea>
+                    <p class="m-0 p-0">Informasi Tambahan</p>
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" value="{{$usersparring->deskripsi_tambahan}}" ></textarea>
                 </div>
             </div>
         </div>
         <button class="add" type="submit" name="submit" value="save">Edit</button>
     </form>
-        <form class="content1" action="/usersparring/{{$usersparring->id}}" method="POST">
-            @csrf
-            @method('delete')
-            <input class="delete" type="submit" value="Delete">
-        </form>
-    
+        <div class="content1">
+            <button class="delete d-flex align-items-center justify-content-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" value="Delete">Delete</button>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/sparring.js"></script>
 </body>

@@ -62,20 +62,20 @@ function locationdisplay() {
 // }
 
 // Fungsi untuk membatasi panjang angka pada elemen input
-function NumberInput(inputElement, maxLength) {
-  let value = inputElement.value;
-  if (value.length > maxLength) {
-    inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
-  }
-}
+// function NumberInput(inputElement, maxLength) {
+//   let value = inputElement.value;
+//   if (value.length > maxLength) {
+//     inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
+//   }
+// }
 
-// Dapatkan elemen input
-const myNumberInput = document.getElementById("myNumberInput");
+// // Dapatkan elemen input
+// const myNumberInput = document.getElementById("myNumberInput");
 
-// Tambahkan event listener untuk membatasi panjang input saat menginputkan angka
-myNumberInput.addEventListener("input", function () {
-  const maxLength = 5; // Ganti dengan panjang maksimum yang Anda inginkan
-  limitNumberLength(this, maxLength);
-});
+// // Tambahkan event listener untuk membatasi panjang input saat menginputkan angka
+// myNumberInput.addEventListener("input", function () {
+//   const maxLength = 5; // Ganti dengan panjang maksimum yang Anda inginkan
+//   limitNumberLength(this, maxLength);
+// });
 
 

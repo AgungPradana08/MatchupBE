@@ -11,9 +11,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg{{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -157,7 +157,7 @@
                                       <h5 class=" modal-title ">
                                         Keluar Dari {{$usertim->nama_tim}}?
                                       </h5>
-                                      <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                      <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                       <p  >Anda yakin ingin keluar dari tim ini?</p>

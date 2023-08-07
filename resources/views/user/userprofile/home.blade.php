@@ -20,7 +20,7 @@
               <h6 class=" modal-title ">
                 Olahraga Favorit Saya: <strong>Futsal</strong> </strong>
               </h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                     <textarea class="w-100" style="resize: none" name="" id="" cols="30" rows="10" readonly> </textarea>
@@ -32,9 +32,9 @@
           </div>
         </div>
       </div>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Akun berhasil di update' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Akun berhasil di update' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed  " style="width: 100vw; z-index: 100;">
         <div class="container  ">
@@ -70,8 +70,8 @@
                     </label>
                 </div>
             </div>
-            <span class="username" >{{$pengguna->username}}</span>
-            <span class="name" >{{$pengguna->name}}</span>
+            <span class="username" >{{$pengguna->name}} </span>
+            <span class="name" >{{$pengguna->username}}</span>
             <hr>
             <span class="deskripsi" >Deskripsi</span>
             <div class="social">

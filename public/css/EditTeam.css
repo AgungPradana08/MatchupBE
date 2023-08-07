@@ -57,7 +57,6 @@
 
 .navbar > a:hover {
     transform: scale(1.1);
-
 }
 
 /* === CONTENT === */ 
@@ -96,14 +95,12 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .image-box {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/add-image-real.png");
     background-position: center;
     background-size: contain;
     display: flex;
@@ -129,12 +126,6 @@ p {
 
 }
 
-.edit-image:hover {
-    transform: scale(1.1);
-
-}
-
-
 .title-1 {
     height: 100%;
     width: 100%;
@@ -142,7 +133,6 @@ p {
 
 
 .edit-image {
-
     position: absolute;
     margin: 0px 5px 5px 0px;
     width: 35px;
@@ -155,9 +145,12 @@ p {
     transition: 0.3s ease;
 }
 
+.edit-image:hover {
+    transform: scale(1.1);
+}
+
 
 .img-preview {
-    
     border-radius: 100%;
     height: 100%;
     width: 100%;
@@ -362,7 +355,8 @@ p {
 .input3-des > textarea {
     width: 100%;
     height: 90%;
-    padding-left: 8px;
+    padding: 8px;
+
     border: 3px solid #FFA767;
     border-radius: 5px;
 }
@@ -402,13 +396,6 @@ p {
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
-    transform: scale(1);
-    transition: 0.3s ease;
-}
-
-.add:hover {
-    transform: scale(1.03);
-
 }
 
 .member-wrapper {
@@ -435,8 +422,21 @@ p {
 }
 
 .kick-button {
-    height: 40px;
-    width: 40px;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    background: url(img/kick.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: transparent;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.kick-button:hover {
+    transform: scale(1.1);
+
 }
 
 .delete {
@@ -466,21 +466,32 @@ p {
 }
 
 .add {
+    cursor: pointer;
     background-color: #FE6B00;
     color: white;
     font-family: opensans-bold;
     font-size: 25px;
     border-radius: 8px;
     border: transparent;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
 
 .delete {
+    cursor: pointer;
     background-color: red;
     color: white;
     font-family: opensans-bold;
     font-size: 25px;
     border-radius: 8px;
     border: transparent;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add:hover, .delete:hover {
+    transform: scale(1.03);
+
 }
 
 .tambahaninfo {

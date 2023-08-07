@@ -20,7 +20,7 @@
               <h5 class="ps-2 modal-title ">
                 Masukkan Peta
               </h5>
-              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
@@ -58,7 +58,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" id="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview"  alt="" style="object-fit: cover; object-position: center;">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg" style="object-fit: cover; object-position: center">

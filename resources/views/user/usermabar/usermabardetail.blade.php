@@ -20,7 +20,7 @@
               <h5 class=" modal-title ">
                 Laporkan Pemilik mabar <strong>{{$usermabar->title}}</strong>?
               </h5>
-              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close -white"data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-wrapper">
                 <div class="d-flex align-items-center" style="grid-area: report1">
@@ -57,7 +57,7 @@
               <h5 class=" modal-title ">
                 Bergabung Mabar <strong>{{$usermabar->title}}</strong>?
               </h5>
-              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                     <table class="m-0" width="100%">

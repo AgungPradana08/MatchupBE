@@ -34,6 +34,8 @@ function InputChange() {
     let MaxMember = parseInt(InputMember)
     let MemberInt = parseInt(MemberValue.value)
 
+    MemberValue.value = InputMember
+
     if (MemberInt < 0) {
         MemberValue.value = 0
       }
@@ -47,9 +49,21 @@ function InputChange() {
 
 }
 
-function limitNumberLength(inputElement, maxLength) {
+function limitPhoneLength(inputElement) {
     let value = inputElement.value;
+    let maxLength = 13
+    console.log(maxLength)
     if (value.length > maxLength) {
       inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
     }
-  }
+}
+
+function limitNumberLength(inputElement) {
+    let value = inputElement.value;
+    let maxLength = 13
+    console.log(maxLength)
+    if (value.length > maxLength) {
+      inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
+    }
+}
+
