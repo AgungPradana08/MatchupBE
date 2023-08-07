@@ -20,7 +20,7 @@
               <h5 class=" modal-title ">
                 Laporkan Pemilik Sparring <strong>{{$usersparring->title}}</strong>?
               </h5>
-              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-wrapper">
                 <div class="d-flex align-items-center" style="grid-area: report1">
@@ -49,8 +49,64 @@
           </div>
         </div>
       </div>
-    
-
+    <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Bergabung Sparring <strong>{{$usersparring->title}}</strong>?
+              </h5>
+              <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <table class="m-0" width="100%">
+                        <tr>
+                            <th width="5%"></th>
+                            <th width="95%"></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Tanggal Permainan</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Jadwal Sparring</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-size: 13px;">{{$usersparring->lama_pertandingan}} jam</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                            </td>
+                            <td style="font-family: opensans-bold;">Lokasi Sparring</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-size: 13px;" id="locationTarget">{{$usersparring->lokasi}}</td>
+                        </tr>
+                    </table>
+                <hr>
+              <p>Anda tidak akan bisa keluar setelah anda bergabung, anda akan harus menunggu sampai sparring ini selesai</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Masuk</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>

@@ -12,9 +12,9 @@
 
 </head>
 <body>otifica
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('ntion') === 'Slot tim penuh' || session('notification') === 'Anda berhasil bergabung' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('ntion') === 'Slot tim penuh' || session('notification') === 'Anda berhasil bergabung' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">

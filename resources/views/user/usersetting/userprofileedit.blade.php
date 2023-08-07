@@ -24,7 +24,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" >
-                <img class="img-preview"  alt="">  
+                <img class="img-preview"  alt="" style="object-fit: cover; object-position: center;">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">

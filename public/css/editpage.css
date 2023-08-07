@@ -16,6 +16,35 @@
     box-sizing: border-box;
 }
 
+/* MODAL  */
+
+.modal-content {
+    height: 30vh;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.maps-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 80px 80px;
+    overflow-y: scroll;
+    height: 60vh;
+    
+}
+
+.maps-box {
+    height: 80px;
+    border: transparent;
+    border-bottom: 3px solid grey;
+    text-align: left;
+    background-color: white;
+}
+
 /* === NAVBAR === */
 
 .navbar{
@@ -96,14 +125,12 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .image-box {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/add-image-real.png");
     background-position: center;
     background-size: contain;
     display: flex;
@@ -129,12 +156,6 @@ p {
 
 }
 
-.edit-image:hover {
-    transform: scale(1.1);
-
-}
-
-
 .title-1 {
     height: 100%;
     width: 100%;
@@ -142,7 +163,7 @@ p {
 
 
 .edit-image {
-
+    cursor: pointer;
     position: absolute;
     margin: 0px 5px 5px 0px;
     width: 35px;
@@ -151,24 +172,29 @@ p {
     background-color: white;
     border: transparent;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    transform: scale(1);
-    transition: 0.3s ease;
 }
 
 
 .img-preview {
-    
     border-radius: 100%;
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
+    background-position: center;
+    background-size: cover;
 }
 
 .image-box-1 {
     cursor: pointer;
     object-fit: cover;
     object-position: center;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.image-box-1:hover {
+    transform: scale(1.1);
 }
 
 .form1, .form2, .form3, .form4 {
@@ -236,22 +262,33 @@ p {
     padding: 4% 4% 9% 4%;
     height: 80vh;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 8fr 2fr;
     grid-template-rows: 1fr 4fr;
-    grid-template-areas: "olahraga" "deskripsi";
-    column-gap: 6%;
-    row-gap: 2% ;
+    grid-template-areas: "maps-detail  map-button" "maps maps";
+    gap: 15px;
+
+}
+
+.form2-wrapper-e {
+    box-sizing: border-box;
+    padding: 4% 4% 9% 4%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 8fr;
+    grid-template-areas: "maps-detail" "maps";
+    gap: 15px;
 
 }
 
 .form4-wrapper {
     box-sizing: border-box;
     padding: 4%;
-    height: 30vh;
+    height: 60vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "tanggal harga" "lama pukul" ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: "tanggal harga lama pukul" "deskripsi-tam deskripsi-tam deskripsi-tam deskripsi-tam";
     column-gap: 3%;
     row-gap: 2% ;
 
@@ -262,7 +299,40 @@ p {
     padding: 4%;
     height: 17vh;
     display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 3%;
+    row-gap: 2% ;
+
+}
+
+.form3 > .form3-wrappers {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 17vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3%;
+    row-gap: 2% ;
+
+}
+
+.form3 > .form3-wrappermabar {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 17vh;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3%;
+    row-gap: 2% ;
+
+}
+
+.form3 > .form3-wrappermabars {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 17vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 3%;
     row-gap: 2% ;
 
@@ -306,6 +376,24 @@ p {
     padding-left: 8px;
     border: 3px solid #FFA767;
     border-radius: 5px;
+}
+
+.input3 > textarea {
+    width: 100%;
+    height: 80%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
+
+.input3-des > textarea {
+    width: 100%;
+    height: 80%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
 }
 
 .form1-wrapper > .input0 {
@@ -359,7 +447,7 @@ p {
     border-radius: 5px;
 }
 
-.input3-des > textarea {
+.input3-des > input {
     width: 100%;
     height: 90%;
     padding-left: 8px;
@@ -382,7 +470,31 @@ p {
     border-radius: 5px;
 }
 
-.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > input,.form4-wrapper > .input4 > input {
+.form3-wrappers > .input2 > input, .form3-wrappers > .input4 > select {
+    width: 100%;
+    height: 75%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form3-wrappermabar > .input1 > input, .form3-wrapper > .input2 > select{
+    width: 100%;
+    height: 75%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form3-wrappermabars > .input1 > input, .form3-wrapper > .input2 > select{
+    width: 100%;
+    height: 75%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
+.form4-wrapper > .input1 > input, .form4-wrapper > .input2 > input,.form4-wrapper > .input3 > select,.form4-wrapper > .input4 > input {
     width: 100%;
     height: 60%;
     padding-left: 8px;
@@ -399,6 +511,7 @@ p {
 }
 
 .add {
+    cursor: pointer;
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
@@ -408,41 +521,19 @@ p {
 
 .add:hover {
     transform: scale(1.03);
-
-}
-
-.member-wrapper {
-    height: 50vh;
-    border: 3px solid #FFA767;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh;
-    gap: 15px;
-    overflow-y: auto;
-}
-
-.member-box {
-    height: 10vh;
-    border-radius: 8px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-.member-logo {
-    height: 60px;
-    width: 60px;
-}
-
-.kick-button {
-    height: 40px;
-    width: 40px;
 }
 
 .delete {
+    cursor: pointer;
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.delete:hover {
+    transform: scale(1.03);
 }
 
 .form4-wrapper > .input1 {
@@ -496,6 +587,32 @@ p {
     height: 10vh;
 }
 
+
+.add-maps {
+    margin-top: 3px;
+    background-color: #FE6B00;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add-logo {
+    margin-top: 3px;
+    background-color: #FE6B00;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add-maps:hover , .add-logo:hover {
+    transform: scale(1.05);
+}
 
 
 /* TABLET  */

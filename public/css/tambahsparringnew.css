@@ -132,6 +132,7 @@ p {
     height: 150px;
     border-radius: 100%;
     background: url("img/add-image-real.png");
+
     background-position: center;
     background-size: contain;
     display: flex;
@@ -182,6 +183,8 @@ p {
     width: 100%;
     object-fit: cover;
     object-position: center;
+    background-position: center;
+    background-size: cover;
 }
 
 .image-box-1 {
@@ -299,6 +302,17 @@ p {
     height: 17vh;
     display: grid;
     grid-template-columns: 1fr;
+    column-gap: 3%;
+    row-gap: 2% ;
+
+}
+
+.form3 > .form3-wrappers {
+    box-sizing: border-box;
+    padding: 4%;
+    height: 17vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 3%;
     row-gap: 2% ;
 
@@ -458,6 +472,14 @@ p {
     border-radius: 5px;
 }
 
+.form3-wrappers > .input2 > input, .form3-wrappers > .input4 > select {
+    width: 100%;
+    height: 75%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+}
+
 .form3-wrappermabar > .input1 > input, .form3-wrapper > .input2 > select{
     width: 100%;
     height: 75%;
@@ -491,6 +513,7 @@ p {
 }
 
 .add {
+    cursor: pointer;
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
@@ -503,9 +526,16 @@ p {
 }
 
 .delete {
+    cursor: pointer;
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.delete:hover {
+    transform: scale(1.03);
 }
 
 .form4-wrapper > .input1 {
