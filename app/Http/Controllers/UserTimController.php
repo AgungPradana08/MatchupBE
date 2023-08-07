@@ -18,9 +18,15 @@ class UserTimController extends Controller
 
     public function index2(User $user)
     {   
+        $pengguna = auth()->user();
+
+        $timyangdiikuti = $pengguna->teams;
+        $timLainnya = UserTim::whereNotIn('id', $timyangdiikuti->pluck('id'))->get();
+        
+        $sortedteams = $timyangdiikuti->concat($timLainnya);
         $usertim = UserTim::all();
         // $user = User::all();
-        return view('tim.home', compact(['usertim'])) ;
+        return view('tim.home', compact(['usertim', 'sortedteams']));
     }
 
     public function tambah()

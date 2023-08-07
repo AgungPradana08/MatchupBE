@@ -27,7 +27,15 @@
                 {{-- @foreach ($peta as $peta) --}}
                 <div id="table_data" class="w-100 maps-wrapper">
                         <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
-                            <h6 class="fw-bold">markas haram</h6>
+                            <h6 class="fw-bold">Markas Sport Center</h6>
+                            <p>Detail</p>
+                        </button>
+                        <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
+                            <h6 class="fw-bold">Berlian Sport Center</h6>
+                            <p>Detail</p>
+                        </button>
+                        <button class="maps-box p-3 b-0" data-filter="lapangan_besito" onclick="mapsList(2)" data-bs-dismiss="modal">
+                            <h6 class="fw-bold">Lapangan Besito</h6>
                             <p>Detail</p>
                         </button>
                 </div>
