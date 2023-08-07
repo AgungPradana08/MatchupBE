@@ -30,6 +30,7 @@
 }
 
 .logo {
+    cursor: pointer;
     margin-left: 8%;
     width: 25px;
     height: 25px;
@@ -37,6 +38,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .navbar-left {
@@ -116,7 +123,7 @@ p {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/no-damage.jpg");
+    background: white;
     background-position: center;
     background-size: contain;
     display: flex;
@@ -149,6 +156,7 @@ p {
 
 
 .edit-image {
+    cursor: pointer;
     position: absolute;
     margin: 0px 5px 5px 0px;
     width: 35px;
@@ -157,6 +165,12 @@ p {
     background-color: white;
     border: transparent;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.edit-image:hover {
+    transform: scale(1.1);
 }
 
 
@@ -166,9 +180,12 @@ p {
     width: 100%;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .image-box-1 {
+    cursor: pointer;
     object-fit: cover;
     object-position: center;
 }
@@ -215,13 +232,11 @@ p {
 .form1-wrapper {
     box-sizing: border-box;
     padding: 4%;
-    height: 30vh;
+    height: 70vh;
     display: grid;
-    grid-template-columns: minmax(auto, 1fr) 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "nama nama" "deskripsi deskripsi";
-    column-gap: 6%;
-    row-gap: 2% ;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 4fr;
+    gap: 15px;
 
 }
 
@@ -248,12 +263,11 @@ p {
 .form4-wrapper {
     box-sizing: border-box;
     padding: 4%;
-    height: 120vh;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr;
+    grid-template-rows: 1fr 3fr 1fr 3fr;
     grid-template-columns: 1fr;
-    column-gap: 3%;
-    row-gap: 2% ;
+    gap: 15px;
 
 }
 
@@ -282,10 +296,6 @@ p {
     cursor: pointer;
 }
 
-.form1-wrapper > .input1 {
-    grid-area: nama;
-    width: 100%;
-}
 
 .input1 > input {
     width: 100%;
@@ -305,9 +315,6 @@ p {
 }
 
 
-.form1-wrapper > .input2 {
-    grid-area: olahraga;
-}
 
 .input2 > select {
     width: 100%;
@@ -317,23 +324,21 @@ p {
     border-radius: 5px;
 }
 
-.form1-wrapper > .input3 {
-    grid-area: deskripsi;
-}
 
 .input3 > input {
     width: 100%;
-    height: 90%;
+    height: 60%;
     padding-left: 8px;
     border: 3px solid #FFA767;
     border-radius: 5px;
 }
 
-.input3 > iframe {
+.input4 > textarea {
     width: 100%;
-    height: 100%;
+    height: 90%;
     border: 3px solid #FFA767;
     border-radius: 5px;
+    resize: none;
 }
 
 .form3-wrapper > .input1 > select, .form3-wrapper > .input2 > input,.form3-wrapper > .input3 > input,.form3-wrapper > .input4 > input {
@@ -371,6 +376,7 @@ textarea {
     width: 100%;
     height: 8vh;
 }
+
 .add {
     background-color: #FE6B00;
     color: white;
@@ -378,6 +384,13 @@ textarea {
     font-size: 25px;
     border-radius: 8px;
     border: transparent;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add:hover {
+    transform: scale(1.03);
+
 }
 
 .tambahaninfo {

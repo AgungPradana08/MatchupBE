@@ -1,5 +1,4 @@
 var today = new Date().getFullYear()+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getDate()).slice(-2)
-let drop = [false,false,false,false];
 let title,olahraga,deskripsi,lokasi,minmember,maxmember,akses,tingkatan,tanggal,harga,lamapertandingan,pukul,deskripsitambahan
 let seelogin = true;
 
@@ -7,14 +6,57 @@ let seelogin = true;
 // let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
 // let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
-mapsviews()
+usernameInput()
 
-function locationview() {
-    var targetScrollRight = (element.scrollWidth * 1);
-    element.scrollRight = targetScrollRight;
+setInterval(() => {
+  let age = document.getElementById("ageinput")
+  let weight = document.getElementById("weightin")
+  let height = document.getElementById("heightinput")
+
+
+  let ageint = parseInt(age.value)
+  let weightint = parseInt(weight.value)
+  let heightint = parseInt(height.value)
+
+
+
+  if (ageint < 0) {
+    age.value = 0
+  }
+
+  if(ageint > 100) {
+    age.value = 100
+  }
+
+  if (weightint < 0) {
+    weight.value = 0
+  }
+
+  if (heightint < 0) {
+    height.value = 0
+  }
+
+
+
+}, 0)
+
+function usernameInput() {
+  let username = document.getElementById("TitleInput");
+  username.value = username.value.toLowerCase()
 }
 
+function removespace() {
+  let inputElement = document.getElementById("TitleInput");
+  let inputValue = inputElement.value;
 
+  // Menghapus spasi di seluruh string dengan ekspresi reguler
+  let trimmedValue = inputValue.replace(/\s/g, '');
+
+  // Menyimpan kembali string tanpa spasi ke input
+  inputElement.value = trimmedValue;
+
+
+}
 // console.log(savevar)
 // console.log(savekey)
 // console.log(elementid)
@@ -99,54 +141,54 @@ function previewImage() {
 console.log(today)
 document.getElementById("datepick").min = today.toString();
 
-function dropdown(index) {
+// function dropdown(index) {
 
-    if (drop[index] == false) {
-        document.getElementById("wrapper" + index).setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
-        document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-        drop[index] = true;
-    } else {
+//     if (drop[index] == false) {
+//         document.getElementById("wrapper" + index).setAttribute("style","height: 0vh; opacity: 0%; transition: 0.5s ease; padding: 0%");
+//         document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
+//         drop[index] = true;
+//     } else {
 
-        if (index == 2) {
-            document.getElementById("wrapper" + index).setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding:4%");
-            document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-            drop[index] = false;
-        } else if(index == 0) {
-            document.getElementById("wrapper" + index).setAttribute("style","height: 30vh; opacity: 100%; transition: 0.5s ease;");
-            document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-            drop[index] = false;
-        } else {
-            document.getElementById("wrapper" + index).setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding: 4%");
-            document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
-            drop[index] = false;
-        }
-    }
-}
+//         if (index == 2) {
+//             document.getElementById("wrapper" + index).setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding:4%");
+//             document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
+//             drop[index] = false;
+//         } else if(index == 0) {
+//             document.getElementById("wrapper" + index).setAttribute("style","height: 30vh; opacity: 100%; transition: 0.5s ease;");
+//             document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
+//             drop[index] = false;
+//         } else {
+//             document.getElementById("wrapper" + index).setAttribute("style","height: 60vh; opacity: 100%; transition: 0.5s ease; padding: 4%");
+//             document.getElementById("drop" + index).setAttribute("style","transform: rotate(90deg); transition: 0.3s ease;");
+//             drop[index] = false;
+//         }
+//     }
+// }
 
-function mapsviews() {
-    console.log("read");
-    var locationInput = document.getElementById("locationtext");
-    var frame = document.getElementById("frame-location");
+// function mapsviews() {
+//     console.log("read");
+//     var locationInput = document.getElementById("locationtext");
+//     var frame = document.getElementById("frame-location");
   
-    for (let index = 0; index < maps.length; index++) {
-      if (locationInput.value === maps[index].lokasi) {
-        frame.src = maps[index].embed;
-        break; // Menghentikan iterasi setelah menemukan kecocokan
-      }
-    }
-  }
+//     for (let index = 0; index < maps.length; index++) {
+//       if (locationInput.value === maps[index].lokasi) {
+//         frame.src = maps[index].embed;
+//         break; // Menghentikan iterasi setelah menemukan kecocokan
+//       }
+//     }
+//   }
 
 
-for (let index = 0; index < maps.length; index++) {
-    var locationInput = document.getElementById("location_list")
-    var newElement = document.createElement("option")
+// for (let index = 0; index < maps.length; index++) {
+//     var locationInput = document.getElementById("location_list")
+//     var newElement = document.createElement("option")
 
-    newElement.value = maps[index].lokasi
-    newElement.innerHTML = maps[index].detaillokasi
+//     newElement.value = maps[index].lokasi
+//     newElement.innerHTML = maps[index].detaillokasi
 
-    locationInput.appendChild(newElement);
+//     locationInput.appendChild(newElement);
     
-}
+// }
 
 function passwordsee() {
 

@@ -1,8 +1,12 @@
 function previewImage() {
   const image = document.querySelector('#image');
   const imgPreview = document.querySelector('.img-preview');
+  const imgbox = document.getElementById('image-box');
+
 
   imgPreview.style.display = 'block';
+  imgbox.style.background = "white"
+
 
   const oFReader = new FileReader();
   oFReader.readAsDataURL(image.files[0]);
@@ -11,9 +15,6 @@ function previewImage() {
       imgPreview.src = oFREvent.target.result;
   }
 }
-
-
-
 
 
 function mapsList(index) {
@@ -59,5 +60,22 @@ function locationdisplay() {
 //     locationInput.appendChild(newElement);
     
 // }
+
+// Fungsi untuk membatasi panjang angka pada elemen input
+function limitNumberLength(inputElement, maxLength) {
+  let value = inputElement.value;
+  if (value.length > maxLength) {
+    inputElement.value = value.slice(0, maxLength); // Mengambil karakter pertama hingga maxLength
+  }
+}
+
+// Dapatkan elemen input
+const myNumberInput = document.getElementById("myNumberInput");
+
+// Tambahkan event listener untuk membatasi panjang input saat menginputkan angka
+myNumberInput.addEventListener("input", function () {
+  const maxLength = 5; // Ganti dengan panjang maksimum yang Anda inginkan
+  limitNumberLength(this, maxLength);
+});
 
 

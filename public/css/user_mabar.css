@@ -17,6 +17,16 @@
 
 }
 
+.navbar-brand {
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+    
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -199,6 +209,8 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
 
 .wrapper > div > a:focus {
@@ -212,7 +224,13 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
 }   
+
+.wrapper > a:hover, .wrapper > button:hover {
+    transform: scale(1.05);
+}
 
 .icon-name {
     background: url(img/search.png);
@@ -241,7 +259,7 @@ body {
 }
 
 .box {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     height: 35vh;
     border-radius: 8px;
 
@@ -255,23 +273,20 @@ body {
     width: 100%;
     border: transparent;
     background-color: white;
+    border-radius: 8px;
+
 }
 
 .box-top, .box-bottom {
     height: 50%;
-    padding: 2% 4%;
+    padding: 2% 3%;
     box-sizing: border-box;
 } 
 
 .box-top {
     display: flex;
     align-items: center;
-    text-align: left;
-}
-
-.box-top {
-    display: flex;
-    align-items: center;
+    justify-content: space-between;
     text-align: left;
 }
 
@@ -288,15 +303,18 @@ body {
     border-radius: 100%;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 
 .title-box {
-    width: 100%;
+    width: 58%;
+    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .title-box > div {
@@ -312,12 +330,12 @@ body {
     font-size: 12px;
 }
 
-.age {
-    margin-top: 3%;
+.access, .age {
     margin-right: 5px;
     text-align: center;
+    display: inline-block;
     border: 3px solid black;
-    width: 100%;
+    width: 40%;
     font-size: 12px;
     font-family: opensans-bold;
     border-radius: 5px;
@@ -397,19 +415,24 @@ body {
     width: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    padding-bottom: 5%;
-    margin-right: 10px;
-    margin-left: 5px;
+    justify-content: center;
+    gap: 15px;
 
 
 }
 
-.see-button, .edit-button{
+.see-button, .edit-button {
     height: 25px;
     width: 25px;
     background: grey;
     display: inline;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.see-button:hover, .edit-button:hover {
+    transform: scale(1.1);
+
 }
 
 .see-button {

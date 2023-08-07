@@ -12,9 +12,9 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'new-account' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert shadow-lg position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'new-account' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >Akun anda telah di buat</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close" onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-lg p-0 position-fixed" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -34,7 +34,7 @@
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain; background-repeat: no-repeat; " ></div>
                     <input id="PasswordLog" name="password" type="password"  placeholder="Masukkan Password..." required >
-                    <div class="icon-eye" onclick="passwordsee1()"  style="background: url(/css/img/eye.png); background-position: center; background-size: contain; background-repeat: no-repeat; " ></div>
+                    <div id="passwordicon" class="icon-eye" onclick="passwordsee1()"  style="background: url(/css/img/eye.png); background-position: center; background-size: contain; background-repeat: no-repeat; " ></div>
                 </div>
                 <input class="d-none" type="text">
             </div>

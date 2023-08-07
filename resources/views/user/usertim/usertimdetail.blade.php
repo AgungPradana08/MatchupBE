@@ -11,15 +11,52 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
+    <div class="modal" id="report" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Laporkan Pemilik Tim <strong>{{$usertim->nama_tim}}</strong>?
+              </h5>
+              <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-wrapper">
+                <div class="d-flex align-items-center" style="grid-area: report1">
+                    <input type="checkbox" id="report1" name="report1" value="Bike">
+                    <label for="report1"> Kata kasar/SARA</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report2">
+                    <input type="checkbox" id="report2" name="report2" value="Bike">
+                    <label for="report2"> Logo/avatar tidak pantas</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report3">
+                    <input type="checkbox" id="report3" name="report3" value="Bike">
+                    <label for="report3"> Spam</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report4">
+                    <input type="checkbox" id="report4" name="report4" value="Bike">
+                    <label for="report4"> penipuan</label><br>
+                </div>
+                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
-          <a class="navbar-brand" href="/tim/home"><img src="/css/img/back button.png" style="height: 5vh;" alt=""></a>
-          <span>DETAIL TIM</span>
-          <button class="report" style="background:  url(/css/img/report.png); background-size: contain;" ></button>
+          <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
+          <span>Detail {{$usertim->nama_tim}}</span>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -61,8 +98,8 @@
                     <div class="member">
                         <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
                         <div class="ms-2">
-                            <h6 class="m-0" >{{$player->name}}</h6>
-                            <p class="m-0" >Member</p>
+                            <h6 class="m-0 fw-bold" >{{$player->name}}</h6>
+                            <p class="m-0 text-muted" >Member</p>
                         </div>
                     </div>
                     @endforeach
@@ -151,7 +188,7 @@
                     @else
                         <form action="{{ route('tim.leave', ['id' => $usertim->id]) }}" method="POST">
                             @csrf
-                            <a class=" btn ambil bg-danger d-flex align-items-center justify-content-center" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" >KELUAR TIM</a>
+                            <a class=" btn keluar bg-danger d-flex align-items-center justify-content-center" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" >KELUAR TIM</a>
 
                             <div class="modal" id="exampleModal" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered ">

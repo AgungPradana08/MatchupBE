@@ -13,9 +13,9 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Welcome' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert shadow-lg position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Welcome' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >Selamat Datang, {{ Auth::user()->username }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -37,8 +37,8 @@
             </ul>
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
-            <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" style="object-fit: cover; object-position:center;" alt="">
+            <span style="color: black;"><span class="fw-bold" >Halo</span>, {{ Auth::user()->username }}</span>
+            <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
     </nav>
@@ -79,7 +79,7 @@
         <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <img class="box-logo rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="">
+                <img class="box-logo rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-position: center; object-fit: cover;">
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$sparring->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>

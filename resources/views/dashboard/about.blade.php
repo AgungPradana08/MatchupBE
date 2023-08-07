@@ -106,8 +106,8 @@
             <h1>Ayo mulai berkolaborasi dan berkompetisi</h1>
             <p>berteman dengan ratusan user dan bertanding di lapangan sekarang dengan Match Up</p>
             <div class="div" style="width: 100%;">
-              <button>Sign Up</button>
-              <button class="login-button"">Log In</button>
+              <a href="/register"><button>Sign Up</button></a>
+              <a href="/login"><button class="login-button"">Log In</button></a>
             </div>
           </div>
         </div>

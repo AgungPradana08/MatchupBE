@@ -12,9 +12,10 @@ class UserMabarController extends Controller
 {
     public function index()
     {
+        $DateNow = date('Y-m-d');
         // $usermabar = UserMabar::all();
         $usermabar = UserMabar::where('user_id', session('user_id'))->get();
-        return view('user.usermabar.home', compact(['usermabar',]));
+        return view('user.usermabar.home', compact(['usermabar','DateNow']));
     }
 
     public function index2()

@@ -81,20 +81,28 @@ function BackPage() {
 }
 
 function passwordsee() {
+        let passwordeye = document.getElementById("passwordicon")
         let LoginInputPassword = document.getElementById("PasswordInput");
     
         if (LoginInputPassword.classList.contains("active")) {
             LoginInputPassword.classList.remove("active");
             LoginInputPassword.type = "password";
+            passwordeye.style.background = "url(/css/img/eye.png)" 
           } else {
             LoginInputPassword.classList.add("active");
             LoginInputPassword.type = "text";
+            passwordeye.style.background = "url(/css/img/eye-disable.png)" 
         }
+    passwordeye.style.backgroundPosition = "center"
+    passwordeye.style.backgroundSize = "contain"
+    passwordeye.style.backgroundRepeat = "no-repeat"
 }
 
 function previewImage() {
   const image = document.querySelector('#image');
   const imgPreview = document.querySelector('.img-preview');
+  const imgbox = document.getElementById('image-box');
+
 
   // Periksa apakah ada file yang dipilih
   if (image.files && image.files[0]) {
@@ -106,10 +114,12 @@ function previewImage() {
     oFReader.onload = function(oFREvent) {
       imgPreview.src = oFREvent.target.result;
     };
+    imgbox.style.background = "white"
+    
   } else {
     // Jika tidak ada file yang dipilih, tampilkan gambar "ppblank.png" sebagai default
     imgPreview.style.display = 'block';
-    imgPreview.src = '/css/img/ppblank.png';
+    imgPreview.src = '/css/img/add-image-real.png';
   }
 }
 

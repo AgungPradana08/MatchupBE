@@ -13,9 +13,9 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Tim berhasil di tambah' || session('notification') === 'Tim berhasil di hapus' || session('notification') === 'Tim Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Tim berhasil di tambah' || session('notification') === 'Tim berhasil di hapus' || session('notification') === 'Tim Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -45,13 +45,6 @@
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
-            </div>
-            <div style="grid-area: search2;">
-                <div class="icon icon-location"></div>
-                <input class="Searchmap" placeholder="Masukkan nama lokasi..." style="font-size: 13px" id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" 			onchange="InputChange()" >
-                <datalist id="location_list" >
-                    
-                </datalist>
             </div>
             <div style="grid-area: search3;">
                 <div class="icon icon-sport"></div>
@@ -83,13 +76,20 @@
                         <a class="edit-button" href="/usertim/{{$usertim->id}}/usertimedit"></a>
                     </div>
                     <div class="box-logo rounded-circle">
-                        <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="">
+                        <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="" style="object-fit: cover; object-position: center;">
                     </div>
                     <div style=" width: 60%;" class="letter-container pt-3 pt-lg-0" >
                         <p class="p-0 m-0" style="font-size: 12px; " >{{$usertim->olahraga}}</p>
                         <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >{{$usertim->nama_tim}}</p>
-                        <div class="age">
-                            {{$usertim->tingkatan}}
+                        <div>
+                        @if ($usertim->joinedPlayers->count() == $usertim->max_member)
+                            <div class="access text-light" style="background: #FE6B00" >Penuh</div>  
+                        @else
+                            <div class="access">Terbuka</div>  
+                        @endif
+                            <div class="age">
+                                {{$usertim->tingkatan}}
+                            </div>
                         </div>
                     </div>
                 </div>

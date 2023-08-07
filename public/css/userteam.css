@@ -17,6 +17,15 @@
 
 }
 
+.navbar-brand {
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -154,9 +163,9 @@ body {
 .wrapper {
     height: 7vh;
     display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns:1fr 1.5fr 1.5fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "add search1 search2 search3 button";
+    grid-template-areas: "add search1  search3 button";
     gap: 15px;
 }
 
@@ -210,6 +219,8 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
 
 .wrapper > div > a:focus {
@@ -223,6 +234,12 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.wrapper > a:hover , .wrapper > button:hover {
+    transform: scale(1.03);
 }
 
 .icon-name {
@@ -252,8 +269,9 @@ body {
 }
 
 .box {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     height: 35vh;
+    border-radius: 8px;
 
 }
 
@@ -261,6 +279,8 @@ body {
     width: 100%;
     border: transparent;
     background-color: white;
+    border-radius: 8px;
+
 }
 
 .box-top, .box-bottom {
@@ -428,13 +448,23 @@ body {
     background: url(img/eye-white.png);
     background-size: contain;
     border-radius: 5px;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
 
 .edit-button {
     background: url(img/edit-white.png);
     background-size: contain;
     border-radius: 5px;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
+
+.see-button:hover, .edit-button:hover {
+    transform: scale(1.1);
+
+}
+
 
 @media (min-width: 576px) and (max-width: 991.98px) {
     

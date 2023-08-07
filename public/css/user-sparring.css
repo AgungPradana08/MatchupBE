@@ -13,7 +13,17 @@
     /* outline: 1px solid red; */
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
+
+}
+
+.navbar-brand {
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+
 }
 
 body {
@@ -193,8 +203,14 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transition: 0.3s ease;
+    transform: scale(1);
 }
 
+.wrapper > button:hover {
+    transform: scale(1.03);
+
+}
 
 .wrapper > div > a:focus {
     outline: 3px solid #FE6B00;
@@ -207,7 +223,15 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transition: 0.3s ease;
+    transform: scale(1);
 }
+
+.wrapper > a:hover {
+    transform: scale(1.03);
+
+}
+
 .icon-name {
     background: url(img/search.png);
 }
@@ -238,7 +262,7 @@ body {
 
 .box {
     height: 33vh;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     z-index: 30;
     border-radius: 8px;
 
@@ -247,6 +271,8 @@ body {
 .box-outer {
     border: transparent;
     background-color: white;
+    border-radius: 8px;
+
 
 }
 
@@ -257,18 +283,22 @@ body {
 } 
 
 .title-box {
-    width: 50%;
-    height: 80%;
+    padding: 0%;
+    margin: 0%;
+    width: 60%;
+    height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .box-top {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     text-align: left;
     padding: 0%;
+    gap: 2%;
     box-sizing: border-box;
 }
 
@@ -355,7 +385,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .edit-button {
@@ -392,31 +422,36 @@ body {
     width: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    padding-bottom: 5%;
-    margin-right: 10px;
-    margin-left: 5px;
-
+    justify-content: center;
+    gap: 15px;
+    margin-left: 2%;
 
 }
 
 .see-button, .edit-button{
     height: 25px;
     width: 25px;
-    background: grey;
-    display: inline;
 }
 
 .see-button {
     background: url(img/eye-white.png);
     background-size: contain;
     border-radius: 5px;
+    transition: 0.3s ease;
+    transform: scale(1);
 }
 
 .edit-button {
     background: url(img/edit-white.png);
     background-size: contain;
     border-radius: 5px;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.see-button:hover , .edit-button:hover {
+    transform: scale(1.1);
+
 }
 
 

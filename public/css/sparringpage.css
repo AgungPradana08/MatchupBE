@@ -64,6 +64,7 @@ body {
 }
 
 .user-nav {
+    font-size: 14px;
     display: flex;
     align-items: center;
 }
@@ -191,6 +192,12 @@ body {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 12px;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.wrapper > button:hover {
+    transform: scale(1.03);
 }
 
 .icon-name {
@@ -219,6 +226,13 @@ body {
 
 .box {
     height: 33vh;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.02);
+
 }
 
 .box-outer {

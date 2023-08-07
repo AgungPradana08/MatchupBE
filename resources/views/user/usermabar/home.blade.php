@@ -12,9 +12,9 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Mabar berhasil di tambah' || session('notification') === 'Mabar berhasil di hapus' || session('notification') === 'Mabar Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Mabar berhasil di tambah' || session('notification') === 'Mabar berhasil di hapus' || session('notification') === 'Mabar Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -70,16 +70,25 @@
         <div class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
-                    <div class="edit-data">
+                    <div class="edit-data m-0 p-0">
                         <a class="see-button" href="/usermabar/{{$mabar->id}}/usermabardetail" >
                         </a>
                         <a class="edit-button" href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
                     </div>
-                <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="">
-                <div class="title-box ms-md-2 w-50" >
+                <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
+                <div class="title-box " >
                     <p class="m-0" style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
-                    <div class="age w-50 d-flex justify-content-center align-items-center">{{$mabar->tingkatan}}</div> 
+                    <div class="w-100" >
+                        @if ($DateNow > $mabar->tanggal_pertandingan)
+                        <div class="w-50 access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
+                    @elseif ($mabar->joinedUsers->count() == $mabar->max_member) && $DateNow <= $mabar->tanggal_pertandingan)
+                        <div class="w-50 access text-light" style="background: #FE6B00" >Penuh</div>  
+                    @else
+                        <div class=" w-50 access">Terbuka</div>  
+                    @endif
+                        <div class="age w-50 d-flex justify-content-center align-items-center">{{$mabar->tingkatan}}</div> 
+                    </div>
                 </div>
             </div>
              <div class="box-bottom">
@@ -101,7 +110,7 @@
                      <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
-                     {{$mabar->harga_tiket}}
+                     Rp {{$mabar->harga_tiket}}
                  </div>
                  <hr class="d-block m-1" >
                  <div style="display: flex; justify-content: space-between;" class="" >
