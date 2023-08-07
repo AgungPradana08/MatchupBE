@@ -34,6 +34,14 @@ function InputChange() {
     let MaxMember = parseInt(InputMember)
     let MemberInt = parseInt(MemberValue.value)
 
+    let olahragaSelect = document.getElementById("OlahragaSelect");
+  
+    // Mendapatkan opsi yang dipilih dari elemen <select>
+    let selectedOption = olahragaSelect.options[olahragaSelect.selectedIndex];
+    
+    // Mendapatkan isi/teks dari opsi yang dipilih
+    let selectedText = selectedOption.text;
+
     MemberValue.value = InputMember
 
     if (MemberInt < 0) {
@@ -46,6 +54,8 @@ function InputChange() {
 
     console.log(MaxMember)
     console.log(MemberValue)
+
+    document.getElementById("OlahragaInput").value = selectedText
 
 }
 
