@@ -12,9 +12,9 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.' || session('notification') === 'Sparring berhasil di tambah' || session('notification') === 'Sparring berhasil di hapus' || session('notification') === 'Sparring Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.' || session('notification') === 'Sparring berhasil di tambah' || session('notification') === 'Sparring berhasil di hapus' || session('notification') === 'Sparring Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
-        <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
+        <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
     <nav class="navbar navbar-expand-sm p-0 position-fixed bg-white " style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
@@ -70,16 +70,23 @@
         <div class="box shadow-ms ">
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <div class="edit-data">
+                <div class="edit-data ">
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
                     </a>
                     <a class="edit-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
                 </div>
-                <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="">
-                <div class="title-box ms-md-4 ms-0" >
-                    <p class="m-0 " style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
-                    <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
+                <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-fit: cover; object-position: center;" >
+                <div class="title-box  ms-0" >
+                    <p class="m-0 p-0" style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
+                    <p class="m-0 p-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
                     <div>
+                        @if ($DateNow > $sparring->tanggal_pertandingan)
+                        <div class="access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
+                    @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
+                        <div class="access text-light" style="background: #FE6B00" >Penuh</div>  
+                    @else
+                        <div class="access">Terbuka</div>  
+                    @endif
                         <div class="age">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>

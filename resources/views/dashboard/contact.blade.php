@@ -41,15 +41,15 @@
             <div class="col-6  d-none d-lg-flex justify-content-center align-items-center">
                 <div class="img" ></div>
             </div>
-            <div class="col-12 col-lg-6 contact-content">
+            <form class="col-12 col-lg-6 contact-content">
                 <h1>CONTACT</h1>
                 <div class="wrapper ">
-                    <input style="grid-area: input1;" placeholder="Masukkan Email..." type="text" value="">
-                    <input style="grid-area: input2;" placeholder="Masukkan Nama Pengguna..." type="text" value="">
-                    <textarea style="grid-area: input3;" placeholder="Masukkan Saran atau Kritik..." name="" id="" cols="30" rows="10"></textarea>
-                    <button style="grid-area: button; resize: none;" >Kirim Pesan</button>
+                    <input style="grid-area: input1;" placeholder="Masukkan Email..." type="email" value="" maxlength="225" required>
+                    <input style="grid-area: input2;" placeholder="Masukkan Nama Pengguna..." type="text" value="" maxlength="225" required>
+                    <textarea style="grid-area: input3;" placeholder="Masukkan Saran atau Kritik..." name="" maxlength="225" id="" cols="30" rows="10" required ></textarea>
+                    <button style="grid-area: button; resize: none;" type="submit" >Kirim Pesan</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

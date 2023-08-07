@@ -18,12 +18,12 @@
             <div class="modal-header bg-primary-mu">
               <div class="blank logo-sm rounded-circle d-inline-block"></div>
               <h5 class="ps-2 modal-title ">
-                Masukkan Peta
+                Tambah Peta
               </h5>
               <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%" type="text">
+                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
                 {{-- @foreach ($peta as $peta) --}}
                 <div id="table_data" class="w-100 maps-wrapper">
                         <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
@@ -50,8 +50,8 @@
     <form action="/usersparring/store" method="POST" enctype="multipart/form-data" class="content" style="padding-bottom: 10vh" >
         @csrf
         <div class="image-container">
-            <div class="image-box" >
-                <img class="img-preview"  alt="">  
+            <div class="image-box" id="image-box" >
+                <img class="img-preview"  alt="" style="object-fit: cover; object-position: center">  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -67,11 +67,11 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
                     <p class="m-0" >Nama Tim</p>
-                    <input name="nama_tim" type="text" placeholder="Input nama tim..." required >
+                    <input name="nama_tim" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" required >
                 </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." required>
+                    <input  name="title" id="TitleInput" maxlength="30" type="text" placeholder="Input nama pertandingan (maksimal 30)" required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="input3">
                     <p class="m-0" >Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan..." required>
+                    <textarea name="deskripsi" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
             <div id="wrapper1" class="form2-wrapper">
                 
                 {{-- <div class="input1">
-                    <p class="m-0" >Rincian Lokasi</p>
+                    <p class="m-0" > </p>
                     <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" >
                     <datalist id="location_list" >
                     </datalist>
@@ -106,10 +106,10 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly re>
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly re>
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
-                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button;" >Masukkan Lokasi</a>
+                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 mt-2  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button; height: 60%" >Masukkan Lokasi</a>
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50 d-flex align-items-center justify-content-center add-logo  d-flex d-md-none" style="grid-area: map-button;" >Logo</a>
 
                 </div>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="input5">
                     <p class="m-0" >Informasi Tambahan</p>
-                    <textarea  class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
+                    <textarea maxlength="255"  class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan (maksimal 255)"></textarea>
                 </div>
             </div>
         </div>

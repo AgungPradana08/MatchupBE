@@ -14,8 +14,9 @@ class UserSparringController extends Controller
     public function index()
     {   
         // $usersparring = UserSparring::all();
+        $DateNow = date('Y-m-d');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
-        return view('user.usersparring.home', compact(['usersparring']));
+        return view('user.usersparring.home', compact(['usersparring','DateNow']));
     }
 
     public function index2(User $user)

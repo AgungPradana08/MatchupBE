@@ -33,9 +33,19 @@
     border: 3px solid white;
 }
 
+input:focus, textarea:focus {
+    outline: 2px solid #FE6B00;
+}
+
+textarea:focus {
+    outline: 2px solid #FE6B00;
+}
+
+
+
 .login:hover{
     border: 3px solid #FE6B00;
-    color: black;
+    color: #FE6B00;
     border-radius: 0px;
 }
 
@@ -109,6 +119,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.wrapper > button:hover {
+    transform: scale(1.05);
 }
 
 @media (min-width: 576px) and (max-width: 991.98px) {

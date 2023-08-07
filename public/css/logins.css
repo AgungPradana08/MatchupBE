@@ -30,6 +30,12 @@
     background-size: contain;
     height: 5vh;
     width: 5vh;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.navbar-brand > div:hover {
+    transform: scale(1.1);
 }
 
 
@@ -96,9 +102,16 @@ body {
 }
 
 .icon-eye {
+    cursor: pointer;
     height: 30px;
     width: 30px;
     border: transparent;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.icon-eye:hover {
+    transform: scale(1.1);
 }
 
 h5 {
@@ -148,6 +161,12 @@ h5 {
     font-family: opensans-bold;
     border: transparent;
     border-radius: 8px;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.footer > button:hover {
+    transform: scale(1.05);
 }
 
 .footer > a {

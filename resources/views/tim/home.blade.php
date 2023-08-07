@@ -31,8 +31,8 @@
             </ul>
           </div>
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
-            <span style="color: black;">Halo, {{ Auth::user()->username }}</span>
-            <img class="rounded-circle" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
+            <span style="color: black;"><strong>Halo</strong>, {{ Auth::user()->username }}</span>
+            <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
         </div>
     </nav>
@@ -46,13 +46,6 @@
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
-            </div>
-            <div style="grid-area: search2;">
-                <div class="icon icon-location"></div>
-                <input class="Searchmap" placeholder="Masukkan nama lokasi..." style="font-size: 13px" id="sparringlocation" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" 			onchange="InputChange()" >
-                <datalist id="location_list" >
-                    
-                </datalist>
             </div>
             <div style="grid-area: search3;">
                 <div class="icon icon-sport"></div>
@@ -73,7 +66,7 @@
         <a class="box" href="/tim/{{$tim->id}}/timdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
-                <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="">
+                <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover;">
                 <div class="title-box   " style="width: 100%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
                     <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
@@ -89,8 +82,8 @@
             </div>
             <div class="box-bottom">    
                 <div class="word-wrappers" style=" font-size: 12px" >{{$tim->deskripsi}}</div>
-                <hr class="p-0 m-0" >
-                <div style="width: 100%;" class="d-flex align-items-center justify-content-between" >
+                <hr class="mb-2">
+                <div style="width: 100%;" class="d-flex align-items-center justify-content-between m-0 p-0" >
                     Slot Tersedia
                     <span class="p-0 m-0" style="font-family: opensans-bold; color: #FE6B00; " >{{ $tim->joinedPlayers->count() }}/{{ $tim->max_member }}</span>
                 </div>

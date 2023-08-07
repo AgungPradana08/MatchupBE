@@ -12,6 +12,26 @@
 
 </head>
 <body>
+    <div class="modal" id="Olahraga" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h6 class=" modal-title ">
+                Olahraga Favorit Saya: <strong>Futsal</strong> </strong>
+              </h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <textarea class="w-100" style="resize: none" name="" id="" cols="30" rows="10" readonly> </textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+            </div>
+          </div>
+        </div>
+      </div>
     <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 {{ session('notification') === 'Akun berhasil di update' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close btn-close-white" onclick="closenotification()" aria-label="Close"></button>
@@ -41,7 +61,7 @@
     <div class="content container">
         <div class="profile">
             <div class="image-box" >
-                <img class="img-preview" src="{{asset('storage/'. $pengguna->image)}}" alt="">  
+                <img class="img-preview" src="{{asset('storage/'. $pengguna->image)}}" alt="" style="object-fit: cover; object-position: center;">  
                 <div class="edit-image">
                     <label for="image">
                       <a href="/userprofile/setting">
@@ -57,15 +77,15 @@
             <div class="social">
                 
                 {{-- WOI INI SOCIALNYA GA BISA DIPENCET --}}
-                <div class="instagram">
+                <a class="instagram">
 
-                </div>
-                <div class="facebook">
+                </a>
+                <a class="facebook">
 
-                </div>
-                <div class="whatapps">
+                </a>
+                <a class="whatapps">
 
-                </div>
+                </a>
             </div>
             <hr>
             <div class="bio">
@@ -180,33 +200,24 @@
                 </div>
                 <div id="accontent" class="activity-wrapper">
                     <span>
-                        Tim Favorit
-                    </span>
-                    <span>
-                        <img class="icon-big" src="/css/img/bola icon.png" alt="">
-                    </span>
-                    <span>
-                        <a href="">Info Lengkap</a>
-                    </span>
-                    <span>
 
                         Olahraga
                     </span>
-                    <span>
-                       <img class="icon-big" src="/css/img/juventus 2.png" alt="">
+                    <span class="d-flex justify-content-center" >
+                       <img class="icon-big m-0 p-0" src="/css/img/futsal.jpg" alt="">
                     </span>
                     <span>
-                        <a href="">Info Lengkap</a>
+                        <button data-bs-toggle="modal" data-bs-target="#Olahraga" >Info Lengkap</button>
                     </span>
                     <span>
 
                         Status
-                </span>
-                    <span class="fw-bold" >
+                    </span>
+                    <span class="fw-bold d-flex justify-content-center" >
                         Aktif
                     </span>
                     <span>
-                        <a href="">Info Lengkap</a>
+                        <button data-bs-toggle="modal" data-bs-target="#Olahraga" href="">Info Lengkap</button>
                     </span>
                 </div>
         </div> --}}

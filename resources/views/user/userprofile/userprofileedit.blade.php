@@ -26,7 +26,7 @@
         @csrf
         <div class="image-container">
             <div class="image-box" >
-                    <img class="img-preview" src="{{asset('storage/'. $userprofile->image)}}">  
+                    <img class="img-preview" src="{{asset('storage/'. $userprofile->image)}}" style="object-fit: cover; object-position:center" >  
                 <div class="edit-image">
                     <label for="image">
                     <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
@@ -38,16 +38,19 @@
         <div class="form1">
             <div class="header">
                 Title
-                <a id="drop0" onclick="dropdown(0)" ></a>
             </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input1">
                     <p class="m-0" >Nama</p>
-                    <input  name="name" id="TitleInput" value="{{$userprofile->name}}" type="text" placeholder="Input nama..." >
+                    <input  name="name"  maxlength="30" value="{{$userprofile->name}}" type="text" placeholder="Input nama..." >
                 </div>
                 <div class="input3">
                     <p class="m-0" >Username</p>
-                    <input name="username" id="DesInput" value="{{$userprofile->username}}" type="text" placeholder="Input Username...">
+                    <input name="username" onchange="usernameInput()" onblur="removespace()" id="TitleInput" maxlength="30" value=" {{$userprofile->username}}" type="text" placeholder="Input Username...">
+                </div>
+                <div class="input4">
+                    <p class="m-0" >Deskripsi</p>
+                    <textarea class="p-2" value="" type="text" maxlength="255" placeholder="Input Deskripsi (maksimal 255)"></textarea>
                 </div>
             </div>
         </div>
@@ -85,15 +88,15 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Usia</p>
-                    <input name="usia" type="number" value="{{$userprofile->usia}}" placeholder="masukkan Usia anda">
+                    <input name="usia" id="ageinput" type="number" value="{{$userprofile->usia}}" placeholder="masukkan Usia anda">
                 </div>
                 <div class="input3">
                     <p class="m-0" >Berat Badan</p>
-                    <input name="berat_badan" type="number" value="{{$userprofile->berat_badan}}" placeholder="masukkan berat badan (Kg)" >
+                    <input name="berat_badan" id="weightin" type="number" value="{{$userprofile->berat_badan}}" placeholder="masukkan berat badan (Kg)" >
                 </div>
                 <div class="input4">
                     <p class="m-0" >Tinggi Badan</p>
-                    <input name="tinggi_badan" type="number" value="{{$userprofile->tinggi_badan}}" placeholder="masukkan Tinggi Badan (Cm)">
+                    <input name="tinggi_badan" id="heightinput" type="number" value="{{$userprofile->tinggi_badan}}" placeholder="masukkan Tinggi Badan (Cm)">
                 </div>
             </div>
         </div>
@@ -146,19 +149,7 @@
                         <option value="Renang">Renang</option>
                     </select>
                 </div>
-                <textarea name="usia" class="p-2" style="resize: none" type="number" value="{{$userprofile->usia}}" placeholder="Deskripsi"></textarea>
-                <div>
-                    <p class="m-0" >Tim Favorit</p>
-                    <select class="tim w-100 h-75 p-2" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
-                        <option value="">Pilih Tim Favorit...</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Renang">Renang</option>
-                    </select>
-                </div>
-                <textarea name="usia" class="p-2" type="number" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi"></textarea>
+                <textarea name="usia" class="p-2" type="number" id="myInput" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi olahraga favorit (maksimal 255)" maxlength="255"></textarea>
                 <div>
                     <p class="m-0" >Status</p>
                     <select class="status w-100 h-75 p-2" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
@@ -167,7 +158,7 @@
                         <option value="Tidak Aktif">Tidak Aktif</option>
                     </select>
                 </div>
-                <textarea name="usia" class="p-2" type="number" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi"></textarea>
+                <textarea name="usia" class="p-2" type="number" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi status (maksimal 255)" maxlength="255"></textarea>
 
             </div>
         </div>

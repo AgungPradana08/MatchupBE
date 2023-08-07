@@ -80,6 +80,13 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.navbar > a:hover {
+    transform: scale(1.1);
+
 }
 
 /* === CONTENT === */ 
@@ -124,7 +131,7 @@ p {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background: url("img/no-damage.jpg");
+    background: url("img/add-image-real.png");
     background-position: center;
     background-size: contain;
     display: flex;
@@ -157,6 +164,7 @@ p {
 
 
 .edit-image {
+    cursor: pointer;
     position: absolute;
     margin: 0px 5px 5px 0px;
     width: 35px;
@@ -177,8 +185,15 @@ p {
 }
 
 .image-box-1 {
+    cursor: pointer;
     object-fit: cover;
     object-position: center;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.image-box-1:hover {
+    transform: scale(1.1);
 }
 
 .form1, .form2, .form3, .form4 {
@@ -351,6 +366,24 @@ p {
     border-radius: 5px;
 }
 
+.input3 > textarea {
+    width: 100%;
+    height: 80%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
+
+.input3-des > textarea {
+    width: 100%;
+    height: 80%;
+    padding-left: 8px;
+    border: 3px solid #FFA767;
+    border-radius: 5px;
+    resize: none;
+}
+
 .form1-wrapper > .input0 {
     grid-area: tim;
     width: 100%;
@@ -461,6 +494,12 @@ p {
     margin-top: 5vh;
     width: 100%;
     height: 8vh;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add:hover {
+    transform: scale(1.03);
 }
 
 .delete {
@@ -528,6 +567,8 @@ p {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s ease;
 }
 
 .add-logo {
@@ -537,6 +578,12 @@ p {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    transform: scale(1);
+    transition: 0.3s ease;
+}
+
+.add-maps:hover , .add-logo:hover {
+    transform: scale(1.05);
 }
 
 

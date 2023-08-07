@@ -23,7 +23,7 @@
               <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%" type="text">
+                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
                 <div id="table_data" class="w-100 maps-wrapper">
                   <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
                     <h6 class="fw-bold">Markas</h6>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="navbar">
-        <a href="/usermabar/home"></a>
+        <a  href="/usermabar/home"></a>
         <p class="m-0" >Tambah Mabar</p>
         <a style="visibility: hidden;" ></a>
     </div>
@@ -57,11 +57,11 @@
     <form action="/usermabar/store" method="POST" enctype="multipart/form-data" class="content" >
         @csrf
         <div class="image-container">
-            <div class="image-box" >
+            <div class="image-box" id="image-box" >
                 <img class="img-preview"  alt="">  
                 <div class="edit-image">
                     <label for="image">
-                    <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
+                    <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg" style="object-fit: cover; object-position: center">
                     </label>
                     <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()" required>
                 </div>
@@ -76,7 +76,7 @@
             <div id="wrapper0" class="form1-wrapper-mabar">
                 <div class="input1">
                     <p class="m-0" >Nama Mabar</p>
-                    <input oninput="InputChange()" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." required>
+                    <input oninput="InputChange()" maxlength="30" name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan (maksimal 30)" required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>
-                    <input name="deskripsi" id="DesInput" type="text" placeholder="Input deskripsi pertandingan..." required>
+                    <textarea name="deskripsi" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
                 </div>
             </div>
         </div>
@@ -111,10 +111,10 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" readonly required>
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" placeholder="Pilih lokasi mabar ..." readonly required>
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
-                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button;" >Masukkan Lokasi</a>
+                    <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 mt-2  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button; height: 55%" >Masukkan Lokasi</a>
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 h-50 d-flex align-items-center justify-content-center add-logo  d-flex d-md-none" style="grid-area: map-button;" >Logo</a>
 
                 </div>
@@ -137,7 +137,7 @@
                 </div>
                 <div class="input1">
                     <p class="m-0" >Max Member</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..." required>
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="number" placeholder="max-member (12)" required>
                 </div>
                 <div class="input2">
                     <p class="m-0" >Tingkatan-umur</p>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="input5">
                     <p class="m-0" >Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." ></textarea>
+                    <textarea oninput="InputChange()" class="tambahaninfo" maxlength="255" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan (maksimal 255)" ></textarea>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-@font-face {
+    @font-face {
     font-family: opensans;
     src: url(font/OpenSans-Regular.ttf);
 }
@@ -36,7 +36,7 @@
 
 .login:hover{
     border: 3px solid #FE6B00;
-    color: black;
+    color: #FE6B00;
     border-radius: 0px;
 }
 
@@ -225,11 +225,19 @@
     background-repeat: no-repeat;
 }
 
-.login-offer-content > div > button {
+.login-offer-content > div > a > button {
     width: 13vw;
     height: 35px;
     color: #FE6B00;
     border: transparent;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+.login-offer-content > div > a > button:hover {
+    transform: scale(1.1);
+
+ 
 }
 
 .login-button {

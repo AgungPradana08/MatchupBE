@@ -21,10 +21,10 @@
     <div  class="container login-container">
         <div id="box1" class="box">
             <div class="upper">
-                <h5>Sign Up</h5>
+                <h5>SIGN UP</h5>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
-                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan Username...">
+                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan Username (maksimum 30)" maxlength="30" >
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
@@ -33,7 +33,7 @@
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
                     <input id="PasswordInput" name="password" type="password" placeholder="Masukkan Password...">
-                    <div class="icon-eye" style="background: url(/css/img/eye.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  onclick="passwordsee()"></div>
+                    <div id="passwordicon" class="icon-eye" style="background: url(/css/img/eye.png); background-position: center; background-size: contain;background-repeat: no-repeat; cursor:pointer"  onclick="passwordsee()"></div>
                 </div>
                 <input class="d-none" type="text">
             </div>
@@ -47,13 +47,13 @@
         </div>
         <div id="box2" class="box">
             <div class="upper2">
-                <h5>Selamat Datang</h5>
+                <h5>SELAMAT DATANG</h5>
                 <div class="image-container">
-                    <div class="image-box" >
+                    <div id="image-box" class="image-box" >
                         <img class="img-preview"  alt="">  
                         <div class="edit-image">
                             <label for="image">
-                            <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
+                            <img class="image-box-1" style="border-radius: 100%; cursor: pointer;" height="35px" src="/css/img/add-image.jpg">
                             </label>
                             <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
                         </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
-                    <input type="text" id="usernameinput" name="username" placeholder="Masukkan Nama...">
+                    <input type="text" id="usernameinput" name="username" maxlength="30" placeholder="Masukkan Nama (maksimal 30)">
                 </div> 
             </div>
             <div class="footer2">

@@ -27,3 +27,26 @@ function dropdown(index) {
         }
     }
 }
+
+function InputChange() {
+    let InputMember = document.getElementById("OlahragaSelect").value
+    let MemberValue = document.getElementById("MaxInput")
+    let MaxMember = parseInt(InputMember)
+    let MemberInt = parseInt(MemberValue.value)
+
+    if (MemberInt < 0) {
+        MemberValue.value = 0
+      }
+    
+      if(MemberInt > MaxMember) {
+        MemberValue.value = MaxMember
+      }
+
+    console.log(MaxMember)
+    console.log(MemberValue)
+
+}
+
+function NumberInput() {
+    
+}

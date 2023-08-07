@@ -8,15 +8,27 @@ let seelogin = true;
 // let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
 console.log(today)
-document.getElementById("datepick").min = today.toString();
+// document.getElementById("datepick").min = today.toString();
 
-mapsviews()
+// mapsviews()
 
 function locationview() {
     var targetScrollRight = (element.scrollWidth * 1);
     element.scrollRight = targetScrollRight;
 }
 
+setInterval(() => {
+    let membermax = document.getElementById("MaxInput")
+    let membermaxint = parseInt(membermax.value)
+
+    if (membermaxint < 0) {
+    membermax.value = 0
+  }
+
+  if(membermaxint > 12) {
+    membermax.value = 12
+  }
+}, 0);
 
 // console.log(savevar)
 // console.log(savekey)
@@ -88,8 +100,12 @@ function locationview() {
 function previewImage() {
     const image = document.querySelector('#image');
     const imgPreview = document.querySelector('.img-preview');
+    const imgbox = document.getElementById('image-box');
+
 
     imgPreview.style.display = 'block';
+    imgbox.style.background = "white"
+
 
     const oFReader = new FileReader();
     oFReader.readAsDataURL(image.files[0]);
@@ -165,15 +181,23 @@ function passwordsee() {
 
 function passwordsee1() {
 
+    let passwordeye = document.getElementById("passwordicon")
+
     let LoginInputPassword = document.getElementById("PasswordLog");
 
     if (LoginInputPassword.classList.contains("active")) {
         LoginInputPassword.classList.remove("active");
         LoginInputPassword.type = "password";
+        passwordeye.style.background = "url(/css/img/eye.png)" 
       } else {
         LoginInputPassword.classList.add("active");
         LoginInputPassword.type = "text";
+        passwordeye.style.background = "url(/css/img/eye-disable.png)" 
+
     }
+    passwordeye.style.backgroundPosition = "center"
+    passwordeye.style.backgroundSize = "contain"
+    passwordeye.style.backgroundRepeat = "no-repeat"
 
 }
 
