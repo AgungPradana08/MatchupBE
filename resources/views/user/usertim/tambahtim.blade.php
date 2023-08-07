@@ -52,7 +52,7 @@
                         <option value="12">Futsal</option>
                         <option value="6">Ping Pong</option>
                         <option value="6">Badminton</option>
-                        <option value="12">voli</option>
+                        <option value="12">Voli</option>
                     </select>
                 </div>
                 <div class="input3-des">

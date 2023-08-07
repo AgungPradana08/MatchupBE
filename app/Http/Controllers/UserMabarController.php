@@ -81,6 +81,7 @@ class UserMabarController extends Controller
 
     public function search(Request $request)
     {
+        $DateNow = date('Y-m-d');
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
@@ -100,11 +101,12 @@ class UserMabarController extends Controller
 
         $usermabar = $usermabar->get();
 
-        return view('mabar.home', compact(['usermabar']));
+        return view('mabar.home', compact(['usermabar', 'DateNow']));
     }
 
     public function search2(Request $request)
-    {
+    {   
+        $DateNow = date('Y-m-d');
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
@@ -125,7 +127,7 @@ class UserMabarController extends Controller
         // $usermabar = $usermabar->get();
         $usermabar = $usermabar->where('user_id', session('user_id'))->get();
 
-        return view('user.usermabar.home', compact(['usermabar']));
+        return view('user.usermabar.home', compact(['usermabar', 'DateNow']));
     }
 
     public function detail($id)

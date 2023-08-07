@@ -115,7 +115,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
-          <span>Detail {{$usermabar->title}}</span>
+          <span>Detail Mabar</span>
           <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
         </div>
     </nav>
@@ -140,7 +140,7 @@
                 </div>
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
-                    <h4>Lokasi Sparring</h4>
+                    <h4>Lokasi Mabar</h4>
                     <p class="des " id="detaillokasi" >{{$usermabar->lokasi}}</p>
                     <iframe id="MapDisplay" class="maps"></iframe>
                 </div>
@@ -176,7 +176,7 @@
                 <hr class="d-block d-lg-none">
                     <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <hr class="d-block d-lg-none">
@@ -203,7 +203,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} jam</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
                         </tr>
                         <td>
                             <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
@@ -223,7 +223,7 @@
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
                         <h5>Biaya Pendaftaran</h5>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/tim</span> </h1>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
@@ -249,7 +249,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} Jam</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
                         </tr>
                             <td>
                                 <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
@@ -268,10 +268,67 @@
                         <button class="ambil" type="submit">Mabar Penuh</button>
                     @else
                     <button class="ambil" data-bs-toggle="modal" data-bs-target="#exampleModal" >Ambil Mabar</button>
-                        {{-- <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
+                        <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
                             @csrf
-                            <button class="ambil" data-bs-toggle="modal" data-bs-target="#exampleModal" >Ambil Mabar</button>
-                        </form> --}}
+                            <div class="modal" id="exampleModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered ">
+                                  <div class="modal-content" style="width: 32vw" >
+                                    <div class="modal-header bg-primary-mu">
+                                      <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                      <h5 class=" modal-title ">
+                                        Bergabung Mabar <strong>{{$usermabar->title}}</strong>?
+                                      </h5>
+                                      <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <table class="m-0" width="100%">
+                                                <tr>
+                                                    <th width="5%"></th>
+                                                    <th width="95%"></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Tanggal Permainan</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Jadwal Mabar</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                                                    </td>
+                                                    <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="font-size: 13px;" id="locationTarget">{{$usermabar->lokasi}}</td>
+                                                </tr>
+                                            </table>
+                                        <hr>
+                                      <p> <strong style="color: red">Anda tidak akan bisa keluar setelah anda bergabung!!!</strong>, anda akan harus menunggu sampai mabar ini selesai</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                      {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                      <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Masuk</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </form>
                     @endif
                 </div>
                 <div class="box2 d-none d-lg-block">

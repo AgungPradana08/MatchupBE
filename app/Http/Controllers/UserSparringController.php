@@ -161,6 +161,7 @@ class UserSparringController extends Controller
 
     public function search(Request $request)
     {
+        $DateNow = date('Y-m-d');
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
@@ -180,11 +181,12 @@ class UserSparringController extends Controller
 
         $usersparring = $usersparring->get();
 
-        return view('sparring.home', compact(['usersparring']));
+        return view('sparring.home', compact(['usersparring', 'DateNow']));
     }
 
     public function search2(Request $request)
-    {
+    {   
+        $DateNow = date('Y-m-d');
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
@@ -206,7 +208,7 @@ class UserSparringController extends Controller
         // $usersparring = $usersparring->get();
         $usersparring = $usersparring->where('user_id', session('user_id'))->get();
 
-        return view('user.usersparring.home', compact(['usersparring']));
+        return view('user.usersparring.home', compact(['usersparring', 'DateNow']));
     }
 
     public function versus()
