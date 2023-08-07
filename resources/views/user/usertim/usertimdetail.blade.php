@@ -147,7 +147,7 @@
                         <h5>Tingkatan</h5>
                         <div class="two" style="font-size: 15px" >{{$usertim->tingkatan}}</div>
                         <h5 class="m-0 mt-3" >Radius Bermain</h5>
-                        <h3 class="fw-bold m-0" style="color: #FE6B00" >Kudus</h3>
+                        <h3 class="fw-bold m-0" style="color: #FE6B00" >{{$usertim->area_bermain}}</h3>
                     </div>
                     <div class="box-content ">
                         <table>

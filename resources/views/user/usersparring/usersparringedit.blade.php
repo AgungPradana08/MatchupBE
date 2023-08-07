@@ -27,7 +27,11 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
           {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-          <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+            <form action="/usersparring/{{$usersparring->id}}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+            </form>
         </div>
       </div>
     </div>
