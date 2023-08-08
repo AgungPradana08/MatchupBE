@@ -12,7 +12,8 @@ class KompetisiController extends Controller
     {
         $kompetisi = Kompetisi::all();
         $DateNow = date('Y-m-d');
-        return view('kompetisi.home', compact(['kompetisi','DateNow']));
+        // $kompetisiterbaru = Kompetisi::orderBy('tanggal_pertandingan', 'desc')->get();
+        return view('kompetisi.home', compact(['kompetisi','DateNow',]));
     }
 
     public function detail($id)
