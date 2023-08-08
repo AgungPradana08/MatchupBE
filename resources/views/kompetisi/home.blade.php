@@ -62,7 +62,7 @@
                     <option value="Sepak Bola">Sepak Bola</option>
                     <option value="Badminton">Badminton</option>
                     <option value="Ping Pong">Ping Pong</option>
-                    <option value="Renang">Renang</option>
+                    <option value="Voli">voli</option>
                 </select>
             </div>
             <button style="grid-area: button;">CARI</button>

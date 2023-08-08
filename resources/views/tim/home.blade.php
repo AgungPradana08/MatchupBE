@@ -55,7 +55,7 @@
                     <option value="Sepak Bola">Sepak Bola</option>
                     <option value="Badminton">Badminton</option>
                     <option value="Ping Pong">Ping Pong</option>
-                    <option value="Renang">Renang</option>
+                    <option value="Voli">Voli</option>
                 </select>
             </div>
             <button style="grid-area: button;">CARI</button>
@@ -67,7 +67,7 @@
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
                 <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ;">
-                <div class="title-box   " style="width: 100%;" >
+                <div class="title-box   " style="width: 55%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
                     <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
                     <div class="w-75 d-flex">

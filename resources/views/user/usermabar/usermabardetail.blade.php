@@ -155,7 +155,7 @@
                     <div class="mabar-member">
                         <div class="member">
                             @if($usermabar->host)
-                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usermabar->host->image)}}" >
+                                <img class="member-logo rounded-circle " src="{{asset('storage/'. $usermabar->host->image)}}" style="object-fit: cover; object-position: center">
                                 <div class="ms-2">
                                     <h6 class="m-0" >{{$usermabar->host->name}}</h6>
                                     <p class="m-0" >Host</p>
@@ -164,7 +164,7 @@
                         </div>
                         @foreach ($usermabar->players as $player)
                         <div class="member">
-                            <img class="member-logo rounded-circle  " src="{{asset('storage/'. $player->image)}}"  style="object-fit: cover;" >
+                            <img class="member-logo rounded-circle  " src="{{asset('storage/'. $player->image)}}"  style="object-fit: cover; object-position: center" >
                             <div class="ms-2">
                                 <h6 class="m-0 fw-bold" >{{$player->name}}</h6>
                                 <p class="m-0 text-muted" >Player</p>
@@ -249,7 +249,7 @@
                             <td>
                                 
                             </td>
-                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
+                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}} jam</td>
                         </tr>
                             <td>
                                 <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
