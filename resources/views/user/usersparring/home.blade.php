@@ -33,6 +33,7 @@
               <li class="nav-item mx-0 mx-lg-2">
                 <a class="nav-link text-start text-lg-center" aria-current="page" href="/usertim/home"><span>Tim</span></a>
               </li>
+              
             </ul>
           </div>
         </div>
@@ -64,6 +65,14 @@
             </div>
             <button style="grid-area: button;">CARI</button>
         </form>
+    </section>
+    <section>
+        @foreach ($user->notifications as $notification)
+        @if ($notification->type === 'App\Notifications\EventNotification')
+            <p>Data Add {{ $notification->data['eventname'] }}</p>
+        @endif
+    @endforeach
+    
     </section>
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)

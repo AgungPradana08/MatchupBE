@@ -1,30 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Events\JoinNotification;
 use App\Models\User;
 use App\Models\UserSparring;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\EventNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Carbon;
+use Pusher\Pusher;
 
 class UserSparringController extends Controller
 {
     public function index()
     {   
         // $usersparring = UserSparring::all();
+        $user = User::find(1);
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
-        return view('user.usersparring.home', compact(['usersparring','DateNow']));
+        return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
     }
 
     public function index2(User $user)
     {   
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
+        // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
+
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow'])) ;
+        return view('sparring.home', compact(['usersparring', 'user','DateNow',]));
     }
 
     public function tambah()
@@ -38,6 +44,7 @@ class UserSparringController extends Controller
             // Jika belum, arahkan user ke halaman tertentu atau tampilkan pesan peringatan
             return redirect()->route('usersparring.home')->with('notification', 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.');
         }
+        
         return view('user.usersparring.tambahsparringnew', compact(['usersparring', 'namatim']));
     }
 
@@ -98,6 +105,8 @@ class UserSparringController extends Controller
              
         ]);
 
+        $UserTarget = 1;
+        $user = User::find($UserTarget);
         // $post->joinedSparrings()->attach($pengguna->id);
         // if ($pengguna->SparringTims) {
         //     $post->teams()->attach($pengguna->SparringTims->id);
@@ -105,6 +114,9 @@ class UserSparringController extends Controller
         // }    
         $usertimId = $pengguna->usertim->id;
         $post->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $usertimId]);
+
+        $eventname = "$ tambah data";
+        Notification::send($user, new EventNotification($eventname));
         session()->flash('notification', 'Sparring berhasil ditambahkan');
         return redirect('/usersparring/home');
     }
@@ -271,9 +283,24 @@ class UserSparringController extends Controller
 
                     $sparring->joinedSparrings->first()->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
                 }
-
+                event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
+                $option = array(
+                    'cluster' => 'ap1',
+                    'useTLS' => true
+                );
+                
+                $pusher = new Pusher(
+                    '6eb6fee921b475b51b2d',
+                    '40da46983988980660fc',
+                    '1649652',
+                    $option
+                );
+                
+                $penerimaid = "1";
+                $data = "seseorang telah bergabung dengan event sparringmu(Private)";
+                $pusher->trigger("private.$penerimaid", "my-event", ['message' => $data]);
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda sudah terdaftar sebagai peserta Sparring ini!');
             }
         } else {
