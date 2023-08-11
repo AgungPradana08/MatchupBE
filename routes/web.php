@@ -9,6 +9,7 @@ use App\Http\Controllers\MabarController;
 use App\Http\Controllers\UserTimController;
 use App\Http\Controllers\SparringController;
 use App\Http\Controllers\KompetisiController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\UserMabarController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSparringController;
@@ -142,6 +143,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/registerr', [LoginController::class, 'showregister']);
     Route::post('/registerr/store', [LoginController::class, 'register']);
 
+    //Page Notifikasi 
+    Route::get('/notifikasi', [NotificationsController::class, 'index']);
+
 });
 
 Route::get('/verify-email', [VerificationController::class, 'showVerificationForm'])->name('verification.notice');
@@ -177,9 +181,9 @@ Route::get('/cuy', function () {
     return view('testingapi.home');
 });
 
-Route::get('/notification', function () {
-    return view('notifikasi.home');
-});
+// Route::get('/notification', function () {
+//     return view('notifikasi.home');
+// });
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('homee');

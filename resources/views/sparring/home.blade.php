@@ -79,7 +79,7 @@
             <span style="color: black;"><span class="fw-bold" >Halo</span>, {{ Auth::user()->username }}</span>
             <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
-          <a class="user-nav" href="/notification">
+          <a class="user-nav" href="/notifikasi">
             <img id="notificationIcon" class="rounded-circle" src="/css/img/notification.png" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
