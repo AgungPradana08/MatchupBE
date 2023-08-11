@@ -222,9 +222,9 @@ body {
     margin-top: 2%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
-    grid-template-rows: repeat(1, 55%);
-    column-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 35vh;
+    gap: 15px;
 
 }
 

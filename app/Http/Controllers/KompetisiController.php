@@ -10,10 +10,12 @@ class KompetisiController extends Controller
 {
     public function index()
     {
+        // dd($request->all());
         $kompetisi = Kompetisi::all();
         $DateNow = date('Y-m-d');
-        // $kompetisiterbaru = Kompetisi::orderBy('tanggal_pertandingan', 'desc')->get();
-        return view('kompetisi.home', compact(['kompetisi','DateNow',]));
+        // dd($DateNow);
+        return view('kompetisi.home', compact(['kompetisi','DateNow']));
+
     }
 
     public function detail($id)
