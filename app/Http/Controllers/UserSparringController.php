@@ -27,8 +27,10 @@ class UserSparringController extends Controller
     {   
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
+        // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
+
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow'])) ;
+        return view('sparring.home', compact(['usersparring', 'user','DateNow',]));
     }
 
     public function tambah()
