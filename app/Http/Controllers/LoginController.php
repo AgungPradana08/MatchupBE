@@ -7,9 +7,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use App\Notifications\VerifyEmailNotification;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    
+    use AuthenticatesUsers;
+
+    protected function sendEmailVerificationNotification(Request $request)
+    {
+        $user = $request->user();
+
+        if ($user && !$user->hasVerifiedEmail()) {
+            $user->sendEmailVerificationNotification();
+        }
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if (!$user->hasVerifiedEmail()) {
+            return $this->sendEmailVerificationNotification($request);
+        }
+
+        return redirect()->intended($this->redirectPath());
+    }
+    
     public function showlogin()
     {
         return view('login.login');
@@ -76,26 +99,32 @@ class LoginController extends Controller
             'password' => Hash::make($request->password),
         ];
 
-        User::create($data);
+        $user = User::create($data);
+
+        $user->sendEmailVerificationNotification();
+
+        Auth::login($user);
 
         $infologin = [
             'email' => $request->email,
             'password' => $request->password,
         ];
         if (Auth::attempt($infologin)) {
-            return redirect('/login')->with('notification', 'new-account');
+            return redirect('/verify-email')->with('notification', 'new-account');
         }else{
             return 'gagal';
             // return redirect('/login')->withErrors('username dan password yang di masukkan tidak valid');
         }
-
+            
         // Buat pengguna baru
-        $user = User::create($request->all());
+        // $user = User::create($request->all());
+
+        
 
         // Login pengguna baru
-        Auth::login($user);
+        
 
-        return redirect('/login');
+        return redirect('/verify-email');
     }
     
     public function logout()

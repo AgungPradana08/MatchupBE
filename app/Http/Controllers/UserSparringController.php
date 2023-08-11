@@ -13,7 +13,12 @@ use Illuminate\Support\Carbon;
 use Pusher\Pusher;
 
 class UserSparringController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function index()
     {   
         // $usersparring = UserSparring::all();

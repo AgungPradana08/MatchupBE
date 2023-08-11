@@ -12,6 +12,9 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
+    'verification' => [
+        'enabled' => true,
+    ],
 
     'defaults' => [
         'guard' => 'web',
@@ -96,6 +99,15 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+        ],
+    ],
+
+    'verification' => [
+        'users' => [
+            'provider' => 'users',
+            'table' => 'email_verifications', // Nama tabel verifikasi email
+            'expire' => 60, // Durasi kedaluwarsa token verifikasi
+            'throttle' => 60, // Batas permintaan verifikasi email
         ],
     ],
 

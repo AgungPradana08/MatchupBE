@@ -123,7 +123,7 @@
     @endforeach
     
     </section> 
-    <section class="no-data" >
+    <section class="no-data">
         @if($usermabar->count() > 0)
         <section class="white-space" ></section>   
         @else   
