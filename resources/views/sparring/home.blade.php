@@ -10,6 +10,43 @@
     <link rel="shortcut icon" href="/css/img/logo-matchup.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+    {{-- PUSHER --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        var pusher = new Pusher('6eb6fee921b475b51b2d', {
+        cluster: 'ap1'
+        });
+
+        var privateChannel = pusher.subscribe('private.{{ Auth::user()->id }}');
+        privateChannel.bind('my-event', function(resp) {
+            Toastify({
+            text: resp.message, // Menggunakan resp.message untuk mengakses pesan notifikasi
+            duration: 3000,
+            newWindow: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#333", // Warna latar belakang dark
+                color: "#fff", // Warna teks putih
+                height: "50px",
+                "display": "flex",
+                "justify-content": "space-between",
+                "align-items": "center",
+                "border-radius": "8px",
+            },
+            close: true, // Aktifkan tombol close
+            className: "toast-custom",
+            onClick: function(){}
+        }).showToast();
+             // Gunakan resp.message untuk mengakses pesan notifikasi
+        });
+    </script>
 
 </head>
 <body>
@@ -164,6 +201,7 @@
     <script src="/js/notification.js"></script>
     <script src="/js/mapslist.js"></script>
     <script src="/js/searchhome.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>

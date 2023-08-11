@@ -78,8 +78,8 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$kompetisi->title}}</p>
                     <div class="w-75" >
-                        @if ($DateNow > $kompetisi->tanggal_pertandingan)
-                        <div class="age w-100">Selesai</div>   
+                    @if ($DateNow > $kompetisi->tanggal_pertandingan)
+                        <div class="access w-100">Selesai</div>   
                     @elseif ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow <= $sparring->tanggal_pertandingan)
                         <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  
                     @else

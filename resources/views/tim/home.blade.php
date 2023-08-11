@@ -8,6 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/tim.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
+        {{-- PUSHER --}}
+        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+        <script>
+    
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+    
+            var pusher = new Pusher('6eb6fee921b475b51b2d', {
+            cluster: 'ap1'
+            });
+    
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data));
+            });
+        </script>
 
 </head>
 <body>

@@ -15,6 +15,7 @@ class KompetisiSeeder extends Seeder
     {
         DB::table('kompetisi')->insert([
             'title' => 'Liga Malam Jumat',
+            'image' => 'download.jpg',
             'olahraga' => 'Sepak Bola',
             'deskripsi' => 'Liga Malam Jumat Bersama Coach Justin',
             'juara_pertama' => '20 Juta',
@@ -23,7 +24,7 @@ class KompetisiSeeder extends Seeder
             'lokasi' => 'Markas Sport Center',
             'max_member' => '50',
             'tingkatan' => '21+ Tahun',
-            'tanggal_pertandingan' => '12 September 2023',
+            'tanggal_pertandingan' => '2023-08-21',
             'harga_tiket' => '50000',
             'lama_pertandingan' => '90 Menit',
             'Waktu_pertandingan' => '18.00',
