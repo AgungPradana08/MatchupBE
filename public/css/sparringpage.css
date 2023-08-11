@@ -285,7 +285,7 @@ body {
     font-size: 12px;
 }
 
-.access, .age {
+.access, .age, .finish, .finish-s    {
     margin-right: 5px;
     text-align: center;
     display: inline-block;
@@ -298,6 +298,17 @@ body {
 .access {
     border: 3px solid #FE6B00;
     color: #FE6B00;
+}
+
+.finish {
+    border: 3px solid grey;
+    color: grey;
+}
+
+.finish-s {
+    border: 3px solid grey;
+    background-color: grey;
+    color: white
 }
 
 .age {

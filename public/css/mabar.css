@@ -302,13 +302,11 @@ body {
     font-size: 12px;
 }
 
-.access, .age {
-    margin-top: 3%;
+.access, .age, .finish, .finish-s    {
     margin-right: 5px;
     text-align: center;
     display: inline-block;
     border: 3px solid black;
-    width: 40%;
     font-size: 12px;
     font-family: opensans-bold;
     border-radius: 5px;
@@ -319,10 +317,17 @@ body {
     color: #FE6B00;
 }
 
-.age {
-    color: #8F8F8F;
-    border: solid #8F8F8F;
+.finish {
+    border: 3px solid grey;
+    color: grey;
 }
+
+.finish-s {
+    border: 3px solid grey;
+    background-color: grey;
+    color: white
+}
+
 .bottom-icon {
     display: inline-block;
     height: 20px;
