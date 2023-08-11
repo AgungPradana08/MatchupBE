@@ -336,6 +336,12 @@ body {
     color: white
 }
 
+.age {
+    color: #8F8F8F;
+    border: 3px solid #8F8F8F;
+}
+
+
 .bottom-icon {
     display: inline-block;
     height: 20px;

@@ -89,13 +89,13 @@
                         <div class="access w-100">Terbuka</div>  
                         @endif --}}
                         @if ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow > $mabar->tanggal_pertandingan)
-                            <div class="finish-s w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                            <div class="finish-s w-100 d-flex align-items-center justify-content-center">Selesai</div> 
                         @elseif ($DateNow > $mabar->tanggal_pertandingan && $mabar->joinedUsers->count() == 1)
-                            <div class="finish w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                            <div class="finish w-100 d-flex align-items-center justify-content-center">Selesai</div> 
                         @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
-                            <div class="access w-50 text-light" style="background: #FE6B00" >Penuh</div>  
+                            <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  
                         @else
-                            <div class="access w-50 " style="color: #FE6B00" >Terbuka</div> 
+                            <div class="access w-100 " style="color: #FE6B00" >Terbuka</div> 
                         @endif
                         <div class="age w-100">{{$mabar->tingkatan}} </div> 
                     </div>
