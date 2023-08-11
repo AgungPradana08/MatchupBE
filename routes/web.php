@@ -12,6 +12,8 @@ use App\Http\Controllers\KompetisiController;
 use App\Http\Controllers\UserMabarController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSparringController;
+use App\Http\Controllers\VerificationController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +45,10 @@ Route::get('/contact', function () {
     return view('dashboard.contact');
 });
 
+// Auth::routes(['verify' => true]);
 
-Route::middleware(['auth'])->group(function () {
-
+Route::middleware(['auth', 'verified'])->group(function () {
+    Auth::routes(['verify' => true]); 
     Route::prefix('/sparring')->group(function () {
         // Route::get('/home', [SparringController::class, 'index']); //home
         // Route::get('/tambahsparring', [SparringController::class, 'tambah']); //nambah data
@@ -102,7 +105,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/versus/{id}',[UserSparringController::class, 'versusedit']);
     });
 
-    Route::get('/sparring/home', [UserSparringController::class, 'index2']);
+    Route::get('/sparring/home', [UserSparringController::class, 'index2'])->name('sparring.home');
     Route::get('/sparring/search', [UserSparringController::class, 'search']);
 
     Route::prefix('/usermabar')->group(function () {
@@ -136,7 +139,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/tim/search', [UserTimController::class, 'search']);
 
+    Route::get('/registerr', [LoginController::class, 'showregister']);
+    Route::post('/registerr/store', [LoginController::class, 'register']);
+
 });
+
+Route::get('/verify-email', [VerificationController::class, 'showVerificationForm'])->name('verification.notice');
+Route::get('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
+Route::post('/verify-email/resend', [VerificationController::class, 'resend'])->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
+// Auth::routes();
 
 Route::get('/login', [LoginController::class, 'showlogin'])->name('login');
 Route::post('/login/store', [LoginController::class, 'login']);
@@ -144,10 +155,11 @@ Route::post('/login/store', [LoginController::class, 'login']);
 Route::get('/register', [LoginController::class, 'showregister']);
 Route::post('/register/store', [LoginController::class, 'register']);
 
-//testing
-Route::get('/registerr', [LoginController::class, 'showregister']);
-Route::post('/registerr/store', [LoginController::class, 'register']);
+// //testing
+// Route::get('/registerr', [LoginController::class, 'showregister']);
+// Route::post('/registerr/store', [LoginController::class, 'register']);
 
+// Auth::routes(['verify' => true]);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -164,3 +176,6 @@ Route::get('/testingapi', [SparringApiController::class, 'testingapi']);
 Route::get('/cuy', function () {
     return view('testingapi.home');
 });
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('homee');

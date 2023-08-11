@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Carbon;
 
 class UserSparringController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function index()
     {   
         // $usersparring = UserSparring::all();
