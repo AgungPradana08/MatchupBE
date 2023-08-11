@@ -176,6 +176,10 @@ Route::get('/testingapi', [SparringApiController::class, 'testingapi']);
 Route::get('/cuy', function () {
     return view('testingapi.home');
 });
+
+Route::get('/notification', function () {
+    return view('notifikasi.home');
+});
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('homee');
