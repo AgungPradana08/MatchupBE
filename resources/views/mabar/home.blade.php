@@ -33,7 +33,9 @@
           <a href="/userprofile/home" class="user-nav" style="text-decoration: none;">
             <span style="color: black;"><strong>Halo</strong>, {{ Auth::user()->username }}</span>
             <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
-            <img class="rounded-circle" src="/css/img/notification.png" style="object-fit: cover; object-position:center;" alt="">
+          </a>
+          <a class="user-nav" href="/notification">
+            <img id="notificationIcon" class="rounded-circle" src="/css/img/notification.png" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
     </nav>

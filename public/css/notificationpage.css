@@ -1,0 +1,48 @@
+@font-face {
+    font-family: opensans;
+    src: url(Font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(Font/OpenSans-Bold.ttf);
+}
+
+* {
+    font-family: opensans;
+    /* outline: 1px solid red; */
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-top: 12vh;
+    padding-bottom: 15px;
+}
+
+.box {
+    height: 70px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+
+}
+
+.image-logo {
+    height: 55px;
+    width: 55px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.navbar > .container-fluid {
+    color: white;
+    background-color: #FE6B00;
+
+
+}
+
+.bottom-border {
+    border-bottom: 3px solid #FE6B00;
+}

@@ -136,6 +136,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/tim/search', [UserTimController::class, 'search']);
 
+    Route::get('/notification', function () {
+        return view('notifikasi.home');
+    });
+
 });
 
 Route::get('/login', [LoginController::class, 'showlogin'])->name('login');
