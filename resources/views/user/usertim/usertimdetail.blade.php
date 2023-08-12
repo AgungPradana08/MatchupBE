@@ -138,10 +138,19 @@
                             <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
                                 <div class="ms-2">
                                     <h6 class="fw-bold m-0" >{{$player->name}}</h6>
-                                    <p class="m-0 text-muted" style="font-size: 12px" >Player</p>
+                                    @if ( $loop->index == 0 )
+                                        <p class="m-0 text-muted" style="font-size: 12px" >Host</p>
+                                    @else
+                                        <p class="m-0 text-muted" style="font-size: 12px" >Player</p>
+                                    @endif
                                 </div>
                             </div>
+                            @if ($loop->index == 0)
+                            <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                            @else
                             <a class="p-0 m-0" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                            @endif
+                            <p class="m-0 text-muted d-none" style="font-size: 12px">{{ $loop->index + 1 }}</p>
                         </div>
                     @endforeach
                     </div>
