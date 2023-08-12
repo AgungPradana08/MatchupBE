@@ -31,7 +31,16 @@ class UserTableSeeder extends Seeder
                 'email' => 'owo@gmail.com',
                 'email_verified_at' => '2023-08-12 00:32:11',
                 'password' => Hash::make('123456789'),
-                ],
+            ],
+
+            [
+                'username' => 'uwu',
+                'image' => 'ppblank.png',
+                'name' => 'UwU',
+                'email' => 'uwu@gmail.com', 
+                'email_verified_at' => '2023-08-12 00:32:11',
+                'password' => Hash::make('123456789'),
+            ],
         ]);
     }
 }
