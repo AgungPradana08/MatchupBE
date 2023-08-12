@@ -17,6 +17,13 @@
             </button>
         </form>
     </div> --}}
+    {{-- @if (auth()->check() && auth()->user()->hasVerifiedEmail())
+    <p>Anda sudah memverifikasi alamat email Anda.</p>
+    <p><a href="{{ route('sparring.home') }}">Lanjut ke Dashboard</a></p>
+@else
+    <p>Belum memverifikasi alamat email?</p>
+    <p><a href="{{ route('verification.notice') }}">Kembali ke Halaman Verifikasi</a></p>
+@endif --}}
     <div class="container-fluid vw-100 vh-100 background-display d-flex justify-content-center align-items-center">
         <div class="box bg-white p-3 d-flex flex-column align-items-center justify-content-evenly">
             <div class="d-flex flex-column align-items-center" >
