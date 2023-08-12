@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
             'image' => 'ppblank.png',
             'name' => 'Jokowi Dodo',
             'email' => 'owi@gmail.com',
+            'email_verified_at' => '2023-08-12 00:32:11',
             'password' => Hash::make('123456789'),
         ]);
     }

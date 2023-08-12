@@ -24,7 +24,7 @@
                 <h5>SIGN UP</h5>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
-                    <input id="UsernameInput" type="text" name="name" placeholder="Masukkan Username (maksimum 30)" maxlength="30" >
+                    <input id="UsernameInput" type="text" name="username" placeholder="Masukkan Username (maksimum 30)" maxlength="30" >
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/mail.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/user.png); background-position: center; background-size: contain; background-repeat: no-repeat; "></div>
-                    <input type="text" id="usernameinput" name="username" maxlength="30" placeholder="Masukkan Nama (maksimal 30)">
+                    <input type="text" id="usernameinput" name="name" maxlength="30" placeholder="Masukkan Nama (maksimal 30)">
                 </div> 
             </div>
             <div class="footer2">

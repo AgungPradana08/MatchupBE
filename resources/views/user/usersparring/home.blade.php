@@ -71,7 +71,7 @@
         @if ($notification->type === 'App\Notifications\EventNotification')
             <p>Data Add {{ $notification->data['eventname'] }}</p>
         @endif
-    @endforeach
+    @endforeach --}}
     
     </section> --}}
     <section class="container box-wrapper">
