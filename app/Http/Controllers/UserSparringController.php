@@ -41,16 +41,19 @@ class UserSparringController extends Controller
 
     public function tambah()
     {   
-        $user = Auth::user();
-        $usersparring = UserSparring::all();
-        $timyangdiikuti = $user->poststim->first();
-        $namatim = $timyangdiikuti->nama_tim;
 
-        if ($user->teams->isEmpty()) {
+        $user = Auth::user();
+
+         if ($user->teams->isEmpty()) {
             // Jika belum, arahkan user ke halaman tertentu atau tampilkan pesan peringatan
             return redirect()->route('usersparring.home')->with('notification', 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.');
         }
         
+        $usersparring = UserSparring::all();
+        $timyangdiikuti = $user->poststim->first();
+        $namatim = $timyangdiikuti->nama_tim;
+
+
         return view('user.usersparring.tambahsparringnew', compact(['usersparring', 'namatim']));
     }
 

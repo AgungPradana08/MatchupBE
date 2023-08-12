@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('password');
             $table->string('kode')->nullable();
             $table->string('skor')->default(100);
+            $table->string('deskripsi')->nullable()->default("Halo,saya pengguna baru match up");
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->string('gender')->nullable();
             $table->string('usia')->nullable();
             $table->string('berat_badan')->nullable();

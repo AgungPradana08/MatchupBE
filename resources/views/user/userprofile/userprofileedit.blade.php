@@ -50,7 +50,7 @@
                 </div>
                 <div class="input4">
                     <p class="m-0" >Deskripsi</p>
-                    <textarea class="p-2" value="" type="text" maxlength="255" placeholder="Input Deskripsi (maksimal 255)"></textarea>
+                    <textarea name="deskripsi" class="p-2" value="" type="text" maxlength="255" placeholder="Input Deskripsi (maksimal 255)">{{$userprofile->deskripsi}}</textarea>
                 </div>
             </div>
         </div>
@@ -60,16 +60,16 @@
             </div>
             <div id="wrapper1" class="form2-wrapper">
                 <div class="input1">
-                    <p class="m-0" >link Instagram</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <p class="m-0" >Akun Instagram (https://www.instagram.com/[username]/)</p>
+                    <input name="instagram" value="{{$userprofile->instagram}}"  type="text" placeholder="Input username akun Instagram..." >
                 </div>
                 <div class="input1">
-                    <p class="m-0" >link facebook</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <p class="m-0" >Akun facebook (https://web.facebook.com/[nama/username]) </p>
+                    <input  name="facebook" value="{{$userprofile->facebook}}" type="text" placeholder="Input nama akun Facebook..." >
                 </div>
                 <div class="input1">
-                    <p class="m-0" >link whatapps</p>
-                    <input  name="title" id="TitleInput" type="text" placeholder="Input nama pertandingan..." >
+                    <p class="m-0" >Akun whatapps (https://wa.me/[nomor pengguna])</p>
+                    <input  name="whatsapp" value="{{$userprofile->whatsapp}}" type="number" placeholder="Input nama nomor whatsapp..." >
                 </div>
             </div>
             
@@ -131,35 +131,6 @@
                     <p class="m-0" >Informasi Tambahan</p>
                     <textarea  class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."></textarea>
                 </div>
-            </div>
-        </div>
-        <div class="form4">
-            <div class="header">
-                Tentang Saya
-            </div>
-            <div class="form4-wrapper">
-                <div>
-                    <p class="m-0" >Olahraga</p>
-                    <select class="olahraga w-100 h-75 p-2" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
-                        <option value="">Pilih Cabang Olahraga...</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Renang">Renang</option>
-                    </select>
-                </div>
-                <textarea name="usia" class="p-2" type="number" id="myInput" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi olahraga favorit (maksimal 255)" maxlength="255"></textarea>
-                <div>
-                    <p class="m-0" >Status</p>
-                    <select class="status w-100 h-75 p-2" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
-                        <option value="">Pilih Cabang Olahraga...</option>
-                        <option value="Aktif">Aktif</option>
-                        <option value="Tidak Aktif">Tidak Aktif</option>
-                    </select>
-                </div>
-                <textarea name="usia" class="p-2" type="number" style="resize: none" value="{{$userprofile->usia}}" placeholder="Deskripsi status (maksimal 255)" maxlength="255"></textarea>
-
             </div>
         </div>
         <button class="add" type="submit" name="submit" onclick="RemoveSave()" value="save">Ubah</button>

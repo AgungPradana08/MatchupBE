@@ -9,12 +9,6 @@
     <link rel="stylesheet" href="/css/detailsparringnewnew.css">
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
-
-
-    [  user id pengguna] vs [3 user id sparring]
-
-    $user id
-    $user pengguna
 </head>
 <body>
     <div class="modal" id="report" tabindex="-1">
@@ -70,8 +64,8 @@
         <a class="detail" id="detail-bookmark" onclick="detailSparring()" href="#Detail">Detail</a>
 
         <div class="vs-away-home">
-            <div id="awayteam" class="vs-away"></div>
             <div id="hometeam" class="vs-home"></div>
+            <div id="awayteam" class="vs-away"></div>
         </div>
         <div class="vs-detail">
                 <div class="de-away me-5">
@@ -277,10 +271,10 @@
                             </tr>
                         </table>
                     </div>
-
-                    
-                    
-                        {{-- @if ($DateNow > $usersparring->tanggal_pertandingan)
+                    @if (Auth::user()->id == $usersparring->user_id)
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" style="visibility:hidden;" >AMBIL SPARRING</button>
+                    @else
+                        @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <form>
                             <button class="ambil bg-danger" >Sparring Selesai</button>
                         </form> 
@@ -291,12 +285,8 @@
                         </form>  
                         @else
                         <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >Ambil Sparring</button>
-                    @else --}}
-                    @if (Auth::user()->id == $usersparring->user_id)
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" style="visibility:hidden;" >AMBIL SPARRING</button>
-                    @else
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >AMBIL SPARRING</button>
-                    
+                        @endif
+                    @endif
                     <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
                         @csrf
                         <div class="modal" id="exampleModal" tabindex="-1">
@@ -357,7 +347,6 @@
                             </div>
                         </div>
                     </form>
-                    @endif
 
                     {{-- @if ($usersparring->joinedSparrings->count() == $usersparring->max_member)
                         @if ($DateNow > $sparring->tanggal_pertandingan)

@@ -27,13 +27,24 @@ class UserProfileController extends Controller
         // dd($request->all());
         $pengguna = User::find(Auth::user()->id);
 
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('image2', $file_name);
+        if ($request->hasFile('image')) {
+            // Jika pengguna mengunggah gambar baru
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('image2', $file_name);
+        } else {
+            // Jika pengguna tidak mengunggah gambar baru
+            // Gunakan foto yang sudah ada di database
+            $image = $pengguna->image;
+        }
 
         $pengguna->update([
             'image' => $image,
             $pengguna->name = $request->name,
             $pengguna->username = $request->username,
+            $pengguna->deskripsi = $request->deskripsi,
+            $pengguna->instagram = $request->instagram,
+            $pengguna->facebook = $request->facebook,
+            $pengguna->whatsapp = $request->whatsapp,
             $pengguna->gender = $request->gender,
             $pengguna->usia = $request->usia,
             $pengguna->berat_badan = $request->berat_badan,
