@@ -111,8 +111,8 @@ class UserSparringController extends Controller
              
         ]);
 
-        $UserTarget = 1;
-        $user = User::find($UserTarget);
+        // $UserTarget = 1;
+        // $user = User::find($UserTarget);
         // $post->joinedSparrings()->attach($pengguna->id);
         // if ($pengguna->SparringTims) {
         //     $post->teams()->attach($pengguna->SparringTims->id);
@@ -121,8 +121,8 @@ class UserSparringController extends Controller
         $usertimId = $pengguna->usertim->id;
         $post->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $usertimId]);
 
-        $eventname = "tambah data";
-        Notification::send($user, new EventNotification($eventname));
+        // $eventname = "tambah data";
+        // Notification::send($user, new EventNotification($eventname));
         
         session()->flash('notification', 'Sparring berhasil ditambahkan');
         return redirect('/usersparring/home');

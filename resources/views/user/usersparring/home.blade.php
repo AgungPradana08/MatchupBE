@@ -66,14 +66,14 @@
             <button style="grid-area: button;">CARI</button>
         </form>
     </section>
-    <section>
+    {{-- <section>
         @foreach ($user->notifications as $notification)
         @if ($notification->type === 'App\Notifications\EventNotification')
             <p>Data Add {{ $notification->data['eventname'] }}</p>
         @endif
     @endforeach
     
-    </section>
+    </section> --}}
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
         <div class="box shadow-ms ">
