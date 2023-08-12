@@ -67,11 +67,11 @@
         </form>
     </section>
     <section>
-        @foreach ($user->notifications as $notification)
+        {{-- @foreach ($user->notifications as $notification)
         @if ($notification->type === 'App\Notifications\EventNotification')
             <p>Data Add {{ $notification->data['eventname'] }}</p>
         @endif
-    @endforeach
+    @endforeach --}}
     
     </section>
     <section class="container box-wrapper">
