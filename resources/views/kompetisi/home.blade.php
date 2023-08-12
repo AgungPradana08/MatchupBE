@@ -81,12 +81,21 @@
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
                     <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$kompetisi->title}}</p>
                     <div class="w-75" >
-                    @if ($DateNow > $kompetisi->tanggal_pertandingan)
+                    {{-- @if ($DateNow > $kompetisi->tanggal_pertandingan)
                         <div class="access w-100">Selesai</div>   
                     @elseif ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow <= $sparring->tanggal_pertandingan)
                         <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  
                     @else
                         <div class="access w-100">Terbuka</div>  
+                    @endif --}}
+                    @if ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow > $kompetisi->tanggal_pertandingan)
+                        <div class="finish-s w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                    @elseif ($DateNow > $kompetisi->tanggal_pertandingan && $kompetisi->joinedKompetisi->count() == 1)
+                        <div class="finish w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                    @elseif ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow <= $kompetisi->tanggal_pertandingan)
+                        <div class="access w-50 text-light" style="background: #FE6B00" >Penuh</div>  
+                    @else
+                        <div class="access w-50 " style="color: #FE6B00" >Terbuka</div> 
                     @endif
                         <div class="age w-100">{{$kompetisi->tingkatan}}</div> 
                     </div>

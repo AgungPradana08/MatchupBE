@@ -11,6 +11,44 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
+    <div class="modal" id="reportuser" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Laporkan Pengguna <strong>$nama_pengguna</strong>?
+              </h5>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-wrapper">
+                <div class="d-flex align-items-center" style="grid-area: report1">
+                    <input type="checkbox" id="report1" name="report1" value="Bike">
+                    <label for="report1"> Pengguna Negatif</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report2">
+                    <input type="checkbox" id="report2" name="report2" value="Bike">
+                    <label for="report2"> Logo/nama tidak pantas</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report3">
+                    <input type="checkbox" id="report3" name="report3" value="Bike">
+                    <label for="report3"> Tidak Sportif</label><br>
+                </div>
+                <div class="d-flex align-items-center" style="grid-area: report4">
+                    <input type="checkbox" id="report4" name="report4" value="Bike">
+                    <label for="report4"> Tidak membayar</label><br>
+                </div>
+                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     <div class="modal" id="report" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: 32vw" >
@@ -95,13 +133,16 @@
                             </div>
                          @endif --}}
                     @foreach ($usertim->playersTim as $player)
-                    <div class="member">
-                        <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
-                        <div class="ms-2">
-                            <h6 class="m-0 fw-bold" >{{$player->name}}</h6>
-                            <p class="m-0 text-muted" >Member</p>
+                         <div class="member d-flex align-items-center justify-content-between px-2">
+                            <div class="d-flex align-items-center" >
+                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                                <div class="ms-2">
+                                    <h6 class="fw-bold m-0" >{{$player->name}}</h6>
+                                    <p class="m-0 text-muted" style="font-size: 12px" >Player</p>
+                                </div>
+                            </div>
+                            <a class="p-0 m-0" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
                         </div>
-                    </div>
                     @endforeach
                     </div>
                 </div>

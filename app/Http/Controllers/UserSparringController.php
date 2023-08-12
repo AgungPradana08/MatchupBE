@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Events\JoinNotification;
+use Pusher\Pusher;
 use App\Models\User;
 use App\Models\UserSparring;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\EventNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Events\JoinNotification;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Carbon;
-use Pusher\Pusher;
+use App\Notifications\EventNotification;
+use Illuminate\Support\Facades\Notification;
 
 class UserSparringController extends Controller
 {   
@@ -307,7 +308,11 @@ class UserSparringController extends Controller
                 
                 $penerimaid = "1";
                 $data = "seseorang telah bergabung dengan event sparringmu(Private)";
+                $data = "seseorang telah bergabung dengan event sparringmu";
+
                 $pusher->trigger("private.$penerimaid", "my-event", ['message' => $data]);
+
+
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda sudah terdaftar sebagai peserta Sparring ini!');
             }
         } else {
