@@ -73,17 +73,17 @@
             <span class="username" >{{$pengguna->name}} </span>
             <span class="name" >{{$pengguna->username}}</span>
             <hr>
-            <span class="deskripsi" >Deskripsi</span>
+            <span class="deskripsi" >{{$pengguna->deskripsi}}</span>
             <div class="social">
                 
                 {{-- WOI INI SOCIALNYA GA BISA DIPENCET --}}
-                <a class="instagram">
+                <a href="https://www.instagram.com/{{$pengguna->instagram}}/" class="instagram">
 
                 </a>
-                <a class="facebook">
+                <a href="https://web.facebook.com/{{$pengguna->facebook}}" class="facebook">
 
                 </a>
-                <a class="whatapps">
+                <a href="https://wa.me/{{$pengguna->whatsapp}}" class="whatapps">
 
                 </a>
             </div>
