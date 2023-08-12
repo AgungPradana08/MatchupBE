@@ -273,18 +273,25 @@
                         </table>
                     </div>
 
-
-                    @if ($DateNow > $usersparring->tanggal_pertandingan)
-                    <form>
-                        <button class="ambil bg-danger" >Sparring Selesai</button>
-                    </form> 
-                    @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
-                    <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
-                        @csrf
-                        <button class="ambil" >Sparring Penuh</button>
-                    </form>  
+                    
+                    
+                        {{-- @if ($DateNow > $usersparring->tanggal_pertandingan)
+                        <form>
+                            <button class="ambil bg-danger" >Sparring Selesai</button>
+                        </form> 
+                        @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
+                        <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
+                            @csrf
+                            <button class="ambil" >Sparring Penuh</button>
+                        </form>  
+                        @else
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >Ambil Sparring</button>
+                    @else --}}
+                    @if (Auth::user()->id == $usersparring->user_id)
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" style="visibility:hidden;" >AMBIL SPARRING</button>
                     @else
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >Ambil Sparring</button>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" >AMBIL SPARRING</button>
+                    
                     <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
                         @csrf
                         <div class="modal" id="exampleModal" tabindex="-1">

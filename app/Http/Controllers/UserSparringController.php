@@ -20,7 +20,7 @@ class UserSparringController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    public function index()
+    public function index() 
     {   
         // $usersparring = UserSparring::all();
         $user = User::find(1);
