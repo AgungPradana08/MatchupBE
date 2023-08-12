@@ -196,7 +196,7 @@ class UserTimController extends Controller
                 }
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $tim->joinedPlayers()->attach($pengguna->id);
-                event(new JoinNotification($pengguna . "telah bergabung tim anda "));
+                // event(new JoinNotification($pengguna . "telah bergabung tim anda "));
                 return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda telah bergabung dengan Tim!');
             } else {
                 return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Anda sudah terdaftar sebagai peserta Tim ini!');

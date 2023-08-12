@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('kode')->nullable();
+            $table->string('skor')->default(100);
             $table->string('gender')->nullable();
             $table->string('usia')->nullable();
             $table->string('berat_badan')->nullable();

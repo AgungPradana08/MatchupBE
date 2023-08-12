@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 
+
+    [  user id pengguna] vs [3 user id sparring]
+
+    $user id
+    $user pengguna
 </head>
 <body>
     <div class="modal" id="report" tabindex="-1">
