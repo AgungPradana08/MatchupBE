@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <div class="modal" id="MapsInput" tabindex="-1">
+<div class="modal" id="MapsInput" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content" >
             <div class="modal-header bg-primary-mu">
@@ -75,7 +75,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
                     <p class="m-0" >Nama Tim</p>
-                    <input name="nama_tim" value="{{$namatim}}" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" readonly >
+                    <input name="nama_tim" value="{{$timyangdiikuti->nama_tim}}" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" readonly >
                 </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>
@@ -83,14 +83,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <select  id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
-                        <option value="" >Pilih Olahraga...</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Renang">Renang</option>
-                    </select>
+                    <input  id="OlahragaSelect" value="{{ $timyangdiikuti->olahraga }}"  name="olahraga" class="title2" type="text" placeholder="TWO" required readonly>
                 </div>
                 <div class="input3">
                     <p class="m-0" >Deskrispi</p>

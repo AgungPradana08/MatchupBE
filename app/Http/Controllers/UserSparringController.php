@@ -51,10 +51,14 @@ class UserSparringController extends Controller
         
         $usersparring = UserSparring::all();
         $timyangdiikuti = $user->poststim->first();
-        $namatim = $timyangdiikuti->nama_tim;
+        // $namatim = $timyangdiikuti->nama_tim;
+
+        // $user = User::find(); // Mendapatkan objek user dengan ID 1
+        // $timyangdiikuti = $user->poststim()->get();  
+        // $namatim = $timyangdiikuti->nama_tim;
 
 
-        return view('user.usersparring.tambahsparringnew', compact(['usersparring', 'namatim']));
+        return view('user.usersparring.tambahsparringnew', compact(['usersparring', 'timyangdiikuti']));
     }
 
     public function store(Request $request)

@@ -73,7 +73,7 @@
         @endif
     @endforeach --}}
     
-    </section> --}}
+    </section>
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
         <div class="box shadow-ms ">

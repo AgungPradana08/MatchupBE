@@ -159,12 +159,35 @@ hr {
 
 }
 
+.image-box-modal {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
 .img-preview {
     position: absolute ;
     z-index: 5;
     display: block;
     width: 150px;
     height: 150px;
+    object-position: center;
+    object-fit: fill;
+    border-radius: 100%;
+}
+
+.img-preview-modal {
+    position: absolute ;
+    z-index: 5;
+    display: block;
+    width: 120px;
+    height: 120px;
     object-position: center;
     object-fit: fill;
     border-radius: 100%;
@@ -321,10 +344,6 @@ table {
     display: flex;
 }
 
-table {
-    padding: 2%;
-}
-
 .activity-wrapper {
     box-sizing: border-box;
     height: 80%;
@@ -347,6 +366,15 @@ table {
     text-decoration: underline;
     background: transparent;
     border: transparent;
+}
+
+.icon {
+    height: 40px;
+    width: 100px;
+    background-color: grey;
+    display: inline-block;
+    margin-right: 30px;
+
 }
 
 .icon {
@@ -410,6 +438,17 @@ span {
     font-size: 15px;
 }
 
+.username-modal {
+    margin-top: 3%;
+    font-family: opensans-bold;
+    font-size: 18px;
+}
+.name-modal {
+    margin-top: 2%;
+    font-family: opensans;
+    font-size: 15px;
+}
+
 .deskripsi {
     margin-top: 3%;
     opacity: 75%;
@@ -425,9 +464,9 @@ table {
 
 }
 
-.column, td {
+/* .column, td {
     width: 50%;
-}
+} */
 
 .column {
     display: flex;

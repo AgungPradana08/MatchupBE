@@ -425,7 +425,7 @@ p {
     grid-area: olahraga;
 }
 
-.input2 > select {
+.input2 > input {
     width: 100%;
     height: 60%;
     padding-left: 8px;
