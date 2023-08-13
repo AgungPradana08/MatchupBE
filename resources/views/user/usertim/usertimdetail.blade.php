@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -96,7 +96,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail Tim</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usertim->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -121,8 +121,8 @@
                 <hr>
                 <div class="left3">
                     <div style="display: flex; justify-content: space-between;" >
-                        <h4>Member Tim</h4>
-                        <h4>{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</h4>
+                        <h5>Member Tim</h5>
+                        <h5><strong style="font-family: opensans-bold;" >{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</strong></h5>
                     </div>
                     <div class="maps">
                         {{-- @if($usertim->hostTim)
@@ -163,14 +163,13 @@
                                                         <span class="deskripsi" >{{$player->deskripsi}}</span>
                                                         <div class="social">
                                                             
-                                                            {{-- WOI INI SOCIALNYA GA BISA DIPENCET --}}
-                                                            <a href="https://www.instagram.com/{{$player->instagram}}/" class="instagram">
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://www.instagram.com/' . $player->instagram : '#' }}" class="instagram">
                                             
                                                             </a>
-                                                            <a href="https://web.facebook.com/{{$player->facebook}}" class="facebook">
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://web.facebook.com/' . $player->facebook : '#' }}" class="facebook">
                                             
                                                             </a>
-                                                            <a href="https://wa.me/{{$player->whatsapp}}" class="whatapps">
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://wa.me/' . $player->whatsapp : '#' }}" class="whatapps">
                                             
                                                             </a>
                                                         </div>

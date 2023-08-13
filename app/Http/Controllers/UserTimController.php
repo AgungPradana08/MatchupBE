@@ -41,7 +41,7 @@ class UserTimController extends Controller
         $usertim = UserTim::find($id);
         $pengguna = intval($id);
 
-        // dd($usertim = UserTim::find($id)->playersTim);
+        // dd($usertim->user_id);
 
         // dd($pengguna,Auth::user()->id);
         return view('user.usertim.usertimdetail', compact(['usertim','origin']));

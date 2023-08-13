@@ -51,6 +51,8 @@ class UserSparringController extends Controller
         
         $usersparring = UserSparring::all();
         $timyangdiikuti = $user->poststim->first();
+
+  
         // $namatim = $timyangdiikuti->nama_tim;
 
         // $user = User::find(); // Mendapatkan objek user dengan ID 1
@@ -140,9 +142,12 @@ class UserSparringController extends Controller
     {
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($usersparringId);
+        $origin = Auth::user()->id;
+        
+
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -155,9 +160,17 @@ class UserSparringController extends Controller
     
     public function update($id, Request $request)
     {
-        $usersparring = UserSparring::find($id);
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('image2', $file_name);
+        $usersparring = User::find(Auth::user()->id);
+
+        if ($request->hasFile('image')) {
+            // Jika pengguna mengunggah gambar baru
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('image2', $file_name);
+        } else {
+            // Jika pengguna tidak mengunggah gambar baru
+            // Gunakan foto yang sudah ada di database
+            $image = $usersparring->image;
+        };
         
         // $usersparring->update($request -> except(['_token','submit',]));
         $usersparring->update([
@@ -298,7 +311,7 @@ class UserSparringController extends Controller
 
                     $sparring->joinedSparrings->first()->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
                 }
-                event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
+                // event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
                 $option = array(
