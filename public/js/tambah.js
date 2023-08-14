@@ -23,11 +23,11 @@ function inputolahgara() {
 }
 
 
-function mapsList(index) {
-  var locationInput = document.getElementById("locationtext");
-  locationInput.value = maps[index].lokasi
-  locationdisplay()
-}
+// function mapsList(index) {
+//   var locationInput = document.getElementById("locationtext");
+//   locationInput.value = maps[index].lokasi
+//   locationdisplay()
+// }
 
 
 function locationdisplay() {

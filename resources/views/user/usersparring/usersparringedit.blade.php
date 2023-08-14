@@ -47,14 +47,15 @@
         @method ('put')
         @csrf
         <div class="image-container">
-            <div class="image-box">
+            <div class="image-box" id="image-box" >
                 <img class="img-preview"  src="{{asset('storage/'. $usersparring->image)}}" style="object-fit: cover; object-position: center;">  
                 <div class="edit-image">
                     <label for="image">
-                    <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
+                      <img class="image-box-1" style="border-radius: 100%" height="35px" src="/css/img/add-image.jpg">
                     </label>
-                    <input oninput="InputChange()"  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
-                </div>
+                  
+                    <input  style="display: none" type="file" id="image" name="image" onchange="previewImage()">
+                  </div>
             </div>
         </div>
         <div class="form1">
@@ -63,7 +64,7 @@
             </div>
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
-                    <p class="m-0 p-0">Nama Sparring</p>
+                    <p class="m-0 p-0">Nama Tim</p>
                     <input name="nama_tim" maxlength="30" value="{{$usersparring->nama_tim}}" type="text" placeholder="Input nama Sparring (maksimal 30)" >
                 </div>
                 <div class="input1">
@@ -72,18 +73,11 @@
                 </div>
                 <div class="input2">
                     <p class="m-0 p-0">Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" disabled >
-                        <option value="{{$usersparring->olahraga}}" >{{$usersparring->olahraga}}</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Renang">Renang</option>
-                    </select>
+                    <input  oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usersparring->olahraga}}" class="title2" type="text" placeholder="TWO"  >
                 </div>
                 <div class="input3">
                     <p class="m-0 p-0">Deskrispi</p>
-                    <textarea name="deskripsi" class="p-2" id="DesInput" maxlength="255" type="text" value="{{$usersparring->deskripsi}}" placeholder="Input deskripsi pertandingan (maksimal 255)"></textarea>
+                    <textarea name="deskripsi" class="p-2" id="DesInput" maxlength="255" type="text" placeholder="Input deskripsi pertandingan (maksimal 255)">{{$usersparring->deskripsi}}</textarea>
                 </div>
             </div>
         </div>
@@ -104,7 +98,10 @@
                 <div class="input3">
                     <p class="m-0 p-0">Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
-                    <iframe id="frame-location" src=""></iframe>
+                    <iframe id="frame-location" src="{{ $usersparring->embed_lokasi }}"></iframe>
+                    <input type="text" class="d-none" name="detail_lokasi" value="{{ $usersparring->detail_lokasi }}" >
+                    <input type="text" class="d-none" name="embed_lokasi" value="{{ $usersparring->embed_lokasi }}" >
+
                     {{-- @endforeach --}}
                 </div>
                 
@@ -141,10 +138,13 @@
                 <div class="input2">
                     <p class="m-0 p-0">Harga</p>
                     <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" readonly >
+                    <input name="min_member" type="text" value="{{$usersparring->min_member}}" readonly >
+                    <input name="max_member" type="text" value="{{$usersparring->max_member}}" readonly >
+
                 </div>
                 <div class="input3">
                         <p class="m-0 p-0">Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}" disabled >
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usersparring->lama_pertandingan}}"  >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>

@@ -11,7 +11,7 @@ class LokasiController extends Controller
 {
     public function getdatalocation(){
         
-        $lokasi = DB::table('lokasi')->get();
+        $lokasi = DB::table('map')->get();
         return response()->json([
             'data' => $lokasi
         ]);

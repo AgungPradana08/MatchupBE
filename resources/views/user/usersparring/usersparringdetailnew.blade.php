@@ -182,7 +182,8 @@
                 <div class="maps pb-lg-5 pb-0">
                     <h4>Lokasi Sparring</h4>
                     <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
-                    <iframe id="MapDisplay" class="maps"></iframe>
+                    <p>{{$usersparring->detail_lokasi}}</p>
+                    <iframe id="MapDisplay" class="maps" src="{{$usersparring->embed_lokasi}}"></iframe>
                 </div>
                 <hr class=" d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">

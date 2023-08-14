@@ -99,7 +99,9 @@ class UserTimController extends Controller
 
     public function update($id, Request $request)
     {
-        $usertim = User::find(Auth::user()->id);
+        $usertim = UserTim::find(Auth::user()->id);
+
+
 
         if ($request->hasFile('image')) {
             // Jika pengguna mengunggah gambar baru

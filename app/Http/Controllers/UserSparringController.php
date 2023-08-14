@@ -74,6 +74,8 @@ class UserSparringController extends Controller
             'olahraga' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
+            'detail_lokasi' => 'required',
+            'embed_lokasi' => 'required',
             'min_member' => 'required',
             'max_member' => 'required',
             'tingkatan' => 'required',
@@ -109,6 +111,8 @@ class UserSparringController extends Controller
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi,
+            'embed_lokasi' => $request->embed_lokasi,
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
             'tingkatan' => $request->tingkatan,
@@ -160,18 +164,24 @@ class UserSparringController extends Controller
     
     public function update($id, Request $request)
     {
-        $usersparring = User::find(Auth::user()->id);
 
-        if ($request->hasFile('image')) {
-            // Jika pengguna mengunggah gambar baru
-            $file_name = $request->image->getClientOriginalName();
-            $image = $request->image->storeAs('image2', $file_name);
-        } else {
-            // Jika pengguna tidak mengunggah gambar baru
-            // Gunakan foto yang sudah ada di database
-            $image = $usersparring->image;
-        };
+        $usersparring = UserSparring::find($id);
+
+        $file_name = $request->image->getClientOriginalName();
+        $image = $request->image->storeAs('image2', $file_name);
+
+        // if ($request->hasFile('image')) {
+        //     // Jika pengguna mengunggah gambar baru
+
+        // } else {
+        //     // Jika pengguna tidak mengunggah gambar baru
+        //     // Gunakan foto yang sudah ada di database
+        //     $image = $usersparring->image;
+        // };
+
+        // dd($request->all());
         
+
         // $usersparring->update($request -> except(['_token','submit',]));
         $usersparring->update([
             'title' => $request->title,
@@ -180,6 +190,8 @@ class UserSparringController extends Controller
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi,
+            'embed_lokasi' => $request->embed_lokasi,
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
             'tingkatan' => $request->tingkatan,
@@ -189,6 +201,8 @@ class UserSparringController extends Controller
             'waktu_pertandingan' => $request->waktu_pertandingan,
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
         ]);
+
+        
 
         return redirect('/usersparring/home');
         

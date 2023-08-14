@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('olahraga');
             $table->string('deskripsi');
             $table->string('lokasi');
+            $table->string('detail_lokasi');
+            $table->string('embed_lokasi',350);
             $table->string('min_member');
             $table->string('max_member');
             $table->string('tingkatan');

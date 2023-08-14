@@ -20,6 +20,70 @@ var maps = [
     
 ];
 
+const api_url = "http://127.0.0.1:8000/api/getdatalocation";
+
+async function getapi(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        Callapi(data.data);
+        console.log(data)
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+function Callapi(data) {
+    const container = document.getElementById("table_data");
+
+    data.forEach(function(item) {
+        const mapBox = document.createElement("button");
+        mapBox.className = "maps-box p-3 b-0";
+        mapBox.dataset.filter = "markas";
+        mapBox.setAttribute("onclick", "mapsList(" + item.id + ")");
+        mapBox.dataset.bsDismiss = "modal";
+        mapBox.innerHTML = '<h6 id="mapslocation' + item.id + '" class="fw-bold">' + item.title_lokasi + '</h6>';
+        mapBox.innerHTML += '<p id="mapsdetail' + item.id + '" class="p-0 m-0" style="font-size: 10px;">' + item.detail_lokasi + '</p>';
+        mapBox.innerHTML += '<p id="mapsurl' + item.id + '" class="p-0 m-0 d-none">' + item.embed_google_map + '</p>';
+        container.appendChild(mapBox);
+    });
+}
+
+function mapsList(index) {
+    var locationInput = document.getElementById("locationtext");
+    var frame = document.getElementById("frame-location");
+    var detailinput = document.getElementById("locationtext_detail")
+    var detail_url = document.getElementById("frame_url")
+
+    var mapslocation = document.getElementById("mapslocation" + index);
+    var mapsdetail = document.getElementById("mapsdetail" + index);
+    var mapsurls = document.getElementById("mapsurl" + index);
+    
+    detail_url.value = mapsurls.innerHTML;
+    detailinput.value = mapsdetail.innerHTML;
+    locationInput.value = mapslocation.innerHTML;
+    frame.src = mapsurls.innerHTML;
+
+    locationdisplay();
+}
+
+
+function locationdisplay() {
+    console.log("Hello")
+
+
+
+
+    Price();
+}
+
+getapi(api_url);
+
+
 // JavaScript (jQuery)
 // $(document).ready(function() {
 //     // Mengambil data dari API saat halaman dimuat
