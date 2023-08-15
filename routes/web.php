@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\API\LokasiController;
-use App\Http\Controllers\api\SparringApiController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MabarController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserTimController;
 use App\Http\Controllers\SparringController;
 use App\Http\Controllers\KompetisiController;
-use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\UserMabarController;
+use App\Http\Controllers\API\LokasiController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserSparringController;
 use App\Http\Controllers\VerificationController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\api\SparringApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,6 +146,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //Page Notifikasi 
     Route::get('/notifikasi', [NotificationsController::class, 'index']);
+
+    Route::get('/notifikasi', [NotificationsController::class, 'index']);
+
+    Route::get('/checkout', [OrderController::class, 'index']);
+    Route::post('/checkout/store', [OrderController::class, 'checkout']);
 
 });
 
