@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('juara_kedua');
             $table->string('juara_ketiga');
             $table->string('lokasi');
+            $table->string('detail_lokasi');
+            $table->string('embed_lokasi');
             $table->string('max_member');
             $table->string('tingkatan')->nullable();
             $table->string('tanggal_pertandingan');
