@@ -20,8 +20,16 @@ class KompetisiController extends Controller
 
     public function detail($id)
     {
+
+        $DateNow = date('Y-m-d');
         $kompetisi = Kompetisi::find($id);
-        return view('kompetisi.kompetisidetail', compact(['kompetisi']));
+        $pengguna = Auth::user();
+        $origin = Auth::user()->id;
+        $kompetisi = Kompetisi::with('joinedKompetisi')->find($id);
+
+        $isJoined = $kompetisi->joinedKompetisi->contains('id', $pengguna->id);
+
+        return view('kompetisi.kompetisidetail', compact(['kompetisi','DateNow','pengguna','origin','isJoined']));
     }
 
     public function joinkompetisi($kompetisiId)

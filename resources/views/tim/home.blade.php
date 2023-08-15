@@ -86,9 +86,15 @@
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
                 <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ;">
-                <div class="title-box   " style="width: 55%;" >
+                <div class="title-box" style="width: 65%;" >
                     <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
-                    <p class="p-0 m-0" style="font-size: 18px; font-family: opensans-bold; margin-top: 3%;" >{{$tim->nama_tim}}</p>
+                    @if (strlen($tim->nama_tim) > 23)
+                    <p class="p-0 m-1" style="font-size: 10px; font-family: opensans-bold;line-height: 20px" >{{$tim->nama_tim}}</p>
+                    @elseif (strlen($tim->nama_tim) > 10)
+                    <p class="p-0 m-1" style="font-size: 15 px; font-family: opensans-bold;line-height: 20px" >{{$tim->nama_tim}}</p>
+                    @else
+                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$tim->nama_tim}}</p>
+                    @endif
                     <div class="w-75 d-flex">
                         @if ($tim->joinedPlayers->count() == $tim->max_member)
                             <div class="access w-50 text-light" style="background-color: #FE6B00" >Penuh</div>   

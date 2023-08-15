@@ -123,8 +123,12 @@
             <div class="box-top">
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-position: center; object-fit: cover;">
                 <div class="title-box ms-md-2" >
-                    <p class="m-0 " style="font-size: 12px;" >{{$sparring->olahraga}}</p>
-                    <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
+                    <p class="m-0 p-0" style="font-size: 12px;" >{{$sparring->olahraga}}</p>
+                    @if (strlen($sparring->title) > 23) 
+                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    @else
+                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    @endif
                     <div class="w-75 d-flex" >
                         {{-- @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
                             <div class="age w-50">Selesai</div>   

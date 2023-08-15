@@ -9,9 +9,11 @@
 }
 
 * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 /* NAVBAR */
+
+
 
 .report {
     height: 5vh;
@@ -141,9 +143,17 @@
     color: #FE6B00;
 }
 
-.access-badge > .two {
+.two {
+    height: 30px;
+    width: 50%;
     border: 3px solid #8F8F8F;
     color: #8F8F8F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-family: opensans-bold;
+
 }
 
 /* .box-content {

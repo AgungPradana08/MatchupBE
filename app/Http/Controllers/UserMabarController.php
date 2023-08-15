@@ -139,9 +139,13 @@ class UserMabarController extends Controller
     public function detail($id)
     {
         $origin = Auth::user()->id;
+        $DateNow = date('Y-m-d');
         $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);
         $pengguna = Auth::user();
-        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna','origin'));
+        $isJoined = $usermabar->joinedUsers->contains('id', $origin);
+
+        // dd($usermabar->joinedUsers->contains('id', $origin));
+        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna','origin','DateNow'));
     }
 
     public function edit($id)
@@ -153,7 +157,7 @@ class UserMabarController extends Controller
     
     public function update($id, Request $request)
     {
-        $usermabar = UserMabar::find(Auth::user()->id);
+        $usermabar = UserMabar::find($id);
 
         if ($request->hasFile('image')) {
             // Jika pengguna mengunggah gambar baru

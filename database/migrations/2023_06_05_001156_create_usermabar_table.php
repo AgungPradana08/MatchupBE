@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('detail_lokasi');
-            $table->string('embed_lokasi');
+            $table->string('embed_lokasi', 350);
             $table->string('min_member');
             // $table->integer('min_member')->default(1);
             $table->string('max_member');

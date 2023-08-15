@@ -86,8 +86,8 @@
                                 <p class="text-center" style="margin-top: 5%;">{{ $sparring->pivot->nama_tim_lawan }}</p>
                             </a>
                         @else
-                            <img src="" class="box-icon shadow rounded rounded-circle" alt="">
-                            <p style="margin-top: 5%;">???</p>
+                            {{-- <img src="" class="box-icon shadow rounded rounded-circle" alt="">
+                            <p style="margin-top: 5%;">???</p> --}}
                         @endif
                     @endforeach
                     @else
@@ -165,7 +165,7 @@
                 <div class="title">
                     <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usersparring->image)}}"  style="object-position: center; object-fit: cover;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0" >
-                        <h1>{{$usersparring->title}}</h1>
+                        <h1 class="fw-bold" >{{$usersparring->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain;"></div>
                             <span class="me-2">{{$usersparring->olahraga}}</span>
@@ -175,14 +175,13 @@
                 </div>
                 <hr>
                 <div class="description">
-                    <h4>Deskripsi Sparring</h4>
-                    <span class="des">{{$usersparring->deskripsi}}</span>
+                    <h5>Deskripsi Sparring</h5>
+                    <span class="des" style="font-size: 12px;" >{{$usersparring->deskripsi}}</span>
                 </div>
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
-                    <h4>Lokasi Sparring</h4>
-                    <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
-                    <p>{{$usersparring->detail_lokasi}}</p>
+                    <h5>Lokasi Sparring</h5>
+                    <p class="" style="font-size: 12px;" >{{$usersparring->detail_lokasi}}</p>
                     <iframe id="MapDisplay" class="maps" src="{{$usersparring->embed_lokasi}}"></iframe>
                 </div>
                 <hr class=" d-block d-lg-none">
@@ -194,10 +193,7 @@
                     <div class="access-phone d-block d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
                         <h1 class="m-0" >Rp. {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
-                        <div class="access-badge" >
-                            <div class="one">{{$usersparring->aksebilitas}}</div>
-                            <div class="two">{{ $usersparring->tingkatan }} Tahun</div>
-                        </div>
+                        <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <hr class=" d-block d-lg-none">
                     <div class="box-content d-block d-lg-none">
@@ -242,7 +238,7 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
-                        <h4>Biaya Pendaftaran</h4>
+                        <h5>Biaya Pendaftaran</h5>
                         <h1>Rp. {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
@@ -281,7 +277,7 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usersparring->user_id)
-                        <a href="/usersparring/{{$usersparring->SparringTims->id  }}/usersparringedit" style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >EDIT SPARRING</a>
+                        <a href="/usersparring/{{$usersparring->id  }}/usersparringedit" style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >EDIT SPARRING</a>
                     @else
                         @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <form>

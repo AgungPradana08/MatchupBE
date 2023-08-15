@@ -82,9 +82,13 @@
                     <div class="box-logo rounded-circle">
                         <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="" style="object-fit: cover; object-position: center;">
                     </div>
-                    <div style=" width: 60%;" class="letter-container pt-3 pt-lg-0" >
+                    <div style=" width: 100%;" class="letter-container pt-3 pt-lg-0" >
                         <p class="p-0 m-0" style="font-size: 12px; " >{{$usertim->olahraga}}</p>
-                        <p class="p-0 m-0" style="font-size: 20px; font-family: opensans-bold; margin-top: 3%;" >{{$usertim->nama_tim}}</p>
+                        @if (strlen($usertim->nama_tim) > 23) 
+                        <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
+                        @else
+                        <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
+                        @endif
                         <div>
                         @if ($usertim->joinedPlayers->count() == $usertim->max_member)
                             <div class="access text-light" style="background: #FE6B00" >Penuh</div>  

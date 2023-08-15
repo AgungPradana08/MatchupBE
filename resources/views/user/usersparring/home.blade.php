@@ -86,8 +86,12 @@
                 </div>
                 <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-fit: cover; object-position: center;" >
                 <div class="title-box  ms-0" >
-                    <p class="m-0 p-0" style="font-size: 12px; overflow: hidden;" >{{$sparring->olahraga}}</p>
-                    <p class="m-0 p-0" style="font-size: 20px; font-family: opensans-bold;" >{{$sparring->title}}</p>
+                    <p class="m-0 p-0" style="font-size: 12px;" >{{$sparring->olahraga}}</p>
+                    @if (strlen($sparring->title) > 23) 
+                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    @else
+                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    @endif
                     <div>
                         @if ($DateNow > $sparring->tanggal_pertandingan)
                         <div class="access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   

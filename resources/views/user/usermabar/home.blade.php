@@ -82,7 +82,7 @@
                     <div class="w-100" >
                         @if ($DateNow > $mabar->tanggal_pertandingan)
                         <div class="w-50 access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
-                    @elseif ($mabar->joinedUsers->count() == $mabar->max_member) && $DateNow <= $mabar->tanggal_pertandingan)
+                    @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
                         <div class="w-50 access text-light" style="background: #FE6B00" >Penuh</div>  
                     @else
                         <div class=" w-50 access">Terbuka</div>  
