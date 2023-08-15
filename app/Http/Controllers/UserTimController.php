@@ -32,6 +32,12 @@ class UserTimController extends Controller
 
     public function tambah()
     {
+        $user = Auth::user();
+
+        if ($user->skor < 75) {
+            return redirect()->route('tim.home')->with('notification', 'Anda Tidak di izinkan membuat Tim.');
+        }
+
         return view('user.usertim.tambahtim');
     }
 
@@ -244,6 +250,50 @@ class UserTimController extends Controller
         } else {
             return redirect()->route('tim.index')->with('error', 'Tim tidak ditemukan!');
         }
+    }
+
+    public function processForm(Request $request)
+    {
+    $namaInput = $request->input('user_id');
+    $checkboxInput = $request->input('reportuserpoint');
+
+    $user = User::find($namaInput);
+
+    if ($user) {
+        // Kurangkan skor pengguna
+        $user->skor -= $checkboxInput;
+
+        // Simpan perubahan pada database
+        $user->save();
+
+        return redirect()->back()->with('notification', 'Pengguna berhasil dilaporkan.');
+    } else {
+        return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+    }
+    
+    // Lakukan operasi yang diperlukan dengan data yang diterima dari formulir
+    }
+
+    public function reporttim(Request $request)
+    {
+    $TimInput = $request->input('reporttimid');
+    $checkboxTimInput = $request->input('ReportTimPoin');
+
+    $tim = UserTim::find($TimInput);
+
+    if ($tim) {
+        // Kurangkan skor pengguna
+        $tim->skor -= $checkboxTimInput;
+
+        // Simpan perubahan pada database
+        $tim->save();
+
+        return redirect()->back()->with('notification', 'Pengguna berhasil dilaporkan.');
+    } else {
+        return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+    }
+    
+    // Lakukan operasi yang diperlukan dengan data yang diterima dari formulir
     }
 
 

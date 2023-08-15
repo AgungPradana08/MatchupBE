@@ -25,8 +25,16 @@ class UserSparringController extends Controller
         // $usersparring = UserSparring::all();
         $user = User::find(1);
         $DateNow = date('Y-m-d');
+        $pengguna = Auth::user();
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
-        return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
+        
+        if ($pengguna->skor < 50) {
+            return view('/banscreen');
+        } else {
+            return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
+            
+        }
+        
     }
 
     public function index2(User $user)
@@ -43,6 +51,10 @@ class UserSparringController extends Controller
     {   
 
         $user = Auth::user();
+
+        if ($user->skor < 85) {
+            return redirect()->route('usersparring.home')->with('notification', 'Anda Tidak di izinkan membuat sparring.');
+        }
 
          if ($user->teams->isEmpty()) {
             // Jika belum, arahkan user ke halaman tertentu atau tampilkan pesan peringatan

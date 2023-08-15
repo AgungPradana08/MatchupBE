@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama_tim');
             $table->string('image');
             $table->string('olahraga')->nullable();
+            $table->string('skor')->default(50);
             $table->string('deskripsi');
             $table->string('max_member');
             $table->string('tingkatan')->nullable();

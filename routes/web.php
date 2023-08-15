@@ -16,6 +16,7 @@ use App\Http\Controllers\UserSparringController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\api\SparringApiController;
+use App\Http\Controllers\ReportPlayer;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,7 +113,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('/usermabar')->group(function () {
         Route::get('/search', [UserMabarController::class, 'search2']);
-        Route::get('/home', [UserMabarController::class, 'index']);
+        Route::get('/home', [UserMabarController::class, 'index'])->name('usermabar.home');
         Route::get('/tambah', [UserMabarController::class, 'tambah']);
         Route::post('/store', [UserMabarController::class, 'store']);
         Route::get('/{id}/usermabardetail', [UserMabarController::class, 'detail'])->name('mabar.detail');
@@ -120,6 +121,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{id}/usermabaredit', [UserMabarController::class, 'edit']);
         Route::put('/{id}',[UserMabarController::class, 'update']);
         Route::delete('/{id}',[UserMabarController::class, 'destroy']);
+        //CONTROLLER BARU
+        Route::post('/proses', [UserTimController::class, 'processForm'])->name('report.player');
+
         
     });
 
@@ -128,7 +132,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('/usertim')->group(function () {
         Route::get('/search', [UserTimController::class, 'search2']);
-        Route::get('/home', [UserTimController::class, 'index']);
+        Route::get('/home', [UserTimController::class, 'index'])->name('tim.home');
         Route::get('/tambahtim', [UserTimController::class, 'tambah']);
         Route::post('/tambahtim/store', [UserTimController::class, 'store']);
         Route::get('/{id}/usertimdetail', [UserTimController::class, 'detail'])->name('tim.detail');
@@ -137,6 +141,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{id}/usertimedit', [UserTimController::class, 'edit']);
         Route::put('/{id}',[UserTimController::class, 'update']);
         Route::delete('/{id}',[UserTimController::class, 'destroy']);
+        //CONTROLLER BARU
+        Route::post('/proses', [UserTimController::class, 'processForm'])->name('report.player');
+        Route::post('/prosestim', [UserTimController::class, 'reporttim'])->name('report.tim');
+
+
     });
 
     Route::get('/tim/search', [UserTimController::class, 'search']);
@@ -182,6 +191,11 @@ Route::get('/skuy', [SparringApiController::class, 'datasparringapi']);
 Route::get('/skuylah', [SparringApiController::class, 'getHelloFromApi']);
 
 Route::get('/testingapi', [SparringApiController::class, 'testingapi']);
+
+Route::get('/banscreen', function() {
+    return view('auth.ban');
+});
+
 
 Route::get('/cuy', function () {
     return view('testingapi.home');

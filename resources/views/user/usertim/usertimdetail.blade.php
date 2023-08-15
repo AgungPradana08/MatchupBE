@@ -11,84 +11,52 @@
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
-<body>
-
-    <div class="modal" id="reportuser" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered ">
-          <div class="modal-content" style="width: 32vw" >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class=" modal-title ">
-                Laporkan Pengguna <strong>$nama_pengguna</strong>?
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body modal-wrapper">
-                <div class="d-flex align-items-center" style="grid-area: report1">
-                    <input type="checkbox" id="report1" name="report1" value="Bike">
-                    <label for="report1"> Pengguna Negatif</label><br>
+<body> 
+    <form action="{{ route('report.tim')}}" method="post">
+        @csrf   
+        <div class="modal" id="report" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered ">
+              <div class="modal-content" style="width: 32vw" >
+                <div class="modal-header bg-primary-mu">
+                  <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                  <h5 class=" modal-title ">
+                    Laporkan Pemilik Tim <strong>{{$usertim->nama_tim}}</strong>?
+                  </h5>
+                  <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="d-flex align-items-center" style="grid-area: report2">
-                    <input type="checkbox" id="report2" name="report2" value="Bike">
-                    <label for="report2"> Logo/nama tidak pantas</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report3">
-                    <input type="checkbox" id="report3" name="report3" value="Bike">
-                    <label for="report3"> Tidak Sportif</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report4">
-                    <input type="checkbox" id="report4" name="report4" value="Bike">
-                    <label for="report4"> Tidak membayar</label><br>
-                </div>
-                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
-            </div>
-          </div>
-        </div>
-      </div>
+                <div class="modal-body modal-wrapper">
+                    <div class="d-flex align-items-center" style="grid-area: report1">
+                        <input type="checkbox" id="timuser1" onchange="CheckboxTim()" name="timuser1" value="2">
+                        <label for="timuser1"> Kata kasar/SARA</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report2">
+                        <input type="checkbox" id="timuser2" onchange="CheckboxTim()" name="timuser2" value="3">
+                        <label for="timuser2"> Logo/avatar tidak pantas</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report3">
+                        <input type="checkbox" id="timuser3" onchange="CheckboxTim()" name="timuser3" value="2">
+                        <label for="timuser3"> Spam</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report4">
+                        <input type="checkbox" id="timuser4" onchange="CheckboxTim()" name="timuser4" value="4">
+                        <label for="timuser4"> Spam</label><br>
+                    </div>
+                    <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+                    <input type="text" name="reporttimid" id="ReportPoin" value="{{ $usertim->id }}">
+                    <input type="text" name="ReportTimPoin" id="ReportTimPoin">
     
-    <div class="modal" id="report" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered ">
-          <div class="modal-content" style="width: 32vw" >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class=" modal-title ">
-                Laporkan Pemilik Tim <strong>{{$usertim->nama_tim}}</strong>?
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                  <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+                </div>
+              </div>
             </div>
-            <div class="modal-body modal-wrapper">
-                <div class="d-flex align-items-center" style="grid-area: report1">
-                    <input type="checkbox" id="report1" name="report1" value="Bike">
-                    <label for="report1"> Kata kasar/SARA</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report2">
-                    <input type="checkbox" id="report2" name="report2" value="Bike">
-                    <label for="report2"> Logo/avatar tidak pantas</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report3">
-                    <input type="checkbox" id="report3" name="report3" value="Bike">
-                    <label for="report3"> Spam</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report4">
-                    <input type="checkbox" id="report4" name="report4" value="Bike">
-                    <label for="report4"> penipuan</label><br>
-                </div>
-                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
-            </div>
-          </div>
         </div>
-      </div>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
+    </form>
+    
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Pengguna berhasil dilaporkan.'|| session('notification') === 'Pengguna berhasil dilaporkan.'|| session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -105,8 +73,13 @@
                 <div class="title">
                     <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usertim->image)}}" style="object-fit: cover; object-position: center;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
-                        <h1 class="fw-bold" >{{$usertim->nama_tim}}</h1>
-                        <div style="display: flex; align-items: center;" class="title-content">
+                        <h1 class="fw-bold p-0 m-0" >{{$usertim->nama_tim}}</h1>
+                        <div>
+                        @for ($i = 0; $i < $usertim->skor/10; $i++)
+                            <img style="height: 20px; width: 20px;" src="/css/img/fire.png" >
+                        @endfor 
+                        </div>
+                        <div style="display: flex; align-items: center;" class="title-content mt-2 ">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usertim->olahraga}} | </span> <span>{{$usertim->area_bermain}}</span>
                             
@@ -243,7 +216,51 @@
                             @if ($player->id == $origin)
                                 <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/report.png" alt=""></a>
                             @else
-                                <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                                <form action="{{ route('report.player')}}" method="POST" >
+                                    @csrf
+                                    <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+
+                                    <div class="modal" id="reportuser" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content" style="width: 32vw" >
+                                            <div class="modal-header bg-primary-mu">
+                                            <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                            <h5 class=" modal-title ">
+                                                Laporkan Pengguna <strong>{{ $player->name }}</strong>?
+                                            </h5>
+                                            <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body modal-wrapper">
+                                                <div class="d-flex align-items-center" style="grid-area: report1">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report1" name="report1" value="2">
+                                                    <label for="report1"> Pengguna Negatif</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report2">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report2" name="report2" value="3">
+                                                    <label for="report2"> Logo/nama tidak pantas</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report3">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report3" name="report3" value="2">
+                                                    <label for="report3"> Tidak Sportif</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report4">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report4" name="report4" value="3">
+                                                    <label for="report4"> Tidak membayar</label><br>
+                                                </div>
+                                                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+                                                <input type="text" id="user_id" name="user_id" value="{{ $player->id }}">
+                                                <input type="number"  id="reportuserpoint" name="reportuserpoint">
+
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                            <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </form>
                             @endif
                             <p class="m-0 text-muted d-none" style="font-size: 12px">{{ $loop->index + 1 }}</p>
                         </div>
@@ -375,6 +392,7 @@
         </form>
     </div>
     <section class="white-space" ></section>
+    <script src="/js/report.js"></script>
     <script src="/js/notification.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

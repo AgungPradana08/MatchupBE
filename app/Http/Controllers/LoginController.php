@@ -43,6 +43,12 @@ class LoginController extends Controller
         // $user = Auth::user();
         // session(['user_id' => $user->id]);
 
+        // $user = Auth::user();
+
+        // if ($user->skor < 50) {
+        //     return redirect()->route('usermabar.home')->with('notification', 'Anda Tidak di izinkan membuat Mabar.');
+        // }
+
         $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -57,6 +63,11 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
+            $user = Auth::user();
+            if ($user->skor < 50 || $user->status == "block") {
+                Auth::logout();
+                return redirect('/banscreen');
+            }
             return redirect('/sparring/home')->with('notification', 'Welcome');
         }else{
             //return 'gagal'

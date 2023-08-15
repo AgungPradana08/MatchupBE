@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Tim berhasil di tambah' || session('notification') === 'Tim berhasil di hapus' || session('notification') === 'Tim Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Anda Tidak di izinkan membuat Tim.' || session('notification') === 'Tim berhasil di tambah' || session('notification') === 'Tim berhasil di hapus' || session('notification') === 'Tim Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>

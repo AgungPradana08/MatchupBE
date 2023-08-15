@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Tim;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TimController extends Controller
 {
@@ -21,6 +21,7 @@ class TimController extends Controller
 
     public function tambah()
     {
+
         return view('tim.tambahtim');
     }
 }

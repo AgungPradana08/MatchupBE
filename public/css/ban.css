@@ -1,0 +1,34 @@
+@font-face {
+    font-family: opensans;
+    src: url(font/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-bold;
+    src: url(font/OpenSans-Bold.ttf);
+}
+
+* {
+    /* outline: 1px solid red; */
+}
+
+.container-fluid {
+    background: #FE6B00;
+    background-position: center;
+    background-size: cover;
+}
+
+.row {
+    border-radius: 8px;
+    color: white;
+}
+
+.ban-icon {
+    filter: brightness(0) invert(1);
+    height: 60px;
+    width: 60px; 
+    background-position: center;
+    background-image: url(img/ban.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

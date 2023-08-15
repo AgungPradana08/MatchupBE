@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('host_id')->nullable();
             $table->string('nama_tim');
             $table->string('image')->nullable();
+            $table->string('skor')->default(50);
             $table->string('olahraga')->nullable();
             $table->string('deskripsi');
             $table->string('max_member');

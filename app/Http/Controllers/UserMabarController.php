@@ -28,7 +28,13 @@ class UserMabarController extends Controller
 
     public function tambah()
     {
+        $user = Auth::user();
         $usermabar = UserMabar::all();
+
+        if ($user->skor < 75) {
+            return redirect()->route('usermabar.home')->with('notification', 'Anda Tidak di izinkan membuat Mabar.');
+        }
+
         return view('user.usermabar.usermabartambah', compact(['usermabar']));
     }
 
@@ -219,5 +225,25 @@ class UserMabarController extends Controller
         }
     }
 
-
+    public function processForm(Request $request)
+    {
+        $namaInput = $request->input('user_id');
+        $checkboxInput = $request->input('reportuserpoint');
+    
+        $user = User::find($namaInput);
+    
+        if ($user) {
+            // Kurangkan skor pengguna
+            $user->skor -= $checkboxInput;
+    
+            // Simpan perubahan pada database
+            $user->save();
+    
+            return redirect()->back()->with('notification', 'Pengguna berhasil dilaporkan.');
+        } else {
+            return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+        }
+        
+        // Lakukan operasi yang diperlukan dengan data yang diterima dari formulir
+    }
 }

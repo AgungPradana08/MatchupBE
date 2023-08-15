@@ -87,7 +87,14 @@
             <div class="box-top">
                 <img class="box-logo" src="{{asset ('storage/' . $tim->image)}}" alt="" style="object-position: center; object-fit: cover; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) ;">
                 <div class="title-box" style="width: 65%;" >
-                    <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
+                    <div class="d-flex justify-content-between" >
+                        <p class="p-0 m-0" style="font-size: 12px;" >{{$tim->olahraga}}</p>
+                        <div>
+                            @for ($i = 0; $i < $tim->skor/10; $i++)
+                            <img style="height: 15px; width: 15px;" src="/css/img/fire.png" >
+                        @endfor 
+                        </div>
+                    </div>
                     @if (strlen($tim->nama_tim) > 23)
                     <p class="p-0 m-1" style="font-size: 10px; font-family: opensans-bold;line-height: 20px" >{{$tim->nama_tim}}</p>
                     @elseif (strlen($tim->nama_tim) > 10)

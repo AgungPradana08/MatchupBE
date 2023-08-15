@@ -108,7 +108,7 @@
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
                     <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly required>
-                    <input id="locationtext_detail" class="d-none" name="detail_lokasi" type="text">
+                    <input id="locationtext_detail" class="d-none"   type="text">
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 mt-2  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button; height: 60%" >Masukkan Lokasi</a>
