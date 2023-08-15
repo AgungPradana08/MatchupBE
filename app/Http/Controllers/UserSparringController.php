@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 use Pusher\Pusher;
 use App\Models\User;
+use App\Models\Notifikasi;
 use App\Models\UserSparring;
 use Illuminate\Http\Request;
+use App\Events\SparringTaken;
 use Illuminate\Support\Carbon;
 use App\Events\JoinNotification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\EventNotification;
 use Illuminate\Support\Facades\Notification;
@@ -332,6 +335,18 @@ class UserSparringController extends Controller
                     'image_tim_lawan' => $imageTimLawan,
 
                 ]);
+
+                event(new SparringTaken(Auth::user(), $sparring));
+
+                 // Buat notifikasi
+                $sparringCreator = $sparring->user;
+                $notificationMessage = "Sparring yang Anda buat telah diambil oleh seseorang.";
+
+                $notification = new Notifikasi([
+                    'user_id' => $sparringCreator->id,
+                    'message' => $notificationMessage
+                ]);
+                $notification->save();
 
                 // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
                 if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
