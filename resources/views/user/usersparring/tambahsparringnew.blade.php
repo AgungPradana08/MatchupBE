@@ -183,7 +183,7 @@
                 <div class="input5">
                     <p class="m-0" >Informasi Tambahan</p>
                     <textarea maxlength="255"  class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan (maksimal 255)"></textarea>
-                </div>
+                </div> 
             </div>
         </div>
         <button class="add" type="submit" name="submit" value="save">TAMBAH</button>
