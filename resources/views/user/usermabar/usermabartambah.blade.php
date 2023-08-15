@@ -14,37 +14,39 @@
 
     <div class="modal" id="MapsInput" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content"  >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class="ps-2 modal-title ">
-                Masukkan Peta
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
-                <div id="table_data" class="w-100 maps-wrapper">
-                  <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
-                    <h6 class="fw-bold">Markas</h6>
-                    <p class="m-0" >Detail</p>
-                  </button>
-                  <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
-                    <h6 class="fw-bold">Berlian</h6>
-                    <p class="m-0" >Detail</p>
-                  </button>
-                  <button class="maps-box p-3 b-0" data-filter="lapangan" onclick="mapsList(2)" data-bs-dismiss="modal">
-                    <h6 class="fw-bold">Lapangan Besito</h6>
-                    <p class="m-0" >Detail</p>
-                  </button>
+            <div class="modal-content" >
+              <div class="modal-header bg-primary-mu">
+                <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                <h5 class="ps-2 modal-title ">
+                  Tambah Peta
+                </h5>
+                <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
+                  {{-- @foreach ($peta as $peta) --}}
+                  <div id="table_data" class="w-100 maps-wrapper">
+                          {{-- <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
+                              <h6 class="fw-bold">Markas Sport Center</h6>
+                              <p>Detail</p>
+                          </button> --}}
+                          {{-- <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
+                              <h6 class="fw-bold">Berlian Sport Center</h6>
+                              <p>Detail</p>
+                          </button>
+                          <button class="maps-box p-3 b-0" data-filter="lapangan_besito" onclick="mapsList(2)" data-bs-dismiss="modal">
+                              <h6 class="fw-bold">Lapangan Besito</h6>
+                              <p>Detail</p>
+                          </button> --}}
+                  </div>
+                  {{-- @endforeach --}}
                 </div>
-            </div>
-              
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+              </div>
             </div>
           </div>
-        </div>
         </div>
     </div>
 
@@ -111,7 +113,8 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" onchange="locationinput()" placeholder="Pilih lokasi mabar ..." readonly required>
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly required>
+                    <input id="locationtext_detail" class="d-none" name="detail_lokasi" type="text">
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 mt-2  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button; height: 55%" >Masukkan Lokasi</a>
@@ -122,6 +125,7 @@
                     <p class="m-0" >Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
                     <iframe id="frame-location" src=""></iframe>
+                    <input class="d-none" name="embed_lokasi" id="frame_url"  type="text">
                     {{-- @endforeach --}}
                 </div>
             </div>
@@ -163,7 +167,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." readonly required>
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..."  required>
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>

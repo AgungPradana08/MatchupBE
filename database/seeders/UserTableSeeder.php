@@ -16,31 +16,31 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-            'username' => 'Owi',
+            'username' => 'riko',
             'image' => 'ppblank.png',
-            'name' => 'Jokowi Dodo',
-            'email' => 'owi@gmail.com',
+            'name' => 'Radityaz',
+            'email' => 'rikoadityazaki@gmail.com',
             'email_verified_at' => '2023-08-12 00:32:11',
-            'password' => Hash::make('123456789'),
+            'password' => Hash::make('12345678'),
             ],
 
             [
-                'username' => 'owo',
+                'username' => 'reyhan',
                 'image' => 'ppblank.png',
-                'name' => 'Prabowo',
-                'email' => 'owo@gmail.com',
+                'name' => 'Reyhan Furry',
+                'email' => 'reyhangamingtop@gmail.com',
                 'email_verified_at' => '2023-08-12 00:32:11',
-                'password' => Hash::make('123456789'),
-            ],
-
-            [
-                'username' => 'uwu',
-                'image' => 'ppblank.png',
-                'name' => 'UwU',
-                'email' => 'uwu@gmail.com', 
-                'email_verified_at' => '2023-08-12 00:32:11',
-                'password' => Hash::make('123456789'),
-            ],
+                'password' => Hash::make('12345678'),
+                ],
+                
+                [
+                    'username' => 'rdyz',
+                    'image' => 'ppblank.png',
+                    'name' => 'RDYZ_',
+                    'email' => 'radityazgames@gmail.com',
+                    'email_verified_at' => '2023-08-12 00:32:11',
+                    'password' => Hash::make('12345678'),
+                ],
         ]);
     }
 }

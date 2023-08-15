@@ -15,13 +15,19 @@ function previewImage() {
       imgPreview.src = oFREvent.target.result;
   }
 }
+function inputolahgara() {
+  let selectOlahraga = document.getElementById("selectOlahraga");
+  let OlahragaInput = document.getElementById("OlahragaInput")
 
-
-function mapsList(index) {
-  var locationInput = document.getElementById("locationtext");
-  locationInput.value = maps[index].lokasi
-  locationdisplay()
+  OlahragaInput.value = selectOlahraga.value
 }
+
+
+// function mapsList(index) {
+//   var locationInput = document.getElementById("locationtext");
+//   locationInput.value = maps[index].lokasi
+//   locationdisplay()
+// }
 
 
 function locationdisplay() {

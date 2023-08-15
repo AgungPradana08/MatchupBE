@@ -57,7 +57,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/sparring/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail Sparring</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usersparring->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
         </div>
     </nav>
     <div id="Versus" class="container2">
@@ -68,29 +68,37 @@
             <div id="awayteam" class="vs-away"></div>
         </div>
         <div class="vs-detail">
-                <div class="de-away me-5">
-                    @if ($usersparring->joinedSparrings)
-                        @foreach ($usersparring->joinedSparrings as $sparring)
-                            @if ($sparring->pivot->nama_tim_lawan)
-                                <img src="{{asset('storage/'. $sparring->pivot->image_tim_lawan)}}" class="box-icon shadow rounded rounded-circle"  alt="">
-                                <p style="margin-top: 5%;">{{ $sparring->pivot->nama_tim_lawan }}</p>
-                            {{-- @else
-                                <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
-                                <p style="margin-top: 5%;">???</p> --}}
-                            @endif
-                        @endforeach
-                    @else
-                    <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
-                    <p style="margin-top: 5%;">???</p>
-                    @endif
-
-                </div>
+                <a style="text-decoration: none; color: black" href="/tim/{{ $usersparring->SparringTims->id }}/timdetail">
+                    <div class="de-away me-5">
+                        <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
+                        <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
+                    </div>
+                </a>
                 <div class="de-vs">
                     VS
                 </div>
                 <div class="de-home ms-5 ">
-                    <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
-                    <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
+                    @if (count($usersparring->joinedSparrings) > 0)
+                    @foreach ($usersparring->joinedSparrings as $sparring)
+                        @if ($sparring->pivot && strlen($sparring->pivot->image_tim_lawan) > 0)
+                            <a style="text-decoration: none; color: black" href="/tim/{{ $sparring->pivot->usertim_id }}/timdetail">
+                                <img src="{{ asset('storage/' . $sparring->pivot->image_tim_lawan) }}" class="box-icon shadow rounded rounded-circle" alt="">
+                                <p class="text-center" style="margin-top: 5%;">{{ $sparring->pivot->nama_tim_lawan }}</p>
+                            </a>
+                        @else
+                            <img src="" class="box-icon shadow rounded rounded-circle" alt="">
+                            <p style="margin-top: 5%;">???</p>
+                        @endif
+                    @endforeach
+                    @else
+                        <p>No joined sparrings available.</p>
+                    @endif
+                    {{-- @if ($usersparring->joinedSparrings)
+
+                    @else
+                    <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
+                    <p style="margin-top: 5%;">???</p>
+                    @endif --}}
                 </div>
                 {{-- <div class="de-detail">
                     <table>
@@ -174,7 +182,8 @@
                 <div class="maps pb-lg-5 pb-0">
                     <h4>Lokasi Sparring</h4>
                     <p class="des " id="detaillokasi" >{{$usersparring->lokasi}}</p>
-                    <iframe id="MapDisplay" class="maps"></iframe>
+                    <p>{{$usersparring->detail_lokasi}}</p>
+                    <iframe id="MapDisplay" class="maps" src="{{$usersparring->embed_lokasi}}"></iframe>
                 </div>
                 <hr class=" d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
@@ -272,7 +281,7 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usersparring->user_id)
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="ambil" style="visibility:hidden;" >AMBIL SPARRING</button>
+                        <a href="/usersparring/{{$usersparring->SparringTims->id  }}/usersparringedit" style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >EDIT SPARRING</a>
                     @else
                         @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <form>

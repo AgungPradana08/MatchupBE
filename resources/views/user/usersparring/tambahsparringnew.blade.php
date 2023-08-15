@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <div class="modal" id="MapsInput" tabindex="-1">
+<div class="modal" id="MapsInput" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content" >
             <div class="modal-header bg-primary-mu">
@@ -26,18 +26,18 @@
                 <input class="w-100 ps-3" type="text" id="searchinput" onkeyup="searchLocation()" placeholder="Masukkan Nama Lokasi" style="height: 10%; border: 3px solid #FFA767; border-radius: 8px" type="text">
                 {{-- @foreach ($peta as $peta) --}}
                 <div id="table_data" class="w-100 maps-wrapper">
-                        <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
+                        {{-- <button class="maps-box p-3 b-0" data-filter="markas" onclick="mapsList(0)" data-bs-dismiss="modal">
                             <h6 class="fw-bold">Markas Sport Center</h6>
                             <p>Detail</p>
-                        </button>
-                        <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
+                        </button> --}}
+                        {{-- <button class="maps-box p-3 b-0" data-filter="berlian" onclick="mapsList(1)" data-bs-dismiss="modal">
                             <h6 class="fw-bold">Berlian Sport Center</h6>
                             <p>Detail</p>
                         </button>
                         <button class="maps-box p-3 b-0" data-filter="lapangan_besito" onclick="mapsList(2)" data-bs-dismiss="modal">
                             <h6 class="fw-bold">Lapangan Besito</h6>
                             <p>Detail</p>
-                        </button>
+                        </button> --}}
                 </div>
                 {{-- @endforeach --}}
               </div>
@@ -75,7 +75,7 @@
             <div id="wrapper0" class="form1-wrapper">
                 <div class="input0">
                     <p class="m-0" >Nama Tim</p>
-                    <input name="nama_tim" value="{{$namatim}}" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" readonly >
+                    <input name="nama_tim" value="{{$timyangdiikuti->nama_tim}}" type="text" maxlength="30" placeholder="Input nama tim (maksimal 30)" readonly >
                 </div>
                 <div class="input1">
                     <p class="m-0" >Nama Pertandingan</p>
@@ -83,14 +83,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <select  id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" required>
-                        <option value="" >Pilih Olahraga...</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Renang">Renang</option>
-                    </select>
+                    <input  id="OlahragaSelect" value="{{ $timyangdiikuti->olahraga }}"  name="olahraga" class="title2" type="text" placeholder="TWO" required readonly>
                 </div>
                 <div class="input3">
                     <p class="m-0" >Deskrispi</p>
@@ -114,7 +107,8 @@
 
                 <div class="input1" style="grid-area: maps-detail;">
                     <p class="m-0" >Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly re>
+                    <input id="locationtext" name="lokasi" type="search" autocomplete="off" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly required>
+                    <input id="locationtext_detail" class="d-none" name="detail_lokasi" type="text">
                 </div>
                 <div class="d-flex align-items-center justify-content-center" >
                     <a data-bs-toggle="modal" data-bs-target="#MapsInput" class="w-100 mt-2  align-items-center justify-content-center add-maps d-none d-md-flex " style="grid-area: map-button; height: 60%" >Masukkan Lokasi</a>
@@ -125,6 +119,7 @@
                     <p class="m-0" >Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
                     <iframe id="frame-location" src=""></iframe>
+                    <input class="d-none" name="embed_lokasi" id="frame_url"  type="text">
                     {{-- @endforeach --}}
                 </div>
             </div>
@@ -169,7 +164,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
-                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..." readonly >
+                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..."  >
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>

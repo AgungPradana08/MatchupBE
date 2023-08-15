@@ -90,18 +90,11 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" disabled>
-                        <option value="{{$usertim->olahraga}}" >{{$usertim->olahraga}}</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Renang">Renang</option>
-                    </select>
+                    <input oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usertim->olahraga}}" class="title2" type="text" placeholder="TWO" disabled>
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>
-                    <textarea name="deskripsi" maxlength="255" id="DesInput" value="{{$usertim->deskripsi}}" type="text" placeholder="Input deskripsi tim (maksimal 255)" style="resize: none" ></textarea>
+                    <textarea name="deskripsi" maxlength="255" id="DesInput"  type="text" placeholder="Input deskripsi tim (maksimal 255)" style="resize: none" >{{$usertim->deskripsi}}</textarea>
                 </div>
             </div>
         </div>

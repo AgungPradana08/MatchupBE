@@ -41,12 +41,16 @@
     <div class="container"></div>
     <section class="container sparring-search " >
         <form action="/usertim/search" class="wrapper" method="get">
-            <a href="/usertim/tambahtim" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
-            <div style="grid-area: search1;" >
+            @if ($usertim->count() > 0)
+                <a class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center"  style="grid-area: add; opacity: 70%;">Maksimal Tim</a> 
+            @else
+                <a href="/usertim/tambahtim" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
+            @endif
+            <div style="grid-area: search1; visibility: hidden;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="masukkan nama">
             </div>
-            <div style="grid-area: search3;">
+            <div style="grid-area: search3; visibility: hidden;">
                 <div class="icon icon-sport"></div>
                 <select class="searchsport" name="olahraga" style="font-size: 13px" id="sparringsport" onchange="InputChange()" >
                     <option value="">Pilih Cabang Olahraga...</option>
@@ -57,7 +61,7 @@
                     <option value="Renang">Renang</option>
                 </select>
             </div>
-            <button style="grid-area: button;">CARI</button>
+            <button style="grid-area: button; visibility: hidden;">CARI</button>
         </form>
     </section>       
     </div>
@@ -92,6 +96,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
                 </div>
                 <div class="box-bottom">    
                     <div class="word-wrapper" style="height: 10vh; font-size: 12px" >{{$usertim->deskripsi}}</div>

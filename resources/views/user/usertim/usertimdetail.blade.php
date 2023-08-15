@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match Up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/userdetailnew.css">
     <link rel="stylesheet" href="/css/timdetail.css">
     <link rel="stylesheet" href="/css/notification.css">
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
+
     <div class="modal" id="reportuser" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: 32vw" >
@@ -86,7 +88,7 @@
           </div>
         </div>
       </div>
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -94,7 +96,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail Tim</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usertim->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -119,8 +121,8 @@
                 <hr>
                 <div class="left3">
                     <div style="display: flex; justify-content: space-between;" >
-                        <h4>Member Tim</h4>
-                        <h4>{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</h4>
+                        <h5>Member Tim</h5>
+                        <h5><strong style="font-family: opensans-bold;" >{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</strong></h5>
                     </div>
                     <div class="maps">
                         {{-- @if($usertim->hostTim)
@@ -135,9 +137,102 @@
                     @foreach ($usertim->playersTim as $player)
                          <div class="member d-flex align-items-center justify-content-between px-2">
                             <div class="d-flex align-items-center" >
-                            <img class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >
+                            <img class="member-logo rounded-circle" data-bs-toggle="modal" data-bs-target="#UserProfile{{ $player->id }}" src="{{asset('storage/'. $player->image)}}" style="object-fit: cover; object-position: center; cursor: pointer;" >
                                 <div class="ms-2">
-                                    <h6 class="fw-bold m-0" >{{$player->name}}</h6>
+                                    <h6 data-bs-toggle="modal" data-bs-target="#UserProfile{{ $player->id }}" class="fw-bold m-0" style="cursor: pointer" >{{$player->name}}</h6>
+                                    <form action="{{ route('tim.leave', ['id' => $usertim->id]) }}" method="POST">
+                                        @csrf           
+                                        <div class="modal" id="UserProfile{{ $player->id }}" tabindex="-1">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg" style="width: 80vw;height: 80vh">
+                                              <div class="modal-content" style="width: 100%; height: 80vh" >
+                                                <div class="modal-header text-light" style="background: #FE6B00" >
+                                                  <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                                  <h5 class=" modal-title ">
+                                                    Profile <strong>{{$player->name}}</strong>
+                                                  </h5>
+                                                  <button type="button" class="btn-close btn-close-white "data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" style="overflow-y: scroll; height: 100%;" >
+                                                    <div class="content-modal-size container d-flex flex-column justify-content-center align-items-center text-center">  
+                                                        <div class="image-box-modal" >
+                                                            <img class="img-preview-modal" width="50px" src="{{asset('storage/'. $player->image)}}" alt="" style="object-fit: cover; object-position: center;">  
+                                                        </div>
+                                                        <span class="username-modal " >{{$player->name}} </span>
+                                                        <span class="name" >{{$player->username}}</span>
+                                                        <hr>
+                                                        <span class="deskripsi" >{{$player->deskripsi}}</span>
+                                                        <div class="social">
+                                                            
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://www.instagram.com/' . $player->instagram : '#' }}" class="instagram">
+                                            
+                                                            </a>
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://web.facebook.com/' . $player->facebook : '#' }}" class="facebook">
+                                            
+                                                            </a>
+                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://wa.me/' . $player->whatsapp : '#' }}" class="whatapps">
+                                            
+                                                            </a>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="bio w-100">
+                                                            <div class="opening">
+                                                                Bio Data
+                                                            </div>
+                                                            <div >
+                                                                <table>
+                                                                    <tr>
+                                                                        <td class="bio1 " style="border-bottom: 2px solid black;">  
+                                                                            <div class="icon " style="background: url(/css/img/gender.png); background-size:contain; width: 30px; height:30px;"></div>
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;">
+                                                                            Gender
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;"  >
+                                                                            {{$player->gender}}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bio1"style="border-bottom: 2px solid black;">
+                                                                                <div class="icon" style="background: url(/css/img/age.png); background-size:contain; width: 30px; height:30px;" ></div>
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;" >
+                                                                            Usia
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;">
+                                                                            {{$player->usia}} Tahun
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bio1"style="border-bottom: 2px solid black;">
+                                                                                <div class="icon" style="background: url(/css/img/weight.png); background-size:contain; width: 30px; height:30px;" ></div>
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;" >
+                                                                            Berat Badan
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;" >
+                                                                            {{$player->berat_badan}} Kg
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="bio1"style="border-bottom: 2px solid black;">
+                                                                                <div class="icon" style="background: url(/css/img/height.png); background-size:contain; width: 30px; height:30px;"></div>
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;" >
+                                                                            Tinggi Badan
+                                                                        </td>
+                                                                        <td style="font-size: 13px; border-bottom: 2px solid black;">
+                                                                            {{$player->tinggi_badan}} CM
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div> 
+                                                    </div> 
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </form>
                                     @if ( $loop->index == 0 )
                                         <p class="m-0 text-muted" style="font-size: 12px" >Host</p>
                                     @else
@@ -145,10 +240,10 @@
                                     @endif
                                 </div>
                             </div>
-                            @if ($loop->index == 0)
-                            <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                            @if ($player->id == $origin)
+                                <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/report.png" alt=""></a>
                             @else
-                            <a class="p-0 m-0" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                                <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
                             @endif
                             <p class="m-0 text-muted d-none" style="font-size: 12px">{{ $loop->index + 1 }}</p>
                         </div>
@@ -167,10 +262,10 @@
                     <div class="box-content d-block d-lg-none">
                         <table>
                             <tr>
-                                <td>
+                                <td >
                                     <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"  ></div>
                                 </td>
-                                <td  style="font-family: opensans;">phone Number</td>
+                                <td style="font-family: opensans;">phone Number</td>
                             </tr>
                             <td>
                                 <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
@@ -202,29 +297,34 @@
                     <div class="box-content ">
                         <table>
                             <tr>
-                                <td>
+                                <td width="15%">
                                     <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"    ></div>
                                 </td>
-                                <td  style="font-family: opensans;">{{$usertim->nomor_telepon}}</td>
+                                <td width="85%" style="font-family: opensans;">{{$usertim->nomor_telepon}}</td>
                             </tr>
-                            <td>
-                                <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
-                            </td>
-                            <td style="font-family: opensans;" >{{$usertim->instagram}}</td>
-                        </tr>
-                        <td>
-                            <div class="icon mx-auto" style="background:  url(/css/img/whatapps.jpg); background-size: contain;"></div>
-                        </td>
-                        <td style="font-family: opensans;">{{$usertim->whatsapp}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="icon mx-auto" style="background:  url(/css/img/facebook.jpg); background-size: contain;"  ></div>
-                            </td>
-                            <td  style="font-family: opensans;">{{$usertim->facebook}}</td>
-                        </tr>
+                            <tr>
+                                <td width="15%">
+                                    <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
+                                </td>
+                                <td width="85%" style="font-family: opensans;" >{{$usertim->instagram}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <div class="icon mx-auto" style="background:  url(/css/img/whatapps.jpg); background-size: contain;"></div>
+                                </td>
+                                <td width="85%" style="font-family: opensans;">{{$usertim->whatsapp}}</td>
+                            </tr>
+                            <tr>
+                                <td width="15%">
+                                    <div class="icon mx-auto" style="background:  url(/css/img/facebook.jpg); background-size: contain;"  ></div>
+                                </td>
+                                <td width="85%"  style="font-family: opensans;">{{$usertim->facebook}}</td>
+                            </tr>
                         </table>
                     </div>
+                    @if (Auth::user()->id == $usertim->user_id)
+                    <a href="/usertim/{{ $usertim->id }}/usertimedit" style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Edit Tim</a>
+                    @else
                     @if (!$usertim->joinedPlayers->contains(Auth::user()->id))
                         @if ( $usertim->joinedPlayers->count() ==  $usertim->max_member)
                             <button class="ambil" >Tim Penuh</button>
@@ -262,6 +362,7 @@
                                 </div>
                               </div>
                         </form>
+                    @endif
                     @endif
                 </div>
             </div>

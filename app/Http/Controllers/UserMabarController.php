@@ -44,6 +44,8 @@ class UserMabarController extends Controller
             'olahraga' => 'required',
             'deskripsi' => 'required',
             'lokasi' => 'required',
+            'detail_lokasi' => 'required',
+            'embed_lokasi' => 'required',
             'min_member' => 'required',
             'max_member' => 'required',
             'tingkatan' => 'required',
@@ -64,6 +66,8 @@ class UserMabarController extends Controller
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi,
+            'embed_lokasi' => $request->embed_lokasi,
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
             'tingkatan' => $request->tingkatan,
@@ -134,9 +138,10 @@ class UserMabarController extends Controller
 
     public function detail($id)
     {
+        $origin = Auth::user()->id;
         $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);
         $pengguna = Auth::user();
-        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna'));
+        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna','origin'));
     }
 
     public function edit($id)
@@ -148,15 +153,26 @@ class UserMabarController extends Controller
     
     public function update($id, Request $request)
     {
-        $usermabar = UserMabar::find($id);
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('image4', $file_name);
+        $usermabar = UserMabar::find(Auth::user()->id);
+
+        if ($request->hasFile('image')) {
+            // Jika pengguna mengunggah gambar baru
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('image2', $file_name);
+        } else {
+            // Jika pengguna tidak mengunggah gambar baru
+            // Gunakan foto yang sudah ada di database
+            $image = $usermabar->image;
+        };
+
         $usermabar->update([
             'title' => $request->title,
             'image' => $image,
             'olahraga' => $request->olahraga,
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi,
+            'embed_lokasi' => $request->embed_lokasi,
             'min_member' => $request->min_member,
             'max_member' => $request->max_member,
             'tingkatan' => $request->tingkatan,

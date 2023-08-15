@@ -37,8 +37,14 @@ class UserTimController extends Controller
 
     public function detail($id)
     {
+        $origin = Auth::user()->id;
         $usertim = UserTim::find($id);
-        return view('user.usertim.usertimdetail', compact(['usertim']));
+        $pengguna = intval($id);
+
+        // dd($usertim->user_id);
+
+        // dd($pengguna,Auth::user()->id);
+        return view('user.usertim.usertimdetail', compact(['usertim','origin']));
     }
 
     public function store(Request $request)
@@ -93,10 +99,19 @@ class UserTimController extends Controller
 
     public function update($id, Request $request)
     {
-        $usertim = UserTim::find($id);
+        $usertim = UserTim::find(Auth::user()->id);
 
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('image2', $file_name);
+
+
+        if ($request->hasFile('image')) {
+            // Jika pengguna mengunggah gambar baru
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('image2', $file_name);
+        } else {
+            // Jika pengguna tidak mengunggah gambar baru
+            // Gunakan foto yang sudah ada di database
+            $image = $usertim->image;
+        };
         
         // $usersparring->update($request -> except(['_token','submit',]));
         $usertim->update([
