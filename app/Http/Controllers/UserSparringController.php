@@ -167,17 +167,17 @@ class UserSparringController extends Controller
 
         $usersparring = UserSparring::find($id);
 
-        $file_name = $request->image->getClientOriginalName();
-        $image = $request->image->storeAs('image2', $file_name);
 
-        // if ($request->hasFile('image')) {
-        //     // Jika pengguna mengunggah gambar baru
 
-        // } else {
-        //     // Jika pengguna tidak mengunggah gambar baru
-        //     // Gunakan foto yang sudah ada di database
-        //     $image = $usersparring->image;
-        // };
+        if ($request->hasFile('image')) {
+            // Jika pengguna mengunggah gambar baru
+            $file_name = $request->image->getClientOriginalName();
+            $image = $request->image->storeAs('image2', $file_name);
+        } else {
+            // Jika pengguna tidak mengunggah gambar baru
+            // Gunakan foto yang sudah ada di database
+            $image = $usersparring->image;
+        };
 
         // dd($request->all());
         
@@ -293,6 +293,11 @@ class UserSparringController extends Controller
         $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
 
         $userTim = $pengguna->teams->first();
+
+        if (!$userTim) {
+            return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!');
+        }
+        
         $usertimId = $userTim->id;
         $namaTimLawan = $userTim->nama_tim;
         $imageTimLawan = $userTim->image;

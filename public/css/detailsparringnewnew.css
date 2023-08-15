@@ -13,6 +13,18 @@
 }
 /* NAVBAR */
 
+.two {
+    width: 50%;
+    border: 3px solid #8F8F8F;
+    color: #8F8F8F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-family: opensans-bold;
+
+}
+
 .navbar-brand, .report {
     transition: 0.3s ease;
     transform: scale(1);
@@ -153,15 +165,16 @@ textarea {
 }
 
 .two {
-    height: 3.5vh;
-    display: grid;
-    font-size: 12px;
-    font-family: opensans-bold;
+    height: 30px;
+    width: 50%;
     border: 3px solid #8F8F8F;
     color: #8F8F8F;
-    width: 10vw;
-    border-radius: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-family: opensans-bold;
+
 }
 
 /* .box-content {

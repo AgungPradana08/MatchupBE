@@ -79,7 +79,11 @@
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $kompetisi->image)}}"  alt="">
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
-                    <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$kompetisi->title}}</p>
+                    @if (strlen($kompetisi->title) > 23) 
+                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
+                    @else
+                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
+                    @endif
                     <div class="w-75" >
                     {{-- @if ($DateNow > $kompetisi->tanggal_pertandingan)
                         <div class="access w-100">Selesai</div>   
@@ -89,13 +93,13 @@
                         <div class="access w-100">Terbuka</div>  
                     @endif --}}
                     @if ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow > $kompetisi->tanggal_pertandingan)
-                        <div class="finish-s w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                        <div class="finish-s w-100 d-flex align-items-center justify-content-center">Selesai</div> 
                     @elseif ($DateNow > $kompetisi->tanggal_pertandingan && $kompetisi->joinedKompetisi->count() == 1)
-                        <div class="finish w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                        <div class="finish w-100 d-flex align-items-center justify-content-center">Selesai</div> 
                     @elseif ($kompetisi->joinedKompetisi->count() == $kompetisi->max_member && $DateNow <= $kompetisi->tanggal_pertandingan)
-                        <div class="access w-50 text-light" style="background: #FE6B00" >Penuh</div>  
+                        <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  
                     @else
-                        <div class="access w-50 " style="color: #FE6B00" >Terbuka</div> 
+                        <div class="access w-100 " style="color: #FE6B00" >Terbuka</div> 
                     @endif
                         <div class="age w-100">{{$kompetisi->tingkatan}}</div> 
                     </div>

@@ -28,7 +28,9 @@ class UserMabar extends Model
 
     public function players()
     {
-        return $this->belongsToMany(User::class, 'matches_mabar', 'usermabar_id', 'user_id');
+        return $this->belongsToMany(User::class, 'matches_mabar', 'usermabar_id', 'user_id')
+        ->orderBy('matches_mabar.id');
+
     }
 
     public function getJoinedSlotsAttribute()

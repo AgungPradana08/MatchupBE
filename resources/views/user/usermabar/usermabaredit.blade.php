@@ -27,7 +27,11 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
               {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <form action="/usermabar/{{ $usermabar->id }}" method="post">
+                @csrf
+                @method('delete')
               <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              </form>
             </div>
           </div>
         </div>
@@ -68,18 +72,11 @@
                 </div>
                 <div class="input2">
                     <p class="p-0 m-0" >Olahraga</p>
-                    <select oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" disabled>
-                        <option value="{{$usermabar->olahraga}}" >{{$usermabar->olahraga}}</option>
-                        <option value="Sepak Bola">Sepak Bola</option>
-                        <option value="Futsal">Futsal</option>
-                        <option value="Ping Pong">Ping Pong</option>
-                        <option value="Badminton">Badminton</option>
-                        <option value="Renang">Renang</option>
-                    </select>
+                    <input value="{{$usermabar->olahraga}}" oninput="InputChange()" id="OlahragaSelect" name="olahraga" class="title2" type="text" placeholder="TWO" readonly>
                 </div>
                 <div class="input3-des">
                     <p class="p-0 m-0" >Deskrispi</p>
-                    <textarea name="deskripsi" class="p-3" id="DesInput" maxlength="255" type="text" value="{{$usermabar->deskripsi}}" placeholder="Input deskripsi pertandingan (maksimal 255)"></textarea>
+                    <textarea name="deskripsi" class="p-2" id="DesInput" maxlength="255" type="text" placeholder="Input deskripsi pertandingan (maksimal 255)">{{$usermabar->deskripsi}}</textarea>
                 </div>
             </div>
         </div>
@@ -89,18 +86,16 @@
             </div>
             <div id="wrapper1" class="form2-wrapper-e">
                 
-                <div class="input1">
-                    <p class="m-0 p-0">Rincian Lokasi</p>
-                    <input id="locationtext" name="lokasi" value="{{$usermabar->lokasi}}" type="search" autocomplete="off" list="location_list" type="text" onchange="mapsviews()" readonly  >
-                    <datalist id="location_list" >
-                        {{-- <option value="Markas">Markas Sport Center, Jalan Jendral Sudirman, Rendeng, Kudus Regency, Central Java</option>
-                        <option value="Berlian">Berlian Sport Centre, Jalan Lingkar Utara Kudus, Ledok, Karangmalang, Kabupaten Kudus, Jawa Tengah</option> --}}
-                    </datalist>
+                <div class="input1" style="grid-area: maps-detail;">
+                    <p class="m-0" >Rincian Lokasi</p>
+                    <input name="lokasi" type="search" autocomplete="off" value="{{ $usermabar->lokasi }}" list="location_list" type="text" placeholder="pilih lokasi sparring..." onchange="locationinput()" readonly required>
+                    <input class="d-none" value="{{ $usermabar->detail_lokasi }}" name="detail_lokasi" type="text">
                 </div>
-                <div class="input3">
-                    <p class="m-0 p-0">Peta</p>
+                <div style="grid-area: maps;" class="input3">
+                    <p class="m-0" >Peta</p>
                     {{-- @foreach ($usersparring as $usersparring) --}}
-                    <iframe id="frame-location" src=""></iframe>
+                    <iframe  src="{{ $usermabar->embed_lokasi }}"></iframe>
+                    <input class="d-none" value="{{ $usermabar->embed_lokasi }}" name="embed_lokasi" id="frame_url"  type="text">
                     {{-- @endforeach --}}
                 </div>
                 
@@ -113,8 +108,9 @@
             </div>
             <div id="wrapper2" class="form3-wrappers">
                 <div class="input2">
+                    <input oninput="InputChange()" id="MaxInput" name="min_member" type="text" placeholder="mimbember..." class="d-none" value="{{$usermabar->min_member}}" readonly >
                     <p class="p-0 m-0" >Maksimal Member</p>
-                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."  value="{{$usermabar->max_member}}" readonly >
+                    <input oninput="InputChange()" id="MaxInput" name="max_member" type="text" placeholder="max-member..."   value="{{$usermabar->max_member}}" readonly >
                 </div>
                 <div class="input4">
                     <p class="p-0 m-0" >Tingkatan-umur</p>
@@ -144,7 +140,7 @@
                 </div>
                 <div class="input3">
                         <p class="p-0 m-0" >Lama Pertandingan</p>
-                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usermabar->lama_pertandingan}}" disabled>
+                        <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2" type="text" placeholder="TWO" name="lama_pertandingan" value="{{$usermabar->lama_pertandingan}}" >
                             <option value="30 Menit">30 Menit</option>
                             <option value="60 Menit">60 Menit</option>
                             <option value="90 Menit">90 Menit</option>
@@ -154,11 +150,11 @@
                 </div>
                 <div class="input4">
                     <p class="p-0 m-0" >Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usermabar->waktu_pertandingan}}" disabled >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usermabar->waktu_pertandingan}}" readonly >
                 </div>
                 <div class="input5">
                     <p class="p-0 m-0" >Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..." value="{{$usermabar->deskripsi_tambahan}}" ></textarea>
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" placeholder="Input deskripsi pertandingan..."  >{{$usermabar->deskripsi_tambahan}}</textarea>
                 </div>
             </div>
         </div>

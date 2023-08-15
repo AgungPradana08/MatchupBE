@@ -106,7 +106,7 @@
                 <div class="title">
                     <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usermabar->image)}}"  style="object-position: center; object-fit: cover;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
-                        <h1><strong>{{$usermabar->title}}</strong></h1>
+                        <h1 class="fw-bold" >{{$usermabar->title}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usermabar->olahraga}}</span>
@@ -116,14 +116,14 @@
                 </div>
                 <hr>
                 <div class="description">
-                    <h4>Deskripsi Mabar</h4>
-                    <span class="des">{{$usermabar->deskripsi}}</span>
+                    <h5 class="fw-bold" >Deskripsi Mabar</h5>
+                    <span class="des" style="font-size: 12px;">{{$usermabar->deskripsi}}</span>
                 </div>
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
-                    <h4>Lokasi Mabar</h4>
-                    <p class="des " id="detaillokasi" >{{$usermabar->lokasi}}</p>
-                    <iframe id="MapDisplay" class="maps"></iframe>
+                    <h5 class="fw-bold" >Lokasi Mabar</h5>
+                    <p class="des " style="font-size: 12px;" id="detaillokasi" >{{$usermabar->detail_lokasi}}</p>
+                    <iframe id="MapDisplay" src="{{ $usermabar->embed_lokasi }}" class="maps"></iframe>
                 </div>
                 <hr class="d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
@@ -157,7 +157,7 @@
                 <hr class="d-block d-lg-none">
                     <div class="access-phone d-flex flex-column d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <div class="text-muted text-center" >/orang</div> </h1>
+                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted text-center" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <hr class="d-block d-lg-none">
@@ -203,8 +203,8 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
-                        <h5>Biaya Pendaftaran</h5>
-                        <h1>Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
+                        <h5 >Biaya Pendaftaran</h5>
+                        <h1 class="w-100 text-center " >Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
@@ -248,75 +248,75 @@
                     @if (Auth::user()->id == $usermabar->user_id)
                     <a href="/usermabar/{{ $usermabar->id }}/usermabaredit" style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Edit Tim</a>
                     @else
-                        @if ($usermabar->joinedUsers->count() == $usermabar->max_member )
-                            <button class="ambil" type="submit">Mabar Penuh</button>
+                        @if ($DateNow > $usermabar->tanggal_pertandingan)
+                            <a style="text-decoration: none; background: #8F8F8F" class="ambil d-flex align-items-center justify-content-center"  >Mabar Selesai</a>
+                        @elseif ($usermabar->joinedUsers->count() == $usermabar->max_member )
+                            <a style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Mabar Penuh</a>
+                        @elseif ($usermabar->joinedUsers->contains('id', $origin))
+                            <a style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Anda Telah Bergabung</a>
                         @else
-                            @if ($usermabar->joinedUsers->contains('user_id', $pengguna->id))
                             <button class="ambil" data-bs-toggle="modal" data-bs-target="#exampleModal" >Join Mabar</button>
-                            <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
-                                @csrf
-                                <div class="modal" id="exampleModal" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content" style="width: 32vw" >
-                                        <div class="modal-header bg-primary-mu">
-                                        <div class="blank logo-sm rounded-circle d-inline-block"></div>
-                                        <h5 class=" modal-title ">
-                                            Bergabung Mabar <strong>{{$usermabar->title}}</strong>?
-                                        </h5>
-                                        <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                <form action="{{ route('mabar.join', ['id' => $usermabar->id]) }}" method="POST">
+                                    @csrf
+                                    <div class="modal" id="exampleModal" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content" style="width: 32vw" >
+                                            <div class="modal-header bg-primary-mu">
+                                            <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                            <h5 class=" modal-title ">
+                                                Bergabung Mabar <strong>{{$usermabar->title}}</strong>?
+                                            </h5>
+                                            <button type="button" class="btn-close btn-close-white"data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <table class="m-0" width="100%">
+                                                        <tr>
+                                                            <th width="5%"></th>
+                                                            <th width="95%"></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
+                                                            </td>
+                                                            <td style="font-family: opensans-bold;">Tanggal Permainan</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
+                                                            </td>
+                                                            <td style="font-family: opensans-bold;">Jadwal Mabar</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
+                                                            </td>
+                                                            <td style="font-family: opensans-bold;">Lokasi Mabar</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td style="font-size: 13px;" id="locationTarget">{{$usermabar->lokasi}}</td>
+                                                        </tr>
+                                                    </table>
+                                                <hr>
+                                            <p> <strong style="color: red">Anda tidak akan bisa keluar setelah anda bergabung!!!</strong>, anda akan harus menunggu sampai mabar ini selesai</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Join</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                                <table class="m-0" width="100%">
-                                                    <tr>
-                                                        <th width="5%"></th>
-                                                        <th width="95%"></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="icon mx-auto" style="background: url(/css/img/calender.png); background-size: contain;"></div>
-                                                        </td>
-                                                        <td style="font-family: opensans-bold;">Tanggal Permainan</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
-                                                        </td>
-                                                        <td style="font-family: opensans-bold;">Jadwal Mabar</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td style="font-size: 13px;">{{$usermabar->lama_pertandingan}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="icon mx-auto" style="background: url(/css/img/target.png); background-size: contain;"></div>
-                                                        </td>
-                                                        <td style="font-family: opensans-bold;">Lokasi Mabar</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td style="font-size: 13px;" id="locationTarget">{{$usermabar->lokasi}}</td>
-                                                    </tr>
-                                                </table>
-                                            <hr>
-                                        <p> <strong style="color: red">Anda tidak akan bisa keluar setelah anda bergabung!!!</strong>, anda akan harus menunggu sampai mabar ini selesai</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Join</button>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                                </form>
-                            @else
-                            <button class="ambil" data-bs-toggle="modal" data-bs-target="#exampleModal" >Anda Telah Bergabung</button>  
-                            @endif
-                    @endif
+                                    </form>
+                        @endif
                     @endif
                 </div>
                 <div class="box2 d-none d-lg-block">
@@ -331,6 +331,16 @@
                             </div>
                             @endif
                         </div> --}}
+                        {{-- @foreach ($usermabar->players as $player)
+                        <div class="member">
+                            <img class="member-logo rounded-circle  " src="{{asset('storage/'. $player->image)}}"  style="object-fit: cover; object-position: center" >
+                            <div class="ms-2">
+                                <h6 class="m-0 fw-bold" >{{$player->name}}</h6>
+                                <p class="m-0 text-muted" >Player</p>
+                            </div>
+                        </div>
+                        @endforeach --}}
+
                         @foreach ($usermabar->players as $player)
                         <div class="member d-flex align-items-center justify-content-between px-2">
                             <div class="d-flex align-items-center" >

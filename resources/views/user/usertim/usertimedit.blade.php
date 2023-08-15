@@ -50,7 +50,11 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
               {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              <form action="/usertim/{{$usertim->id}}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              </form>
             </div>
           </div>
         </div>
@@ -90,7 +94,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <input oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usertim->olahraga}}" class="title2" type="text" placeholder="TWO" disabled>
+                    <input oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usertim->olahraga}}" class="title2" type="text" placeholder="TWO" readonlyB >
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>
@@ -110,7 +114,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Area Bermain</p>
-                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->max_member}}" name="area_bermain" type="text" placeholder="Masukkan kota area bermain..." readonly>
+                    <input oninput="InputChange()" id="MaxInput" value="{{$usertim->area_bermain}}" name="area_bermain" type="text" placeholder="Masukkan kota area bermain..." readonly>
                 </div>
                 <div class="input4">
                     <p class="m-0" >Tingkatan-umur</p>

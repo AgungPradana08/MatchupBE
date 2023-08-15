@@ -79,7 +79,11 @@
                 <img class="box-logo rounded-circle " src="{{asset('storage/'. $mabar->image)}}" style="object-position: center; object-fit: cover;" alt="">
                 <div class="title-box w-75 ms-md-2" >
                     <p class="m-0 p-0" style="font-size: 12px;" >{{$mabar->olahraga}}</p>
-                    <p class="m-0 p-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
+                    @if (strlen($mabar->title) > 23) 
+                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    @else
+                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    @endif
                     <div class="w-75">
                         {{-- @if ($DateNow > $mabar->tanggal_pertandingan)
                         <div class="age w-100">Selesai</div>   
@@ -90,7 +94,7 @@
                         @endif --}}
                         @if ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow > $mabar->tanggal_pertandingan)
                             <div class="finish-s w-100 d-flex align-items-center justify-content-center">Selesai</div> 
-                        @elseif ($DateNow > $mabar->tanggal_pertandingan && $mabar->joinedUsers->count() == 1)
+                        @elseif ($DateNow > $mabar->tanggal_pertandingan && $mabar->joinedUsers->count() !== $mabar->max_member)
                             <div class="finish w-100 d-flex align-items-center justify-content-center">Selesai</div> 
                         @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
                             <div class="access w-100 text-light" style="background: #FE6B00" >Penuh</div>  

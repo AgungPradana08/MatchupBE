@@ -99,7 +99,7 @@ class UserTimController extends Controller
 
     public function update($id, Request $request)
     {
-        $usertim = UserTim::find(Auth::user()->id);
+        $usertim = UserTim::find($id);
 
 
 

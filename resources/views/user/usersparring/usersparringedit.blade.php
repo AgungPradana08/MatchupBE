@@ -138,8 +138,8 @@
                 <div class="input2">
                     <p class="m-0 p-0">Harga</p>
                     <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" readonly >
-                    <input name="min_member" type="text" value="{{$usersparring->min_member}}" readonly >
-                    <input name="max_member" type="text" value="{{$usersparring->max_member}}" readonly >
+                    <input name="min_member" class="d-none" type="text" value="{{$usersparring->min_member}}" readonly >
+                    <input name="max_member"  class="d-none" type="text" value="{{$usersparring->max_member}}" readonly >
 
                 </div>
                 <div class="input3">
@@ -158,7 +158,7 @@
                 </div>
                 <div class="input5">
                     <p class="m-0 p-0">Informasi Tambahan</p>
-                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" value="{{$usersparring->deskripsi_tambahan}}" ></textarea>
+                    <textarea oninput="InputChange()" class="tambahaninfo" name="deskripsi_tambahan" id="TambahanDeskripsi" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)">{{$usersparring->deskripsi_tambahan}}</textarea>
                 </div>
             </div>
         </div>

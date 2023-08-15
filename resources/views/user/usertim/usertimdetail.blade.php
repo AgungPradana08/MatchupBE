@@ -103,9 +103,9 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="title">
-                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usertim->image)}}" >
+                    <img class="userlogo rounded-circle" src="{{asset ('storage/' . $usertim->image)}}" style="object-fit: cover; object-position: center;" >
                     <div class="ms-0 ms-sm-4 mt-3 mt-sm-0 " >
-                        <h1>{{$usertim->nama_tim}}</h1>
+                        <h1 class="fw-bold" >{{$usertim->nama_tim}}</h1>
                         <div style="display: flex; align-items: center;" class="title-content">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
                             <span class="me-2">{{$usertim->olahraga}} | </span> <span>{{$usertim->area_bermain}}</span>
@@ -115,13 +115,13 @@
                 </div>
                 <hr>
                 <div class="description">
-                    <h4>Deskripsi Mabar</h4>
-                    <span class="des">{{$usertim->deskripsi}}</span>
+                    <h5 class="fw-bold" >Deskripsi Tim</h5>
+                    <span style="font-size: 12px" class="des">{{$usertim->deskripsi}}</span>
                 </div>
                 <hr>
                 <div class="left3">
                     <div style="display: flex; justify-content: space-between;" >
-                        <h5>Member Tim</h5>
+                        <h5 class="fw-bold" >Member Tim</h5>
                         <h5><strong style="font-family: opensans-bold;" >{{ $usertim->joinedPlayers->count() }}/{{ $usertim->max_member }}</strong></h5>
                     </div>
                     <div class="maps">
@@ -253,7 +253,7 @@
                 <section class="white-space d-none d-lg-block" ></section> 
                 <hr class="d-block d-lg-none">
                     <div class="access-phone d-flex flex-column d-lg-none">
-                        <h4>Tingkatan</h4>
+                        <h5 class="" >Tingkatan</h5>
                         <div class="two">{{$usertim->tingkatan}}</div>
                         <h5 class="m-0 mt-3" >Bermain Sekitar</h5>
                         <h3 class="fw-bold m-0" style="color: #FE6B00" >Kudus</h3>
@@ -289,9 +289,9 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
-                        <h5>Tingkatan</h5>
+                        <h5 class="fw-bold" >Tingkatan</h5>
                         <div class="two" style="font-size: 15px" >{{$usertim->tingkatan}}</div>
-                        <h5 class="m-0 mt-3" >Radius Bermain</h5>
+                        <h5 class="m-0 mt-3 fw-bold" >Radius Bermain</h5>
                         <h3 class="fw-bold m-0" style="color: #FE6B00" >{{$usertim->area_bermain}}</h3>
                     </div>
                     <div class="box-content ">

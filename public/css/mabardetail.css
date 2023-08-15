@@ -9,7 +9,7 @@
 }
 
 * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 /* NAVBAR */
 
@@ -161,7 +161,8 @@ textarea {
 
 .access > h1 > span {
     font-family: opensans;
-    font-size: 15px;
+    font-size: 12px;
+    display: inline-block;
 }
 
 .two {
