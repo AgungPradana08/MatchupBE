@@ -71,6 +71,33 @@ function mapsList(index) {
     locationdisplay();
 }
 
+function searchLocation() {
+    // Ambil nilai dari input teks
+    var searchText = document.getElementById("searchinput").value.toLowerCase();
+    
+    // Ambil semua elemen lokasi
+    var locations = document.getElementsByClassName("maps-box");
+    
+    // Loop melalui elemen-elemen lokasi
+    for (var i = 0; i < locations.length; i++) {
+        var locationName = locations[i].querySelector("h6").textContent.toLowerCase();
+        
+        // Periksa apakah nama lokasi cocok dengan input teks
+        if (locationName.includes(searchText)) {
+            locations[i].style.display = "block"; // Tampilkan elemen
+        } else {
+            locations[i].style.display = "none"; // Sembunyikan elemen
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 function locationdisplay() {
     console.log("Hello")
