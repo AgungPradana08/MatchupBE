@@ -16,6 +16,7 @@ use App\Http\Controllers\UserSparringController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\api\SparringApiController;
+use App\Http\Controllers\NotifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,9 +146,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/registerr/store', [LoginController::class, 'register']);
 
     //Page Notifikasi 
-    Route::get('/notifikasi', [NotificationsController::class, 'index']);
+    Route::get('/notifikasi', [NotifikasiController::class, 'shownotifikasi']);
 
-    Route::get('/notifikasi', [NotificationsController::class, 'index']);
 
     Route::get('/checkout', [OrderController::class, 'index']);
     Route::post('/checkout/store', [OrderController::class, 'checkout']);
