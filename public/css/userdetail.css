@@ -110,7 +110,7 @@
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background-color: grey;
+    
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -124,7 +124,7 @@
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background-color: grey;
+    
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -191,7 +191,7 @@ td {
 }
 
 .social > a {
-    background-color: grey;
+    
     display: flex;
     align-items: center;
 }
@@ -200,7 +200,7 @@ td {
 .content-logo {
     height: 150px;
     width: 150px;
-    background-color: grey;
+    
     border-radius: 100%;
     
 }
@@ -269,7 +269,7 @@ td {
     
     height: 100px;
     width: 100px;
-    background-color: grey;
+    
     background: url(img/achievement.png);
     background-size: contain;
     background-position: center;
@@ -279,7 +279,7 @@ td {
     
     height: 100px;
     width: 100px;
-    background-color: grey;
+    
     background: url(img/pxg.png);
     border-radius: 100%;
     background-size: contain;
@@ -290,7 +290,7 @@ td {
     
     height: 100px;
     width: 100px;
-    background-color: grey;
+    
     background: url(img/futsal.jpg);
     background-size: contain;
     background-position: center;

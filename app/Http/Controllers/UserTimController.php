@@ -13,8 +13,10 @@ class UserTimController extends Controller
 {
     public function index()
     {
+        $DateNow = date('Y-m-d');
+
         $usertim = UserTim::where('user_id', session('user_id'))->get();
-        return view('user.usertim.home', compact(['usertim']));
+        return view('user.usertim.home', compact(['usertim','DateNow']));
     }
 
     public function index2(User $user)
@@ -152,14 +154,11 @@ class UserTimController extends Controller
         $usertim = UserTim::query();
 
         if ($searchtitle) {
-            $usertim->where('title', 'like', '%'.$searchtitle.'%');
+            $usertim->where('nama_tim', 'like', '%'.$searchtitle.'%');
         }
 
         if ($olahragaFilter) {
             $usertim->where('olahraga', $olahragaFilter);
-        }
-        if ($lokasiFilter) {
-            $usertim->where('lokasi', $lokasiFilter);
         }
 
         $usertim = $usertim->get();

@@ -9,7 +9,7 @@
 }
 
 * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 /* NAVBAR */
 
@@ -110,7 +110,7 @@ textarea {
 .maps > iframe {
     width: 100%;
     height: 50vh;
-    background-color: grey;
+    
 }
 /* BOX1 */
 

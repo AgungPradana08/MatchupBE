@@ -93,7 +93,7 @@
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>
-                    <textarea name="deskripsi" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
+                    <textarea class="p-2" name="deskripsi" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
                 </div>
             </div>
         </div>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..."  required>
+                    <input name="harga_tiket" oninput="InputChange()" id="harga_input" type="text" placeholder="Input harga/tim..."  required>
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>

@@ -26,7 +26,7 @@ body {
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    
 }
 
 
@@ -230,7 +230,7 @@ body {
 .box {
     cursor: pointer;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    height: 35vh;
+    height: 32vh;
     border-radius: 8px;
     transform: scale(1);
     transition: 0.3s ease;
@@ -250,24 +250,20 @@ body {
 }
 
 .box-top, .box-bottom {
-    height: 50%;
-    padding: 2% 2%;
+    padding: 1% 2%;
     box-sizing: border-box;
 } 
 
-.box-top {
-    display: flex;
-    align-items: center;
-    text-align: left;
-}
 
 .box-top {
+    height: 45%;
     display: flex;
     align-items: center;
     text-align: left;
 }
 
 .box-bottom {
+    height: 55%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -331,7 +327,7 @@ body {
 
 .finish-s {
     border: 3px solid grey;
-    background-color: grey;
+    
     color: white
 }
 
@@ -343,9 +339,9 @@ body {
 
 .bottom-icon {
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    background-color: grey;
+    height: 17px;
+    width: 17px;
+    
     margin-right: 10px;
 }
 

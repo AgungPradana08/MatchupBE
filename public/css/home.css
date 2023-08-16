@@ -25,7 +25,7 @@
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    
 }
 
 
@@ -737,7 +737,7 @@
     }
 
     .footer-icon {
-        background-color: grey;
+        
         height: 20vw;
         width: 20vw;
     }

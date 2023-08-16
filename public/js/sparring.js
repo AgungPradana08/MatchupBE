@@ -8,7 +8,7 @@ let seelogin = true;
 // let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
 console.log(today)
-// document.getElementById("datepick").min = today.toString();
+document.getElementById("datepick").min = today.toString();
 
 // mapsviews()
 

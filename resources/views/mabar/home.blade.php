@@ -80,9 +80,9 @@
                 <div class="title-box w-75 ms-md-2" >
                     <p class="m-0 p-0" style="font-size: 12px;" >{{$mabar->olahraga}}</p>
                     @if (strlen($mabar->title) > 23) 
-                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
                     @else
-                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
                     @endif
                     <div class="w-75">
                         {{-- @if ($DateNow > $mabar->tanggal_pertandingan)

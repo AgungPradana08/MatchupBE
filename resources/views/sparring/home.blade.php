@@ -125,9 +125,9 @@
                 <div class="title-box ms-md-2" >
                     <p class="m-0 p-0" style="font-size: 12px;" >{{$sparring->olahraga}}</p>
                     @if (strlen($sparring->title) > 23) 
-                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @else
-                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @endif
                     <div class="w-75 d-flex" >
                         {{-- @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
@@ -162,19 +162,19 @@
                 </div>
             </div>
             <div class="box-bottom">
-                <div class="line">
+                <div class="line text-muted">
                     <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
                     {{$sparring->tanggal_pertandingan}} | {{$sparring->waktu_pertandingan}}
                 </div>
-                <div class="line">
+                <div class="line text-muted">
                     <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
                     {{$sparring->lokasi}}
                 </div>
-                <div class="line">
+                <div class="line text-muted">
                     <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
@@ -218,9 +218,8 @@
             </a>    
         </div>
     </div>
+    <script src="/js/searchmapslist.js"></script>
     <script src="/js/notification.js"></script>
-    <script src="/js/mapslist.js"></script>
-    <script src="/js/searchhome.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

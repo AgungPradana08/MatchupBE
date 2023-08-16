@@ -243,7 +243,7 @@ body {
     flex-direction: column;
     align-items: start;
     justify-content: space-evenly;
-    margin-left: 5%;
+    margin-left: 3%;
 }
 
 .title-box > div {
@@ -338,7 +338,7 @@ body {
     display: inline-block;
     height: 20px;
     width: 20px;
-    background-color: grey;
+    
     margin-right: 10px;
 }
 

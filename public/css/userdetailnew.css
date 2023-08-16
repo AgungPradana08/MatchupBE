@@ -31,7 +31,7 @@
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    
 }
 
 
@@ -371,7 +371,7 @@ table {
 .icon {
     height: 40px;
     width: 100px;
-    background-color: grey;
+    
     display: inline-block;
     margin-right: 30px;
 
@@ -380,7 +380,7 @@ table {
 .icon {
     height: 40px;
     width: 40px;
-    background-color: grey;
+    
     display: inline-block;
     margin-right: 30px;
 

@@ -45,7 +45,7 @@
         </div>
     </section>
     <section class="container sparring-search " >
-        <form action="/mabar/search" class="wrapper" method="get">
+        <form action="/kompetisi/search" class="wrapper" method="get">
             <div style="grid-area: search1;" >
                 <div class="icon icon-name" ></div>
                 <input id="sparringname" type="search" name="search" style="font-size: 13px" type="text" placeholder="Masukkan nama Kompetisi...">
@@ -80,9 +80,9 @@
                 <div class="title-box ms-md-2" >
                     <p class="m-0 " style="font-size: 12px;" >{{$kompetisi->olahraga}}</p>
                     @if (strlen($kompetisi->title) > 23) 
-                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
                     @else
-                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$kompetisi->title}}</p>
                     @endif
                     <div class="w-75" >
                     {{-- @if ($DateNow > $kompetisi->tanggal_pertandingan)
@@ -106,21 +106,21 @@
                 </div>
             </div>
              <div class="box-bottom">
-                 <div class="line">
+                 <div class="line text-muted ">
                      <!-- <img class="bottom-icon" src="css/img/tanggak.png" alt=""> -->
                      <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
                      {{$kompetisi->tanggal_pertandingan}}
                  </div>
-                 <div class="line">
+                 <div class="line text-muted ">
                      <!-- <img class="bottom-icon" src="css/img/lokasi.png" alt=""> -->
                      <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
                      {{$kompetisi->lokasi}}
                  </div>
-                 <div class="line">
+                 <div class="line text-muted ">
                      <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
