@@ -17,16 +17,20 @@
         </div>
     </nav>
     <div class="container wrapper" >
+        @foreach ($notifikasi as $notifikasi)
+        @if ($notifikasi->user_id === Auth::user()->id)
         <div class="box p-2 d-flex align-items-center justify-content-between">
             <div class="d-flex" >
                 <img class="image-logo rounded-circle " src="" alt="">
                 <div class="ms-2" >
                     <h5 class="p-0 m-0" >title</h5>
-                    <p class="p-0 m-0" >Message</p>
+                    <p class="p-0 m-0" >{{$notifikasi->message}}</p>
                 </div>
             </div>
             <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
         </div>
+        @endif
+        @endforeach
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

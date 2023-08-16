@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 use Pusher\Pusher;
 use App\Models\User;
+use App\Models\Notifikasi;
 use App\Models\UserSparring;
 use Illuminate\Http\Request;
+use App\Events\SparringTaken;
 use Illuminate\Support\Carbon;
 use App\Events\JoinNotification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\EventNotification;
 use Illuminate\Support\Facades\Notification;
@@ -77,6 +80,7 @@ class UserSparringController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $pengguna = Auth::user();
 
         $this->validate($request, [
@@ -95,6 +99,7 @@ class UserSparringController extends Controller
             'harga_tiket' => 'required',
             'lama_pertandingan' => 'required',
             'waktu_pertandingan' => 'required',
+            'deskripsi_tambahan' => 'required',
         ]);
 
         $file_name = $request->image->getClientOriginalName();
@@ -113,7 +118,7 @@ class UserSparringController extends Controller
                 $usertimId = $latestJoinedUser->usertim_id;
             }
         }
-
+        
         $post = UserSparring::create([
             'user_id' => $pengguna->id,
             'usertim_id' => $pengguna->userTim->id, // Simpan usertim_id di sini
@@ -135,7 +140,7 @@ class UserSparringController extends Controller
             'deskripsi_tambahan' => $request->deskripsi_tambahan,
              
         ]);
-
+        
         // $UserTarget = 1;
         // $user = User::find($UserTarget);
 
@@ -146,7 +151,7 @@ class UserSparringController extends Controller
         // }    
         $usertimId = $pengguna->usertim->id;
         $post->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $usertimId]);
-
+        
         // $eventname = "$ tambah data";
         // Notification::send($user, new EventNotification($eventname));
 
@@ -332,6 +337,18 @@ class UserSparringController extends Controller
                     'image_tim_lawan' => $imageTimLawan,
 
                 ]);
+
+                event(new SparringTaken(Auth::user(), $sparring));
+
+                 // Buat notifikasi
+                $sparringCreator = $sparring->user;
+                $notificationMessage = "Sparring yang Anda buat telah diambil oleh seseorang.";
+
+                $notification = new Notifikasi([
+                    'user_id' => $sparringCreator->id,
+                    'message' => $notificationMessage
+                ]);
+                $notification->save();
 
                 // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
                 if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
