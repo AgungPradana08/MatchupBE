@@ -29,7 +29,7 @@ class VerificationController extends Controller
 
         $user->markEmailAsVerified();
 
-        return redirect()->route('sparring.home')->with('verified', true);
+        return redirect('/verifikasiberhasil')->with('verified', true);
     }
 
     public function resend(Request $request)
@@ -41,5 +41,11 @@ class VerificationController extends Controller
         $request->user()->sendEmailVerificationNotification();
 
         return back()->with('resent', true); // Redirect dengan pesan pengiriman ulang sukses
+    }
+
+    public function verifikasiberhasil(){
+
+        return view('auth.verifyberhasil');
+        
     }
 }

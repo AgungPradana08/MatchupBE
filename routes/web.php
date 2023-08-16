@@ -161,6 +161,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [OrderController::class, 'index']);
     Route::post('/checkout/store', [OrderController::class, 'checkout']);
 
+    Route::get('/verifikasiberhasil', [VerificationController::class, 'verifikasiberhasil']);
+
+    // Route::get('/verifikasiberhasil', function () {
+    //     return view('auth.verifyberhasil')->name('verifikasiberhasil');
+    // });
+
 });
 
 Route::get('/verify-email', [VerificationController::class, 'showVerificationForm'])->name('verification.notice');
