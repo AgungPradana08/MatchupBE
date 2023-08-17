@@ -10,7 +10,7 @@
 
 * {
     font-family: opensans;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     margin: 0px;
     padding: 0px;
 
@@ -323,7 +323,7 @@ body {
     font-size: 12px;
 }
 
-.access, .age {
+.access, .age, .finish, .finish-s {
     margin-right: 5px;
     text-align: center;
     display: inline-block;
@@ -342,6 +342,16 @@ body {
 .age {
     color: #8F8F8F;
     border: 3px solid #8F8F8F;
+}
+
+.finish {
+    border: 3px solid grey;
+    color: grey;
+}
+
+.finish-s {
+    border: 3px solid grey; 
+    color: white
 }
 
 .bottom-icon {

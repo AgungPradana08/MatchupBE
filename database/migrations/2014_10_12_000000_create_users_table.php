@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('skor')->default(100);
             $table->string('status')->default('unblock');
             $table->string('deskripsi')->nullable()->default("Halo,saya pengguna baru match up");
+            $table->string('readnotif')->default("false");
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();
             $table->string('whatsapp')->nullable();

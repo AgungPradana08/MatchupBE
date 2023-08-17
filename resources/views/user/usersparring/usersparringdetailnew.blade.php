@@ -187,7 +187,7 @@
                 <hr class=" d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
                     <h4>Deskripsi Tambahan</h4>
-                    <span class="des">{{$usersparring->deskripsi_tambahan}}</span>
+                    <span class="des"  style="font-size: 12px">{{$usersparring->deskripsi_tambahan}}</span>
                 </div>
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
@@ -431,7 +431,7 @@
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Deskripsi Tambahan</h5>
-                    <span>{{$usersparring->deskripsi_tambahan}}</span>
+                    <span  style="font-size: 12px" >{{$usersparring->deskripsi_tambahan}}</span>
                 </div>
             </div>
         </div>

@@ -94,13 +94,15 @@
                     <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @endif
                     <div>
-                        @if ($DateNow > $sparring->tanggal_pertandingan)
-                        <div class="access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
-                    @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
-                        <div class="access text-light" style="background: #FE6B00" >Penuh</div>  
-                    @else
-                        <div class="access">Terbuka</div>  
-                    @endif
+                        @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
+                        <div class="finish-s text-light" style="background: #FE6B00" >Selesai</div>  
+                        @elseif ($DateNow > $sparring->tanggal_pertandingan && $sparring->joinedSparrings->count() == 1)
+                        <div class="finish" style="background: #ffffff" >Selesai</div>  
+                        @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
+                            <div class="access text-light" style="background: #FE6B00" >Penuh</div>  
+                        @else
+                            <div class="access " style="color: #FE6B00" >Terbuka</div> 
+                        @endif
                         <div class="age">{{$sparring->tingkatan}}</div> 
                     </div>
                 </div>
