@@ -81,7 +81,7 @@
         </form>
     </section>
     <section class="container box-wrapper">
-    @foreach ($sortedteams as $tim)
+    @foreach ($usertim as $tim)
         <a class="box" href="/tim/{{$tim->id}}/timdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">

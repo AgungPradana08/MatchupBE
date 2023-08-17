@@ -152,7 +152,7 @@ class UserTimController extends Controller
         $usertim = UserTim::query();
 
         if ($searchtitle) {
-            $usertim->where('title', 'like', '%'.$searchtitle.'%');
+            $usertim->where('nama_tim', 'like', '%'.$searchtitle.'%');
         }
 
         if ($olahragaFilter) {
@@ -176,7 +176,7 @@ class UserTimController extends Controller
         $usertim = UserTim::query();
 
         if ($searchtitle) {
-            $usertim->where('title', 'like', '%'.$searchtitle.'%');
+            $usertim->where('nama_tim', 'like', '%'.$searchtitle.'%');
         }
 
         if ($olahragaFilter) {
