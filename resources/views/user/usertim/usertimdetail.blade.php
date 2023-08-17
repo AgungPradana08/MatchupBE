@@ -20,7 +20,7 @@
                 <div class="modal-header bg-primary-mu">
                   <div class="blank logo-sm rounded-circle d-inline-block"></div>
                   <h5 class=" modal-title ">
-                    Laporkan Pemilik Tim <strong>{{$usertim->nama_tim}}</strong>?
+                    Laporkan Tim <strong>{{$usertim->nama_tim}}</strong>?
                   </h5>
                   <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -42,8 +42,8 @@
                         <label for="timuser4"> Spam</label><br>
                     </div>
                     <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-                    <input type="text" name="reporttimid" id="ReportPoin" value="{{ $usertim->id }}">
-                    <input type="text" name="ReportTimPoin" id="ReportTimPoin">
+                    <input type="text" class="d-none" name="reporttimid" id="ReportPoin" value="{{ $usertim->id }}">
+                    <input type="text" class="d-none" name="ReportTimPoin" id="ReportTimPoin">
     
                 </div>
                 <div class="modal-footer">
@@ -63,7 +63,7 @@
     <nav class="navbar navbar-expand-lg p-0 position-fixed bg-white" style="width: 100vw; z-index: 100;">
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
-          <span>Detail Tim</span>
+          <span>Detail {{ $usertim->nama_tim }}</span>
           <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usertim->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
         </div>
     </nav>
@@ -81,7 +81,7 @@
                         </div>
                         <div style="display: flex; align-items: center;" class="title-content mt-2 ">
                             <div class="sportlogo me-2" style="background: url(/css/img/futsal.jpg); background-size: contain; "></div>
-                            <span class="me-2">{{$usertim->olahraga}} | </span> <span>{{$usertim->area_bermain}}</span>
+                            <span>{{$usertim->olahraga}}</span> | <span>{{$usertim->area_bermain}}</span>
                             
                         </div>
                     </div>
@@ -139,10 +139,10 @@
                                                             <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://www.instagram.com/' . $player->instagram : '#' }}" class="instagram">
                                             
                                                             </a>
-                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://web.facebook.com/' . $player->facebook : '#' }}" class="facebook">
+                                                            <a style="{{ $length = strlen($player->facebook) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->facebook) > 0 ? 'https://web.facebook.com/' . $player->facebook : '#' }}" class="facebook">
                                             
                                                             </a>
-                                                            <a style="{{ $length = strlen($player->instagram) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->instagram) > 0 ? 'https://wa.me/' . $player->whatsapp : '#' }}" class="whatapps">
+                                                            <a style="{{ $length = strlen($player->whatapps) > 0 ? 'opacity: 100%' : 'opacity: 50%' }}" href="{{ strlen($player->whatapps) > 0 ? 'https://wa.me/' . $player->whatsapp : '#' }}" class="whatapps">
                                             
                                                             </a>
                                                         </div>
@@ -248,8 +248,8 @@
                                                     <label for="report4"> Tidak membayar</label><br>
                                                 </div>
                                                 <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-                                                <input type="text" id="user_id" name="user_id" value="{{ $player->id }}">
-                                                <input type="number"  id="reportuserpoint" name="reportuserpoint">
+                                                <input type="text" class="d-none" id="user_id" name="user_id" value="{{ $player->id }}">
+                                                <input type="number" class="d-none" id="reportuserpoint" name="reportuserpoint">
 
                                             </div>
                                             <div class="modal-footer">
@@ -303,39 +303,39 @@
                         </table>
                     </div>
             </div>
-            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
-                <div class="box1 d-none d-lg-flex ">
+            <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12" >
+                <div class="box1 d-none d-lg-flex " style="border-radius: 8px"  >
                     <div class="access">
-                        <h5 class="fw-bold" >Tingkatan</h5>
+                        <h5 class="fw-bold m-1" >Tingkatan</h5>
                         <div class="two" style="font-size: 15px" >{{$usertim->tingkatan}}</div>
                         <h5 class="m-0 mt-3 fw-bold" >Radius Bermain</h5>
-                        <h3 class="fw-bold m-0" style="color: #FE6B00" >{{$usertim->area_bermain}}</h3>
+                        <h3 class="fw-bold m-1" style="color: #FE6B00" >{{$usertim->area_bermain}}</h3>
                     </div>
                     <div class="box-content ">
                         <table>
                             <tr>
-                                <td width="15%">
-                                    <div class="icon mx-auto" style="background:  url(/css/img/phone.png); background-size: contain;"    ></div>
+                                <td width="10%">
+                                    <img class="icon my-auto" src="/css/img/phone.png">
                                 </td>
-                                <td width="85%" style="font-family: opensans;">{{$usertim->nomor_telepon}}</td>
+                                <td width="90%" style="font-family: opensans;">{{$usertim->nomor_telepon}}</td>
                             </tr>
                             <tr>
-                                <td width="15%">
-                                    <div class="icon mx-auto" style="background:  url(/css/img/instagram.jpg); background-size: contain;"></div>
+                                <td width="10%">
+                                    <img class="icon my-auto" src="/css/img/instagram.jpg">
                                 </td>
-                                <td width="85%" style="font-family: opensans;" >{{$usertim->instagram}}</td>
+                                <td width="90%" style="font-family: opensans;" >{{$usertim->instagram}}</td>
                             </tr>
                             <tr>
-                                <td width="15%">
-                                    <div class="icon mx-auto" style="background:  url(/css/img/whatapps.jpg); background-size: contain;"></div>
+                                <td width="10%">
+                                    <img class="icon my-auto" src="/css/img/whatapps.jpg">
                                 </td>
-                                <td width="85%" style="font-family: opensans;">{{$usertim->whatsapp}}</td>
+                                <td width="90%" style="font-family: opensans;">{{$usertim->whatsapp}}</td>
                             </tr>
                             <tr>
-                                <td width="15%">
-                                    <div class="icon mx-auto" style="background:  url(/css/img/facebook.jpg); background-size: contain;"  ></div>
+                                <td width="10%">
+                                    <img class="icon my-auto" src="/css/img/facebook.jpg">
                                 </td>
-                                <td width="85%"  style="font-family: opensans;">{{$usertim->facebook}}</td>
+                                <td width="90%"  style="font-family: opensans;">{{$usertim->facebook}}</td>
                             </tr>
                         </table>
                     </div>

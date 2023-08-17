@@ -78,7 +78,11 @@
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
                 <div class="title-box " >
                     <p class="m-0" style="font-size: 12px;" >{{$mabar->olahraga}}</p>
-                    <p class="m-0" style="font-size: 20px; font-family: opensans-bold;" >{{$mabar->title}}</p>
+                    @if (strlen($mabar->title) > 23) 
+                    <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    @else
+                    <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
+                    @endif
                     <div class="w-100" >
                         @if ($DateNow > $mabar->tanggal_pertandingan)
                         <div class="w-50 access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
@@ -92,21 +96,21 @@
                 </div>
             </div>
              <div class="box-bottom">
-                 <div class="line">
+                 <div class="line text-muted ">
                      <!-- <img class="bottom-icon" src="css/img/tanggak.png" alt=""> -->
                      <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
                      {{$mabar->tanggal_pertandingan}}
                  </div>
-                 <div class="line">
+                 <div class="line text-muted ">
                      <!-- <img class="bottom-icon" src="css/img/lokasi.png" alt=""> -->
                      <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
                      {{$mabar->lokasi}}
                  </div>
-                 <div class="line">
+                 <div class="line text-muted ">
                      <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>

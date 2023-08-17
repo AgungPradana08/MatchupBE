@@ -37,7 +37,7 @@ body {
 .logo {
     height: 5vh;
     width: 5vh;
-    background-color: grey;
+    
 }
 
 
@@ -261,7 +261,7 @@ body {
 }
 
 .box {
-    height: 33vh;
+    height: 29vh;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     z-index: 30;
     border-radius: 8px;
@@ -278,7 +278,7 @@ body {
 
 .box-top, .box-bottom {
     height: 50%;
-    padding: 4%;
+    padding: 4% 2%;
     box-sizing: border-box;
 } 
 
@@ -346,9 +346,8 @@ body {
 
 .bottom-icon {
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    background-color: grey;
+    height: 17px;
+    width: 17px;
     margin-right: 10px;
 
 }

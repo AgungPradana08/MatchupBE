@@ -71,13 +71,12 @@
         <section class="box-wrapper p-2 ">
             @foreach ($usertim as $usertim)
             <div class="box" >
-            <a href="timdetail.html" >
                <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
-                    <div class="edit-data">
-                        <a class="see-button" href="/usertim/{{$usertim->id}}/usertimdetail" >
+                    <div class="edit-data ">
+                        <a class="see-button p-0 m-0" href="/usersparring/{{$usertim->id}}/usersparringdetail" >
                         </a>
-                        <a class="edit-button" href="/usertim/{{$usertim->id}}/usertimedit"></a>
+                        <a class="edit-button p-0 m-0" href="/usersparring/{{$usertim->id}}/usersparringedit"></a>
                     </div>
                     <div class="box-logo rounded-circle">
                         <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="" style="object-fit: cover; object-position: center;">
@@ -85,9 +84,9 @@
                     <div style=" width: 100%;" class="letter-container pt-3 pt-lg-0" >
                         <p class="p-0 m-0" style="font-size: 12px; " >{{$usertim->olahraga}}</p>
                         @if (strlen($usertim->nama_tim) > 23) 
-                        <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
+                        <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
                         @else
-                        <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
+                        <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$usertim->nama_tim}}</p>
                         @endif
                         <div>
                         @if ($usertim->joinedPlayers->count() == $usertim->max_member)
@@ -104,8 +103,8 @@
                     
                 </div>
                 <div class="box-bottom">    
-                    <div class="word-wrapper" style="height: 10vh; font-size: 12px" >{{$usertim->deskripsi}}</div>
-                    <hr class="m-1" >
+                    <div class="word-wrapper text-muted" style="font-size: 12px" >{{$usertim->deskripsi}}</div>
+                    <hr class="m-0" >
                     <div class="w-100 d-flex justify-content-center align-items-center justify-content-lg-between" style="width: 100%; display: flex; justify-content: center; align-items: center;" >
                         <p class="p-0 m-0 me-1" >
                          Slot Tersedia
@@ -116,7 +115,6 @@
                      </div>
                 </div>
                </button>
-            </a>
         </div>
         @endforeach
         </section> 

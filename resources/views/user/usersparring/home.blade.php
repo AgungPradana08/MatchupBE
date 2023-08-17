@@ -89,9 +89,9 @@
                 <div class="title-box  ms-0" >
                     <p class="m-0 p-0" style="font-size: 12px;" >{{$sparring->olahraga}}</p>
                     @if (strlen($sparring->title) > 23) 
-                    <p class="p-0 m-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 13px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @else
-                    <p class="p-0 m-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
+                    <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @endif
                     <div>
                         @if ($DateNow > $sparring->tanggal_pertandingan)
@@ -106,19 +106,19 @@
                 </div>
             </div>
             <div class="box-bottom">
-                <div class="line">
+                <div class="line text-muted ">
                     <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
                     {{$sparring->tanggal_pertandingan}} | {{$sparring->waktu_pertandingan}}
                 </div>
-                <div class="line">
+                <div class="line text-muted ">
                     <div style="background: url(/css/img/target.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>
                     {{$sparring->lokasi}}
                 </div>
-                <div class="line">
+                <div class="line text-muted ">
                     <div style="background: url(/css/img/price.png); background-position: center; background-size: contain;" class="bottom-icon">
 
                     </div>

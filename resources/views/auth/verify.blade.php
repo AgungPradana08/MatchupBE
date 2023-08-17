@@ -46,13 +46,13 @@
                 </form>
             </div>
         </div>
-        @if (auth()->check() && auth()->user()->hasVerifiedEmail())
+        {{-- @if (auth()->check() && auth()->user()->hasVerifiedEmail())
             <p>Anda sudah memverifikasi alamat email Anda.</p>
             <p><a href="{{ route('sparring.home') }}">Lanjut ke Dashboard</a></p>
         @else
             <p>Belum memverifikasi alamat email?</p>
             <p><a href="{{ route('verification.notice') }}">Kembali ke Halaman Verifikasi</a></p>
-        @endif
+        @endif --}}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

@@ -40,6 +40,14 @@
     object-position: center;
 }
 
+.user-usergood {
+    height: 110px;
+    width: 110px;
+    object-fit: contain;
+    object-position: center;
+}
+
+
 .connect {
     object-fit: contain;
     object-position: center;

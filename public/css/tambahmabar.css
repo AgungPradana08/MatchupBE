@@ -77,7 +77,7 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    background-color: grey;
+    
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -152,7 +152,7 @@ body {
 }
 
 .map {
-    background-color: grey;
+    
     grid-row: 2/15;
     
 }

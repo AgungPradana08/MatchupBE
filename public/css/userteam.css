@@ -34,14 +34,13 @@ body {
 }
 
 .word-wrapper {
-
     text-align: left;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* Jumlah baris yang ingin ditampilkan */
+    -webkit-line-clamp: 5; /* Jumlah baris yang ingin ditampilkan */
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; /* Memastikan teks mematuhi jumlah baris yang ditentukan */x   
+    white-space: normal; /* Memastikan teks mematuhi jumlah baris yang ditentukan */
 }
 
 /* NAVBAR */
@@ -50,6 +49,7 @@ body {
     height: 5vh;
     width: 5vh;
     background-color: grey;
+
 }
 
 
@@ -284,24 +284,20 @@ body {
 }
 
 .box-top, .box-bottom {
-    height: 50%;
-    padding: 2% 4%;
+
+    padding: 1% 2%;
     box-sizing: border-box;
 } 
 
 .box-top {
-    display: flex;
-    align-items: center;
-    text-align: left;
-}
-
-.box-top {
+    height: 40%;
     display: flex;
     align-items: center;
     text-align: left;
 }
 
 .box-bottom {
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -432,30 +428,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-bottom: 5%;
     margin-right: 10px;
     margin-left: 5px;
 
 
 }
 
-.see-button, .edit-button{
+.see-button, .edit-button {
     height: 25px;
     width: 25px;
-}
-
-.see-button {
-    background: url(img/eye-white.png);
-    background-size: contain;
-    border-radius: 5px;
-    transform: scale(1);
-    transition: 0.3s ease;
-}
-
-.edit-button {
-    background: url(img/edit-white.png);
-    background-size: contain;
-    border-radius: 5px;
+    background: grey;
+    display: inline;
     transform: scale(1);
     transition: 0.3s ease;
 }
@@ -464,6 +447,19 @@ body {
     transform: scale(1.1);
 
 }
+
+.see-button {
+    background: url(img/eye-white.png);
+    background-size: contain;
+    border-radius: 5px;
+}
+
+.edit-button {
+    background: url(img/edit-white.png);
+    background-size: contain;
+    border-radius: 5px;
+}
+
 
 
 @media (min-width: 576px) and (max-width: 991.98px) {

@@ -87,7 +87,7 @@
                 </div>
                 <div class="input3">
                     <p class="m-0" >Deskrispi</p>
-                    <textarea name="deskripsi" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
+                    <textarea name="deskripsi" class="p-2" id="DesInput" type="text" maxlength="255" placeholder="Input deskripsi pertandingan (maksimal 255)" required></textarea>
                 </div>
             </div>
         </div>
@@ -160,11 +160,11 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="m-0" >Tanggal</p>
-                    <input   name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required >
+                    <input id="datepick " name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required >
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>
-                    <input name="harga_tiket"  id="HargaInput" type="text" placeholder="Input harga/tim..."  >
+                    <input name="harga_tiket" id="harga_input" value="0" type="number" placeholder="Input harga/tim..." readonly >
                 </div>
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>
