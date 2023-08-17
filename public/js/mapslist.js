@@ -88,9 +88,10 @@ function searchLocation() {
     // Loop melalui elemen-elemen lokasi
     for (var i = 0; i < locations.length; i++) {
         var locationName = locations[i].querySelector("h6").textContent.toLowerCase();
+        var detailName = locations[i].querySelector("p").textContent.toLowerCase();
         
         // Periksa apakah nama lokasi cocok dengan input teks
-        if (locationName.includes(searchText)) {
+        if (locationName.includes(searchText) || detailName.includes(searchText)) {
             locations[i].style.display = "block"; // Tampilkan elemen
         } else {
             locations[i].style.display = "none"; // Sembunyikan elemen
