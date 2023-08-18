@@ -192,7 +192,7 @@
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
                         <h4>Biaya Pendaftaran</h4>
-                        <h1 class="m-0" >Rp. {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
+                        <h1 class="m-0" >Rp {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <hr class=" d-block d-lg-none">
@@ -239,7 +239,7 @@
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
                         <h5>Biaya Pendaftaran</h5>
-                        <h1>Rp. {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
+                        <h1>Rp {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">
@@ -280,7 +280,7 @@
                         @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <button class="ambil " style="background: #8F8F8F" >Sparring Selesai</button>
                         @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member)
-                        <a style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >Bersiap Bertanding</a>
+                        <a style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >Siap Bertanding</a>
                         @else
                         <a href="/usersparring/{{$usersparring->id  }}/usersparringedit" style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >EDIT SPARRING</a>
                         @endif

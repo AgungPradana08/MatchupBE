@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
 
             [
                 'username' => 'owi',
-                'image' => 'ppblank.png',
+                'image' => 'image2/ngab owi.jpg',
                 'name' => 'Owi',
                 'email' => 'owi@gmail.com',
                 'email_verified_at' => '2023-08-12 00:32:11',
@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
 
             [
                 'username' => 'owo',
-                'image' => 'ppblank.png',
+                'image' => 'image2/Prabowo.jpg',
                 'name' => 'Owo',
                 'email' => 'owo@gmail.com',
                 'email_verified_at' => '2023-08-12 00:32:11',

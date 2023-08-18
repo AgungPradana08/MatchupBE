@@ -57,4 +57,8 @@ class Usertim extends Model
             $usertim->host_id = auth()->id();
         });
     }
+
+    public function cekPlayer(){
+        return $this->belongsToMany(User::class, 'all_tim', 'usertim_id', 'user_id');
+    }
 }

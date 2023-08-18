@@ -65,6 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->sparrings()->syncWithoutDetaching($sparring);
     }
 
+    public function joinedTeams()
+    {
+        return $this->belongsToMany(UserTim::class, 'all_tim', 'user_id', 'usertim_id');
+    }
+
     public function currentTeam()
     {
         return $this->hasOne(UserTim::class, 'id', 'usertim_id');

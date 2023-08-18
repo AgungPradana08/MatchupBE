@@ -25,4 +25,11 @@ class NotifikasiController extends Controller
         $notifikasi->save();
 
     }
+
+    public function destroy($id)
+    {
+        $notifikasi = Notifikasi::find($id);
+        $notifikasi->delete();
+        return redirect('/notifikasi');
+    }
 }

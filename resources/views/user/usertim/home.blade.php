@@ -69,14 +69,17 @@
 
     <div class="container">
         <section class="box-wrapper p-2 ">
-            @foreach ($usertim as $usertim)
+            @if ($timyangdiikuti)
+            @foreach ($timyangdiikuti as $usertim)
+            {{-- @if (!$usertim->joinedPlayers->contains($pengguna->id))
+                @if ($pengguna->joinedPlayers)  --}}
             <div class="box" >
                <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data ">
-                        <a class="see-button p-0 m-0" href="/usersparring/{{$usertim->id}}/usersparringdetail" >
+                        <a class="see-button p-0 m-0" href="/usertim/{{$usertim->id}}/usertimdetail" >
                         </a>
-                        <a class="edit-button p-0 m-0" href="/usersparring/{{$usertim->id}}/usersparringedit"></a>
+                        <a class="edit-button p-0 m-0" href="/usertim/{{$usertim->id}}/usertimedit"></a>
                     </div>
                     <div class="box-logo rounded-circle">
                         <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="" style="object-fit: cover; object-position: center;">
@@ -99,8 +102,6 @@
                             </div>
                         </div>
                     </div>
-
-                    
                 </div>
                 <div class="box-bottom">    
                     <div class="word-wrapper text-muted" style="font-size: 12px" >{{$usertim->deskripsi}}</div>
@@ -115,19 +116,39 @@
                      </div>
                 </div>
                </button>
-        </div>
-        @endforeach
+            </div>
+            {{-- @else
+            <p>bro</p>
+            @endif --}}
+            @endforeach
+            @else
+            <p>belum ikut tim</p>
+            @endif
         </section> 
         
     </div>
     <section class="no-data" >
-        @if($usertim->count() > 0)
+        @if($usertim->count() > 0)  
         <section class="white-space" ></section>   
-        @else   
+        @else
         <div class="flag-icon" ></div>
         <p style="opacity: 50%;">Tidak ada hasil yang ditemukan.</p>
     @endif
     </section>
+
+    {{-- @foreach ($usertim as $usertim)
+    @if (!$usertim->joinedPlayers->contains($pengguna->id)){
+        @if ($pengguna->joinedPlayers) {
+        <p>halo</p>
+        }
+    }
+        @else
+        <p>ga ada</p>
+     @endif
+        @endforeach --}}
+
+
+
     <div class="container fixed-bottom bottom-nav  d-block d-sm-none ">
         <div class="row mobile-nav">
             <a href="/userprofile/home" class="col-3 ">

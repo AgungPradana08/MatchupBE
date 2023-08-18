@@ -14,16 +14,24 @@ class TimSeeder extends Seeder
     public function run(): void
     {
         DB::table('usertim')->insert([
-            'nama_tim' => 'Bayern Munchen',
-            'image' => 'ppblank.png',
-            'olahraga' => 'Futsal',
-            'deskripsi' => 'Gelut dek?',
-            'max_member' => '20',
-            'tingkatan' => '21+tahun',
-            'nomor_telepon' => '08768203472',
-            'instagram' => 'daffagaming',
-            'whatsapp' => '0857094160',
-            'facebook' => 'daffaganteng',
+
+            [
+                'user_id' => '1',
+                'host_id' => '1',
+                'nama_tim' => 'Inter Milan',
+                'image' => 'image2/inter milan.png',
+                'skor' => '100',
+                'olahraga' => 'Separk Bola',
+                'deskripsi' => 'Tim kita pengen menguasai liga eropa',
+                'max_member' => '12',
+                'area_bermain' => 'Semarang',
+                'tingkatan' => '21+tahun',
+                'nomor_telepon' => '08768203472',
+                'instagram' => '@erictohir',
+                'whatsapp' => '0857094160',
+                'facebook' => 'Eric Tohir',
+            ],
+
         ]);
     }
 }

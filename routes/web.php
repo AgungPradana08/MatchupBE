@@ -156,6 +156,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //Page Notifikasi 
     Route::get('/notifikasi', [NotifikasiController::class, 'shownotifikasi']);
+    Route::delete('/notifikasi/{id}', [NotifikasiController::class, 'destroy']);
 
 
     Route::get('/checkout', [OrderController::class, 'index']);

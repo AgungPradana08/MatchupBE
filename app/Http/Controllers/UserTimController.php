@@ -13,10 +13,12 @@ class UserTimController extends Controller
 {
     public function index()
     {
+        $pengguna = auth()->user();
         $DateNow = date('Y-m-d');
+        $timyangdiikuti = $pengguna->joinedTeams;
 
         $usertim = UserTim::where('user_id', session('user_id'))->get();
-        return view('user.usertim.home', compact(['usertim','DateNow']));
+        return view('user.usertim.home', compact(['pengguna','usertim','DateNow', 'timyangdiikuti']));
     }
 
     public function index2(User $user)
