@@ -437,7 +437,7 @@ body {
 
 }
 
-.see-button, .edit-button{
+.see-button, .edit-button, .delete-button{
     height: 25px;
     width: 25px;
 }
@@ -458,7 +458,16 @@ body {
     transform: scale(1);
 }
 
-.see-button:hover , .edit-button:hover {
+.delete-button {
+    background: url(img/delete-white.png);
+    background-size: contain;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    transform: scale(1);
+}
+
+
+.see-button:hover , .edit-button:hover, .delete-button:hover {
     transform: scale(1.1);
 
 }

@@ -210,7 +210,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}} | {{ $usersparring->waktu_pertandingan }}</td>
                             </tr>
                             <tr>
                                 <td>
@@ -252,7 +252,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                                <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}} | {{ $usersparring->waktu_pertandingan }}</td>
                             </tr>
                             <tr>
                                 <td>
@@ -277,11 +277,17 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usersparring->user_id)
+                        @if ($DateNow > $usersparring->tanggal_pertandingan)
+                        <button class="ambil " style="background: #8F8F8F" >Sparring Selesai</button>
+                        @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member)
+                        <a style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >Bersiap Bertanding</a>
+                        @else
                         <a href="/usersparring/{{$usersparring->id  }}/usersparringedit" style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >EDIT SPARRING</a>
+                        @endif
                     @else
                         @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <form>
-                            <button class="ambil bg-danger" >Sparring Selesai</button>
+                            <button class="ambil " style="background: #8F8F8F" >Sparring Selesai</button>
                         </form> 
                         @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
                         <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
@@ -318,7 +324,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td></td>
-                                                    <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}}</td>
+                                                    <td style="font-size: 13px;">{{$usersparring->tanggal_pertandingan}} | {{ $usersparring->waktu_pertandingan }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>

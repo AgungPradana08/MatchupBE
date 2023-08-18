@@ -34,8 +34,8 @@
             <span style="color: black;"><strong>Halo</strong>, {{ Auth::user()->username }}</span>
             <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" alt=""  style="object-fit: cover;">
           </a>
-          <a class="user-nav" href="/notification">
-            <img id="notificationIcon" class="rounded-circle" src="/css/img/notification.png" style="object-fit: cover; object-position:center;" alt="">
+          <a class="user-nav" href="/notifikasi">
+            <img id="notificationIcon" class="rounded-circle" src="{{ Auth::user()->readnotif == "true" ? '/css/img/notificationplus.png  ' : '/css/img/notification.png' }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
     </nav>
@@ -111,7 +111,7 @@
                      <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
-                     {{$mabar->tanggal_pertandingan}}
+                     {{$mabar->tanggal_pertandingan}} | {{ $mabar->waktu_pertandingan }}
                  </div>
                  <div class="line">
                      <!-- <img class="bottom-icon" src="css/img/lokasi.png" alt=""> -->

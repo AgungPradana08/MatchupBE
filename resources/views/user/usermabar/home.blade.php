@@ -73,7 +73,8 @@
                     <div class="edit-data m-0 p-0">
                         <a class="see-button" href="/usermabar/{{$mabar->id}}/usermabardetail" >
                         </a>
-                        <a class="edit-button" href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
+                        <a class="edit-button {{ $mabar->joinedUsers->count() > 1 || $DateNow > $mabar->tanggal_pertandingan ? 'd-none' : 'd-flex' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
+                        <a class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a> 
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
                 <div class="title-box " >

@@ -138,7 +138,7 @@
                                 <td>
                                     
                                 </td>
-                                <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
+                                <td style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}} | {{ $usermabar->waktu_pertandingan }}</td>
                             </tr>
                             <td>
                                 <div class="icon mx-auto" style="background: url(/css/img/clock.png); background-size: contain;"></div>
@@ -184,7 +184,7 @@
                                 <td width="10%" >
                                     
                                 </td>
-                                <td width="90%" style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}}</td>
+                                <td width="90%" style="font-size: 13px;">{{$usermabar->tanggal_pertandingan}} | {{ $usermabar->waktu_pertandingan }}</td>
                             </tr>
                             <tr>
                                 <td  width="10%"  >
@@ -211,7 +211,13 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usermabar->user_id)
-                    <a href="/usermabar/{{ $usermabar->id }}/usermabaredit" style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Edit Tim</a>
+                        @if ($DateNow > $usermabar->tanggal_pertandingan)
+                            <a style="text-decoration: none; background: #8F8F8F" class="ambil d-flex align-items-center justify-content-center"  >Mabar Selesai</a>
+                        @elseif ($usermabar->joinedUsers->count() > 1)
+                            <a style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Bersiap Mabar</a>
+                        @else
+                            <a href="/usermabar/{{ $usermabar->id }}/usermabaredit" style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Edit Tim</a>
+                        @endif
                     @else
                         @if ($DateNow > $usermabar->tanggal_pertandingan)
                             <a style="text-decoration: none; background: #8F8F8F" class="ambil d-flex align-items-center justify-content-center"  >Mabar Selesai</a>

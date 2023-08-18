@@ -132,7 +132,7 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="p-0 m-0" >Tanggal</p>
-                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usermabar->tanggal_pertandingan}}" readonly>
+                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usermabar->tanggal_pertandingan}}" >
                 </div>
                 <div class="input2">
                     <p class="p-0 m-0" >Harga</p>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="input4">
                     <p class="p-0 m-0" >Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usermabar->waktu_pertandingan}}" readonly >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usermabar->waktu_pertandingan}}" >
                 </div>
                 <div class="input5">
                     <p class="p-0 m-0" >Informasi Tambahan</p>
