@@ -318,6 +318,7 @@ class UserSparringController extends Controller
         $usertimId = $userTim->id;
         $namaTimLawan = $userTim->nama_tim;
         $imageTimLawan = $userTim->image;
+        $readnotif = $pengguna->true;
 
         if ($sparring) {
             // Cek apakah user sudah terdaftar sebagai peserta sparring
