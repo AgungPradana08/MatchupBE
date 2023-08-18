@@ -133,11 +133,11 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="m-0 p-0">Tanggal</p>
-                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usersparring->tanggal_pertandingan}}" readonly >
+                    <input oninput="InputChange()" id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input tanggal pertandingan..." value="{{$usersparring->tanggal_pertandingan}}"  >
                 </div>
                 <div class="input2">
                     <p class="m-0 p-0">Harga</p>
-                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}" readonly >
+                    <input name="harga_tiket" oninput="InputChange()" id="HargaInput" type="text" placeholder="Input harga/tim..." value="{{$usersparring->harga_tiket}}"  >
                     <input name="min_member" class="d-none" type="text" value="{{$usersparring->min_member}}" readonly >
                     <input name="max_member"  class="d-none" type="text" value="{{$usersparring->max_member}}" readonly >
 
@@ -154,7 +154,7 @@
                 </div>
                 <div class="input4">
                     <p class="m-0 p-0">Pukul</p>
-                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usersparring->waktu_pertandingan}}" readonly >
+                    <input oninput="InputChange()" name="waktu_pertandingan" type="time" id="TimeSelect" placeholder="Input pukul pertandingan..." value="{{$usersparring->waktu_pertandingan}}"  >
                 </div>
                 <div class="input5">
                     <p class="m-0 p-0">Informasi Tambahan</p>

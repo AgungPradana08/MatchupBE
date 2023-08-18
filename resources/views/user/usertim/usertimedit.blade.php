@@ -94,7 +94,7 @@
                 </div>
                 <div class="input2">
                     <p class="m-0" >Olahraga</p>
-                    <input oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usertim->olahraga}}" class="title2" type="text" placeholder="TWO" readonlyB >
+                    <input oninput="InputChange()" id="OlahragaSelect" name="olahraga" value="{{$usertim->olahraga}}" class="title2" type="text" placeholder="TWO" readonly>
                 </div>
                 <div class="input3-des">
                     <p class="m-0" >Deskrispi</p>

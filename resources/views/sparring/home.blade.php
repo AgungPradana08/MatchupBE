@@ -80,7 +80,7 @@
             <img class="rounded-circle shadow rounded" src="{{ asset('storage/'. Auth::user()->image) }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
           <a class="user-nav" href="/notifikasi">
-            <img id="notificationIcon" class="rounded-circle" src="/css/img/notification.png" style="object-fit: cover; object-position:center;" alt="">
+            <img id="notificationIcon" class="rounded-circle" src="{{ Auth::user()->readnotif == "true" ? '/css/img/notificationplus.png' : '/css/img/notification.png' }}" style="object-fit: cover; object-position:center;" alt="">
           </a>
         </div>
     </nav>

@@ -417,7 +417,9 @@ body {
     margin-left: 5px;
 }
 
-.see-button, .edit-button {
+
+
+.see-button, .edit-button, .delete-button {
     height: 25px;
     width: 25px;
     background: grey;
@@ -426,10 +428,11 @@ body {
     transition: 0.3s ease;
 }
 
-.see-button:hover, .edit-button:hover {
+.see-button:hover, .edit-button:hover, .delete-button:hover {
     transform: scale(1.1);
 
 }
+
 
 .see-button {
     background: url(img/eye-white.png);
@@ -441,6 +444,14 @@ body {
     background: url(img/edit-white.png);
     background-size: contain;
     border-radius: 5px;
+}
+
+.delete-button {
+    background: url(img/delete-white.png);
+    background-size: contain;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    transform: scale(1);
 }
 
 @media (min-width: 576px) and (max-width: 991.98px) {

@@ -360,7 +360,12 @@ class UserSparringController extends Controller
                     $sparring->joinedSparrings->first()->pivot->update(['nama_tim_lawan' => $namaTimLawan]);
                 }
                 // event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
-                $sparringCreator->update(['readnotif' => "true"]);
+                
+                if ($pengguna->readnotif == "false") {
+                    $sparringCreator->update(['readnotif' => "true"]);
+                    $sparringCreator->save();
+                }
+
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
                 $option = array(

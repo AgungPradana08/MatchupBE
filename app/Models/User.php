@@ -97,6 +97,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'image',
         'username',
+        'readnotif',
     ];
 
     /**
