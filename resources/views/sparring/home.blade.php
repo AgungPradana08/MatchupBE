@@ -85,8 +85,8 @@
         </div>
     </nav>
     <section class="container sparring-header" >
-        <div class="banner" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">
-            PILIH LAWAN SPARRING
+        <div class="banner" style="background-image: url(/css/img/sparring-banner.png); background-size: cover; background-position: center;">
+            
         </div>
     </section>
     <section class="container sparring-search " >
