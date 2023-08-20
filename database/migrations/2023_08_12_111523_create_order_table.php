@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('nomor_telepon');
             $table->string('total_price');
+            $table->string('quantity');
             $table->enum('status', ['Unpaid', 'Paid']);
             $table->timestamps();
         });
