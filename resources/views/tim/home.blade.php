@@ -56,8 +56,7 @@
         </div>
     </nav>
     <section class="container sparring-header" >
-        <div class="banner text-uppercase" style="background-image: url(/css/img/dashboard-banner.png); background-size: cover; background-position: center;">
-            Mulai Berkolaborasi
+        <div class="banner text-uppercase" style="background-image: url(/css/img/tim-banner.png); background-size: cover; background-position: center;">
         </div>
     </section>
     <section class="container sparring-search " >
