@@ -16,8 +16,11 @@ class UserTimController extends Controller
         $pengguna = auth()->user();
         $DateNow = date('Y-m-d');
         $timyangdiikuti = $pengguna->joinedTeams;
-
         $usertim = UserTim::where('user_id', session('user_id'))->get();
+
+        // dd($usertim, $pengguna->id);
+
+   
         return view('user.usertim.home', compact(['pengguna','usertim','DateNow', 'timyangdiikuti']));
     }
 
@@ -30,6 +33,9 @@ class UserTimController extends Controller
         
         $sortedteams = $timyangdiikuti->concat($timLainnya);
         $usertim = UserTim::all();
+
+        // dd();
+        
         // $user = User::all();
         return view('tim.home', compact(['usertim', 'sortedteams']));
     }
@@ -37,6 +43,7 @@ class UserTimController extends Controller
     public function tambah()
     {
         $user = Auth::user();
+        
 
         if ($user->skor < 75) {
             return redirect()->route('tim.home')->with('notification', 'Anda Tidak di izinkan membuat Tim.');

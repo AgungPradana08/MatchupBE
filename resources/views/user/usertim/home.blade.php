@@ -41,7 +41,7 @@
     <div class="container"></div>
     <section class="container sparring-search " >
         <form action="/usertim/search" class="wrapper" method="get">
-            @if ($usertim->count() > 0)
+            @if ($usertim->count() > 0 || $timyangdiikuti->count() > 0)
                 <a class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center"  style="grid-area: add; opacity: 70%;">Maksimal Tim</a> 
             @else
                 <a href="/usertim/tambahtim" class="d-none d-lg-flex text-decoration-none align-items-center justify-content-center" style="grid-area: add;">+ Tambah</a>
@@ -79,7 +79,7 @@
                     <div class="edit-data ">
                         <a class="see-button p-0 m-0" href="/usertim/{{$usertim->id}}/usertimdetail" >
                         </a>
-                        <a class="edit-button p-0 m-0" href="/usertim/{{$usertim->id}}/usertimedit"></a>
+                        <a class="edit-button p-0 m-0 {{ $usertim->user_id == $pengguna->id ? 'd-flex' : 'd-none' }} " href="/usertim/{{$usertim->id}}/usertimedit"></a> 
                     </div>
                     <div class="box-logo rounded-circle">
                         <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $usertim->image)}}" alt="" style="object-fit: cover; object-position: center;">

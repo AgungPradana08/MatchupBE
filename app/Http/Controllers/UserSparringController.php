@@ -343,7 +343,7 @@ class UserSparringController extends Controller
 
                  // Buat notifikasi
                 $sparringCreator = $sparring->user;
-                $notificationMessage = "Sparring yang Anda buat telah diambil oleh seseorang.";
+                $notificationMessage = "Tim " . $namaTimLawan . " Telah bergabung dengan Sparring " . $sparring->title;
 
                 $notification = new Notifikasi([
                     'user_id' => $sparringCreator->id,

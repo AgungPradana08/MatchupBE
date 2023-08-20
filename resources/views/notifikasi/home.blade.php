@@ -21,9 +21,7 @@
         @if ($notifikasi->user_id === Auth::user()->id)
         <div class="box p-2 d-flex align-items-center justify-content-between">
             <div class="d-flex" >
-                <img class="image-logo rounded-circle " src="" alt="">
                 <div class="ms-2" >
-                    <h5 class="p-0 m-0" >title</h5>
                     <p class="p-0 m-0" >{{$notifikasi->message}}</p>
                 </div>
             </div>
