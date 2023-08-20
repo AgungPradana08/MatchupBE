@@ -84,7 +84,7 @@
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
                     </a>
                     <a class="edit-button p-0 m-0 {{ $sparring->joinedSparrings->count() == $sparring->max_member || $DateNow > $sparring->tanggal_pertandingan ? 'd-none' : 'd-flex'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
-                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
+                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
                 </div>
                 <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-fit: cover; object-position: center;" >
                 <div class="title-box  ms-0" >
