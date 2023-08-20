@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Pusher\Pusher;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\UserMabar;
 use App\Models\Notifikasi;
 use App\Models\UserSparring;
 use Illuminate\Http\Request;
@@ -159,16 +161,49 @@ class UserSparringController extends Controller
         return redirect('/usersparring/home');
     }
 
-    public function detail($usersparringId)
+    public function detail($id, Request $request,)
     {
         $DateNow = date('Y-m-d');
-        $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($usersparringId);
+        $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
+
+        // $checkoutmabar = UserMabar::find($id);
+
+        // $request->request->add([
+        //     'total_price' => $request->quantity * 2000, 
+        //     'status' => 'Unpaid'
+        // ]);
+
+        // $order = Order::create($request->all());
+
+        // // Set your Merchant Server Key
+        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // \Midtrans\Config::$isProduction = false;
+        // // Set sanitization on (default)
+        // \Midtrans\Config::$isSanitized = true;
+        // // Set 3DS transaction for credit card to true
+        // \Midtrans\Config::$is3ds = true;
+
+        // $params = array(
+        //     'transaction_details' => array(
+        //         'order_id' => $order->id,
+        //         'gross_amount' => $order->total_price,
+        //     ),
+        //     'customer_details' => array(
+        //         'name' => $request->nama,
+        //         'nomor_telepon' => $request->nomor_telepon,
+        //     ),
+        // );
+
+        // $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        // return view('order.checkout', compact(['snapToken', 'order']));
         
 
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin',]));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -351,6 +386,11 @@ class UserSparringController extends Controller
                 ]);
                 $notification->save();
 
+                if ($pengguna->readnotif == "false") {
+                    $sparringCreator->update(['readnotif' => "true"]);
+                    $sparringCreator->save();
+                }
+
                 // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
                 if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
                     $namaTimLawan = $sparring->joinedSparrings->first()->sparringTeams->first()->nama_tim_lawan;
@@ -362,10 +402,7 @@ class UserSparringController extends Controller
                 }
                 // event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
                 
-                if ($pengguna->readnotif == "false") {
-                    $sparringCreator->update(['readnotif' => "true"]);
-                    $sparringCreator->save();
-                }
+                
 
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {
