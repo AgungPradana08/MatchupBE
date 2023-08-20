@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\JoinNotification;
 use App\Models\Tim;
 use App\Models\User;
 use App\Models\UserTim;
+use App\Events\TimTaken;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
+use App\Events\JoinNotification;
 use Illuminate\Support\Facades\Auth;
 
 class UserTimController extends Controller
@@ -216,6 +218,24 @@ class UserTimController extends Controller
                 if ($tim->joinedPlayers->count() >= $tim->max_member) {
                     return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
                 }
+
+                event(new TimTaken(Auth::user(), $tim));
+
+                 // Buat notifikasi
+                $timCreator = $tim->user;
+                $notificationMessage = "Seseorang telah bergabung dengan Tim Anda!";
+
+                $notification = new Notifikasi([
+                    'user_id' => $timCreator->id,
+                    'message' => $notificationMessage,
+                ]);
+                $notification->save();
+
+                if ($pengguna->readnotif == "false") {
+                    $timCreator->update(['readnotif' => "true"]);
+                    $timCreator->save();
+                }
+
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $tim->joinedPlayers()->attach($pengguna->id);
                 // event(new JoinNotification($pengguna . "telah bergabung tim anda "));

@@ -5,7 +5,7 @@ namespace App\Listeners;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendSparringTakenNotifikasi
+class SendTimTakenNotifikasi
 {
     /**
      * Create the event listener.
@@ -20,14 +20,14 @@ class SendSparringTakenNotifikasi
      */
     public function handle($event)
     {
-        $sparring = $event->sparring;
-        $taker = $event->taker;
+        $tim = $event->tim;
+        $timtaker = $event->timtaker;
 
-        $sparringCreator = $sparring->user; // Pembuat sparring
+        $timCreator = $tim->user; // Pembuat tim
 
-        $notificationMessage = "Sparring yang Anda buat telah diambil oleh Seseorang!";
+        $notificationMessage = "Seseorang telah bergabung dengan Tim Anda!";
 
         // Kirim notifikasi ke pembuat sparring
-        $sparringCreator->notify(new SendSparringTakenNotifikasi($notificationMessage));
+        $timCreator->notify(new SendTimTakenNotifikasi($notificationMessage));
     }
 }

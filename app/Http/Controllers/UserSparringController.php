@@ -343,13 +343,18 @@ class UserSparringController extends Controller
 
                  // Buat notifikasi
                 $sparringCreator = $sparring->user;
-                $notificationMessage = "Sparring yang Anda buat telah diambil oleh seseorang.";
+                $notificationMessage = "Sparring yang Anda buat telah diambil oleh Seseorang!";
 
                 $notification = new Notifikasi([
                     'user_id' => $sparringCreator->id,
                     'message' => $notificationMessage,
                 ]);
                 $notification->save();
+
+                if ($pengguna->readnotif == "false") {
+                    $sparringCreator->update(['readnotif' => "true"]);
+                    $sparringCreator->save();
+                }
 
                 // Ambil nama tim lawan dari sparring pertama yang di-join oleh user
                 if ($sparring->joinedSparrings->first()->sparringTeams->isNotEmpty()) {
@@ -362,10 +367,7 @@ class UserSparringController extends Controller
                 }
                 // event(new JoinNotification($namaTimLawan . "telah bergabung event sparring " . $userTim));
                 
-                if ($pengguna->readnotif == "false") {
-                    $sparringCreator->update(['readnotif' => "true"]);
-                    $sparringCreator->save();
-                }
+                
 
                 return redirect()->route('sparring.detail', ['id' => $usersparringId])->with('notification', 'Anda telah bergabung dengan Sparring!');
             } else {

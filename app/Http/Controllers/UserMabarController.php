@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Matching;
 use App\Models\UserMabar;
+use App\Events\MabarTaken;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -214,6 +216,24 @@ class UserMabarController extends Controller
                 if ($mabar->joinedUsers->count() >= $mabar->max_member) {
                     return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('notification', 'Maaf, jumlah peserta acara mabar telah mencapai batas maksimum!');
                 }
+
+                event(new MabarTaken(Auth::user(), $mabar));
+
+                 // Buat notifikasi
+                $mabarCreator = $mabar->user;
+                $notificationMessage = "Seseorang telah join ke dalam Mabar Anda! ";
+
+                $notification = new Notifikasi([
+                    'user_id' => $mabarCreator->id,
+                    'message' => $notificationMessage,
+                ]);
+                $notification->save();
+
+                if ($pengguna->readnotif == "false") {
+                    $mabarCreator->update(['readnotif' => "true"]);
+                    $mabarCreator->save();
+                }
+
                 // Jika belum terdaftar, tambahkan user ke relasi Many-to-Many
                 $mabar->joinedUsers()->attach($pengguna->id);
                 return redirect()->route('mabar.detail', ['id' => $usermabarId])->with('notification', 'Anda telah bergabung dengan Mabar!');
