@@ -67,6 +67,31 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usermabar as $mabar)
+    <div class="modal" id="exampleModal{{ $mabar->id }}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Hapus Mabar <strong>{{$mabar->title}}</strong>?
+              </h5>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda yakin ingin menghapus Mabar</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <form action="/mabar/{{ $mabar->id }}" method="post">
+                @csrf
+                @method('delete')
+              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
@@ -74,7 +99,7 @@
                         <a class="see-button" href="/usermabar/{{$mabar->id}}/usermabardetail" >
                         </a>
                         <a class="edit-button {{ $mabar->joinedUsers->count() > 1 || $DateNow > $mabar->tanggal_pertandingan ? 'd-none' : 'd-flex' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
-                        <a class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a> 
+                        <a class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $mabar->id }}"></a> 
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
                 <div class="title-box " >
@@ -86,7 +111,7 @@
                     @endif
                     <div class="w-100" >
                         @if ($DateNow > $mabar->tanggal_pertandingan)
-                        <div class="w-50 access bg-danger text-light d-flex align-items-center justify-content-center" style="border: 3px solid red"  >Selesai</div>   
+                        <div class="w-50 access  text-light d-flex align-items-center justify-content-center" style="border: 3px solid grey ; background: grey; "  >Selesai</div>   
                     @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
                         <div class="w-50 access text-light" style="background: #FE6B00" >Penuh</div>  
                     @else

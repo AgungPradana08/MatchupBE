@@ -13,8 +13,7 @@
 
 </head> 
 <body>
-      
-      <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta acara Kompetisi telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Kompetisi ini!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Kompetisi ini!'  ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, jumlah peserta acara Kompetisi telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Kompetisi ini!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Kompetisi ini!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close" onclick="closenotification()" aria-label="Close"></button>
     </div>

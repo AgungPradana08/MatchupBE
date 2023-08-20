@@ -77,6 +77,31 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
+    <div class="modal" id="exampleModal{{ $sparring->id }}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Hapus Sparring <strong>{{$sparring->title}}</strong>?
+              </h5>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda yakin ingin menghapus Sparring</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+              <form action="/sparring/{{ $sparring->id }}" method="post">
+                @csrf
+                @method('delete')
+              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="box shadow-ms ">
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
@@ -84,7 +109,8 @@
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
                     </a>
                     <a class="edit-button p-0 m-0 {{ $sparring->joinedSparrings->count() == $sparring->max_member || $DateNow > $sparring->tanggal_pertandingan ? 'd-none' : 'd-flex'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
-                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
+                    <a class="delete-button p-0 m-0" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $sparring->id }}" {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "></a>
+                    
                 </div>
                 <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-fit: cover; object-position: center;" >
                 <div class="title-box  ms-0" >
@@ -96,7 +122,7 @@
                     @endif
                     <div>
                         @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
-                        <div class="finish-s text-light" style="background: #FE6B00" >Selesai</div>  
+                        <div class="finish-s text-light" style="background: grey" >Selesai</div>  
                         @elseif ($DateNow > $sparring->tanggal_pertandingan && $sparring->joinedSparrings->count() == 1)
                         <div class="finish" style="background: #ffffff" >Selesai</div>  
                         @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)

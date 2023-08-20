@@ -221,14 +221,14 @@ class UserMabarController extends Controller
 
                  // Buat notifikasi
                 $mabarCreator = $mabar->user;
-                $notificationMessage = "Seseorang telah join ke dalam Mabar Anda! ";
+                $notificationMessage = "$pengguna->nama telah join ke dalam $mabar->title Mabar Anda! ";
 
                 $notification = new Notifikasi([
                     'user_id' => $mabarCreator->id,
                     'message' => $notificationMessage,
                 ]);
                 $notification->save();
-
+                
                 if ($pengguna->readnotif == "false") {
                     $mabarCreator->update(['readnotif' => "true"]);
                     $mabarCreator->save();

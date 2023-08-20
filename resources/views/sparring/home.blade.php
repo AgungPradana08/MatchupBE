@@ -148,7 +148,7 @@
 
                         
                         @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
-                            <div class="finish-s w-50 d-flex align-items-center justify-content-center">Selesai</div> 
+                            <div class="finish-s w-50 d-flex align-items-center justify-content-center" style="background: grey" >Selesai</div> 
                         @elseif ($DateNow > $sparring->tanggal_pertandingan && $sparring->joinedSparrings->count() == 1)
                             <div class="finish w-50 d-flex align-items-center justify-content-center">Selesai</div> 
                         @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
