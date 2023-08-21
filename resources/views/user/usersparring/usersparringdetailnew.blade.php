@@ -91,7 +91,7 @@
                         @endif
                     @endforeach
                     @else
-                        <p>No joined sparrings available.</p>
+                        <p>Sparring Sudah Selesai</p>
                     @endif
                     {{-- @if ($usersparring->joinedSparrings)
 

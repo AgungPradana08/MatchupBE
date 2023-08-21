@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->text('message');
+            $table->string('url');
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
 

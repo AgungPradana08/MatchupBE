@@ -74,6 +74,13 @@ function mapsList(index) {
     frame.src = mapsurls.innerHTML;
     HargaInputs.value = price_detail.innerHTML;
 
+    var value = HargaInputs.value.replace(/\D/g, '');
+
+    // Memisahkan nilai menjadi setiap 3 digit dengan titik
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    // Menampilkan nilai yang sudah diformat kembali di HargaInputs
+    HargaInputs.value = value;
 
     locationdisplay();
 }

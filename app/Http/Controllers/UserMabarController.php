@@ -226,6 +226,8 @@ class UserMabarController extends Controller
                 $notification = new Notifikasi([
                     'user_id' => $mabarCreator->id,
                     'message' => $notificationMessage,
+                    'url' => "/usermabar/$mabar->id/usermabardetail",
+
                 ]);
                 $notification->save();
                 

@@ -235,6 +235,8 @@ class UserTimController extends Controller
                 $notification = new Notifikasi([
                     'user_id' => $timCreator->id,
                     'message' => $notificationMessage,
+                    'url' => "/usertim/$tim->id/usertimdetail",
+                    
                 ]);
                 $notification->save();
 
