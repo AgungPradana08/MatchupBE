@@ -13,6 +13,15 @@
 }
 /* NAVBAR */
 
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #FE6B00;
+    border-radius: 5px
+  }
+
 .two {
     width: 50%;
     border: 3px solid #8F8F8F;

@@ -12,7 +12,32 @@
 
 </head>
 <body>
- 
+
+    {{-- <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: 32vw" >
+            <div class="modal-header bg-primary-mu">
+              <div class="blank logo-sm rounded-circle d-inline-block"></div>
+              <h5 class=" modal-title ">
+                Hapus Sparring <strong>{{$usersparring->title}}</strong>?
+              </h5>
+              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda yakin ingin menghapus Sparring</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <form action="/usersparring/{{ $usrsparring->id }}" method="post">
+                @csrf
+                @method('delete')
+              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div> --}}
+
     <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Anda Tidak di izinkan membuat sparring.' || session('notification') === 'Anda harus tergabung dalam tim terlebih dahulu atau memiliki sebelum dapat membuat sparring.' || session('notification') === 'Sparring berhasil di tambah' || session('notification') === 'Sparring berhasil di hapus' || session('notification') === 'Sparring Berhasil di edit' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
@@ -77,31 +102,6 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
-    <div class="modal" id="exampleModal{{ $sparring->id }}" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered ">
-          <div class="modal-content" style="width: 32vw" >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class=" modal-title ">
-                Hapus Sparring <strong>{{$sparring->title}}</strong>?
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Apakah anda yakin ingin menghapus Sparring</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <form action="/sparring/{{ $sparring->id }}" method="post">
-                @csrf
-                @method('delete')
-              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
         <div class="box shadow-ms ">
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
@@ -109,7 +109,12 @@
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
                     </a>
                     <a class="edit-button p-0 m-0 {{ $sparring->joinedSparrings->count() == $sparring->max_member || $DateNow > $sparring->tanggal_pertandingan ? 'd-none' : 'd-flex'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
-                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" data-bs-target="#exampleModal{{ $sparring->id }}"></a>
+                    <form action="/usersparring/{{$sparring->id}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" type="submit" data-bs-target="#exampleModal" href="/usersparring/{{$sparring->id}}"></a>
+                    </form>
+                    {{-- <a href="" class="delete-button p-0 m-0 scale-hover " data-bs-toggle="modal" data-bs-target="#exampleModal" >Blokir</a> --}}
                 </div>
                 <img class="box-logo p-0 m-0 rounded-circle" src="{{asset('storage/'. $sparring->image)}}" alt="" style="object-fit: cover; object-position: center;" >
                 <div class="title-box  ms-0" >
