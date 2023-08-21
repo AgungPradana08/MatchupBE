@@ -85,7 +85,7 @@
               <form action="/mabar/{{ $mabar->id }}" method="post">
                 @csrf
                 @method('delete')
-              <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
+                    <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
               </form>
             </div>
           </div>

@@ -9,7 +9,7 @@
 }
 
 * {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 /* NAVBAR */
 
@@ -146,9 +146,9 @@ h5 {
 
 .upper {
     height: 70%;
-    gap: 8%;
+    gap: 2%;
     display: grid;
-    grid-template-rows: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
 }
 
 .upper2 {

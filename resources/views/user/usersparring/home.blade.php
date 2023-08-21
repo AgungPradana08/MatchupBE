@@ -103,7 +103,7 @@
     <section class="container box-wrapper">
     @foreach ($usersparring as $sparring)
         <div class="box shadow-ms ">
-           <button class="box-outer" style="width: 100%; height: 100%;" >
+           <div class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">
                 <div class="edit-data ">
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
@@ -112,7 +112,7 @@
                     <form action="/usersparring/{{$sparring->id}}" method="post">
                     @csrf
                     @method('delete')
-                    <a class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" type="submit" data-bs-target="#exampleModal" href="/usersparring/{{$sparring->id}}"></a>
+                    <button class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" type="submit" data-bs-target="#exampleModal" href="/usersparring/{{$sparring->id}}"></button>
                     </form>
                     {{-- <a href="" class="delete-button p-0 m-0 scale-hover " data-bs-toggle="modal" data-bs-target="#exampleModal" >Blokir</a> --}}
                 </div>
