@@ -160,7 +160,7 @@
             <div id="wrapper3" class="form4-wrapper">
                 <div class="input1">
                     <p class="m-0" >Tanggal</p>
-                    <input id="datepick " name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required >
+                    <input id="datepick" name="tanggal_pertandingan" type="date" placeholder="Input nama pertandingan..." required >
                 </div>
                 <div class="input2">
                     <p class="m-0" >Harga</p>

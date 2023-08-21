@@ -7,8 +7,9 @@ let seelogin = true;
 // let savekey = [  "titleinput","olahragaselect","deskripsitextarea","lokasiinput", "mininput","maxinput","aksesselect","tingkatanselect","tanggaldate","hargainput",     "lamadate",               "pukulinput","tambahandeskripsiinput"]
 // let elementid = ["TitleInput", "OlahragaSelect","DesInput",         "locationtext","MinInput","MaxInput","AksesInput","TingkatanInput",  "datepick",   "HargaInput",     "LamaPertandinganSelect","TimeSelect","TambahanDeskripsi"     ]
 
-console.log(today)
 document.getElementById("datepick").min = today.toString();
+console.log(today)
+
 
 // mapsviews()
 
