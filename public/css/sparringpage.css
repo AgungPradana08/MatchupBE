@@ -8,6 +8,14 @@
     src: url(Font/OpenSans-Bold.ttf);
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #FE6B00;
+    border-radius: 5px
+  }
 
 * {
     font-family: opensans;

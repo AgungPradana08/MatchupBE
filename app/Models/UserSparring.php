@@ -37,6 +37,12 @@ class UserSparring extends Model
             ->withPivot('usertim_id', 'nama_tim_lawan', 'image_tim_lawan'); // Add the pivot data here
     }
 
+    public function orders()
+    {
+        return $this->belongsToMany(User::class, 'order',)
+            ->withPivot('nama', 'total_price', 'quantity'); // Add the pivot data here
+    }
+
     public function playerSparring()
     {
         return $this->belongsToMany(User::class, 'matches_sparring', 'usersparring_id', 'user_id');

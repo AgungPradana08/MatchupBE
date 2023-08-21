@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('nama');
-            $table->text('alamat');
-            $table->string('nomor_telepon');
+            // $table->text('alamat');
+            // $table->string('nomor_telepon');
             $table->string('total_price');
             $table->string('quantity');
-            $table->enum('status', ['Unpaid', 'Paid']);
+            // $table->enum('status', ['Unpaid', 'Paid']);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

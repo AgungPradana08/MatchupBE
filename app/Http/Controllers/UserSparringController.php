@@ -354,6 +354,10 @@ class UserSparringController extends Controller
         $namaTimLawan = $userTim->nama_tim;
         $imageTimLawan = $userTim->image;
         $readnotif = $pengguna->true;
+        $hargaTiket = $sparring->harga_tiket;
+
+        $nama = $pengguna->name;
+        $total_price = $sparring->harga_tiket;
 
         if ($sparring) {
             // Cek apakah user sudah terdaftar sebagai peserta sparring
@@ -373,6 +377,15 @@ class UserSparringController extends Controller
                     'image_tim_lawan' => $imageTimLawan,
 
                 ]);
+
+                // $order = new Order([
+                //     'user_id' => $pengguna->id,
+                //     'nama' => $nama,
+                //     'total_price' => $total_price,
+                //     'quantity' => 1,
+                // ]);
+
+                // $sparring->orders()->save($order);
 
                 event(new SparringTaken(Auth::user(), $sparring));
 
