@@ -54,7 +54,7 @@ function validate2() {
 function validate3() {
     if (LoginInputPasswords.value.length > 0) {
         if (LoginInputPasswords.value.length > 5 ) {
-            NextPage()
+            validate4()
         } else {
             alert1.style.visibility = "visible"
             alert1.innerHTML = "! Password Minimun 6 digit !"
@@ -62,6 +62,19 @@ function validate3() {
     } else {
         alert1.style.visibility = "visible"
         alert1.innerHTML = "! Password Kosong !"
+    }
+}
+
+function validate4() {
+    let passwordeye = document.getElementById("PasswordInput")
+    let passwordeyes = document.getElementById("PasswordInput1")
+
+    
+    if (passwordeye.value == passwordeyes.value) {
+        NextPage()
+    } else {
+        alert1.style.visibility = "visible"
+        alert1.innerHTML = "! Konfirmasi Password Anda !"
     }
 }
 
@@ -96,6 +109,24 @@ function passwordsee() {
     passwordeye.style.backgroundPosition = "center"
     passwordeye.style.backgroundSize = "contain"
     passwordeye.style.backgroundRepeat = "no-repeat"
+}
+
+function passwordsee1() {
+    let passwordeye = document.getElementById("passwordicon1")
+    let LoginInputPassword = document.getElementById("PasswordInput1");
+
+    if (LoginInputPassword.classList.contains("active")) {
+        LoginInputPassword.classList.remove("active");
+        LoginInputPassword.type = "password";
+        passwordeye.style.background = "url(/css/img/eye.png)" 
+      } else {
+        LoginInputPassword.classList.add("active");
+        LoginInputPassword.type = "text";
+        passwordeye.style.background = "url(/css/img/eye-disable.png)" 
+    }
+passwordeye.style.backgroundPosition = "center"
+passwordeye.style.backgroundSize = "contain"
+passwordeye.style.backgroundRepeat = "no-repeat"
 }
 
 function previewImage() {
