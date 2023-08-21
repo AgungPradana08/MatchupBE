@@ -50,9 +50,9 @@
                         <option value="" >Pilih Olahraga...</option>
                         <option value="12">Sepak Bola</option>
                         <option value="12">Futsal</option>
+                        <option value="10">Mini Soccer</option>
                         <option value="6">Ping Pong</option>
                         <option value="6">Badminton</option>
-                        <option value="12">Voli</option>
                     </select>
                     <input class="d-none" id="OlahragaInput" name="olahraga" type="text">
                 </div>
