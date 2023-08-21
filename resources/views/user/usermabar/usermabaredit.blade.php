@@ -19,7 +19,7 @@
               <h5 class=" modal-title ">
                 Hapus Mabar <strong>{{$usermabar->title}}</strong>?
               </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <p>Apakah anda yakin ingin menghapus mabar</p>
@@ -159,6 +159,8 @@
             </div>
         </div>
         <button class="add" type="submit" name="submit" value="save">EDIT</button>
+        <button class="add" type="submit" name="submit" value="save">Delete</button>
+
     </form>
     <div class="content1">
         <button class="delete d-flex align-items-center justify-content-center"  data-bs-toggle="modal" data-bs-target="#exampleModal" value="Delete">DELETE</button>

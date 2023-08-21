@@ -230,7 +230,7 @@ class UserTimController extends Controller
 
                  // Buat notifikasi
                 $timCreator = $tim->user;
-                $notificationMessage = "Seseorang telah bergabung dengan Tim Anda!";
+                $notificationMessage = "$pengguna->name telah bergabung dengan Tim $tim->nama_tim";
 
                 $notification = new Notifikasi([
                     'user_id' => $timCreator->id,
