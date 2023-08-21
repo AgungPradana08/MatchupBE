@@ -37,7 +37,7 @@
                 </div>
                 <div class="input-box">
                     <div class="icon" style="background: url(/css/img/password.png); background-position: center; background-size: contain;background-repeat: no-repeat; "  ></div>
-                    <input id="PasswordInput1" type="password" placeholder="Masukkan Password...">
+                    <input id="PasswordInput1" name="password" type="password" placeholder="Konfirmasi Password...">
                     <div id="passwordicon1" class="icon-eye" style="background: url(/css/img/eye.png); background-position: center; background-size: contain;background-repeat: no-repeat; cursor:pointer"  onclick="passwordsee1()"></div>
                 </div>
                 <input class="d-none" type="text">
@@ -50,8 +50,8 @@
                 <a style="text-align: center;" href="/login">Sudah Punya Akun?, klik disini</a>
             </div>
         </div>
-        <div id="box2" class="box">
-            <div class="upper2">
+        <div id="box2" class="box ">
+            <div class="upper2 ">
                 <h5>SELAMAT DATANG</h5>
                 <div class="image-container">
                     <div id="image-box" class="image-box" >

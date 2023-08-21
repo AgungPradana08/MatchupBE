@@ -152,7 +152,7 @@ h5 {
 }
 
 .upper2 {
-    height: 80%;
+    height: 75%;
     gap: 2%;
     display: grid;
     grid-template-rows: 2fr 4fr 1fr ;
@@ -166,10 +166,12 @@ h5 {
 }
 
 .footer2 {
-    height: 20%;
+    height: 25%;
     gap: 5%;
     display: grid;
     grid-template-rows: 1fr 1fr ;
+    padding: 2% 0%;
+    padding-bottom: 12px;
 }
 
 .footer > .next-button {
