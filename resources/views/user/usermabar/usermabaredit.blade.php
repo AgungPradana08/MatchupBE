@@ -159,7 +159,6 @@
             </div>
         </div>
         <button class="add" type="submit" name="submit" value="save">EDIT</button>
-        <button class="add" type="submit" name="submit" value="save">Delete</button>
 
     </form>
     <div class="content1">

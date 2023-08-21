@@ -67,7 +67,7 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usermabar as $mabar)
-    <div class="modal" id="exampleModal{{ $mabar->id }}" tabindex="-1">
+    {{-- <div class="modal" id="exampleModal{{ $mabar->id }}" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: 32vw" >
             <div class="modal-header bg-primary-mu">
@@ -82,7 +82,6 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
               <form action="/mabar/{{ $mabar->id }}" method="post">
                 @csrf
                 @method('delete')
@@ -91,15 +90,19 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
         <div class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
-            <button class="box-outer" style="width: 100%; height: 100%;" >
+            <div class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
                     <div class="edit-data m-0 p-0">
                         <a class="see-button" href="/usermabar/{{$mabar->id}}/usermabardetail" >
                         </a>
                         <a class="edit-button {{ $mabar->joinedUsers->count() > 1 || $DateNow > $mabar->tanggal_pertandingan ? 'd-none' : 'd-flex' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
-                        <a class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $mabar->id }}"></a> 
+                        <form action="/usermabar/{{$mabar->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $mabar->id }}"></button> 
+                        </form>
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
                 <div class="title-box " >
