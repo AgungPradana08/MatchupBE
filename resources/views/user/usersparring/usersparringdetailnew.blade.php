@@ -191,7 +191,7 @@
                 </div>
                 <hr class=" d-block d-lg-none">
                     <div class="access-phone d-block d-lg-none">
-                        <h4>Biaya Pendaftaran</h4>
+                        <h4>Biaya Iuran Lapangan</h4>
                         <h1 class="m-0" >Rp {{$usersparring->harga_tiket}}<span class="text-muted m-0 p-0" >/tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
@@ -238,7 +238,7 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
-                        <h5>Biaya Pendaftaran</h5>
+                        <h5>Biaya Patungan Lapangan</h5>
                         <h1>Rp {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
