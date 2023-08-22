@@ -172,9 +172,7 @@
                 <div class="input3">
                         <p class="m-0" >Lama Pertandingan</p>
                         <select oninput="InputChange()" id="LamaPertandinganSelect" class="ac-title2 " type="text" placeholder="TWO" name="lama_pertandingan" onchange="Price()" required>
-                            <option value="1">30 Menit</option>
                             <option value="1">60 Menit</option>
-                            <option value="2">90 Menit</option>
                             <option value="2">120 Menit</option>
                             <option value="3">120+ Menit</option>
                         </select>
