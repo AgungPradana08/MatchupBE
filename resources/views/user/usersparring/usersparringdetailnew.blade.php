@@ -71,7 +71,7 @@
                 <a style="text-decoration: none; color: black" href="/tim/{{ $usersparring->SparringTims->id }}/timdetail">
                     <div class="de-away me-5">
                         <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
-                        <p style="margin-top: 5%;" >{{$usersparring->nama_tim}}</p>
+                        <p style="margin-top: 5%;" class="text-center" >{{$usersparring->nama_tim}}</p>
                     </div>
                 </a>
                 <div class="de-vs">
