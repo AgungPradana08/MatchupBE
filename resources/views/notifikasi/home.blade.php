@@ -39,7 +39,7 @@
         <section class="white-space" ></section>   
         @else
         <div class="flag-icon" ></div>
-        <p style="opacity: 50%;">Untuk saat ini belum ada Notifikasi.</p>
+        <p style="opacity: 50%;" class="w-100 text-center" >Untuk saat ini belum ada Notifikasi.</p>
     @endif
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

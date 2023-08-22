@@ -67,30 +67,7 @@
     </section>
     <section class="container box-wrapper">
     @foreach ($usermabar as $mabar)
-    {{-- <div class="modal" id="exampleModal{{ $mabar->id }}" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered ">
-          <div class="modal-content" style="width: 32vw" >
-            <div class="modal-header bg-primary-mu">
-              <div class="blank logo-sm rounded-circle d-inline-block"></div>
-              <h5 class=" modal-title ">
-                Hapus Mabar <strong>{{$mabar->title}}</strong>?
-              </h5>
-              <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Apakah anda yakin ingin menghapus Mabar</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <form action="/mabar/{{ $mabar->id }}" method="post">
-                @csrf
-                @method('delete')
-                    <button type="submit" class="btn btn-danger" style="color: white;" >Hapus</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+    
         <div class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
             <div class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">
@@ -151,7 +128,7 @@
                      <span style="font-family: opensans-bold; color: #FE6B00; " class="ms-2 ms-lg-0 " >{{ $mabar->joinedUsers->count() }}/{{ $mabar->max_member }}</span>
                  </div>
              </div>
-            </button>
+            </div>
          </div>
     @endforeach
     
