@@ -396,7 +396,7 @@ class UserSparringController extends Controller
                 $notification = new Notifikasi([
                     'user_id' => $sparringCreator->id,
                     'message' => $notificationMessage,
-                    'url' => "/usersparring/$sparring->id/usersparringdetail",
+                    'url' => "/usersparring/$sparring->id/usersparringdetail#Detail",
 
                 ]);
                 $notification->save();

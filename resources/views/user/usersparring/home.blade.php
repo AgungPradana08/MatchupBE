@@ -160,7 +160,7 @@
                 </div>
 
             </div>
-           </button>
+        </div>
         </div>
         @endforeach
         
