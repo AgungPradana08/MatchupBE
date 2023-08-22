@@ -130,7 +130,7 @@
             </div>
         </div>
 
-        <div class="form1">
+        {{-- <div class="form1">
             <div class="header">
                 Member
             </div>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="form4">
             <div class="header">
