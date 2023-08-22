@@ -20,7 +20,7 @@
             </div>
             <div class="w-50 d-flex flex-column align-items-center" >
                 <a class="btn w-75 text-white" href="/sparring/home" style="background: #FE6B00" type="submit">
-                    menuju ke Dashboard
+                    Menuju ke Dashboard
                 </a>
             </div>
             

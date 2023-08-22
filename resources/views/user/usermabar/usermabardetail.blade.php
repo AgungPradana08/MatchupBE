@@ -168,8 +168,8 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex ">
                     <div class="access">
-                        <h5 >Biaya Pendaftaran</h5>
-                        <h1 class="w-100 text-center " >Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/orang</span> </h1>
+                        <h5 >Informasi Biaya Lapangan</h5>
+                        <h1 class="w-100 text-center " >Rp. {{$usermabar->harga_tiket}} <span class="text-muted" >/jam</span> </h1>
                         <div class="two">{{$usermabar->tingkatan}} Tahun</div>
                     </div>
                     <div class="box-content ">

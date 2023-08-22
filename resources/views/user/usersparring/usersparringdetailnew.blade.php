@@ -238,7 +238,7 @@
             <div class=" offset-lg-1 col-lg-5 col-xl-4 col-12">
                 <div class="box1 d-none d-lg-flex w-100 ">
                     <div class="access w-100 d-flex justify-content-center border-0">
-                        <h5>Biaya Patungan Lapangan</h5>
+                        <h5>Informasi Biaya Lapangan</h5>
                         <h1>Rp {{$usersparring->harga_tiket}}<span class="text-muted" > /tim</span> </h1>
                         <div class="two">{{$usersparring->tingkatan}} Tahun</div>
                     </div>
