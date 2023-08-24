@@ -164,6 +164,7 @@ class UserSparringController extends Controller
     public function detail($id, Request $request,)
     {
         $DateNow = date('Y-m-d');
+        $TimeNow = Carbon::now(); 
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
 
@@ -200,10 +201,11 @@ class UserSparringController extends Controller
 
         // return view('order.checkout', compact(['snapToken', 'order']));
         
+        // dd($TimeNow);
 
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin',]));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -295,6 +297,7 @@ class UserSparringController extends Controller
     public function search2(Request $request)
     {   
         $DateNow = date('Y-m-d');
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');

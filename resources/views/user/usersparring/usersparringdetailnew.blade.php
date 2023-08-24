@@ -11,44 +11,76 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
-    <div class="modal" id="report" tabindex="-1">
+    <form action="{{ route('report.tim')}}" method="post">
+        @csrf   
+        <div class="modal" id="report" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered ">
+              <div class="modal-content" style="width: 32vw" >
+                <div class="modal-header bg-primary-mu">
+                  <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                  <h5 class=" modal-title ">
+                    Laporkan Tim <strong>{{$usersparring->nama_tim}}</strong>?
+                  </h5>
+                  <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-wrapper">
+                    <div class="d-flex align-items-center" style="grid-area: report1">
+                        <input type="checkbox" id="timuser1" onchange="CheckboxTim()" name="timuser1" value="2">
+                        <label for="timuser1"> Kata kasar/SARA</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report2">
+                        <input type="checkbox" id="timuser2" onchange="CheckboxTim()" name="timuser2" value="3">
+                        <label for="timuser2"> Logo/avatar tidak pantas</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report3">
+                        <input type="checkbox" id="timuser3" onchange="CheckboxTim()" name="timuser3" value="2">
+                        <label for="timuser3"> Spam</label><br>
+                    </div>
+                    <div class="d-flex align-items-center" style="grid-area: report4">
+                        <input type="checkbox" id="timuser4" onchange="CheckboxTim()" name="timuser4" value="4">
+                        <label for="timuser4"> Spam</label><br>
+                    </div>
+                    <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+                    <input type="text" class="d-none" name="reporttimid" id="ReportPoin" value="{{ $usersparring->id }}">
+                    <input type="text" class="d-none" name="ReportTimPoin" id="ReportTimPoin">
+    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                  {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                  <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="modal" id="KickTeam" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: 32vw" >
             <div class="modal-header bg-primary-mu">
               <div class="blank logo-sm rounded-circle d-inline-block"></div>
               <h5 class=" modal-title ">
-                Laporkan Pemilik Sparring <strong>{{$usersparring->title}}</strong>?
+                Keluarkan Tim <strong>{{$usersparring->nama_tim}}</strong>?
               </h5>
               <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body modal-wrapper">
-                <div class="d-flex align-items-center" style="grid-area: report1">
-                    <input type="checkbox" id="report1" name="report1" value="Bike">
-                    <label for="report1"> Kata kasar/SARA</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report2">
-                    <input type="checkbox" id="report2" name="report2" value="Bike">
-                    <label for="report2"> Logo/avatar tidak pantas</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report3">
-                    <input type="checkbox" id="report3" name="report3" value="Bike">
-                    <label for="report3"> Spam</label><br>
-                </div>
-                <div class="d-flex align-items-center" style="grid-area: report4">
-                    <input type="checkbox" id="report4" name="report4" value="Bike">
-                    <label for="report4"> penipuan</label><br>
-                </div>
-                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+            <div class="modal-body">
+              <p>Apakah anda yakin ingin mengeluarkan Tim ini dari sparring anda?</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
               {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+              <form action="/usertim/{{$usersparring->id}}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      </div>
+
     <div id="notification" class="alert position-fixed notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Maaf, Anda harus bergabung dengan tim terlebih dahulu sebelum dapat bergabung dengan Sparring!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Sparring ini!' || session('notification') === 'Anda telah bergabung dengan Sparring!'  ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
@@ -57,7 +89,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/sparring/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail Sparring</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usersparring->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usersparring->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}; visibility: hidden;" style="height: 28px;" ></button>
         </div>
     </nav>
     <div id="Versus" class="container2">
@@ -68,92 +100,62 @@
             <div id="awayteam" class="vs-away"></div>
         </div>
         <div class="vs-detail">
-                <a style="text-decoration: none; color: black" href="/tim/{{ $usersparring->SparringTims->id }}/timdetail">
-                    <div class="de-away me-5">
-                        <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle"  alt="">
-                        <p style="margin-top: 5%;" class="text-center" >{{$usersparring->nama_tim}}</p>
+                <div class="me-5" >
+                    <a class=" " style="text-decoration: none; color: black" href="/tim/{{ $usersparring->SparringTims->id }}/timdetail">
+                        <div class="de-away w-100">
+                            <img src="{{asset ('storage/' . $usersparring->SparringTims->image)}}" class="box-icon shadow rounded rounded-circle mb-2"  alt="">
+                            <div class="d-flexjustify-content-center align-items-center"  >
+                                <p class="text-center p-0 m-0 " style="font-size: 18px"  >{{$usersparring->nama_tim}}</p> 
+                                
+                            </div>
+                        </div>
+                    </a>
+                    <div class="d-flex w-100 justify-content-center mt-2" >
+                        @if (Auth::user()->id == $usersparring->user_id)
+                            <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                        @else
+                            @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan)
+                            <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                            @else
+                            <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                            @endif
+                        @endif
                     </div>
-                </a>
+                </div>
                 <div class="de-vs">
                     VS
                 </div>
-                <div class="de-home ms-5 ">
-                    @if (count($usersparring->joinedSparrings) > 0)
-                    @foreach ($usersparring->joinedSparrings as $sparring)
-                        @if ($sparring->pivot && strlen($sparring->pivot->image_tim_lawan) > 0)
-                            <a style="text-decoration: none; color: black" href="/tim/{{ $sparring->pivot->usertim_id }}/timdetail">
+                @if (count($usersparring->joinedSparrings) > 0)
+                @foreach ($usersparring->joinedSparrings as $sparring)
+                    @if ($sparring->pivot && strlen($sparring->pivot->image_tim_lawan) > 0)
+                        <div class="ms-5" >
+                            <a  style="text-decoration: none; color: black" href="/tim/{{ $sparring->pivot->usertim_id }}/timdetail">
                                 <img src="{{ asset('storage/' . $sparring->pivot->image_tim_lawan) }}" class="box-icon shadow rounded rounded-circle" alt="">
-                                <p class="text-center" style="margin-top: 5%;">{{ $sparring->pivot->nama_tim_lawan }}</p>
+                                <div class="d-flex justify-content-center align-items-center mt-2" >
+                                    <p class="text-center d-inline-block p-0 m-0" style="font-size: 18px" >{{ $sparring->pivot->nama_tim_lawan }}</p>
+                                </div>
                             </a>
-                        @else
-                            {{-- <img src="" class="box-icon shadow rounded rounded-circle" alt="">
-                            <p style="margin-top: 5%;">???</p> --}}
-                        @endif
-                    @endforeach
+                            <div class="d-flex w-100 mt-2 justify-content-center" >
+                                <button data-bs-toggle="modal" data-bs-target="#KickTeam" class=" border-0 {{ Auth::user()->id == $usersparring->user_id && $DateNow < $usersparring->tanggal_pertandingan ? 'd-block' : 'd-none' }} " style="height: 25px; width: 25px; background: url(/css/img/kick.jpg); background-size: contain;"  ></button>
+                                @if (Auth::user()->id == $usersparring->user_id)
+                                <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                            @else
+                                @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan)
+                                <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                                @else
+                                <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                                @endif
+                            @endif
+                            </div>
+                        </div>
                     @else
-                        <p>Sparring Sudah Selesai</p>
+                        {{-- <img src="" class="box-icon shadow rounded rounded-circle" alt="">
+                        <p style="margin-top: 5%;">???</p> --}}
                     @endif
-                    {{-- @if ($usersparring->joinedSparrings)
-
-                    @else
-                    <img src="/css/img/psg.png" class="box-icon shadow rounded rounded-circle"  alt="">
-                    <p style="margin-top: 5%;">???</p>
-                    @endif --}}
-                </div>
-                {{-- <div class="de-detail">
-                    <table>
-                        <tr>
-                            <td class="td1" >
-
-                            </td>
-                            <td style="opacity: 70%" >
-
-                                harga
-                            </td>
-                            <td>
-                                {{$usersparring->harga_tiket}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td2">
-
-                            </td>
-                            <td style="opacity: 70%" >
-                                Tanggal dan waktu
-                            </td>
-                            <td>
-                                {{$usersparring->tanggal_pertandingan}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td3">
-
-                            </td>
-                            <td style="opacity: 70%" >
-                                Lokasi/Avenue
-                            </td>
-                            <td>
-                                {{$usersparring->lokasi}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td4">
-
-                            </td>
-                            <td  style="opacity: 70%"  >
-                                Lama Permainan
-                            </td>
-                            <td>
-                                {{$usersparring->lama_pertandingan}}
-                            </td>
-                        </tr>
-                    </table>
-                </div> --}}
-                {{-- <div class="de-button">
-                    <a class="primary" href="/usersparring/versus">
-                        <button>AMBIL SPARRING</button>
-                    </a>
-                </div> --}}
+                @endforeach
+                @else
+                    <p>Sparring Sudah Selesai</p>
+                @endif  
         </div>
 
     </div>
