@@ -137,11 +137,11 @@
                             </a>
                             <div class="d-flex w-100 mt-2 justify-content-center" >
                                 <button data-bs-toggle="modal" data-bs-target="#KickTeam" class=" border-0 {{ Auth::user()->id == $usersparring->user_id && $DateNow < $usersparring->tanggal_pertandingan ? 'd-block' : 'd-none' }} " style="height: 25px; width: 25px; background: url(/css/img/kick.jpg); background-size: contain;"  ></button>
-                                @if (Auth::user()->id == $usersparring->user_id)
+                            @if (Auth::user()->id == $sparring->pivot->user_id)
                                 <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                             @else
-                                @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan)
-                                <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
+                                @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan )
+                                <button  data-bs-toggle="modal" data-bs-target="#report"  class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                                 @else
                                 <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                                 @endif

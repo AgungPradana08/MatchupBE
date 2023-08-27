@@ -66,9 +66,9 @@
                 </div>
                 <hr>
                 <div class="maps pb-lg-5 pb-0">
-                    <h5  class="fw-bold"  >Lokasi Sparring</h5>
+                    <h5  class="fw-bold"  >Lokasi Kompetisi</h5>
                     <p style="font-size: 12px" class="des" id="detaillokasi" >{{$kompetisi->lokasi}}</p>
-                    <iframe id="MapDisplay" ></iframe>
+                    <iframe id="MapDisplay" src="{{ $kompetisi->embed_lokasi }}" ></iframe>
                 </div>
                 <hr class="d-block d-lg-none">
                 <div class="d-block d-lg-none extra-description">
@@ -255,7 +255,7 @@
                 </div>
                 <div class="box2 d-none d-lg-block">
                     <h5>Member</h5>
-                    <div class="mabar-member">
+                    <div class="mabar-member p-1 ">
                         @foreach ($kompetisi->playersKompetisi as $player)
                         <div class="member">
                             <img style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#UserProfile{{ $player->id }}" class="member-logo rounded-circle " src="{{asset('storage/'. $player->image)}}" >

@@ -64,7 +64,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/tim/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail {{ $usertim->nama_tim }}</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usertim->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain;  visibility: hidden;" style="height: 28px;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -213,52 +213,37 @@
                                     @endif
                                 </div>
                             </div>
-                            @if ($player->id == $origin)
-                                <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                            @if (Auth::user()->id == $usertim->user_id && $loop->index == 0)
+                                <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
                             @else
                                 <form action="{{ route('report.player')}}" method="POST" >
                                     @csrf
-                                    <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                                    <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
 
-                                    <div class="modal" id="reportuser" tabindex="-1">
+                                    <div class="modal" id="KickUser{{$player->id}}" tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered ">
-                                        <div class="modal-content" style="width: 32vw" >
-                                            <div class="modal-header bg-primary-mu">
-                                            <div class="blank logo-sm rounded-circle d-inline-block"></div>
-                                            <h5 class=" modal-title ">
-                                                Laporkan Pengguna <strong>{{ $player->name }}</strong>?
-                                            </h5>
-                                            <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-content" style="width: 32vw" >
+                                              <div class="modal-header bg-primary-mu">
+                                                <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                                <h5 class=" modal-title ">
+                                                  Keluarkan Pengguna <strong>{{$player->name}}</strong>?
+                                                </h5>
+                                                <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p style="font-size: 12px" >Apakah anda yakin ingin mengeluarkan {{ $player->name }} ini dari Tim anda?</p>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                                <form action="" method="post">
+                                                  @csrf
+                                                  @method('delete')
+                                                  <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
+                                                </form>
+                                              </div>
                                             </div>
-                                            <div class="modal-body modal-wrapper">
-                                                <div class="d-flex align-items-center" style="grid-area: report1">
-                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report1" name="report1" value="2">
-                                                    <label for="report1"> Pengguna Negatif</label><br>
-                                                </div>
-                                                <div class="d-flex align-items-center" style="grid-area: report2">
-                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report2" name="report2" value="3">
-                                                    <label for="report2"> Logo/nama tidak pantas</label><br>
-                                                </div>
-                                                <div class="d-flex align-items-center" style="grid-area: report3">
-                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report3" name="report3" value="2">
-                                                    <label for="report3"> Tidak Sportif</label><br>
-                                                </div>
-                                                <div class="d-flex align-items-center" style="grid-area: report4">
-                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report4" name="report4" value="3">
-                                                    <label for="report4"> Tidak membayar</label><br>
-                                                </div>
-                                                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-                                                <input type="text" class="d-none" id="user_id" name="user_id" value="{{ $player->id }}">
-                                                <input type="number" class="d-none" id="reportuserpoint" name="reportuserpoint">
-
-                                            </div>
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                            {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-                                            <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
-                                            </div>
-                                        </div>
-                                        </div>
+                                          </div>
                                     </div>
                                 </form>
                             @endif
