@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Matching;
 use App\Models\UserMabar;
@@ -25,6 +26,16 @@ class UserMabarController extends Controller
         $DateNow = date('Y-m-d');
         $usermabar = UserMabar::all();
         $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
+
+        foreach ($usermabar as $mabar) {              
+            $tanggalPertandingan = Carbon::parse($mabar->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow >= $DeleteDate) {
+                $mabar->delete();
+            }
+        }
+
         return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru'])) ;
     }
 

@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\EventNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Notification;// Import model UserSparring
+
 
 class UserSparringController extends Controller
 {   
@@ -33,6 +34,7 @@ class UserSparringController extends Controller
         $pengguna = Auth::user();
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
         
+        
         if ($pengguna->skor < 50) {
             return view('/banscreen');
         } else {
@@ -47,6 +49,15 @@ class UserSparringController extends Controller
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
+
+        foreach ($usersparring as $sparring) {              
+            $tanggalPertandingan = Carbon::parse($sparring->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow >= $DeleteDate) {
+                $sparring->delete();
+            }
+        }
 
         // $user = User::all();
         return view('sparring.home', compact(['usersparring', 'user','DateNow',]));
@@ -165,6 +176,7 @@ class UserSparringController extends Controller
     {
         $DateNow = date('Y-m-d');
         $TimeNow = Carbon::now(); 
+        dd($TimeNow );
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
 
@@ -301,6 +313,8 @@ class UserSparringController extends Controller
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
+
+
 
         $usersparring = UserSparring::query();
         // $usersparring = UserSparring::where('user_id', session('user_id'))->get();
