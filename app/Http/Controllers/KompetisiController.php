@@ -14,17 +14,19 @@ class KompetisiController extends Controller
         // dd($request->all());
         $kompetisi = Kompetisi::all();
         $DateNow = date('Y-m-d');
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
 
         foreach ($kompetisi as $kompetisi) {              
             $tanggalPertandingan = Carbon::parse($kompetisi->tanggal_pertandingan);
             $DeleteDate = $tanggalPertandingan->addDays(2);
             $DateNow = date('Y-m-d');  
-            if ($DateNow >= $DeleteDate) {
+            if ($DateNow > $DeleteDate) {
                 $kompetisi->delete();
             }
         }
         // dd($DateNow);
-        return view('kompetisi.home', compact(['kompetisi','DateNow']));
+        return view('kompetisi.home', compact(['kompetisi','DateNow','TimeFormatted']));
 
     }
 

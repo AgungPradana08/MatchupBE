@@ -108,11 +108,11 @@
                 <div class="edit-data ">
                     <a class="see-button p-0 m-0" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
                     </a>
-                    <a class="edit-button p-0 m-0 {{ $sparring->joinedSparrings->count() == $sparring->max_member || $DateNow > $sparring->tanggal_pertandingan ? 'd-none' : 'd-flex'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
+                    <a class="edit-button p-0 m-0 {{ $sparring->joinedSparrings->count() == $sparring->max_member  ? 'd-none' : 'd-flex'  }} " href="/usersparring/{{$sparring->id}}/usersparringedit"></a>
                     <form action="/usersparring/{{$sparring->id}}" method="post">
                     @csrf
                     @method('delete')
-                    <button class="delete-button p-0 m-0 {{ $DateNow > $sparring->tanggal_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" type="submit" data-bs-target="#exampleModal" href="/usersparring/{{$sparring->id}}"></button>
+                    <button class="delete-button p-0 m-0 {{ $DateNow >= $sparring->tanggal_pertandingan && $TimeFormatted > $sparring->waktu_pertandingan ? 'd-flex' : 'd-none'  }} "  data-bs-toggle="modal" type="submit" data-bs-target="#exampleModal" href="/usersparring/{{$sparring->id}}"></button>
                     </form>
                     {{-- <a href="" class="delete-button p-0 m-0 scale-hover " data-bs-toggle="modal" data-bs-target="#exampleModal" >Blokir</a> --}}
                 </div>
@@ -125,9 +125,9 @@
                     <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$sparring->title}}</p>
                     @endif
                     <div>
-                        @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
+                        @if ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow >= $sparring->tanggal_pertandingan && $TimeFormatted > $sparring->waktu_pertandingan)
                         <div class="finish-s text-light" style="background: grey" >Selesai</div>  
-                        @elseif ($DateNow > $sparring->tanggal_pertandingan && $sparring->joinedSparrings->count() == 1)
+                        @elseif ($DateNow >= $sparring->tanggal_pertandingan && $sparring->joinedSparrings->count() == 1 && $TimeFormatted > $sparring->waktu_pertandingan)
                         <div class="finish" style="background: #ffffff" >Selesai</div>  
                         @elseif ($sparring->joinedSparrings->count() == $sparring->max_member && $DateNow <= $sparring->tanggal_pertandingan)
                             <div class="access text-light" style="background: #FE6B00" >Penuh</div>  

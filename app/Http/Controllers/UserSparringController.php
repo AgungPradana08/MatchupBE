@@ -32,13 +32,15 @@ class UserSparringController extends Controller
         $user = User::find(1);
         $DateNow = date('Y-m-d');
         $pengguna = Auth::user();
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
         
         
         if ($pengguna->skor < 50) {
             return view('/banscreen');
         } else {
-            return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
+            return view('user.usersparring.home', compact(['usersparring','DateNow','user','TimeFormatted']));
             
         }
         
@@ -48,19 +50,21 @@ class UserSparringController extends Controller
     {   
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
 
         foreach ($usersparring as $sparring) {              
             $tanggalPertandingan = Carbon::parse($sparring->tanggal_pertandingan);
             $DeleteDate = $tanggalPertandingan->addDays(2);
             $DateNow = date('Y-m-d');  
-            if ($DateNow >= $DeleteDate) {
+            if ($DateNow > $DeleteDate) {
                 $sparring->delete();
             }
         }
 
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow',]));
+        return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted']));
     }
 
     public function tambah()
@@ -176,7 +180,7 @@ class UserSparringController extends Controller
     {
         $DateNow = date('Y-m-d');
         $TimeNow = Carbon::now(); 
-        dd($TimeNow );
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
 
@@ -217,7 +221,7 @@ class UserSparringController extends Controller
 
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
