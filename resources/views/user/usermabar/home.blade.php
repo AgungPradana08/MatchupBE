@@ -74,11 +74,11 @@
                     <div class="edit-data m-0 p-0">
                         <a class="see-button" href="/usermabar/{{$mabar->id}}/usermabardetail" >
                         </a>
-                        <a class="edit-button {{ $mabar->joinedUsers->count() > 1 || $DateNow > $mabar->tanggal_pertandingan ? 'd-none' : 'd-flex' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
+                        <a class="edit-button {{ $mabar->joinedUsers->count() > 1  ? 'd-none' : 'd-flex' }} " href="/usermabar/{{$mabar->id}}/usermabaredit"></a>
                         <form action="/usermabar/{{$mabar->id}}" method="post">
                             @csrf
                             @method('delete')
-                            <button class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan ? 'd-flex' : 'd-none' }} " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $mabar->id }}"></button> 
+                            <button class="delete-button {{ $DateNow > $mabar->tanggal_pertandingan && $TimeFormatted > $mabar->waktu_pertandingan ? 'd-flex' : 'd-none' }} " data-bs-toggle="modal" data-bs-target="#exampleModal{{ $mabar->id }}"></button> 
                         </form>
                     </div>
                 <img class="box-logo rounded-circle" src="{{asset('storage/'. $mabar->image)}}" alt="" style="object-fit: cover; object-position: center;">
@@ -90,7 +90,7 @@
                     <p class="p-0 my-1" style="font-size: 18px; font-family: opensans-bold;line-height: 20px" >{{$mabar->title}}</p>
                     @endif
                     <div class="w-100" >
-                        @if ($DateNow > $mabar->tanggal_pertandingan)
+                        @if ($DateNow >= $mabar->tanggal_pertandingan && $TimeFormatted > $mabar->waktu_pertandingan)
                         <div class="w-50 access  text-light d-flex align-items-center justify-content-center" style="border: 3px solid grey ; background: grey; "  >Selesai</div>   
                     @elseif ($mabar->joinedUsers->count() == $mabar->max_member && $DateNow <= $mabar->tanggal_pertandingan)
                         <div class="w-50 access text-light" style="background: #FE6B00" >Penuh</div>  
@@ -107,7 +107,7 @@
                      <div style="background: url(/css/img/calender.png); background-position: center; background-size: contain;" class="bottom-icon">
  
                      </div>
-                     {{$mabar->tanggal_pertandingan}}
+                     {{$mabar->tanggal_pertandingan}} | {{ $mabar->waktu_pertandingan }}
                  </div>
                  <div class="line text-muted ">
                      <!-- <img class="bottom-icon" src="css/img/lokasi.png" alt=""> -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Matching;
 use App\Models\UserMabar;
@@ -15,9 +16,11 @@ class UserMabarController extends Controller
     public function index()
     {
         $DateNow = date('Y-m-d');
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         // $usermabar = UserMabar::all();
         $usermabar = UserMabar::where('user_id', session('user_id'))->get();
-        return view('user.usermabar.home', compact(['usermabar','DateNow']));
+        return view('user.usermabar.home', compact(['usermabar','DateNow','TimeFormatted']));
     }
 
     public function index2()
@@ -28,7 +31,22 @@ class UserMabarController extends Controller
         // $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
 
 
-        return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru'])) ;
+        // return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru'])) ;
+        $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
+
+        foreach ($usermabar as $mabar) {              
+            $tanggalPertandingan = Carbon::parse($mabar->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            // dd($DeleteDate);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow > $DeleteDate) {
+                $mabar->delete();
+            }
+        }
+
+        return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru', 'TimeFormatted'])) ;
     }
 
     public function tambah()
@@ -154,12 +172,14 @@ class UserMabarController extends Controller
     {
         $origin = Auth::user()->id;
         $DateNow = date('Y-m-d');
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);
         $pengguna = Auth::user();
         $isJoined = $usermabar->joinedUsers->contains('id', $origin);
 
         // dd($usermabar->joinedUsers->contains('id', $origin));
-        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna','origin','DateNow'));
+        return view('user.usermabar.usermabardetail', compact('usermabar', 'pengguna','origin','DateNow', 'isJoined', 'TimeFormatted'));
     }
 
     public function edit($id)
