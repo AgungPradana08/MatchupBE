@@ -16,6 +16,11 @@ class UserSparring extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function team()
+    {
+        return $this->belongsTo(UserTim::class, 'tim_id');
+    }
     
     public function maps(){
         return $this->hasMany(Map::class);
@@ -75,4 +80,17 @@ class UserSparring extends Model
     {
         return $this->hasOne(UserTim::class);
     }
+
+    public function removeTeam($usertimId)
+    {
+        $this->TerjoinedTeams()->detach($usertimId);
+    }
+
+    public function TerjoinedTeams()
+    {
+        return $this->belongsToMany(UserTim::class, 'matches_sparring', 'usersparring_id', 'usertim_id')
+            ->withPivot('nama_tim_lawan', 'image_tim_lawan');
+    }
+
+    
 }

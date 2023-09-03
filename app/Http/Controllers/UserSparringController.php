@@ -11,7 +11,9 @@ use Illuminate\Http\Request;
 use App\Events\SparringTaken;
 use Illuminate\Support\Carbon;
 use App\Events\JoinNotification;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\MatchesSparring;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -46,10 +48,11 @@ class UserSparringController extends Controller
     {   
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
+        $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
 
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow',]));
+        return view('sparring.home', compact(['usersparring', 'user','DateNow', 'sparringterbaru']));
     }
 
     public function tambah()
@@ -167,45 +170,9 @@ class UserSparringController extends Controller
         $TimeNow = Carbon::now(); 
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
+        $usertim = Auth::user()->usertim;
 
-        // $checkoutmabar = UserMabar::find($id);
-
-        // $request->request->add([
-        //     'total_price' => $request->quantity * 2000, 
-        //     'status' => 'Unpaid'
-        // ]);
-
-        // $order = Order::create($request->all());
-
-        // // Set your Merchant Server Key
-        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        // \Midtrans\Config::$isProduction = false;
-        // // Set sanitization on (default)
-        // \Midtrans\Config::$isSanitized = true;
-        // // Set 3DS transaction for credit card to true
-        // \Midtrans\Config::$is3ds = true;
-
-        // $params = array(
-        //     'transaction_details' => array(
-        //         'order_id' => $order->id,
-        //         'gross_amount' => $order->total_price,
-        //     ),
-        //     'customer_details' => array(
-        //         'name' => $request->nama,
-        //         'nomor_telepon' => $request->nomor_telepon,
-        //     ),
-        // );
-
-        // $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        // return view('order.checkout', compact(['snapToken', 'order']));
-        
-        // dd($TimeNow);
-
-        // $usersparring = UserSparring::find($id);
-        // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -289,9 +256,15 @@ class UserSparringController extends Controller
             $usersparring->where('lokasi', $lokasiFilter);
         }
 
+        if ($DateNow) {
+            $usersparring->whereDate('tanggal_pertandingan', '>=', $DateNow);
+        }
+
         $usersparring = $usersparring->get();
 
-        return view('sparring.home', compact(['usersparring', 'DateNow']));
+        $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+
+        return view('sparring.home', compact(['usersparring', 'DateNow', 'sparringterbaru']));
     }
 
     public function search2(Request $request)
@@ -449,6 +422,33 @@ class UserSparringController extends Controller
             return redirect()->route('mabar.index')->with('error', 'Sparring tidak ditemukan!');
         }
     }
+
+    public function removeTeamFromSparring($usersparringId, $matches_sparringId)
+    {
+        $pengguna = Auth::user();
+        $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
+
+        $sparring->joinedSparrings()->updateExistingPivot($pengguna->id, [
+            'nama_tim_lawan' => null,
+            'image_tim_lawan' => null,
+
+        ]);
+
+        $sparring->save();
+
+        // $sparring->removeTeam($usertimId);
+
+        // $sparring->joinedTeams()->detach($sparring->id);
+        // $sparring->removeTeam($usertimId);
+
+        return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
+    }
+
+
+    // public function removeTeam($usertimId)
+    // {
+    //     $this->joinedTeams()->detach($usertimId);
+    // }
 
 
 

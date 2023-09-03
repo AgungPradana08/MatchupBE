@@ -117,7 +117,7 @@
         </form>
     </section>
     <section class="container box-wrapper">
-    @foreach ($usersparring as $sparring)
+    @foreach ($sparringterbaru as $sparring)
         <a class="box" href="/usersparring/{{$sparring->id}}/usersparringdetail" >
            <button class="box-outer" style="width: 100%; height: 100%;" >
             <div class="box-top">

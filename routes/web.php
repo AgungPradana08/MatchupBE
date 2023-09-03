@@ -112,6 +112,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/sparring/home', [UserSparringController::class, 'index2'])->name('sparring.home');
     Route::get('/sparring/search', [UserSparringController::class, 'search']);
 
+    Route::post('/sparring/{id}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring']);
+
     Route::prefix('/usermabar')->group(function () {
         Route::get('/search', [UserMabarController::class, 'search2']);
         Route::get('/home', [UserMabarController::class, 'index'])->name('usermabar.home');

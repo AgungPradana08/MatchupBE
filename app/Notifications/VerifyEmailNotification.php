@@ -58,7 +58,7 @@ class VerifyEmailNotification extends Notification
         ->line('Terima kasih telah mendaftar di situs kami!')
         ->line('Silakan klik tombol di bawah ini untuk memverifikasi alamat email Anda.')
         ->action('Verifikasi Email', $this->verificationUrl($notifiable))
-        ->line('Jika Anda tidak mendaftar di situs kami, Anda bisa mengabaikan email ini.');
+        ->line('Jika Anda tidak mendaftar di situs kami, Anda bisa mengabaikan email ini, Link akan kadaluarsa dalam 5 menit.');
     }
 
     /**
