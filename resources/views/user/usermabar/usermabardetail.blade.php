@@ -62,7 +62,7 @@
         <div class="container bg-ms-primary ">
           <a class="navbar-brand" href="/mabar/home"><img src="\css\img\back button.png" style="height: 28px;" alt=""></a>
           <span>Detail Mabar</span>
-          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; {{ $usermabar->user_id !== $origin ? 'visibility: visible' : 'visibility: hidden' }}" style="height: 28px;" ></button>
+          <button data-bs-toggle="modal" data-bs-target="#report" class="report" style="background: url(/css/img/report.png); background-size: contain; visibility: hidden" style="height: 28px;" ></button>
         </div>
     </nav>
     <div class="container content">
@@ -211,7 +211,7 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usermabar->user_id)
-                        @if ($DateNow > $usermabar->tanggal_pertandingan)
+                        @if ($DateNow >= $usermabar->tanggal_pertandingan && $TimeFormatted > $usermabar->waktu_pertandingan)
                             <a style="text-decoration: none; background: #8F8F8F" class="ambil d-flex align-items-center justify-content-center"  >Mabar Selesai</a>
                         @elseif ($usermabar->joinedUsers->count() > 1)
                             <a style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Bersiap Mabar</a>
@@ -219,7 +219,7 @@
                             <a href="/usermabar/{{ $usermabar->id }}/usermabaredit" style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Edit Tim</a>
                         @endif
                     @else
-                        @if ($DateNow > $usermabar->tanggal_pertandingan)
+                        @if ($DateNow >= $usermabar->tanggal_pertandingan && $TimeFormatted > $usermabar->waktu_pertandingan)
                             <a style="text-decoration: none; background: #8F8F8F" class="ambil d-flex align-items-center justify-content-center"  >Mabar Selesai</a>
                         @elseif ($usermabar->joinedUsers->count() == $usermabar->max_member )
                             <a style="text-decoration: none" class="ambil d-flex align-items-center justify-content-center"  >Mabar Penuh</a>
@@ -418,54 +418,56 @@
                                     @endif
                                 </div>
                             </div>
-                            @if ($player->id == $origin)
-                                <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/report.png" alt=""></a>
-                            @else
-                            <form action="{{ route('report.player')}}" method="POST" >
-                                @csrf
-                                <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                            @if ($isJoined == true && $DateNow >= $usermabar->tanggal_pertandingan && $TimeFormatted > $usermabar->waktu_pertandingan)
+                                    @if ($player->id == $origin)
+                                    <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/report.png" alt=""></a>
+                                @else
+                                <form action="{{ route('report.player')}}" method="POST" >
+                                    @csrf
+                                    <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#reportuser" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/report.png" alt=""></a>
 
-                                <div class="modal" id="reportuser" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content" style="width: 32vw" >
-                                        <div class="modal-header bg-primary-mu">
-                                        <div class="blank logo-sm rounded-circle d-inline-block"></div>
-                                        <h5 class=" modal-title ">
-                                            Laporkan Pengguna <strong>{{ $player->name }}</strong>?
-                                        </h5>
-                                        <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body modal-wrapper">
-                                            <div class="d-flex align-items-center" style="grid-area: report1">
-                                                <input type="checkbox" onchange="CheckboxCheck()" id="report1" name="report1" value="2">
-                                                <label for="report1"> Pengguna Negatif</label><br>
+                                    <div class="modal" id="reportuser" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content" style="width: 32vw" >
+                                            <div class="modal-header bg-primary-mu">
+                                            <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                            <h5 class=" modal-title ">
+                                                Laporkan Pengguna <strong>{{ $player->name }}</strong>?
+                                            </h5>
+                                            <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="d-flex align-items-center" style="grid-area: report2">
-                                                <input type="checkbox" onchange="CheckboxCheck()" id="report2" name="report2" value="3">
-                                                <label for="report2"> Logo/nama tidak pantas</label><br>
-                                            </div>
-                                            <div class="d-flex align-items-center" style="grid-area: report3">
-                                                <input type="checkbox" onchange="CheckboxCheck()" id="report3" name="report3" value="2">
-                                                <label for="report3"> Tidak Sportif</label><br>
-                                            </div>
-                                            <div class="d-flex align-items-center" style="grid-area: report4">
-                                                <input type="checkbox" onchange="CheckboxCheck()" id="report4" name="report4" value="3">
-                                                <label for="report4"> Tidak membayar</label><br>
-                                            </div>
-                                            <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-                                            <input type="text" id="user_id" name="user_id" value="{{ $player->id }}">
-                                            <input type="number"  id="reportuserpoint" name="reportuserpoint">
+                                            <div class="modal-body modal-wrapper">
+                                                <div class="d-flex align-items-center" style="grid-area: report1">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report1" name="report1" value="2">
+                                                    <label for="report1"> Pengguna Negatif</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report2">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report2" name="report2" value="3">
+                                                    <label for="report2"> Logo/nama tidak pantas</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report3">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report3" name="report3" value="2">
+                                                    <label for="report3"> Tidak Sportif</label><br>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="grid-area: report4">
+                                                    <input type="checkbox" onchange="CheckboxCheck()" id="report4" name="report4" value="3">
+                                                    <label for="report4"> Tidak membayar</label><br>
+                                                </div>
+                                                <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
+                                                <input type="text" id="user_id" name="user_id" value="{{ $player->id }}">
+                                                <input type="number"  id="reportuserpoint" name="reportuserpoint">
 
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                            <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                        {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-                                        <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
                                         </div>
                                     </div>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                                @endif
                             @endif
                             <p class="m-0 text-muted d-none" style="font-size: 12px">{{ $loop->index + 1 }}</p>
                         </div>

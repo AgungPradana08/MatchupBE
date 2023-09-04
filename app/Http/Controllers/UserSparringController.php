@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\EventNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Notification;// Import model UserSparring
+
 
 class UserSparringController extends Controller
 {   
@@ -33,12 +34,15 @@ class UserSparringController extends Controller
         $user = User::find(1);
         $DateNow = date('Y-m-d');
         $pengguna = Auth::user();
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
+        
         
         if ($pengguna->skor < 50) {
             return view('/banscreen');
         } else {
-            return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
+            return view('user.usersparring.home', compact(['usersparring','DateNow','user','TimeFormatted']));
             
         }
         
@@ -49,10 +53,21 @@ class UserSparringController extends Controller
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
         $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+        $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
 
+        foreach ($usersparring as $sparring) {              
+            $tanggalPertandingan = Carbon::parse($sparring->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow > $DeleteDate) {
+                $sparring->delete();
+            }
+        }
+
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow', 'sparringterbaru']));
+        return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted', 'sparringterbaru']));
     }
 
     public function tambah()
@@ -168,11 +183,50 @@ class UserSparringController extends Controller
     {
         $DateNow = date('Y-m-d');
         $TimeNow = Carbon::now(); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
         $usertim = Auth::user()->usertim;
 
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
+        // return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
+        // $checkoutmabar = UserMabar::find($id);
+
+        // $request->request->add([
+        //     'total_price' => $request->quantity * 2000, 
+        //     'status' => 'Unpaid'
+        // ]);
+
+        // $order = Order::create($request->all());
+
+        // // Set your Merchant Server Key
+        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // \Midtrans\Config::$isProduction = false;
+        // // Set sanitization on (default)
+        // \Midtrans\Config::$isSanitized = true;
+        // // Set 3DS transaction for credit card to true
+        // \Midtrans\Config::$is3ds = true;
+
+        // $params = array(
+        //     'transaction_details' => array(
+        //         'order_id' => $order->id,
+        //         'gross_amount' => $order->total_price,
+        //     ),
+        //     'customer_details' => array(
+        //         'name' => $request->nama,
+        //         'nomor_telepon' => $request->nomor_telepon,
+        //     ),
+        // );
+
+        // $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        // return view('order.checkout', compact(['snapToken', 'order']));
+        
+        // dd($TimeNow);
+
+        // $usersparring = UserSparring::find($id);
+        // $takesparring = UserSparring::with('ambilsparring')->get();
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted', 'usertim']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -274,6 +328,8 @@ class UserSparringController extends Controller
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
+
+
 
         $usersparring = UserSparring::query();
         // $usersparring = UserSparring::where('user_id', session('user_id'))->get();
