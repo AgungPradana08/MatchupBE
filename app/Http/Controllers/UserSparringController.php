@@ -11,7 +11,9 @@ use Illuminate\Http\Request;
 use App\Events\SparringTaken;
 use Illuminate\Support\Carbon;
 use App\Events\JoinNotification;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\MatchesSparring;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -50,6 +52,7 @@ class UserSparringController extends Controller
     {   
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
+        $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
         $TimeNow = Carbon::now(); 
         $TimeFormatted = $TimeNow->format('H:i');
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
@@ -64,7 +67,7 @@ class UserSparringController extends Controller
         }
 
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted']));
+        return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted', 'sparringterbaru']));
     }
 
     public function tambah()
@@ -183,7 +186,9 @@ class UserSparringController extends Controller
         $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
+        $usertim = Auth::user()->usertim;
 
+        // return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
         // $checkoutmabar = UserMabar::find($id);
 
         // $request->request->add([
@@ -221,7 +226,7 @@ class UserSparringController extends Controller
 
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted']));
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted', 'usertim']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -305,9 +310,15 @@ class UserSparringController extends Controller
             $usersparring->where('lokasi', $lokasiFilter);
         }
 
+        if ($DateNow) {
+            $usersparring->whereDate('tanggal_pertandingan', '>=', $DateNow);
+        }
+
         $usersparring = $usersparring->get();
 
-        return view('sparring.home', compact(['usersparring', 'DateNow']));
+        $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+
+        return view('sparring.home', compact(['usersparring', 'DateNow', 'sparringterbaru']));
     }
 
     public function search2(Request $request)
@@ -467,6 +478,26 @@ class UserSparringController extends Controller
             return redirect()->route('mabar.index')->with('error', 'Sparring tidak ditemukan!');
         }
     }
+
+    public function removeTeamFromSparring($usersparringId, $usertimId)
+    {
+        // Temukan sparring yang sesuai berdasarkan $usersparringId
+        $sparring = UserSparring::findOrFail($usersparringId);
+
+        // Hapus tim dengan ID $usertimId dari sparring
+        $sparring->removeTeam($usertimId);
+
+        // return view('user.usersparring.usersparringdetailnew',);
+        return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
+    }
+
+    
+
+    // public function removeTeam($usertimId)
+    // {
+    //     $this->joinedTeams()->detach($usertimId);
+    // }
+
 
 
 

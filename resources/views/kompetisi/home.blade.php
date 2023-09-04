@@ -71,7 +71,7 @@
         </form>
     </section>
     <section class="container box-wrapper">
-        @foreach ($kompetisi as $kompetisi)
+        @foreach ($kompetisiterbaru as $kompetisi)
         <a class="box" href="/kompetisi/{{ $kompetisi->id }}/kompetisidetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">

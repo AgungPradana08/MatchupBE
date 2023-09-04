@@ -71,7 +71,7 @@
         </form>
     </section>
     <section class="container box-wrapper">
-    @foreach ($usermabar as $mabar)
+    @foreach ($mabarterbaru as $mabar)
         <a class="box" href="/usermabar/{{$mabar->id}}/usermabardetail" >
             <button class="box-outer" style="width: 100%; height: 100%;" >
                 <div class="box-top">

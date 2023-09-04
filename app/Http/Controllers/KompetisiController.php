@@ -14,6 +14,9 @@ class KompetisiController extends Controller
         // dd($request->all());
         $kompetisi = Kompetisi::all();
         $DateNow = date('Y-m-d');
+        $kompetisiterbaru = Kompetisi::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+        // dd($DateNow);
+        // return view('kompetisi.home', compact(['kompetisi','DateNow', 'kompetisiterbaru']));
         $TimeNow = Carbon::now(); 
         $TimeFormatted = $TimeNow->format('H:i');
 
@@ -26,7 +29,7 @@ class KompetisiController extends Controller
             }
         }
         // dd($DateNow);
-        return view('kompetisi.home', compact(['kompetisi','DateNow','TimeFormatted']));
+        return view('kompetisi.home', compact(['kompetisi','DateNow','TimeFormatted', 'kompetisiterbaru']));
 
     }
 

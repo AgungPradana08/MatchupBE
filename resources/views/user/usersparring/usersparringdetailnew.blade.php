@@ -61,6 +61,7 @@
             <div class="modal-header bg-primary-mu">
               <div class="blank logo-sm rounded-circle d-inline-block"></div>
               <h5 class=" modal-title ">
+                
                 Keluarkan Tim <strong>{{$usersparring->nama_tim}}</strong>?
               </h5>
               <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
@@ -71,9 +72,8 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
               {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <form action="/usertim/{{$usersparring->id}}" method="post">
+              <form action="/sparring/{{$usersparring->id}}/kicktim/{{$usertim->id}}" method="post">
                 @csrf
-                @method('delete')
                 <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
               </form>
             </div>

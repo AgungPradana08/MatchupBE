@@ -27,6 +27,11 @@ class UserMabarController extends Controller
     {   
         $DateNow = date('Y-m-d');
         $usermabar = UserMabar::all();
+        $mabarterbaru = UserMabar::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+        // $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
+
+
+        // return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru'])) ;
         $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
         $TimeNow = Carbon::now(); 
         $TimeFormatted = $TimeNow->format('H:i');
@@ -131,7 +136,10 @@ class UserMabarController extends Controller
 
         $usermabar = $usermabar->get();
 
-        return view('mabar.home', compact(['usermabar', 'DateNow',]));
+        $mabarterbaru = UserMabar::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+
+
+        return view('mabar.home', compact(['usermabar', 'DateNow', 'mabarterbaru']));
     }
 
     public function search2(Request $request)
