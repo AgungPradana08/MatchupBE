@@ -423,32 +423,25 @@ class UserSparringController extends Controller
         }
     }
 
-    public function removeTeamFromSparring($usersparringId, $matches_sparringId)
+    public function removeTeamFromSparring($usersparringId, $usertimId)
     {
-        $pengguna = Auth::user();
-        $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
+        // Temukan sparring yang sesuai berdasarkan $usersparringId
+        $sparring = UserSparring::findOrFail($usersparringId);
 
-        $sparring->joinedSparrings()->updateExistingPivot($pengguna->id, [
-            'nama_tim_lawan' => null,
-            'image_tim_lawan' => null,
+        // Hapus tim dengan ID $usertimId dari sparring
+        $sparring->removeTeam($usertimId);
 
-        ]);
-
-        $sparring->save();
-
-        // $sparring->removeTeam($usertimId);
-
-        // $sparring->joinedTeams()->detach($sparring->id);
-        // $sparring->removeTeam($usertimId);
-
+        // return view('user.usersparring.usersparringdetailnew',);
         return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
     }
 
+    
 
     // public function removeTeam($usertimId)
     // {
     //     $this->joinedTeams()->detach($usertimId);
     // }
+
 
 
 
