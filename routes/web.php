@@ -144,7 +144,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/{id}',[UserTimController::class, 'destroy']);
         //CONTROLLER BARU
         Route::post('/proses', [UserTimController::class, 'processForm'])->name('report.player');
-        Route::post('/prosestim', [UserTimController::class, 'reporttim'])->name('report.tim');
+        Route::delete('/kick-player/{player}', [UserTimController::class, 'kickPlayer'])->name('kick.player');
+
 
 
     });
