@@ -193,42 +193,6 @@ class UserSparringController extends Controller
         $origin = Auth::user()->id;
         $usertim = Auth::user()->usertim;
 
-        // return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
-        // $checkoutmabar = UserMabar::find($id);
-
-        // $request->request->add([
-        //     'total_price' => $request->quantity * 2000, 
-        //     'status' => 'Unpaid'
-        // ]);
-
-        // $order = Order::create($request->all());
-
-        // // Set your Merchant Server Key
-        // \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        // \Midtrans\Config::$isProduction = false;
-        // // Set sanitization on (default)
-        // \Midtrans\Config::$isSanitized = true;
-        // // Set 3DS transaction for credit card to true
-        // \Midtrans\Config::$is3ds = true;
-
-        // $params = array(
-        //     'transaction_details' => array(
-        //         'order_id' => $order->id,
-        //         'gross_amount' => $order->total_price,
-        //     ),
-        //     'customer_details' => array(
-        //         'name' => $request->nama,
-        //         'nomor_telepon' => $request->nomor_telepon,
-        //     ),
-        // );
-
-        // $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-        // return view('order.checkout', compact(['snapToken', 'order']));
-        
-        // dd($TimeNow);
-
         // $usersparring = UserSparring::find($id);
         // $takesparring = UserSparring::with('ambilsparring')->get();
         return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted', 'usertim']));
