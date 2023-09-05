@@ -226,6 +226,7 @@ class UserTimController extends Controller
                     return redirect()->route('tim.detail', ['id' => $usertimId])->with('notification', 'Maaf, jumlah peserta tim telah mencapai batas maksimum!');
                 }
 
+
                 event(new TimTaken(Auth::user(), $tim));
 
                  // Buat notifikasi
