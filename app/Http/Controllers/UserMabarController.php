@@ -16,7 +16,7 @@ class UserMabarController extends Controller
     public function index()
     {
         $DateNow = date('Y-m-d');
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
         // $usermabar = UserMabar::all();
         $usermabar = UserMabar::where('user_id', session('user_id'))->get();
@@ -33,7 +33,7 @@ class UserMabarController extends Controller
 
         // return view('mabar.home', compact(['usermabar','DateNow', 'mabarterbaru'])) ;
         $mabarterbaru = UserMabar::orderBy('tanggal_pertandingan', 'desc')->get();
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
 
         foreach ($usermabar as $mabar) {              
@@ -172,7 +172,7 @@ class UserMabarController extends Controller
     {
         $origin = Auth::user()->id;
         $DateNow = date('Y-m-d');
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
         $usermabar = UserMabar::with('joinedUsers')->findOrFail($id);
         $pengguna = Auth::user();

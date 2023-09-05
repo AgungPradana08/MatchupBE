@@ -34,9 +34,11 @@ class UserSparringController extends Controller
         $user = User::find(1);
         $DateNow = date('Y-m-d');
         $pengguna = Auth::user();
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
+
+
         
         
         if ($pengguna->skor < 50) {
@@ -53,7 +55,7 @@ class UserSparringController extends Controller
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
         $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
 
@@ -64,7 +66,10 @@ class UserSparringController extends Controller
             if ($DateNow > $DeleteDate) {
                 $sparring->delete();
             }
+
+            // dd( $TimeFormatted , $TimeFormatted > $sparring->waktu_pertandingan );
         }
+
 
         // $user = User::all();
         return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted', 'sparringterbaru']));
@@ -182,7 +187,7 @@ class UserSparringController extends Controller
     public function detail($id, Request $request,)
     {
         $DateNow = date('Y-m-d');
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;

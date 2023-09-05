@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body>
-    <form action="{{ route('report.tim')}}" method="post">
+    <form action="" method="post">
         @csrf   
         <div class="modal" id="report" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered ">

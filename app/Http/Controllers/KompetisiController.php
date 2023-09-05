@@ -17,7 +17,7 @@ class KompetisiController extends Controller
         $kompetisiterbaru = Kompetisi::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
         // dd($DateNow);
         // return view('kompetisi.home', compact(['kompetisi','DateNow', 'kompetisiterbaru']));
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
         $TimeFormatted = $TimeNow->format('H:i');
 
         foreach ($kompetisi as $kompetisi) {              
