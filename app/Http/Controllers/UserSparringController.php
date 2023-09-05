@@ -483,14 +483,14 @@ class UserSparringController extends Controller
 
 public function removeTeamFromSparring(Request $request, $sparringId)
 {
-    // Validasi dan logika lainnya...
+    // Validasi dan logika lainnya...   
 
     $sparring = UserSparring::findOrFail($sparringId);
 
     // Hapus hanya pengambil sparring dari tabel matches_sparring
     $sparring->joinedSparrings()->detach($request->input('pengambil_id'));
 
-    return redirect()->back()->with('success', 'Pengambil sparring berhasil dihapus.');
+    return redirect()->back()->with('notification', 'Pengambil sparring berhasil dihapus.');
 }
 
     // public function removeTeamFromSparring($usersparringId, $usertimId)

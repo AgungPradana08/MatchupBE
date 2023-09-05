@@ -114,7 +114,7 @@
                         @if (Auth::user()->id == $usersparring->user_id)
                             <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                         @else
-                            @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeFormatted > $usersparring->waktu_pertandingan)
+                            @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan)
                             <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                             @else
                             <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
@@ -140,7 +140,7 @@
                             @if (Auth::user()->id == $sparring->pivot->user_id)
                                 <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                             @else
-                                @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeFormatted > $usersparring->waktu_pertandingan )
+                                @if ($DateNow >= $usersparring->tanggal_pertandingan && $TimeNow > $usersparring->waktu_pertandingan )
                                 <button  data-bs-toggle="modal" data-bs-target="#report"  class="border-0" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
                                 @else
                                 <button  data-bs-toggle="modal" data-bs-target="#report" class="border-0 d-none" style="height: 25px; width: 25px; background: url(/css/img/report.png); background-size: contain;" ></button>
@@ -279,7 +279,7 @@
                         </table>
                     </div>
                     @if (Auth::user()->id == $usersparring->user_id)
-                        @if ($DateNow >= $usersparring->tanggal_pertandingan    && $TimeFormatted > $usersparring->waktu_pertandingan)
+                        @if ($DateNow > $usersparring->tanggal_pertandingan)
                         <button class="ambil " style="background: #8F8F8F" >Sparring Selesai</button>
                         @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member)
                         <a style="text-decoration: none"  class="ambil d-flex align-items-center justify-content-center" >Siap Bertanding</a>
@@ -291,7 +291,7 @@
                         <form>
                             <button class="ambil " style="background: #8F8F8F" >Sparring Selesai</button>
                         </form> 
-                        @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $TimeFormatted > $usersparring->waktu_pertandingan)
+                        @elseif ($usersparring->joinedSparrings->count() == $usersparring->max_member && $DateNow > $sparring->tanggal_pertandingan)
                         <form action="{{ route('sparring.join', ['id' => $usersparring->id]) }}" method="POST">
                             @csrf
                             <button class="ambil" >Sparring Penuh</button>

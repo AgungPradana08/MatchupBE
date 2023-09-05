@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Config;
@@ -21,18 +22,40 @@ class VerifyEmailNotification extends Notification
         //
     }
 
+    // protected function verificationUrl($notifiable)
+    // {
+    //     $appUrl = config('app.url');
+    //     $url = URL::temporarySignedRoute(
+    //         'verification.verify',
+    //         now()->addMinutes(Config::get('auth.verification.expire', 60)),
+    //         [
+    //             'id' => $notifiable->getKey(),
+    //             'hash' => sha1($notifiable->getEmailForVerification())
+    //         ]
+    //     );
+
+    //     return str_replace(url('/api'), $appUrl, $url);
+    // }
+
     protected function verificationUrl($notifiable)
     {
         $appUrl = config('app.url');
+        $expirationTime = now()->addMinutes(Config::get('auth.verification.expire', 1));
+    
+        if (Carbon::now()->gt($expirationTime)) { 
+            // URL sudah kadaluwarsa, arahkan ke halaman expired
+            return route('verification.expired');
+        } 
+    
         $url = URL::temporarySignedRoute(
             'verification.verify',
-            now()->addMinutes(Config::get('auth.verification.expire', 60)),
+            $expirationTime,
             [
                 'id' => $notifiable->getKey(),
                 'hash' => sha1($notifiable->getEmailForVerification())
             ]
         );
-
+    
         return str_replace(url('/api'), $appUrl, $url);
     }
 

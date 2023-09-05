@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
@@ -27,6 +28,14 @@ class VerificationController extends Controller
             return redirect()->route('sparring.home'); // Redirect jika email sudah diverifikasi
         }
 
+        $verificationTime = $user->email_verified_at;
+        $expirationTime = Carbon::parse($verificationTime)->addMinutes(1);
+    
+        if (Carbon::now()->gt($expirationTime)) {
+            // Email verifikasi kedaluwarsa, tambahkan logika sesuai kebutuhan Anda
+            return redirect('/verifikasigagal')->with('expired', true);
+        }
+
         $user->markEmailAsVerified();
 
         return redirect('/verifikasiberhasil')->with('verified', true);
@@ -47,5 +56,9 @@ class VerificationController extends Controller
 
         return view('auth.verifyberhasil');
         
+    }
+
+    public function verifikasigagal(){
+        return view('auth.expired');
     }
 }

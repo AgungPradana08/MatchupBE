@@ -116,7 +116,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/sparring/{usersparringId}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring'])
     ->name('sparring.kicktim');
 
-    Route::post('/sparring/{id}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring'])->name('sparring.kicktim');
+    // Route::post('/sparring/{id}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring'])->name('sparring.kicktim');
     
     Route::prefix('/usermabar')->group(function () {
         Route::get('/search', [UserMabarController::class, 'search2']);
@@ -179,6 +179,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/verify-email', [VerificationController::class, 'showVerificationForm'])->name('verification.notice');
 Route::get('/verify-email/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
+
+Route::get('/verifikasigagal', [VerificationController::class, 'verifikasigagal'])->name('verification.expired');
+// Route::view('/verification/expired', 'auth.verification.expired')->name('verification.expired');
+
 Route::post('/verify-email/resend', [VerificationController::class, 'resend'])->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 // Auth::routes();
 
@@ -214,6 +218,8 @@ Route::get('/banscreen', function() {
 Route::get('/cuy', function () {
     return view('testingapi.home');
 });
+
+Route::get('/gagal', [VerificationController::class, 'verifikasigagal']);
 
 // Route::get('/notification', function () {
 //     return view('notifikasi.home');
