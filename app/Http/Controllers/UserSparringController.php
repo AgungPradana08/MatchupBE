@@ -156,6 +156,8 @@ class UserSparringController extends Controller
         // }    
         $usertimId = $pengguna->usertim->id;
         $post->joinedSparrings()->attach($pengguna->id, ['usertim_id' => $usertimId]);
+
+        $post->joinedSparrings()->attach($request->input('pengambil_id'));
         
         // $eventname = "$ tambah data";
         // Notification::send($user, new EventNotification($eventname));
@@ -423,33 +425,71 @@ class UserSparringController extends Controller
         }
     }
 
-    public function removeTeamFromSparring($usersparringId, $matches_sparringId)
-    {
-        $pengguna = Auth::user();
-        $sparring = UserSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
+//     public function removeTeamFromSparring($usersparringId, $usertimId)
+// {
+//     // Dapatkan si pengguna yang sedang login
+//     $pengguna = Auth::user();
 
-        $sparring->joinedSparrings()->updateExistingPivot($pengguna->id, [
-            'nama_tim_lawan' => null,
-            'image_tim_lawan' => null,
+//     // Temukan sparring yang sesuai dengan ID yang diberikan
+//     $sparring = UserSparring::findOrFail($usersparringId);
 
-        ]);
+//     // Periksa apakah si pengguna adalah pembuat sparring
+//     if ($sparring->user_id !== $pengguna->id) {
+//         return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengeluarkan tim dari Sparring ini.');
+//     }
 
-        $sparring->save();
+//     // Dapatkan hubungan joinedSparrings dengan pivot data
+//     $joinedSparrings = $sparring->joinedSparrings()
+//         ->wherePivot('user_id', $usertimId)
+//         ->first();
 
-        // $sparring->removeTeam($usertimId);
+//     // Periksa apakah hubungan ditemukan
+//     if ($joinedSparrings) {
+//         // Perbarui pivot data dengan mengatur kolom nama_tim_lawan dan image_tim_lawan menjadi null
+//         $joinedSparrings->pivot->nama_tim_lawan = null;
+//         $joinedSparrings->pivot->image_tim_lawan = null;
+//         $joinedSparrings->pivot->save();
 
-        // $sparring->joinedTeams()->detach($sparring->id);
-        // $sparring->removeTeam($usertimId);
+//         return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari Sparring.');
+//     }
 
-        return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
-    }
+//     return redirect()->back()->with('error', 'Tim tidak ditemukan dalam Sparring ini.');
+// }
+
+public function removeTeamFromSparring(Request $request, $sparringId)
+{
+    // Validasi dan logika lainnya...
+
+    $sparring = UserSparring::findOrFail($sparringId);
+
+    // Hapus hanya pengambil sparring dari tabel matches_sparring
+    $sparring->joinedSparrings()->detach($request->input('pengambil_id'));
+
+    return redirect()->back()->with('success', 'Pengambil sparring berhasil dihapus.');
+}
 
 
-    // public function removeTeam($usertimId)
+
+    // public function removeTeamFromSparring($usersparringId, $matches_sparringId)
     // {
-    //     $this->joinedTeams()->detach($usertimId);
-    // }
+    //     $pengguna = Auth::user();
+    //     $sparring = MatchesSparring::with('joinedSparrings.sparringTeams')->find($usersparringId);
 
+    //     $sparring->joinedSparrings()->updateExistingPivot($pengguna->id, [
+    //         'nama_tim_lawan' => null,
+    //         'image_tim_lawan' => null,
+
+    //     ]);
+
+    //     $sparring->save();
+
+    //     // $sparring->removeTeam($usertimId);
+
+    //     // $sparring->joinedTeams()->detach($sparring->id);
+    //     // $sparring->removeTeam($usertimId);
+
+    //     return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
+    // }
 
 
 

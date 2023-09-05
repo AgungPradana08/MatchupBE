@@ -70,9 +70,9 @@
               <p>Apakah anda yakin ingin mengeluarkan Tim ini dari sparring anda?</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>    
               {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-              <form action="/sparring/{{$usersparring->id}}/kicktim/{{$usertim->id}}" method="post">
+              <form action="{{ route('sparring.kicktim', ['usersparringId' => $usersparring->id, 'usertimId' => $usertim->id]) }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
               </form>
@@ -153,8 +153,8 @@
                         <p style="margin-top: 5%;">???</p> --}}
                     @endif
                 @endforeach
-                @else
-                    <p>Sparring Sudah Selesai</p>
+                {{-- @else
+                    <p>???</p> --}}
                 @endif  
         </div>
 

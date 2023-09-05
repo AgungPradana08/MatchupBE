@@ -83,8 +83,16 @@ class UserSparring extends Model
 
     public function removeTeam($usertimId)
     {
-        $this->TerjoinedTeams()->detach($usertimId);
+        // Hapus tim dari sparring
+        $this->joinedSparrings()->detach($usertimId);
+    
+        // Set kolom nama_tim_lawan dan image_tim_lawan menjadi null di pivot table
+        $this->joinedSparrings()->updateExistingPivot($usertimId, [
+            'nama_tim_lawan' => null,
+            'image_tim_lawan' => null,
+        ]);
     }
+    
 
     public function TerjoinedTeams()
     {
