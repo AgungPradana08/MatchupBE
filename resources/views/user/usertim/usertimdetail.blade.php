@@ -12,51 +12,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="/css/img/vector.png">
 </head>
 <body> 
-    <form action="{{ route('report.tim')}}" method="post">
-        @csrf   
-        <div class="modal" id="report" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered ">
-              <div class="modal-content" style="width: 32vw" >
-                <div class="modal-header bg-primary-mu">
-                  <div class="blank logo-sm rounded-circle d-inline-block"></div>
-                  <h5 class=" modal-title ">
-                    Laporkan Tim <strong>{{$usertim->nama_tim}}</strong>?
-                  </h5>
-                  <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body modal-wrapper">
-                    <div class="d-flex align-items-center" style="grid-area: report1">
-                        <input type="checkbox" id="timuser1" onchange="CheckboxTim()" name="timuser1" value="2">
-                        <label for="timuser1"> Kata kasar/SARA</label><br>
-                    </div>
-                    <div class="d-flex align-items-center" style="grid-area: report2">
-                        <input type="checkbox" id="timuser2" onchange="CheckboxTim()" name="timuser2" value="3">
-                        <label for="timuser2"> Logo/avatar tidak pantas</label><br>
-                    </div>
-                    <div class="d-flex align-items-center" style="grid-area: report3">
-                        <input type="checkbox" id="timuser3" onchange="CheckboxTim()" name="timuser3" value="2">
-                        <label for="timuser3"> Spam</label><br>
-                    </div>
-                    <div class="d-flex align-items-center" style="grid-area: report4">
-                        <input type="checkbox" id="timuser4" onchange="CheckboxTim()" name="timuser4" value="4">
-                        <label for="timuser4"> Spam</label><br>
-                    </div>
-                    <textarea style="grid-area: report5; resize: none" maxlength="225" name="" id="" cols="30" placeholder="Masukkan deskripsi tambahan (maksimal 255)" rows="10"></textarea>
-                    <input type="text" class="d-none" name="reporttimid" id="ReportPoin" value="{{ $usertim->id }}">
-                    <input type="text" class="d-none" name="ReportTimPoin" id="ReportTimPoin">
+
     
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                  {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-                  <button type="submit" class="btn" style="color: white; background-color: #FE6B00;" >Kirim</button>
-                </div>
-              </div>
-            </div>
-        </div>
-    </form>
-    
-    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Pengguna berhasil dilaporkan.'|| session('notification') === 'Pengguna berhasil dilaporkan.'|| session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
+    <div id="notification" class="alert position-absolute notification justify-content-between mt-sm-4 mt-2 shadow-lg {{ session('notification') === 'Pengguna berhasil dikick.'|| session('notification') === 'Pengguna berhasil dilaporkan.'|| session('notification') === 'Maaf, jumlah peserta tim telah mencapai batas maksimum!' || session('notification') === 'Anda telah bergabung dengan Tim!' || session('notification') === 'Anda sudah terdaftar sebagai peserta Tim ini!' || session('notification') === 'Anda telah keluar dari Tim.'|| session('notification') === 'Maaf, Anda hanya dapat bergabung dengan satu tim!' ? 'appear' : 'd-none' }}"  role="alert">
         <p class="d-inline-block p-0 m-0 " >{{ session('notification') }}</p>
         <button type="button" class="btn-close " onclick="closenotification()" aria-label="Close"></button>
     </div>
@@ -213,39 +171,41 @@
                                     @endif
                                 </div>
                             </div>
-                            @if (Auth::user()->id == $usertim->user_id && $loop->index == 0)
-                                <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
-                            @else
-                                <form action="{{ route('report.player')}}" method="POST" >
-                                    @csrf
-                                    <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
+                            @if (Auth::user()->id == $usertim->user_id)
+                            @if ( $loop->index == 0)
+                            <a class="p-0 m-0 d-none" data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0 " width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
+                        @else
+                                <form action="{{ route('kick.player', ['player' => $player->id]) }}" method="POST">
+                                @csrf
+                                <a class="p-0 m-0 " data-bs-toggle="modal" data-bs-target="#KickUser{{$player->id}}" ><img class="m-0 p-0" width="25px" height="25px" src="/css/img/kick.jpg" alt=""></a>
 
-                                    <div class="modal" id="KickUser{{$player->id}}" tabindex="-1">
-                                        <div class="modal-dialog modal-dialog-centered ">
-                                            <div class="modal-content" style="width: 32vw" >
-                                              <div class="modal-header bg-primary-mu">
-                                                <div class="blank logo-sm rounded-circle d-inline-block"></div>
-                                                <h5 class=" modal-title ">
-                                                  Keluarkan Pengguna <strong>{{$player->name}}</strong>?
-                                                </h5>
-                                                <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
-                                              </div>
-                                              <div class="modal-body">
-                                                <p style="font-size: 12px" >Apakah anda yakin ingin mengeluarkan {{ $player->name }} ini dari Tim anda?</p>
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
-                                                <form action="" method="post">
-                                                  @csrf
-                                                  @method('delete')
-                                                  <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
-                                                </form>
-                                              </div>
-                                            </div>
+                                <div class="modal" id="KickUser{{$player->id}}" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content" style="width: 32vw" >
+                                          <div class="modal-header bg-primary-mu">
+                                            <div class="blank logo-sm rounded-circle d-inline-block"></div>
+                                            <h5 class=" modal-title ">
+                                              Keluarkan Pengguna <strong>{{$player->name}}</strong>?
+                                            </h5>
+                                            <button type="button" class="btn-close "data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
-                                    </div>
-                                </form>
+                                          <div class="modal-body">
+                                            <p style="font-size: 12px" >Apakah anda yakin ingin mengeluarkan {{ $player->name }} ini dari Tim anda?</p>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            {{-- <button type="button" class="btn btn-danger">Keluar</button> --}}
+                                            <form action="" method="post">
+                                              @csrf
+                                              @method('delete')
+                                              <button type="submit" class="btn btn-danger" style="color: white;" >Keluarkan</button>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </form>
+                        @endif
                             @endif
                             <p class="m-0 text-muted d-none" style="font-size: 12px">{{ $loop->index + 1 }}</p>
                         </div>

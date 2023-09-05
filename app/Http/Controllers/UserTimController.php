@@ -283,6 +283,19 @@ class UserTimController extends Controller
         }
     }
 
+    public function kickPlayer(User $player)
+    {
+        // Lakukan validasi apakah pengguna yang ingin mengeluarkan pemain memiliki hak untuk melakukannya
+        // Contoh: Anda mungkin ingin memeriksa apakah pengguna saat ini adalah kapten tim
+
+        // Jika validasi berhasil, lakukan tindakan penghapusan pemain dari tim
+        $player->delete();
+
+        // Redirect atau kembali ke halaman yang sesuai, misalnya ke halaman tim
+        return redirect()->back()->with('notification', 'Pengguna berhasil dikick.');
+    }
+
+
     public function processForm(Request $request)
     {
     $namaInput = $request->input('user_id');
