@@ -116,6 +116,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/sparring/{usersparringId}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring'])
     ->name('sparring.kicktim');
 
+    Route::post('/sparring/{id}/kicktim/{usertimId}', [UserSparringController::class, 'removeTeamFromSparring'])->name('sparring.kicktim');
+    
     Route::prefix('/usermabar')->group(function () {
         Route::get('/search', [UserMabarController::class, 'search2']);
         Route::get('/home', [UserMabarController::class, 'index'])->name('usermabar.home');
@@ -148,7 +150,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/{id}',[UserTimController::class, 'destroy']);
         //CONTROLLER BARU
         Route::post('/proses', [UserTimController::class, 'processForm'])->name('report.player');
-        Route::post('/prosestim', [UserTimController::class, 'reporttim'])->name('report.tim');
+        Route::delete('/kick-player/{player}', [UserTimController::class, 'kickPlayer'])->name('kick.player');
+
 
 
     });

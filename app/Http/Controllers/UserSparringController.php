@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\EventNotification;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Notification;// Import model UserSparring
+
 
 class UserSparringController extends Controller
 {   
@@ -33,12 +34,17 @@ class UserSparringController extends Controller
         $user = User::find(1);
         $DateNow = date('Y-m-d');
         $pengguna = Auth::user();
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::where('user_id', session('user_id'))->get();
+
+
+        
         
         if ($pengguna->skor < 50) {
             return view('/banscreen');
         } else {
-            return view('user.usersparring.home', compact(['usersparring','DateNow','user']));
+            return view('user.usersparring.home', compact(['usersparring','DateNow','user','TimeFormatted']));
             
         }
         
@@ -49,10 +55,24 @@ class UserSparringController extends Controller
         $DateNow = date('Y-m-d');
         $usersparring = UserSparring::all();
         $sparringterbaru = UserSparring::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
+        $TimeFormatted = $TimeNow->format('H:i');
         // $sparringterbaru = UserSparring::orderBy('tanggal_pertandingan', 'desc')->get();
 
+        foreach ($usersparring as $sparring) {              
+            $tanggalPertandingan = Carbon::parse($sparring->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow > $DeleteDate) {
+                $sparring->delete();
+            }
+
+            // dd( $TimeFormatted , $TimeFormatted > $sparring->waktu_pertandingan );
+        }
+
+
         // $user = User::all();
-        return view('sparring.home', compact(['usersparring', 'user','DateNow', 'sparringterbaru']));
+        return view('sparring.home', compact(['usersparring', 'user','DateNow','TimeFormatted', 'sparringterbaru']));
     }
 
     public function tambah()
@@ -169,12 +189,15 @@ class UserSparringController extends Controller
     public function detail($id, Request $request,)
     {
         $DateNow = date('Y-m-d');
-        $TimeNow = Carbon::now(); 
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
+        $TimeFormatted = $TimeNow->format('H:i');
         $usersparring = UserSparring::with(['joinedSparrings.teams', 'joinedSparrings.sparringTeams'])->find($id);
         $origin = Auth::user()->id;
         $usertim = Auth::user()->usertim;
 
-        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow', 'usertim']));
+        // $usersparring = UserSparring::find($id);
+        // $takesparring = UserSparring::with('ambilsparring')->get();
+        return view('user.usersparring.usersparringdetailnew', compact(['usersparring','DateNow','origin','TimeNow','TimeFormatted', 'usertim']));
         // return view('user.usersparring.usersparringdetail', compact(['usersparring']));
     }
 
@@ -276,6 +299,8 @@ class UserSparringController extends Controller
         $searchtitle = $request->input('search');
         $olahragaFilter = $request->input('olahraga');
         $lokasiFilter = $request->input('lokasi');
+
+
 
         $usersparring = UserSparring::query();
         // $usersparring = UserSparring::where('user_id', session('user_id'))->get();
@@ -468,6 +493,19 @@ public function removeTeamFromSparring(Request $request, $sparringId)
     return redirect()->back()->with('success', 'Pengambil sparring berhasil dihapus.');
 }
 
+    // public function removeTeamFromSparring($usersparringId, $usertimId)
+    // {
+    //     // Temukan sparring yang sesuai berdasarkan $usersparringId
+    //     $sparring = UserSparring::findOrFail($usersparringId);
+
+    //     // Hapus tim dengan ID $usertimId dari sparring
+    //     $sparring->removeTeam($usertimId);
+
+    //     // return view('user.usersparring.usersparringdetailnew',);
+    //     return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
+    // }
+
+    
 
 
     // public function removeTeamFromSparring($usersparringId, $matches_sparringId)
@@ -490,6 +528,7 @@ public function removeTeamFromSparring(Request $request, $sparringId)
 
     //     return redirect()->back()->with('notification', 'Tim berhasil dikeluarkan dari sparring.');
     // }
+
 
 
 

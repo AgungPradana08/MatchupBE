@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Kompetisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,20 @@ class KompetisiController extends Controller
         $DateNow = date('Y-m-d');
         $kompetisiterbaru = Kompetisi::orderByRaw('ABS(DATEDIFF(tanggal_pertandingan, NOW()))')->get();
         // dd($DateNow);
-        return view('kompetisi.home', compact(['kompetisi','DateNow', 'kompetisiterbaru']));
+        // return view('kompetisi.home', compact(['kompetisi','DateNow', 'kompetisiterbaru']));
+        $TimeNow = Carbon::now('Asia/Jakarta'); 
+        $TimeFormatted = $TimeNow->format('H:i');
+
+        foreach ($kompetisi as $kompetisi) {              
+            $tanggalPertandingan = Carbon::parse($kompetisi->tanggal_pertandingan);
+            $DeleteDate = $tanggalPertandingan->addDays(2);
+            $DateNow = date('Y-m-d');  
+            if ($DateNow > $DeleteDate) {
+                $kompetisi->delete();
+            }
+        }
+        // dd($DateNow);
+        return view('kompetisi.home', compact(['kompetisi','DateNow','TimeFormatted', 'kompetisiterbaru']));
 
     }
 
